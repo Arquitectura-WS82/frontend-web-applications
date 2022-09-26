@@ -1,19 +1,142 @@
 <app-header></app-header>
 
-<img src="../../../../assets/imgs/fastporte-logo.png" alt="" class="card">
+<div class="signup1">
+    <img src="../../../../assets/imgs/fastporte-logo.png" alt="" class="card">
+    <h1 *ngIf="display1">Create A New Account</h1>
+    <h1 *ngIf="display2">Fill In Your User Information</h1>
+    <h1 *ngIf="display3">Terminate New Account</h1>
+    <form class="card" [formGroup]="signupForm" (submit)="onSubmit()">
+        <div *ngIf="display1">
+            
+            <mat-form-field>
+                <input matInput placeholder="Email address"
+                    formControlName="email" type="email" (change)="validateForm1()">
+                <mat-error *ngIf="email?.errors?.['required']">Email is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="email?.errors?.['email'] &&
+                    !email?.errors?.['required']"> </mat-error>
+            </mat-form-field>
 
-<h1>Create A New Account</h1>
-<form mat action="" class="card">
-    <mat-form-field>
-        <input matInput placeholder="Email address">
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Password">
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Confirm Password">
-    </mat-form-field>
-    <button mat-raised-button [routerLink]="'/signup-p2'" color="primary">Continue</button>
-</form>
+            <mat-form-field>
+                <input matInput placeholder="Password"
+                    formControlName="password" type="password">
+                <mat-error *ngIf="password?.errors?.['required']">Password is
+                    <strong>required</strong> </mat-error>
+                <mat-error *ngIf="password?.errors?.['minlength'] &&
+                    !password?.errors?.['required']">
+                    Password must have at least <strong>5 </strong> characters
+                    length
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Confirm Password"
+                    type="password">
+            </mat-form-field>
+            <!-- <button mat-raised-button color="primary" (click)="validateForm1()" type="button">Continue</button> -->
+            <mat-card-actions >
+                <button mat-flat-button
+                    color="primary" type=submit >Continue</button>
+            </mat-card-actions>
+
+        </div>
+
+        <div *ngIf="display2" class="f2">
+            <div class="row">
+                <div>
+                    <div>
+                        <mat-form-field>
+                            <input matInput placeholder="Full Name"
+                                formControlName="name">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Region</mat-label>
+                            <mat-select formControlName="region">
+                                <mat-option value="Amazonas">Amazonas</mat-option>
+                                <mat-option value="Ancash">Ancash</mat-option>
+                                <mat-option value="Apurimac">Apurimac</mat-option>
+                                <mat-option value="Arequipa">Arequipa</mat-option>
+                                <mat-option value="Ayacucho">Ayacucho</mat-option>
+                                <mat-option value="Cajamarca">Cajamarca</mat-option>
+                                <mat-option value="Callao">Callao</mat-option>
+                                <mat-option value="Cusco">Cusco</mat-option>
+                                <mat-option value="Huancavelica">Huancavelica</mat-option>
+                                <mat-option value="Huanuco">Huanuco</mat-option>
+                                <mat-option value="Ica">Ica</mat-option>
+                                <mat-option value="Junin">Junin</mat-option>
+                                <mat-option value="La Libertad">La Libertad</mat-option>
+                                <mat-option value="Lambayeque">Lambayeque</mat-option>
+                                <mat-option value="Lima">Lima</mat-option>
+                                <mat-option value="Loreto">Loreto</mat-option>
+                                <mat-option value="Madre de Dios">Madre de
+                                    Dios</mat-option>
+                                <mat-option value="Moquegua">Moquegua</mat-option>
+                                <mat-option value="Pasco">Pasco</mat-option>
+                                <mat-option value="Piura">Piura</mat-option>
+                                <mat-option value="Puno">Puno</mat-option>
+                                <mat-option value="San Martin">San Martin</mat-option>
+                                <mat-option value="Tacna">Tacna</mat-option>
+                                <mat-option value="Tumbes">Tumbes</mat-option>
+                                <mat-option value="Ucayali">Ucayali</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Date of birth</mat-label>
+                            <input matInput [matDatepicker]="picker"
+                                formControlName="birthDate">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="Phone number"
+                                formControlName="number">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <input matInput placeholder="Identify card"
+                                formControlName="idCard">
+                        </mat-form-field>
+                        <mat-form-field matInput placeholder="Type of user">
+                            <mat-label>Type of user</mat-label>
+                            <mat-select formControlName="typeofuser">
+                                <mat-option value="client">Client</mat-option>
+                                <mat-option value="driver">Driver</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="img-user">
+                    <img src="../../../../../assets/imgs/user-vector.png"
+                        alt="user-vector" class="img-user">
+                    <p><a href="#"><u>Upload a photo</u></a></p>
+                </div>
+            </div>
+            <button mat-raised-button color="primary"
+                (click)="validateForm2()"
+                type="button">Continue</button>
+        </div>
+
+        <div *ngIf="display3" class="f3">
+            <mat-form-field>
+                <input matInput placeholder="Username"
+                    formControlName="username">
+            </mat-form-field>
+            <mat-form-field>
+                <textarea type="text" matInput placeholder="Type a
+                    description
+                    about you" formControlName="description"></textarea>
+            </mat-form-field>
+            <button mat-raised-button [routerLink]="'/login'"
+                color="primary"
+                (click)="validateForm3()">Create account</button>
+        </div>
+    </form>
+</div>
+
+
 
 <app-footer></app-footer>
