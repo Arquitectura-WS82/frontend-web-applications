@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from 'src/app/login/model/user';
 
 @Component({
   selector: 'app-forgot-password',
@@ -7,15 +9,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor() { }
+  userId: number = 0;
+
+  userData: User;
+
+  display1 = true;
+  display2 = false;
+  basePath = 'http://localhost:3000/api/v1/users';
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json' //Solo acepta json
+    })
+  }
+
+  constructor(private http: HttpClient) {
+    this.userData = {} as User;
+  }
 
   ngOnInit(): void {
   }
 
-  getInputValue(value: any) {
-    console.log(value);
+  getInputValue(email: any) {
+    console.log(email);
+
+    this.http.get<any>(`${this.basePath}`, this.httpOptions).subscribe(res => {
+      const data = res.find((user: any) => {
+        if (user.email === email) {
+          this.userId = user.id;
+          this.userData = user;
+          return true;
+        }
+        else return false;
+      });
+
+      if (data) {
+        this.display1 = false;
+        this.display2 = true;
+      }
+      else {
+        alert("Email no registrado");
+      }
+
+    });
   }
 
+  updatePassword(password: any) {
+    console.log(password);
+    this.userData.password = password;
+    this.http.put<User>(`${this.basePath}/${this.userId}`, JSON.stringify(this.userData), this.httpOptions)
+      .subscribe(res => {
+        console.log(res);
+      });
+  }
 
 }
- 

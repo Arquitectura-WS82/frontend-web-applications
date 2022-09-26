@@ -42,34 +42,8 @@
       "id": 5
     },
     {
-      "email": "anthonybotello4@gmail.com",
-      "password": "Anthony123",
-      "name": "Anthony Jean Pierre Botello Saldarriaga",
-      "region": "Lima",
-      "birthDate": "2000-11-09T06:00:00.000Z",
-      "number": "987654321",
-      "idCard": "77886855",
-      "typeofuser": "client",
-      "username": "AnthBot",
-      "description": "Añadiendo al Json server",
-      "id": 6
-    },
-    {
-      "email": "",
-      "password": "",
-      "name": "",
-      "region": "",
-      "birthDate": "",
-      "number": "",
-      "idCard": "",
-      "typeofuser": "",
-      "username": "",
-      "description": "",
-      "id": 7
-    },
-    {
       "email": "edgardiranda0510@gmail.com",
-      "password": "1231231",
+      "password": "edgar123",
       "name": "AJuan Mendoza",
       "region": "Tacna",
       "birthDate": "2000-09-08T05:00:00.000Z",
