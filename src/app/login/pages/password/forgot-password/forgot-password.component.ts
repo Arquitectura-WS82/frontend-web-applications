@@ -12,4 +12,10 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getInputValue(value: any) {
+    console.log(value);
+  }
+
+
 }
+ 

@@ -4,8 +4,8 @@ export interface User {
     password: string;
     name: string;
     region: string;
-    birthDate: string;
-    number: number;
+    birthDate: Date;
+    phone: number;
     idCard: number;
     typeofuser: string;
     username: string;

@@ -17,6 +17,7 @@ export class SignupP1Component implements OnInit {
   display3: boolean = false;
 
   signupForm: FormGroup
+  isValid: boolean = false;
 
   basePath = 'http://localhost:3000/api/v1/users';
 
@@ -30,27 +31,62 @@ export class SignupP1Component implements OnInit {
     this.user = {} as User;
 
     this.signupForm = this.formBuilder.group({
-      email: ['', {validators: [Validators.required, Validators.email], updatedOn: 'change'}],
-      password: ['', {validators: [Validators.required, Validators.minLength(7)], updatedOn: 'change'}],
-      name: ['', Validators.required],
-      region: ['', Validators.required],
-      birthDate: ['', Validators.required],
-      number: ['', Validators.required],
-      idCard: ['', Validators.required],
-      typeofuser: ['', Validators.required],
-      username: ['', Validators.required],
-      description: ['', Validators.required]
+      email: ['', { validators: [Validators.required, Validators.email], updatedOn: 'change' }],
+      password: ['', { validators: [Validators.required, Validators.minLength(7)], updatedOn: 'change' }],
+      confirmPassword: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      name: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      region: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      birthDate: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      phone: ['', { updatedOn: 'change' }],
+      idCard: ['', { updatedOn: 'change' }],
+      typeofuser: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      username: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      description: ['']
 
     })
+
   }
 
   get email() {
     return this.signupForm.get('email');
   }
 
-  get password(){
+  get password() {
     return this.signupForm.get('password');
   }
+
+  get name() {
+    return this.signupForm.get('name');
+  }
+
+  get region() {
+    return this.signupForm.get('region');
+  }
+
+  get birthDate() {
+    return this.signupForm.get('birthDate');
+  }
+
+  get phone() {
+    return this.signupForm.get('phone');
+  }
+
+  get idCard() {
+    return this.signupForm.get('idCard');
+  }
+
+  get typeofuser() {
+    return this.signupForm.get('typeofuser');
+  }
+
+  get username() {
+    return this.signupForm.get('username');
+  }
+
+  get description() {
+    return this.signupForm.get('description');
+  }
+
   //API error handling
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -66,27 +102,12 @@ export class SignupP1Component implements OnInit {
       'Something bad happened; please try again later.');
   }
   ngOnInit(): void {
-    
+    this.setPhoneValidation();
+    this.setIdCardValidation();
   }
-  
 
-  validateForm1() {
-   console.log(this.signupForm.value.email.valid);
-    console.log(this.signupForm.valid);
-    if(this.signupForm.value.email  && this.signupForm.value.password.valid){
-      this.display1 = false;
-      this.display2 = true;
-      this.display3 = false;
-    }
 
-  }
-  validateForm2() {
-    this.display1 = false;
-    this.display2 = false;
-    this.display3 = true;
-
-  }
-  validateForm3(){
+  registerData() {
     this.formToUser();
     this.http.post<User>(this.basePath, this.user, this.httpOptions).subscribe(
       (res) => {
@@ -96,29 +117,56 @@ export class SignupP1Component implements OnInit {
     )
   }
 
-  formToUser(){
+  formToUser() {
     this.user.email = this.signupForm.value.email;
     this.user.password = this.signupForm.value.password;
     this.user.name = this.signupForm.value.name;
     this.user.region = this.signupForm.value.region;
     this.user.birthDate = this.signupForm.value.birthDate;
-    this.user.number = this.signupForm.value.number;
+    this.user.phone = this.signupForm.value.phone;
     this.user.idCard = this.signupForm.value.idCard;
     this.user.typeofuser = this.signupForm.value.typeofuser;
     this.user.username = this.signupForm.value.username;
     this.user.description = this.signupForm.value.description;
   }
 
-  onSubmit(){ 
-    /*
-    this.http.post<User>(this.basePath, JSON.stringify(this.user), this.httpOptions)
-    .pipe(retry(2), catchError(this.handleError));
-    console.log(this.user);
-    alert("Registro exitoso");
-    */
+  onSubmit() {
+    console.log(this.signupForm.valid);
   }
-  f1validate(){
-    
+
+  setPhoneValidation() {
+    const phoneControl = this.signupForm.get('phone');
+    phoneControl?.setValidators([Validators.pattern('^[0-9]*$'), Validators.required]);
   }
+
+  setIdCardValidation() {
+    const idControl = this.signupForm.get('idCard');
+    idControl?.setValidators([Validators.pattern('^[0-9]*$'), Validators.required]);
+  }
+
+
+  //No funcionan
+  validatePassword(): boolean {
+    return this.signupForm.value.password == this.signupForm.value.confirmPassword
+  }
+  isValidToCreate() {
+    if (this.signupForm.valid==true && this.validatePassword()==true) {
+      this.isValid = true;
+    }
+  }
+  validateAge() {
+    let today = new Date();
+    let birthDate = new Date(this.signupForm.value.birthDate);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    console.log(age);
+    if (age < 18) {
+      alert("Debes ser mayor de edad para registrarte");
+    }
+  }
+
 
 }

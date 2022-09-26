@@ -53,6 +53,32 @@
       "username": "AnthBot",
       "description": "Añadiendo al Json server",
       "id": 6
+    },
+    {
+      "email": "",
+      "password": "",
+      "name": "",
+      "region": "",
+      "birthDate": "",
+      "number": "",
+      "idCard": "",
+      "typeofuser": "",
+      "username": "",
+      "description": "",
+      "id": 7
+    },
+    {
+      "email": "edgardiranda0510@gmail.com",
+      "password": "1231231",
+      "name": "AJuan Mendoza",
+      "region": "Tacna",
+      "birthDate": "2000-09-08T05:00:00.000Z",
+      "phone": "987654258",
+      "idCard": "12121212",
+      "typeofuser": "driver",
+      "username": "Anthasd",
+      "description": "Im a driver",
+      "id": 8
     }
   ],
   "skills": [
