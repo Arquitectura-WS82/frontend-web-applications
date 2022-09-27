@@ -6,6 +6,7 @@ import { SignupP2Component } from './login/pages/signup/signup-p2/signup-p2.comp
 import { SignupP3Component } from './login/pages/signup/signup-p3/signup-p3.component';
 import { HeaderComponent } from './login/header/header.component';
 import { HomeCComponent } from './client/home-c/home-c.component';
+import { ContractsDComponent } from './driver/contracts-d/contracts-d.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,10 +16,11 @@ const routes: Routes = [
   { path: 'signup-p2', component: SignupP2Component },
   { path: 'signup-p3', component: SignupP3Component },
   { path: 'home-c', component: HomeCComponent },
+  { path: 'contracts-d', component: ContractsDComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

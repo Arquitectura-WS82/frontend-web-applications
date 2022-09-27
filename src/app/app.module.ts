@@ -22,6 +22,8 @@ import { SignupP2Component } from './login/pages/signup/signup-p2/signup-p2.comp
 import { SignupP3Component } from './login/pages/signup/signup-p3/signup-p3.component';
 import { HeaderCComponent } from './client/header-c/header-c.component';
 import { HomeCComponent } from './client/home-c/home-c.component';
+import { HeaderDComponent } from './driver/header-d/header-d.component';
+import { ContractsDComponent } from './driver/contracts-d/contracts-d.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { HomeCComponent } from './client/home-c/home-c.component';
     SignupP2Component,
     SignupP3Component,
     HeaderCComponent,
-    HomeCComponent
+    HomeCComponent,
+    HeaderDComponent,
+    ContractsDComponent
 
   ],
   imports: [
