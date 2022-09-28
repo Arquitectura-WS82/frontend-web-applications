@@ -1,0 +1,115 @@
+{
+    "contracts": {
+        "offers": [
+            {
+                "subject": "Tourist visit",
+                "from": "Avenida Arica 601 Lima 05, Breña 15083",
+                "to": "Ciudad de Caral, Lomas de Lachay",
+                "date": "21/10/2022",
+                "time": {
+                    "departure": "8:00",
+                    "arrival": "20:00"
+                },
+                "quantity": 15,
+                "client": {
+                    "name": "Lili",
+                    "last-name": "Ramos",
+                    "phone": "998 877 665",
+                    "photo": "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                },
+                "amount": 1560
+            },
+            {
+                "subject": "School Tour",
+                "from": "Marañon, Los Olivos",
+                "to": "Fortaleza del Real Felipe, Callao",
+                "date": "12/06/2022",
+                "time": {
+                    "departure": "8:00",
+                    "arrival": "17:00"
+                },
+                "quantity": 30,
+                "client": {
+                    "name": "Lourdes",
+                    "lastName": "Quispe",
+                    "phone": "923 231 084",
+                    "photo": "https://images.unsplash.com/photo-1518577915332-c2a19f149a75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=862&q=80"
+                },
+                "amount": 300
+            }
+        ],
+        "pending": [
+            {
+                "subject": "Tourism in Barranca",
+                "from": "La Victoria, Lima",
+                "to": "Barranca",
+                "date": "21/09/2022",
+                "time": {
+                    "departure": "10:00",
+                    "arrival": "17:00"
+                },
+                "quantity": 5,
+                "client": {
+                    "name": "Raul",
+                    "lastName": "Alvarez",
+                    "phone": "912 123 456",
+                    "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                },
+                "amount": 300
+            },
+            {
+                "subject": "School Visit",
+                "from": "Ancon, Lima",
+                "to": "Chosica",
+                "date": "15/10/2022",
+                "time": {
+                    "departure": "9:00",
+                    "arrival": "18:00"
+                },
+                "quantity": 10,
+                "client": {
+                    "name": "Sara",
+                    "last-name": "Flores",
+                    "phone": "974 515 769",
+                    "photo": "https://images.unsplash.com/photo-1530577197743-7adf14294584?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80"
+                },
+                "amount": 1500
+            }
+        ],
+        "history": [
+            {
+                "from": "Independencia",
+                "to": "Chosica",
+                "date": "10/08/2022",
+                "client": {
+                    "name": "Lilia",
+                    "last-name": "Ramos",
+                    "photo": "https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                },
+                "amount": 500
+            },
+            {
+                "from": "Chorrillos",
+                "to": "Carabayllo",
+                "date": "01/07/22",
+                "client": {
+                    "name": "Kyadae",
+                    "last-name": "Jett",
+                    "photo": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                },
+                "amount": 300
+            },
+            {
+                "from": "San Miguel",
+                "to": "Barranca",
+                "date": "12/08/2022",
+                "client": {
+                    "name": "Carlos",
+                    "last-name": "Lopez",
+                    "photo": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                },
+                "amount": 750
+            }
+        ]
+    }
+}
