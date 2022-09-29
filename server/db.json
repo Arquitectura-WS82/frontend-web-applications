@@ -1,0 +1,83 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Yuri Cotrina",
+      "email": "yur.cot@gmail.com",
+      "password": "123456",
+      "typeofuser": "client"
+    },
+    {
+      "id": 2,
+      "name": "Jean Carlos",
+      "email": "jean.carlos@gmail.com",
+      "password": "jean123",
+      "typeofuser": "client"
+    },
+    {
+      "id": 3,
+      "name": "Alejandra Tello",
+      "email": "ale.telo@gmail.com",
+      "password": "tello123",
+      "typeofuser": "client"
+    },
+    {
+      "id": 4,
+      "name": "Oscar Suarez",
+      "email": "osc.suarez@gmail.com",
+      "password": "oscar@123",
+      "typeofuser": "driver"
+    },
+    {
+      "email": "sadas",
+      "password": "123213",
+      "name": "antht",
+      "region": "La Libertad",
+      "birthDate": "2022-09-13T05:00:00.000Z",
+      "number": "1231",
+      "idCard": "21321",
+      "typeofuser": "client",
+      "username": "Asasasassssssssssss",
+      "description": "12eqqqqqqqqqqq",
+      "id": 5
+    },
+    {
+      "email": "edgardiranda0510@gmail.com",
+      "password": "edgar123",
+      "name": "AJuan Mendoza",
+      "region": "Tacna",
+      "birthDate": "2000-09-08T05:00:00.000Z",
+      "phone": "987654258",
+      "idCard": "12121212",
+      "typeofuser": "driver",
+      "username": "Anthasd",
+      "description": "Im a driver",
+      "id": 8
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "Game Developer"
+    },
+    {
+      "id": 2,
+      "name": "Frontend developer"
+    },
+    {
+      "id": 3,
+      "name": "Backend developer"
+    },
+    {
+      "id": 4,
+      "name": "Mobile app developer"
+    }
+  ],
+  "competences": [
+    {
+      "id": 4,
+      "studentId": 4,
+      "skillId": 4
+    }
+  ]
+}
