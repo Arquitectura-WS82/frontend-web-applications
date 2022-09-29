@@ -1,15 +1,19 @@
-.contract-tabs {
-  display: flex;
-  align-items: center;
-}
-
 .mat-card {
   border: 1px solid rgba(0, 0, 0, 0.2);
   transition: none;
 }
 
-.mat-tab {
-  display: flex;
+.card-group {
+  display: inline-block;
+}
+
+.card {
+  max-width: 100%;
+}
+
+.contract-information {
+  margin: 6vw;
+  width: 20vw;
 }
 
 .client-price {
@@ -58,5 +62,4 @@
 
 .card-history {
   display: flex;
-  flex-grow: 1 1;
 }

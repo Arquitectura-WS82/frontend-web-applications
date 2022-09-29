@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // Components
 import { HeaderComponent } from './login/header/header.component';
@@ -30,6 +31,7 @@ import { HeaderCComponent } from './client/header-c/header-c.component';
 import { HomeCComponent } from './client/home-c/home-c.component';
 import { HeaderDComponent } from './driver/pages/header-d/header-d.component';
 import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.component';
+import { ContractDialogComponent } from './driver/components/contract-dialog/contract-dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.comp
     HomeCComponent,
     HeaderDComponent,
     ContractsDComponent,
+    ContractDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.comp
     MatSortModule,
     MatTabsModule,
     MatCardModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

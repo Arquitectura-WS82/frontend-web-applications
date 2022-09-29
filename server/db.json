@@ -35,7 +35,7 @@
                     "phone": "923 231 084",
                     "photo": "https://images.unsplash.com/photo-1518577915332-c2a19f149a75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=862&q=80"
                 },
-                "amount": 300
+                "amount": 1400
             }
         ],
         "pending": [
@@ -50,6 +50,7 @@
                 },
                 "quantity": 5,
                 "client": {
+                    "id": 1,
                     "name": "Raul",
                     "lastName": "Alvarez",
                     "phone": "912 123 456",
