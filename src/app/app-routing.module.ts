@@ -6,6 +6,9 @@ import { SignupP2Component } from './login/pages/signup/signup-p2/signup-p2.comp
 import { SignupP3Component } from './login/pages/signup/signup-p3/signup-p3.component';
 import { HeaderComponent } from './login/header/header.component';
 import { HomeCComponent } from './client/home-c/home-c.component';
+import { HomeDComponent } from './driver/home-d/home-d.component';
+import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
+import { ForgotPasswordConfirmComponent } from './login/pages/password/forgot-password-confirm/forgot-password-confirm.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,6 +18,9 @@ const routes: Routes = [
   { path: 'signup-p2', component: SignupP2Component },
   { path: 'signup-p3', component: SignupP3Component },
   { path: 'home-c', component: HomeCComponent },
+  { path: 'home-d', component: HomeDComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'forgot-password-confirm', component: ForgotPasswordConfirmComponent },
 ];
 
 @NgModule({
