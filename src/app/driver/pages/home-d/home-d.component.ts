@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User, driver_ranked } from '../model/user'
+import { User, driver_ranked } from '../../models/user/user'
 import {catchError, Observable, retry, throwError} from "rxjs";
 
 
 
 @Component({
-  selector: 'app-home-c',
-  templateUrl: './home-c.component.html',
-  styleUrls: ['./home-c.component.css']
+  selector: 'app-home-d',
+  templateUrl: './home-d.component.html',
+  styleUrls: ['./home-d.component.css']
 })
-export class HomeCComponent implements OnInit {
+export class HomeDComponent implements OnInit {
   user_id: any;
   user: any;
   user_name: string="";
@@ -69,7 +69,7 @@ export class HomeCComponent implements OnInit {
   }
 
   getContract(id:any):Observable<any>{
-    return this.http.get<any>(`${this.basePath}contracts?client_id=${id}`, this.httpOptions).
+    return this.http.get<any>(`${this.basePath}contracts?driver_id=${id}`, this.httpOptions).
     pipe(
       retry(2));
   }

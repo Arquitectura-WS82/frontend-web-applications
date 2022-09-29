@@ -7,6 +7,8 @@ import { SignupP3Component } from './login/pages/signup/signup-p3/signup-p3.comp
 import { HeaderComponent } from './login/header/header.component';
 import { HomeCComponent } from './client/home-c/home-c.component';
 import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.component';
+import { HomeDComponent } from './driver/pages/home-d/home-d.component';
+import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'signup-p3', component: SignupP3Component },
   { path: 'home-c', component: HomeCComponent },
   { path: 'contracts-d', component: ContractsDComponent },
+  { path: 'home-d', component: HomeDComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
 ];
 
 @NgModule({

@@ -20,6 +20,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSelectModule } from '@angular/material/select';
 
 // Components
 import { HeaderComponent } from './login/header/header.component';
@@ -32,13 +36,17 @@ import { HomeCComponent } from './client/home-c/home-c.component';
 import { HeaderDComponent } from './driver/pages/header-d/header-d.component';
 import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.component';
 import { ContractDialogComponent } from './driver/components/contract-dialog/contract-dialog.component';
+import { HomeDComponent } from './driver/pages/home-d/home-d.component';
 
+import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
     FooterComponent,
+    HeaderDComponent,
+    HomeDComponent,
     SignupP1Component,
     SignupP2Component,
     SignupP3Component,
@@ -47,6 +55,7 @@ import { ContractDialogComponent } from './driver/components/contract-dialog/con
     HeaderDComponent,
     ContractsDComponent,
     ContractDialogComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +75,11 @@ import { ContractDialogComponent } from './driver/components/contract-dialog/con
     MatTabsModule,
     MatCardModule,
     MatDialogModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatCardModule,
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
