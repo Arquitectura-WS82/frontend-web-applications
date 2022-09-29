@@ -24,6 +24,7 @@ import { HeaderCComponent } from './client/header-c/header-c.component';
 import { HeaderDComponent } from './driver/header-d/header-d.component';
 import { HomeCComponent } from './client/home-c/home-c.component';
 import { HomeDComponent } from './driver/home-d/home-d.component';
+
 import { MatSelectModule } from '@angular/material/select';
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
 import { ForgotPasswordConfirmComponent } from './login/pages/password/forgot-password-confirm/forgot-password-confirm.component';
@@ -31,6 +32,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
+
 
 
 
@@ -71,6 +73,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatDatepickerModule,
     MatCardModule,
     MatBadgeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

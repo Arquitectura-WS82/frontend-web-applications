@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { User } from '../model/user';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,6 +35,7 @@ export class LoginService {
   //get user by email
   emailExists(email: string): Observable<User> {
     return this.http.get<User>(`${this.basePath}?email=${email}`, this.httpOptions)
+
       .pipe(
         retry(2),
         catchError(this.handleError))

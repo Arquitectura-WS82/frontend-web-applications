@@ -10,6 +10,7 @@ export interface User {
     typeofuser: string;
     username: string;
     description: string;
+
     contracts:  {
         driver_name: string,
         photo_url: string,
