@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -15,26 +17,28 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSelectModule } from '@angular/material/select';
+
+// Components
 import { HeaderComponent } from './login/header/header.component';
 import { FooterComponent } from './login/footer/footer.component';
 import { SignupP1Component } from './login/pages/signup/signup-p1/signup-p1.component';
 import { SignupP2Component } from './login/pages/signup/signup-p2/signup-p2.component';
 import { SignupP3Component } from './login/pages/signup/signup-p3/signup-p3.component';
 import { HeaderCComponent } from './client/header-c/header-c.component';
-import { HeaderDComponent } from './driver/header-d/header-d.component';
 import { HomeCComponent } from './client/home-c/home-c.component';
-import { HomeDComponent } from './driver/home-d/home-d.component';
+import { HeaderDComponent } from './driver/pages/header-d/header-d.component';
+import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.component';
+import { ContractDialogComponent } from './driver/components/contract-dialog/contract-dialog.component';
+import { HomeDComponent } from './driver/pages/home-d/home-d.component';
 
-import { MatSelectModule } from '@angular/material/select';
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
-import {MatNativeDateModule} from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatCardModule } from '@angular/material/card';
-import { MatBadgeModule } from '@angular/material/badge';
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,9 +52,10 @@ import { MatBadgeModule } from '@angular/material/badge';
     SignupP3Component,
     HeaderCComponent,
     HomeCComponent,
+    HeaderDComponent,
+    ContractsDComponent,
+    ContractDialogComponent,
     ForgotPasswordComponent,
-    
-
   ],
   imports: [
     BrowserModule,
@@ -67,14 +72,16 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatToolbarModule,
     MatIconModule,
     MatSortModule,
+    MatTabsModule,
+    MatCardModule,
+    MatDialogModule,
     MatSelectModule,
     MatNativeDateModule,
     MatDatepickerModule,
     MatCardModule,
-    MatBadgeModule
-
+    MatBadgeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

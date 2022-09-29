@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderCComponent } from './header-c.component';
+import { ContractsDComponent } from './contracts-d.component';
 
-describe('HeaderCComponent', () => {
-  let component: HeaderCComponent;
-  let fixture: ComponentFixture<HeaderCComponent>;
+describe('ContractsDComponent', () => {
+  let component: ContractsDComponent;
+  let fixture: ComponentFixture<ContractsDComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderCComponent ]
+      declarations: [ ContractsDComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeaderCComponent);
+    fixture = TestBed.createComponent(ContractsDComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
