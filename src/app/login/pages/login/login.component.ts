@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
       email: [''],
       password: ['']
     })
+
   }
 
   login() {
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
     this.http.get<any>(`${this.basePath}`, this.httpOptions).subscribe(res => {
       const data = res.find((user: any) => {
         if (user.email === this.signInForm.value.email && user.password === this.signInForm.value.password) {
+          localStorage.setItem('currentUser', user.id);
           typeofuser = user.typeofuser;
           return true;
         }
@@ -66,3 +68,6 @@ export class LoginComponent implements OnInit {
   
 
 }
+
+
+

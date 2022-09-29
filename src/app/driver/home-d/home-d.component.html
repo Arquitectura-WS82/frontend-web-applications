@@ -1,4 +1,4 @@
-<app-header-c></app-header-c>
+<app-header-d></app-header-d>
 
 <div class="mini_profile">
     <mat-card class="inline-block profile_card">
@@ -28,7 +28,7 @@
                 <mat-card-content>Type of Service <br> {{_driver.type}} <br> Rating:</mat-card-content>
                 <mat-card-content *ngFor='let in of counter(_driver.rating)' class="rating_stars">&#9733;</mat-card-content>
             </div>
-            <a mat-button [routerLink]="'../drivers/' +_driver.id" >Go</a>
+            <a mat-button [routerLink]="['/drivers${id}']">Go</a>
         </mat-card>
 
 

@@ -10,7 +10,6 @@ export interface User {
     typeofuser: string;
     username: string;
     description: string;
-
     contracts:  {
         driver_name: string,
         photo_url: string,
@@ -18,4 +17,10 @@ export interface User {
         to: string
     };
 
+}
+export interface driver_ranked{
+    driver_name: string;
+    photo_url: string;
+    type: string;
+    rating: Int16Array;
 }
