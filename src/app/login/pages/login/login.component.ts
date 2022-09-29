@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   signInForm!: FormGroup;
 
+
   basePath = 'http://localhost:3000/api/v1/users';
 
   httpOptions = {
@@ -32,7 +33,9 @@ export class LoginComponent implements OnInit {
     })
   }
 
+
   login() {
+
     var typeofuser: any;
     this.http.get<any>(`${this.basePath}`, this.httpOptions).subscribe(res => {
       const data = res.find((user: any) => {

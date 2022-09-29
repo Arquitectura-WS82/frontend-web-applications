@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { Login } from '../model/login';
+//import { Login } from '../model/login';
 
 @Injectable({
   providedIn: 'root'
@@ -32,11 +32,11 @@ export class LoginService {
   }
 
   //get user by email
-  emailExists(email: string): Observable<Login> {
+  /*emailExists(email: string): Observable<Login> {
     return this.http.get<Login>(`${this.basePath}?email=${email}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError))
-  }
+  }*/
 
 }
