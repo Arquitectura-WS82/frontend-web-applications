@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { catchError, retry, throwError } from 'rxjs';
 import { User } from '../../../model/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup-p1',
@@ -27,7 +28,7 @@ export class SignupP1Component implements OnInit {
     })
   }
 
-  constructor(public formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(public formBuilder: FormBuilder, private http: HttpClient, private router:Router) {
     this.user = {} as User;
 
     this.signupForm = this.formBuilder.group({
@@ -114,7 +115,9 @@ export class SignupP1Component implements OnInit {
         console.log(res);
         alert("Registro exitoso");
       }
-    )
+    );
+    this.router.navigate(['/login']);
+
   }
 
   formToUser() {

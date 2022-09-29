@@ -10,7 +10,6 @@ import { HomeCComponent } from './client/home-c/home-c.component';
 import { HomeDComponent } from './driver/home-d/home-d.component';
 
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
-import { ForgotPasswordConfirmComponent } from './login/pages/password/forgot-password-confirm/forgot-password-confirm.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -23,7 +22,6 @@ const routes: Routes = [
   { path: 'home-d', component: HomeDComponent },
 
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'forgot-password-confirm', component: ForgotPasswordConfirmComponent },
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/login/model/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -23,7 +24,7 @@ export class ForgotPasswordComponent implements OnInit {
     })
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router:Router) {
     this.userData = {} as User;
   }
 
@@ -61,6 +62,7 @@ export class ForgotPasswordComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
       });
+    this.router.navigate(['/login']);
   }
 
 }

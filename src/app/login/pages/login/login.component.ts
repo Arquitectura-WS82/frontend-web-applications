@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
           alert("Welcome, client")
         }
         else {
-          //this.router.navigate(['/home-d']);
+          this.router.navigate(['/home-d']);
           alert("Welcome, driver");
         }
       }
