@@ -5,7 +5,7 @@
     <h1 *ngIf="display1">Create A New Account</h1>
     <h1 *ngIf="display2">Fill In Your User Information</h1>
     <h1 *ngIf="display3">Terminate New Account</h1>
-    <form class="card" [formGroup]="signupForm" (submit)="onSubmit()">
+    <form class="card" [formGroup]="signupForm" (submit)="onSubmit()" >
         <mat-form-field>
             <input matInput placeholder="Email address"
                 formControlName="email"
@@ -17,39 +17,42 @@
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Username"
-                formControlName="username">
-            <mat-error *ngIf="username?.errors?.['required']">Username is
+            <input matInput placeholder="First Name"
+                formControlName="first_name">
+            <mat-error *ngIf="first_name?.errors?.['required']">First name is
                 <strong>required</strong>
             </mat-error>
 
         </mat-form-field>
-
         <mat-form-field>
+            <input matInput placeholder="Last Name"
+                formControlName="last_name">
+            <mat-error *ngIf="last_name?.errors?.['required']">Last name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
             <input matInput placeholder="Password"
                 formControlName="password"
-                type="password">
+                type="password" >
             <mat-error *ngIf="password?.errors?.['required']">Password is
                 <strong>required</strong> </mat-error>
             <mat-error *ngIf="password?.errors?.['minlength'] &&
-                !password?.errors?.['required']">
+                !password?.errors?.['required']" >
                 Password must have at least <strong> 7 </strong> characters
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field>
+       <!--
+         <mat-form-field>
             <input matInput placeholder="Confirm Password"
-            formControlName="confirmPassword"
-                type="password">
+                formControlName="confirmPassword"
+                type="password" (change)="validatePassword()">
+                <mat-error *ngIf="!samePassword">
+                    Password must be <strong> the same </strong>
+                </mat-error>
         </mat-form-field>
-
-
-        <mat-form-field>
-            <input matInput placeholder="Full Name"
-                formControlName="name">
-            <mat-error *ngIf="name?.errors?.['required']">Name is <strong>required</strong>
-            </mat-error>
-        </mat-form-field>
+        -->
 
         <mat-form-field>
             <mat-label>Region</mat-label>
@@ -112,14 +115,14 @@
         <mat-form-field>
             <input matInput placeholder="Identify card"
                 formControlName="idCard">
-                <mat-error *ngIf="idCard?.errors?.['required']">
-                    ID is <strong>required</strong>
-                </mat-error>
-    
-                <mat-error *ngIf="idCard?.errors?.['pattern'] &&
-                    !idCard?.errors?.['required']">
-                    Identify card must have only <strong>numbers</strong>
-                </mat-error>
+            <mat-error *ngIf="idCard?.errors?.['required']">
+                ID is <strong>required</strong>
+            </mat-error>
+
+            <mat-error *ngIf="idCard?.errors?.['pattern'] &&
+                !idCard?.errors?.['required']">
+                Identify card must have only <strong>numbers</strong>
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field matInput placeholder="Type of user">
@@ -128,7 +131,8 @@
                 <mat-option value="client">Client</mat-option>
                 <mat-option value="driver">Driver</mat-option>
             </mat-select>
-            <mat-error *ngIf="typeofuser?.errors?.['required']">Type of user is <strong>required</strong>
+            <mat-error *ngIf="typeofuser?.errors?.['required']">Type of user is
+                <strong>required</strong>
             </mat-error>
         </mat-form-field>
 
@@ -141,8 +145,9 @@
         <img src="../../../../../assets/imgs/user-vector.png"
             alt="user-vector" class="img-user">
         <p style="text-align: center"><a href="#"><u>Upload a photo</u></a></p>
-        <button mat-raised-button [disabled]="!signupForm.valid" 
+        <button mat-raised-button [disabled]="!signupForm.valid" color="primary"
             (click)="registerData()">Create account</button>
+
     </form>
 </div>
 

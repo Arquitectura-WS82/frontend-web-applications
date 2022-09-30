@@ -1,0 +1,46 @@
+.inline-block{
+    display: inline-block;
+}
+.result{
+    border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+}
+.block-container{
+    display: flex;
+    justify-content:space-evenly;
+    margin: 50px;
+}
+.results{
+    width: 50%;
+}
+mat-card-header{
+    margin-bottom: 4vh;
+}
+.result{
+    width: 95%;
+    margin: 10px;
+}
+.form-container form{
+    width: 50%;
+}
+form{
+    width: 30%;
+}
+mat-card{
+    width: 100%;
+    border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+}
+mat-card-content{
+    display: flex;
+    justify-items: center;
+
+}
+button{
+    display: flex;
+    justify-items: center;
+    margin-top: 1vh;
+    border-radius: 5vh;
+}

@@ -2,144 +2,104 @@
   "users": [
     {
       "id": 1,
-      "name": "Yuri Cotrina",
+      "name": "Yuri Isabel",
+      "last_name": "Cotrina Ramirez",
+      "username": "Yuri Cotrina",
       "email": "yur.cot@gmail.com",
       "password": "123",
-      "photo_url": "https://c8.alamy.com/compes/2j8d9nm/pensativo-hermosa-joven-empresaria-adulta-gerente-en-un-traje-con-un-tablet-pc-en-la-oficina-empresario-2j8d9nm.jpg",
+      "photo": "https://c8.alamy.com/compes/2j8d9nm/pensativo-hermosa-joven-empresaria-adulta-gerente-en-un-traje-con-un-tablet-pc-en-la-oficina-empresario-2j8d9nm.jpg",
       "typeofuser": "client"
     },
     {
       "id": 2,
       "name": "Jean Carlos",
+      "last_name": "Rodriguez Mallca",
+      "username": "Jean Rodriguez",
       "email": "jean.carlos@gmail.com",
       "password": "jean123",
       "typeofuser": "client"
     },
     {
       "id": 3,
-      "name": "Alejandra Tello",
+      "name": "Alejandra",
+      "last_name": "Tello Barboza",
+      "username": "Alejandra Tello",
       "email": "ale.telo@gmail.com",
       "password": "tello123",
       "typeofuser": "client"
     },
     {
       "id": 4,
-      "name": "Oscar Suarez",
+      "name": "Oscar Favio",
+      "last_name": "Suarez Agostini",
+      "username": "Oscar",
       "email": "osc.suarez@gmail.com",
       "password": "ahorasiseoculta",
       "typeofuser": "driver"
     },
     {
-      "email": "sadas",
-      "password": "123213",
-      "name": "antht",
-      "region": "La Libertad",
-      "birthDate": "2022-09-13T05:00:00.000Z",
-      "number": "1231",
-      "idCard": "21321",
-      "typeofuser": "client",
-      "username": "Asasasassssssssssss",
-      "description": "12eqqqqqqqqqqq",
-      "id": 5
-    },
-    {
-      "email": "edgardiranda0510@gmail.com",
-      "password": "edgar123",
-      "name": "AJuan Mendoza",
-      "region": "Tacna",
-      "birthDate": "2000-09-08T05:00:00.000Z",
-      "phone": "987654258",
-      "idCard": "12121212",
+      "id": 5,
+      "name": "Mario Andy",
+      "last_name": "Gomez Gutierrez",
+      "username": "Mario Gomez",
+      "photo": "https://i.postimg.cc/tTFyyJjz/user.png",
+      "age": "41",
+      "email": "mariogomez@gmail.com",
+      "phone": "987654321",
+      "region": "Carabayllo, Lima",
+      "description": "Hello. My name is Mario and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
+      "password": "123456",
       "typeofuser": "driver",
-      "username": "Anthasd",
-      "description": "Im a driver",
-      "id": 8
+      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
     },
     {
-      "email": "hola@gmail.com",
-      "password": "1234567",
-      "name": "juanito perez",
-      "region": "Apurimac",
-      "birthDate": "2022-09-05T05:00:00.000Z",
-      "phone": "6574745",
-      "idCard": "745674567",
+      "id": 6,
+      "name": "Manuel Carlos",
+      "last_name": "Rodriguez Diaz",
+      "username": "Manuel Rodriguez",
+      "photo": "https://i.postimg.cc/jdT1LDZn/client.png",
+      "age": "38",
+      "email": "manuel.rodriguez@gmail.com",
+      "phone": "914234832",
+      "region": "Chancay",
+      "description": "Hello. My name is Manuel and I have a bussiness that It work tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
+      "password": "123456",
+      "typeofuser": "client"
+    },
+    {
+      "email": "mxxrciano@gmail.com",
+      "password": "jajajaja",
+      "first_name": "Ant",
+      "last_name": "Bot",
+      "region": "Ancash",
+      "birthDate": "1969-06-18T05:00:00.000Z",
+      "phone": "1212121212",
+      "idCard": "2323423",
       "typeofuser": "client",
-      "username": "huanito",
-      "description": "hola",
-      "id": 9
-    },
-    {
-      "email": "sd@asd.cpm",
-      "password": "kjalsdasd",
-      "name": "123adsa",
-      "region": "Arequipa",
-      "birthDate": "2022-09-14T05:00:00.000Z",
-      "phone": "4533",
-      "idCard": "562462",
-      "typeofuser": "client",
-      "username": "ajksd",
-      "description": "asdfsdafsdaf",
-      "id": 10
-    },
-    {
-      "email": "noooooo@hotmail.com",
-      "password": "1231241i2",
-      "name": "falta validar imagen",
-      "region": "Apurimac",
-      "birthDate": "2016-05-04T05:00:00.000Z",
-      "phone": "23154124",
-      "idCard": "12412412",
-      "typeofuser": "driver",
-      "username": "no se pudo",
-      "description": "no tengo foto",
-      "id": 11
-    }
-  ],
-  "skills": [
-    {
-      "id": 1,
-      "name": "Game Developer"
-    },
-    {
-      "id": 2,
-      "name": "Frontend developer"
-    },
-    {
-      "id": 3,
-      "name": "Backend developer"
-    },
-    {
-      "id": 4,
-      "name": "Mobile app developer"
-    }
-  ],
-  "competences": [
-    {
-      "id": 4,
-      "studentId": 4,
-      "skillId": 4
+      "username": "Ant Bot",
+      "description": "hola xd",
+      "id": 7
     }
   ],
   "best_ranked": [
     {
       "id": 1,
-      "test": "drivers",
       "driver_name": "Julian Alvarez",
-      "photo_url": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
+      "photo": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
       "type": "Cargo Truck",
       "rating": 5
     },
     {
       "id": 2,
       "driver_name": "Pepe Cardona",
-      "photo_url": "https://ak.picdn.net/shutterstock/videos/32198590/thumb/8.jpg?ip=x480",
+      "photo": "https://ak.picdn.net/shutterstock/videos/32198590/thumb/8.jpg?ip=x480",
       "type": "Commercial",
       "rating": 5
     }
   ],
-  "contracts": {
-    "offers": [
+  "offer-contracts": [
       {
+        "driver_id": 5,
         "subject": "Tourist visit",
         "from": "Avenida Arica 601 Lima 05, Breña 15083",
         "to": "Ciudad de Caral, Lomas de Lachay",
@@ -150,14 +110,14 @@
         },
         "quantity": 15,
         "client": {
-          "name": "Lili",
-          "last-name": "Ramos",
+          "username": "Lili Ramos",
           "phone": "998 877 665",
           "photo": "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
         },
         "amount": 1560
       },
       {
+        "driver_id": 5,
         "subject": "School Tour",
         "from": "Marañon, Los Olivos",
         "to": "Fortaleza del Real Felipe, Callao",
@@ -168,16 +128,16 @@
         },
         "quantity": 30,
         "client": {
-          "name": "Lourdes",
-          "lastName": "Quispe",
+          "username": "Lourdes Quispe",
           "phone": "923 231 084",
           "photo": "https://images.unsplash.com/photo-1518577915332-c2a19f149a75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=862&q=80"
         },
         "amount": 1400
       }
-    ],
-    "pending": [
+  ],
+  "pending-contracts": [
       {
+        "driver_id": 5,
         "subject": "Tourism in Barranca",
         "from": "La Victoria, Lima",
         "to": "Barranca",
@@ -189,14 +149,14 @@
         "quantity": 5,
         "client": {
           "id": 1,
-          "name": "Raul",
-          "lastName": "Alvarez",
+          "username": "Raul Alvarez",
           "phone": "912 123 456",
           "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
         },
         "amount": 300
       },
       {
+        "driver_id": 5,
         "subject": "School Visit",
         "from": "Ancon, Lima",
         "to": "Chosica",
@@ -207,48 +167,138 @@
         },
         "quantity": 10,
         "client": {
-          "name": "Sara",
-          "last-name": "Flores",
+          "username": "Sara Flores",
           "phone": "974 515 769",
           "photo": "https://images.unsplash.com/photo-1530577197743-7adf14294584?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80"
         },
         "amount": 1500
       }
-    ],
-    "history": [
+  ],
+  "history-contracts": [
       {
+        "driver_id": 5,
+        "client_id": 1,
         "from": "Independencia",
         "to": "Chosica",
         "date": "10/08/2022",
         "client": {
-          "name": "Lilia",
-          "last-name": "Ramos",
+          "username": "Lilia Ramos",
           "photo": "https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
         },
         "amount": 500
       },
       {
+        "driver_id": 5,
+        "client_id": 1,
         "from": "Chorrillos",
         "to": "Carabayllo",
         "date": "01/07/22",
         "client": {
-          "name": "Kyadae",
-          "last-name": "Jett",
+          "username": "Kyadae Jett",
           "photo": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
         },
         "amount": 300
       },
       {
+        "driver_id": 5,
+        "client_id": 1,
         "from": "San Miguel",
         "to": "Barranca",
         "date": "12/08/2022",
         "client": {
-          "name": "Carlos",
-          "last-name": "Lopez",
+          "username": "Carlos Lopez",
           "photo": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
         },
         "amount": 750
       }
-    ]
-  }
+  ],
+  "jobs": [
+    {
+      "id": 5,
+      "job": "Tourism driver in “Turismo Peru”",
+      "time": "10 years",
+      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    },
+    {
+      "id": 5,
+      "job": "Tourism driver in “Turismo Peru”",
+      "time": "10 years",
+      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    },
+    {
+      "id": 2,
+      "job": "Tourism driver in “Turismo Peru”",
+      "time": "10 years",
+      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    }
+  ],
+  "comments": [
+    {
+      "id_to": 5,
+      "id_from": 12,
+      "name": "Alejandra Mesa",
+      "comment": "Good Service",
+      "photo_com": "https://i.postimg.cc/cHp2Q8zq/comment-1.png",
+      "stars": 5
+    },
+    {
+      "id_to": 5,
+      "id_from": 13,
+      "name": "Carlos Morales",
+      "comment": "Highly recommended, on time.",
+      "photo_com": "https://i.postimg.cc/5tkZ2rq2/comment-2.png",
+      "stars": 5
+    },
+    {
+      "id_to": 5,
+      "id_from": 14,
+      "name": "Cristiano Ramirez",
+      "comment": "The best transport service ever.",
+      "photo_com": "https://i.postimg.cc/1tnbnKJc/comment-3.png",
+      "stars": 4
+    },
+    {
+      "id_to": 5,
+      "id_from": 15,
+      "name": "Cristina Alvarez",
+      "comment": "Good experience.",
+      "photo_com": "https://i.postimg.cc/hvVwMtFX/comment-4.png",
+      "stars": 5
+    }
+  ],
+  "carriers": [
+    {
+        "id": 1,
+        "name": "Jean Carlos",
+        "photo_url": "https://i.postimg.cc/tTFyyJjz/user.png",
+        "type": "Bus",
+        "size": 15,
+        "Document": "NO",
+        "rating": 5,
+        "description": "Hello. My name is Mario Gomez and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
+    },
+    {
+        "id": 2,
+        "name": "Mario Gomez",
+        "photo_url": "https://i.postimg.cc/tTFyyJjz/user.png",
+        "type": "Bus",
+        "size": 15,
+        "Document": "YES",
+        "rating": 5,
+        "description": "Hello. My name is Mario Gomez and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
+
+    },
+    {
+        "id": 3,
+        "name": "Raul Sanciento",
+        "photo_url": "https://i.postimg.cc/tTFyyJjz/user.png",
+        "type": "Bus",
+        "size": 15,
+        "Document": "YES",
+        "rating": 4,
+        "description": "Hello. My name is Raul Sanciento and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
+
+    }
+  ]
+
 }

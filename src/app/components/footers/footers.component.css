@@ -1,0 +1,40 @@
+/*footer*/
+footer{
+    background-color: #0f15a3;
+    color: white;
+    padding: 50px;
+    margin-top: 20px;
+    
+}
+h1{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFFFFF;
+    display: flex;   
+    align-items: center;
+    text-transform: capitalize;
+    
+}
+button{
+    color: #FFFFFF;
+}
+.iconC{
+    color: black;
+}
+p{
+    
+    width: 150px;
+    height: 24px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    align-items: right;
+    color: #FFFFFF;
+    white-space: nowrap;
+}

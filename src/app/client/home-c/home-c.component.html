@@ -3,10 +3,10 @@
 <div class="mini_profile">
     <mat-card class="inline-block profile_card">
         <span class="_badge" matBadge="&#8288;" matBadgeOverlap="true" matBadgePosition="after" matBadgeColor="accent" matBadgeSize="medium">
-            <img mat-icon mat-card-avatar [src]="user.photo_url" alt="User Avatar">
+            <img mat-icon mat-card-avatar [src]="user.photo" alt="User Avatar">
         </span>
         <mat-card-title class="inline-block user_name" layout-align="center center">
-            <strong>Hi,<br>{{user.name}} &excl;</strong>
+            <strong>Hi,<br>{{user.username}} &excl;</strong>
         </mat-card-title>
     </mat-card>
 
@@ -21,14 +21,14 @@
  
         <mat-card *ngFor="let _driver of best_ranked.slice(0,2)">
             <div class="inline-block">
-                <img mat-card-avatar [src]=_driver.photo_url alt="User Avatar">
+                <img mat-card-avatar [src]=_driver.photo alt="User Avatar">
             </div>
             <div class="inline-block info_text">
                 <mat-card-title>{{_driver.driver_name}}</mat-card-title>
                 <mat-card-content>Type of Service <br> {{_driver.type}} <br> Rating:</mat-card-content>
                 <mat-card-content *ngFor='let in of counter(_driver.rating)' class="rating_stars">&#9733;</mat-card-content>
             </div>
-            <a mat-button [routerLink]="'../drivers/' +_driver.id" >Go</a>
+            <a mat-button [routerLink]="'../my-profile-d'" >Go</a>
         </mat-card>
 
 
@@ -40,7 +40,7 @@
 
         <mat-card *ngFor="let _contract of contracts_user.slice(0,2)">
             <div class="inline-block">
-                <img mat-card-avatar [src]=_contract.photo_url alt="User Avatar">
+                <img mat-card-avatar [src]=_contract.photo alt="User Avatar">
             </div>
             <div class="inline-block info_text">
                 <mat-card-title>{{_contract.driver_name}}</mat-card-title>
@@ -51,3 +51,4 @@
 
     </div>
 </div>
+<app-footers></app-footers>

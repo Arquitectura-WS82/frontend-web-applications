@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Contracts } from '../models/contracts/contract';
 
 @Injectable({
   providedIn: 'root',
@@ -8,10 +7,16 @@ import { Contracts } from '../models/contracts/contract';
 export class ContractsService {
   constructor(private http: HttpClient) {}
 
-  uploadContracts() {
-    // Contracts Endpoint
-    const url = 'http://localhost:3000/api/v1/contracts';
+  // Contracts Endpoint
+  url : string = "http://localhost:3000/api/v1";
 
-    return this.http.get<Contracts>(url);
+  getOffers(driverId:any) {
+    return this.http.get(`${this.url}/offer-contracts?driver_id=${driverId}`);
+  }
+  getHistory(driverId:any) {
+    return this.http.get(`${this.url}/history-contracts?driver_id=${driverId}`);
+  }  
+  getPending(driverId:any) {
+    return this.http.get(`${this.url}/pending-contracts?driver_id=${driverId}`);
   }
 }

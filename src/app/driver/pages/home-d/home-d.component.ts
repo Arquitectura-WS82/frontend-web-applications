@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User, driver_ranked } from '../../models/user/user'
+import { User, driver_ranked } from '../../../models/user/user'
 import {catchError, Observable, retry, throwError} from "rxjs";
 
 
