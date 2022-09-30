@@ -1,0 +1,52 @@
+<app-header-c></app-header-c>
+<mat-grid-list class="card" cols="4" rowHeight="80%">
+   
+    <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        [style.background]="'transparent'">
+        <div class="card">
+            <img mat-icon mat-card-avatar class="profilePhoto" [src]="user.photo" alt="User Avatar">   
+
+            <br><br>
+            <h1>{{user.username}}</h1>
+            <br>
+            <p>{{user.description}}</p>
+            <div class="starsUser">
+                <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                <mat-icon class="starIcon" fontIcon="star" ></mat-icon>    
+            </div>
+            <button class="editP" mat-raised-button >Edit profile&nbsp;&nbsp;<mat-icon width="12px" >edit</mat-icon></button>
+            
+        </div>
+        
+        
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="2"
+        [rowspan]="1"
+        [style.background]="'transparent'">
+
+            <div>
+                <br><br><br><br>
+                <img src="../assets/imgs/label.png"/>
+                <br>
+                <label>Full name<button class="btn" mat-raised-button color="primary">{{user.name}} {{user.last_name}}</button></label>
+                <br>
+                <label>Age<button class="btn"  mat-raised-button color="primary">{{user.age}} years</button></label>
+                <br>
+                <label>E-mail<button class="btn"  mat-raised-button color="primary">{{user.email}}</button></label>
+                <br>
+                <label>Phone<button class="btn"  mat-raised-button color="primary">{{user.phone}}</button></label>
+                <br>
+                <label>Location<button class="btn"  mat-raised-button color="primary">{{user.region}}</button></label>
+            </div>
+           
+    </mat-grid-tile>
+    
+</mat-grid-list>
+
+<app-footers></app-footers>

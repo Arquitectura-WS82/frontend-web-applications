@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from 'src/app/login/model/user';
+import { User } from '../../../../models/user/user';
 import { Router } from '@angular/router';
 
 @Component({

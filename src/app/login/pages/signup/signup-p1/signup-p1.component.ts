@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { catchError, retry, throwError } from 'rxjs';
-import { User } from '../../../model/user';
+import { User } from '../../../../models/user/user';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,8 +17,9 @@ export class SignupP1Component implements OnInit {
   display2: boolean = false;
   display3: boolean = false;
 
+  samePassword: boolean = false;
   signupForm: FormGroup
-  isValid: boolean = false;
+  isValid: boolean = true;
 
   basePath = 'http://localhost:3000/api/v1/users';
 
@@ -34,14 +35,13 @@ export class SignupP1Component implements OnInit {
     this.signupForm = this.formBuilder.group({
       email: ['', { validators: [Validators.required, Validators.email], updatedOn: 'change' }],
       password: ['', { validators: [Validators.required, Validators.minLength(7)], updatedOn: 'change' }],
-      confirmPassword: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      name: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      first_name: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      last_name: ['', { validators: [Validators.required], updatedOn: 'change' }],
       region: ['', { validators: [Validators.required], updatedOn: 'change' }],
       birthDate: ['', { validators: [Validators.required], updatedOn: 'change' }],
       phone: ['', { updatedOn: 'change' }],
       idCard: ['', { updatedOn: 'change' }],
       typeofuser: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      username: ['', { validators: [Validators.required], updatedOn: 'change' }],
       description: ['']
 
     })
@@ -54,10 +54,6 @@ export class SignupP1Component implements OnInit {
 
   get password() {
     return this.signupForm.get('password');
-  }
-
-  get name() {
-    return this.signupForm.get('name');
   }
 
   get region() {
@@ -80,12 +76,20 @@ export class SignupP1Component implements OnInit {
     return this.signupForm.get('typeofuser');
   }
 
-  get username() {
-    return this.signupForm.get('username');
-  }
-
   get description() {
     return this.signupForm.get('description');
+  }
+
+  get confirmPassword() {
+    return this.signupForm.get('confirmPassword');
+  }
+
+  get last_name(){
+    return this.signupForm.get('last_name');
+  }
+
+  get first_name(){
+    return this.signupForm.get('last_name');
   }
 
   //API error handling
@@ -123,13 +127,14 @@ export class SignupP1Component implements OnInit {
   formToUser() {
     this.user.email = this.signupForm.value.email;
     this.user.password = this.signupForm.value.password;
-    this.user.name = this.signupForm.value.name;
+    this.user.first_name = this.signupForm.value.first_name;
+    this.user.last_name = this.signupForm.value.last_name;
     this.user.region = this.signupForm.value.region;
     this.user.birthDate = this.signupForm.value.birthDate;
     this.user.phone = this.signupForm.value.phone;
     this.user.idCard = this.signupForm.value.idCard;
     this.user.typeofuser = this.signupForm.value.typeofuser;
-    this.user.username = this.signupForm.value.username;
+    this.user.username = this.signupForm.value.first_name + ' ' +this.signupForm.value.last_name;
     this.user.description = this.signupForm.value.description;
   }
 
@@ -149,27 +154,27 @@ export class SignupP1Component implements OnInit {
 
 
   //No funcionan
-  validatePassword(): boolean {
-    return this.signupForm.value.password == this.signupForm.value.confirmPassword
+  /*
+  validatePassword() {
+
+    if (this.signupForm.value.password === this.signupForm.value.confirmPassword) {
+      this.samePassword = true;
+      console.log("hola")
+    }
+    else {
+      this.samePassword = false;
+      console.log("chau")
+
+    }
+    console.log(this.signupForm.value.password);
+    console.log(this.confirmPassword);
   }
+  */
+ /*
   isValidToCreate() {
     if (this.signupForm.valid==true && this.validatePassword()==true) {
       this.isValid = true;
     }
-  }
-  validateAge() {
-    let today = new Date();
-    let birthDate = new Date(this.signupForm.value.birthDate);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    let m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    console.log(age);
-    if (age < 18) {
-      alert("Debes ser mayor de edad para registrarte");
-    }
-  }
-
+  }*/
 
 }

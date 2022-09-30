@@ -9,6 +9,10 @@ import { HomeCComponent } from './client/home-c/home-c.component';
 import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.component';
 import { HomeDComponent } from './driver/pages/home-d/home-d.component';
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
+import { MyProfileCComponent } from './client/my-profile-c/my-profile-c.component';
+import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
+import { SearchVehicleComponent } from './client/search-vehicle/search-vehicle.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -18,9 +22,14 @@ const routes: Routes = [
   { path: 'signup-p2', component: SignupP2Component },
   { path: 'signup-p3', component: SignupP3Component },
   { path: 'home-c', component: HomeCComponent },
+  { path: 'search', component: SearchVehicleComponent },
   { path: 'contracts-d', component: ContractsDComponent },
   { path: 'home-d', component: HomeDComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'my-profile-c', component: MyProfileCComponent },
+  { path: 'my-profile-d', component: MyProfileDComponent },
+
+
 ];
 
 @NgModule({

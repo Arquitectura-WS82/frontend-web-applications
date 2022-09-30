@@ -3,7 +3,7 @@
   <mat-tab label="Offers">
     <br />
     <h1 style="margin-left: 5%"><strong>Offer Information</strong></h1>
-    <div *ngFor="let offer of contracts.offers" class="card-group">
+    <div *ngFor="let offer of offerContracts" class="card-group">
       <div class="contract-information">
         <mat-card class="card">
           <mat-card-title>Resume</mat-card-title>
@@ -43,7 +43,7 @@
                 />
                 <div style="flex-grow: 2">
                   <strong
-                    >{{ offer.client.name }} {{ offer.client.lastName }}</strong
+                    >{{ offer.client.username }} </strong
                   >
                   <p>Phone: {{ offer.client.phone }}</p>
                 </div>
@@ -68,7 +68,7 @@
   <mat-tab label="Pending Contracts">
     <br />
     <h1 style="margin-left: 5%"><strong>Pending Contracts </strong></h1>
-    <div *ngFor="let pending of contracts.pending" class="card-group">
+    <div *ngFor="let pending of pendingContracts" class="card-group">
       <div class="contract-information">
         <mat-card class="card">
           <mat-card-title>Resume</mat-card-title>
@@ -109,8 +109,7 @@
                 />
                 <div style="flex-grow: 2">
                   <strong
-                    >{{ pending.client.name }}
-                    {{ pending.client.lastName }}</strong
+                    >{{ pending.client.username }}</strong
                   >
                   <p>Phone: {{ pending.client.phone }}</p>
                 </div>
@@ -125,7 +124,7 @@
   <mat-tab label="History">
     <br />
     <h1 style="margin-left: 5%"><strong>Contracts History</strong></h1>
-    <div *ngFor="let history of contracts.history" class="card-group">
+    <div *ngFor="let history of historyContracts" class="card-group">
       <div class="contract-information">
         <mat-card class="card-history">
           <div class="client-history">
@@ -136,7 +135,7 @@
             />
             <div>
               <strong>Client</strong>
-              <p>{{ history.client.name }} {{ history.client.lastName }}</p>
+              <p> {{history.client.username}}</p>
             </div>
           </div>
           <div>
@@ -159,3 +158,4 @@
     </div>
   </mat-tab>
 </mat-tab-group>
+<app-footers></app-footers>

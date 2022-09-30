@@ -24,6 +24,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
 
 // Components
 import { HeaderComponent } from './login/header/header.component';
@@ -34,11 +36,21 @@ import { SignupP3Component } from './login/pages/signup/signup-p3/signup-p3.comp
 import { HeaderCComponent } from './client/header-c/header-c.component';
 import { HomeCComponent } from './client/home-c/home-c.component';
 import { HeaderDComponent } from './driver/pages/header-d/header-d.component';
+import { FootersComponent } from './components/footers/footers.component';
+import { SearchVehicleComponent } from './client/search-vehicle/search-vehicle.component';
+
 import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.component';
 import { ContractDialogComponent } from './driver/components/contract-dialog/contract-dialog.component';
 import { HomeDComponent } from './driver/pages/home-d/home-d.component';
 
+import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
+import { MyProfileCComponent } from './client/my-profile-c/my-profile-c.component';
+
+
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +68,11 @@ import { ForgotPasswordComponent } from './login/pages/password/forgot-password/
     ContractsDComponent,
     ContractDialogComponent,
     ForgotPasswordComponent,
+    MyProfileDComponent,
+    SearchVehicleComponent,
+    MyProfileCComponent,
+    SearchVehicleComponent,
+    FootersComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +97,8 @@ import { ForgotPasswordComponent } from './login/pages/password/forgot-password/
     MatDatepickerModule,
     MatCardModule,
     MatBadgeModule,
+    MatGridListModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,7 +2,8 @@ export interface User {
 
     email: string;
     password: string;
-    name: string;
+    first_name: string;
+    last_name: string;
     region: string;
     birthDate: Date;
     phone: number;
@@ -10,6 +11,7 @@ export interface User {
     typeofuser: string;
     username: string;
     description: string;
+
     contracts:  {
         driver_name: string,
         photo_url: string,
@@ -20,7 +22,7 @@ export interface User {
 }
 export interface driver_ranked{
     driver_name: string;
-    photo_url: string;
+    photo: string;
     type: string;
     rating: Int16Array;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User, driver_ranked } from '../model/user'
+import { User} from '../../models/user/user'
 import {catchError, Observable, retry, throwError} from "rxjs";
 
 
@@ -47,7 +47,7 @@ export class HomeCComponent implements OnInit {
       this.user = data[0];
     });
 
-    this.goToDridver(1);
+    this.goToDriver(1);
     
   }
 
@@ -69,12 +69,12 @@ export class HomeCComponent implements OnInit {
   }
 
   getContract(id:any):Observable<any>{
-    return this.http.get<any>(`${this.basePath}contracts?client_id=${id}`, this.httpOptions).
+    return this.http.get<any>(`${this.basePath}history-contracts?client_id=${id}`, this.httpOptions).
     pipe(
       retry(2));
   }
 
-  goToDridver(id: any) {
+  goToDriver(id: any) {
     this.router.navigate([`driver/${id}`])
   }
 
