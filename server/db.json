@@ -33,9 +33,13 @@
       "name": "Oscar Favio",
       "last_name": "Suarez Agostini",
       "username": "Oscar",
+      "photo": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
       "email": "osc.suarez@gmail.com",
+      "phone": "98766221",
+      "region": "Callao, Lima",
       "password": "ahorasiseoculta",
-      "typeofuser": "driver"
+      "typeofuser": "driver",
+      "photo_auto":"https://www.mercedes-benz-trucks.com/content/dam/mbo/markets/hq_HQ/model-navigation-images/proven/modelthumb-actros-fv-proven.png"
     },
     {
       "id": 5,
@@ -82,20 +86,43 @@
     }
   ],
   "best_ranked": [
-    {
-      "id": 1,
-      "driver_name": "Julian Alvarez",
-      "photo": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
-      "type": "Cargo Truck",
-      "rating": 5
-    },
-    {
-      "id": 2,
-      "driver_name": "Pepe Cardona",
-      "photo": "https://ak.picdn.net/shutterstock/videos/32198590/thumb/8.jpg?ip=x480",
-      "type": "Commercial",
-      "rating": 5
-    }
+
+{
+  "id": 4,
+  "name": "Oscar Favio",
+  "last_name": "Suarez Agostini",
+  "username": "Oscar",
+  "email": "osc.suarez@gmail.com",
+  "password": "ahorasiseoculta",
+  "photo": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
+  "typeofuser": "driver",
+  "phone": "98766221",
+  "region": "Callao, Lima",
+  "type": "Cargo Truck",
+  "rating": 5
+
+},
+{
+  "id": 5,
+  "name": "Mario Andy",
+  "last_name": "Gomez Gutierrez",
+  "username": "Mario Gomez",
+  "photo": "https://i.postimg.cc/tTFyyJjz/user.png",
+  "age": "41",
+  "email": "mariogomez@gmail.com",
+  "phone": "987654321",
+  "region": "Carabayllo, Lima",
+  "description": "Hello. My name is Mario and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
+  "password": "123456",
+  "typeofuser": "driver",
+  "type": "Cargo Truck",
+  "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png",
+  "rating": 5
+
+}
+
+    
+
   ],
   "offer-contracts": [
       {
@@ -210,6 +237,30 @@
           "photo": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
         },
         "amount": 750
+      },
+      {
+        "driver_id": 4,
+        "client_id": 2,
+        "from": "Independencia",
+        "to": "Chosica",
+        "date": "10/08/2022",
+        "client": {
+          "username": "Lilia Ramos",
+          "photo": "https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+        },
+        "amount": 500
+      },
+      {
+        "driver_id": 4,
+        "client_id": 2,
+        "from": "Chorrillos",
+        "to": "Carabayllo",
+        "date": "01/07/22",
+        "client": {
+          "username": "Kyadae Jett",
+          "photo": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+        },
+        "amount": 300
       }
   ],
   "jobs": [
@@ -229,6 +280,18 @@
       "id": 2,
       "job": "Tourism driver in “Turismo Peru”",
       "time": "10 years",
+      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    },
+    {
+      "id": 4,
+      "job": "Truck Driver in “Cargo Peru",
+      "time": "4 years",
+      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    },
+    {
+      "id":4,
+      "job": "Truck Driver in “Cargo Peru",
+      "time": "7 years",
       "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
     }
   ],
@@ -268,17 +331,17 @@
   ],
   "carriers": [
     {
-        "id": 1,
+        "id": 4,
         "name": "Jean Carlos",
-        "photo_url": "https://i.postimg.cc/tTFyyJjz/user.png",
+        "photo_url": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
         "type": "Bus",
         "size": 15,
         "Document": "NO",
         "rating": 5,
-        "description": "Hello. My name is Mario Gomez and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
+        "description": "Hello. My name is Jean Carlos and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
     },
     {
-        "id": 2,
+        "id": 5,
         "name": "Mario Gomez",
         "photo_url": "https://i.postimg.cc/tTFyyJjz/user.png",
         "type": "Bus",
@@ -291,7 +354,7 @@
     {
         "id": 3,
         "name": "Raul Sanciento",
-        "photo_url": "https://i.postimg.cc/tTFyyJjz/user.png",
+        "photo_url": "https://media.istockphoto.com/photos/happy-driver-driving-bus-and-snowing-thumbs-up-picture-id529420242?k=20&m=529420242&s=612x612&w=0&h=95-KvHZHyOovlozAcR5gtwttqOZ1iFD18aFIGdYDob0=",
         "type": "Bus",
         "size": 15,
         "Document": "YES",
