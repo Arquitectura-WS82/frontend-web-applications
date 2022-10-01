@@ -10,7 +10,7 @@
         </mat-card-title>
     </mat-card>
 
-    <a mat-button [routerLink]="''">Search Vehicules</a>
+    <a></a>
 </div>
 
 
@@ -28,7 +28,6 @@
                 <mat-card-content>Type of Service <br> {{_driver.type}} <br> Rating:</mat-card-content>
                 <mat-card-content *ngFor='let in of counter(_driver.rating)' class="rating_stars">&#9733;</mat-card-content>
             </div>
-            <a mat-button [routerLink]="['/drivers${id}']">Go</a>
         </mat-card>
 
 
@@ -40,10 +39,10 @@
 
         <mat-card *ngFor="let _contract of contracts_user.slice(0,2)">
             <div class="inline-block">
-                <img mat-card-avatar [src]=_contract.photo alt="User Avatar">
+                <img mat-card-avatar [src]=_contract.client.photo alt="User Avatar">
             </div>
             <div class="inline-block info_text">
-                <mat-card-title>{{_contract.driver_name}}</mat-card-title>
+                <mat-card-title>{{_contract.client.username}}</mat-card-title>
                 <mat-card-content>From {{_contract.from}}</mat-card-content>
                 <mat-card-content>To {{_contract.to}}</mat-card-content>
             </div>

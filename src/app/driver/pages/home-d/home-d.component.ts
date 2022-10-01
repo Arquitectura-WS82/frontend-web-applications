@@ -47,7 +47,6 @@ export class HomeDComponent implements OnInit {
       this.user = data[0];
     });
 
-    this.goToDridver(1);
     
   }
 
@@ -69,14 +68,11 @@ export class HomeDComponent implements OnInit {
   }
 
   getContract(id:any):Observable<any>{
-    return this.http.get<any>(`${this.basePath}contracts?driver_id=${id}`, this.httpOptions).
+    return this.http.get<any>(`${this.basePath}history-contracts?driver_id=${id}`, this.httpOptions).
     pipe(
       retry(2));
   }
 
-  goToDridver(id: any) {
-    this.router.navigate([`driver/${id}`])
-  }
 
   
 }

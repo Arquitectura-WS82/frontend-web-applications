@@ -64,5 +64,10 @@ export class SearchVehicleComponent implements OnInit {
     console.log(this.filteredVehicules)
   }
 
+  goToDriver(id: any) {
+    this.router.navigate([`my-profile-d/`])
+    localStorage.setItem('visitDriverId', id)
+  }
+
 
 }

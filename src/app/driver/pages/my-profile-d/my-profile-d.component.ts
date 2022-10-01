@@ -27,8 +27,12 @@ export class MyProfileDComponent implements OnInit {
 
   ngOnInit(): void {
       
-    localStorage.setItem('currentUser', '5');
-    this.user_id=localStorage.getItem('currentUser')
+    //localStorage.setItem('currentUser', '5');
+    if (localStorage.getItem("visitDriverId") != '-1')
+      this.user_id = localStorage.getItem('visitDriverId')
+    else
+      this.user_id = localStorage.getItem('currentUser')
+    localStorage.setItem('visitDriverId',"-1")
     this.getUser(this.user_id).subscribe((data: any) => {
       this.user = data[0];
     });

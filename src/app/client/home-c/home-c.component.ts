@@ -47,7 +47,6 @@ export class HomeCComponent implements OnInit {
       this.user = data[0];
     });
 
-    this.goToDriver(1);
     
   }
 
@@ -75,7 +74,8 @@ export class HomeCComponent implements OnInit {
   }
 
   goToDriver(id: any) {
-    this.router.navigate([`driver/${id}`])
+    this.router.navigate([`my-profile-d/`])
+    localStorage.setItem('visitDriverId', id)
   }
 
   
