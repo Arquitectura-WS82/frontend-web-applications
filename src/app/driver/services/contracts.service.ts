@@ -8,15 +8,15 @@ export class ContractsService {
   constructor(private http: HttpClient) {}
 
   // Contracts Endpoint
-  url : string = "http://localhost:3000/api/v1";
+  url: string = 'http://localhost:3000/api/v1';
 
-  getOffers(driverId:any) {
+  getOffers(driverId: any) {
     return this.http.get(`${this.url}/offer-contracts?driver_id=${driverId}`);
   }
-  getHistory(driverId:any) {
+  getHistory(driverId: any) {
     return this.http.get(`${this.url}/history-contracts?driver_id=${driverId}`);
-  }  
-  getPending(driverId:any) {
+  }
+  getPending(driverId: any) {
     return this.http.get(`${this.url}/pending-contracts?driver_id=${driverId}`);
   }
 }

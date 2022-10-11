@@ -5,14 +5,14 @@ import { SignupP1Component } from './login/pages/signup/signup-p1/signup-p1.comp
 import { SignupP2Component } from './login/pages/signup/signup-p2/signup-p2.component';
 import { SignupP3Component } from './login/pages/signup/signup-p3/signup-p3.component';
 import { HeaderComponent } from './login/header/header.component';
-import { HomeCComponent } from './client/home-c/home-c.component';
+import { HomeCComponent } from './client/pages/home-c/home-c.component';
 import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.component';
+import { ContractsCComponent } from './client/pages/contracts-c/contracts-c.component';
 import { HomeDComponent } from './driver/pages/home-d/home-d.component';
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
-import { MyProfileCComponent } from './client/my-profile-c/my-profile-c.component';
+import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.component';
 import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
-import { SearchVehicleComponent } from './client/search-vehicle/search-vehicle.component';
-
+import { SearchVehicleComponent } from './client/pages/search-vehicle/search-vehicle.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -24,12 +24,11 @@ const routes: Routes = [
   { path: 'home-c', component: HomeCComponent },
   { path: 'search', component: SearchVehicleComponent },
   { path: 'contracts-d', component: ContractsDComponent },
+  { path: 'contracts-c', component: ContractsCComponent },
   { path: 'home-d', component: HomeDComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'my-profile-c', component: MyProfileCComponent },
   { path: 'my-profile-d', component: MyProfileDComponent },
-
-
 ];
 
 @NgModule({

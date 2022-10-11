@@ -4,11 +4,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { ContractDialogComponent } from '../../../components/contract-dialog/contract-dialog.component';
 
 @Component({
-  selector: 'app-contracts-d',
-  templateUrl: './contracts-d.component.html',
-  styleUrls: ['./contracts-d.component.css'],
+  selector: 'app-contracts-c',
+  templateUrl: './contracts-c.component.html',
+  styleUrls: ['./contracts-c.component.css'],
 })
-export class ContractsDComponent implements OnInit {
+export class ContractsCComponent implements OnInit {
   public offerContracts: any = [];
   public pendingContracts: any = [];
   public historyContracts: any = [];
@@ -19,15 +19,6 @@ export class ContractsDComponent implements OnInit {
     public dialog: MatDialog
   ) {}
 
-  acceptContract(): void {
-    const dialogRef = this.dialog.open(ContractDialogComponent, {
-      width: '30vw',
-      data: {
-        message:
-          'The contract has been signed. When you finish the work, we will pay you',
-      },
-    });
-  }
   declineContract(): void {
     const dialogRef = this.dialog.open(ContractDialogComponent, {
       width: '30vw',
@@ -39,13 +30,13 @@ export class ContractsDComponent implements OnInit {
 
   ngOnInit(): void {
     this.user_id = localStorage.getItem('currentUser');
-    this.contractsService.getOffers(this.user_id).subscribe((response) => {
+    this.contractsService.getOffers().subscribe((response) => {
       this.offerContracts = response;
     });
-    this.contractsService.getPending(this.user_id).subscribe((response) => {
+    this.contractsService.getPending().subscribe((response) => {
       this.pendingContracts = response;
     });
-    this.contractsService.getHistory(this.user_id).subscribe((response) => {
+    this.contractsService.getHistory().subscribe((response) => {
       this.historyContracts = response;
     });
   }
