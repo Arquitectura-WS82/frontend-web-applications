@@ -10,9 +10,6 @@ export class ContractsService {
   // Contracts Endpoint
   url: string = 'http://localhost:3000/api/v1';
 
-  getOffers() {
-    return this.http.get(`${this.url}/offer-contracts`);
-  }
   getHistory() {
     return this.http.get(`${this.url}/history-contracts`);
   }

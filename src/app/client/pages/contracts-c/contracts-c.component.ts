@@ -30,9 +30,7 @@ export class ContractsCComponent implements OnInit {
 
   ngOnInit(): void {
     this.user_id = localStorage.getItem('currentUser');
-    this.contractsService.getOffers().subscribe((response) => {
-      this.offerContracts = response;
-    });
+
     this.contractsService.getPending().subscribe((response) => {
       this.pendingContracts = response;
     });
