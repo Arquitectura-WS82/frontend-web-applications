@@ -304,7 +304,8 @@
       "timeDeparture": "10:00",
       "timeArrival": "17:00",
       "quantity": 5,
-      "amount": 300
+      "amount": 300,
+      "status": "rejected"
     },
     {
       "id": 2,
@@ -317,7 +318,8 @@
       "timeDeparture": "9:00",
       "timeArrival": "18:00",
       "quantity": 10,
-      "amount": 1500
+      "amount": 1500,
+      "status": "waiting"
     }
   ],
   "historyContracts": [
