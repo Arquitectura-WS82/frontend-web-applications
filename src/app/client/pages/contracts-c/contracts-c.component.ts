@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContractsService } from '../../services/contracts.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ContractDialogComponent } from '../../../components/contract-dialog/contract-dialog.component';
-import { PendingContract } from 'src/app/models/pending-contract/pending';
+import { PendingContract } from 'src/app/models/contracts/pending';
 
 @Component({
   selector: 'app-contracts-c',
