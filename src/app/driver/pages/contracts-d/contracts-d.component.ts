@@ -39,6 +39,7 @@ export class ContractsDComponent implements OnInit {
 
   ngOnInit(): void {
     this.user_id = localStorage.getItem('currentUser');
+
     this.contractsService.getOffers(this.user_id).subscribe((response) => {
       this.offerContracts = response;
     });

@@ -10,13 +10,19 @@ export class ContractsService {
   // Contracts Endpoint
   url: string = 'http://localhost:3000/api/v1';
 
-  getOffers(driverId: any) {
-    return this.http.get(`${this.url}/offer-contracts?driver_id=${driverId}`);
+  getOffers(driverId: number) {
+    return this.http.get(
+      `${this.url}/offerContracts?driverId=${driverId}&_expand=client`
+    );
   }
-  getHistory(driverId: any) {
-    return this.http.get(`${this.url}/history-contracts?driver_id=${driverId}`);
+  getHistory(driverId: number) {
+    return this.http.get(
+      `${this.url}/historyContracts?driverId=${driverId}&_expand=client`
+    );
   }
-  getPending(driverId: any) {
-    return this.http.get(`${this.url}/pending-contracts?driver_id=${driverId}`);
+  getPending(driverId: number) {
+    return this.http.get(
+      `${this.url}/pendingContracts?driverId=${driverId}&_expand=client`
+    );
   }
 }

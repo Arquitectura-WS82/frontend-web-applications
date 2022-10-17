@@ -9,7 +9,6 @@ import { ContractDialogComponent } from '../../../components/contract-dialog/con
   styleUrls: ['./contracts-c.component.css'],
 })
 export class ContractsCComponent implements OnInit {
-  public offerContracts: any = [];
   public pendingContracts: any = [];
   public historyContracts: any = [];
   user_id: any;
@@ -31,10 +30,10 @@ export class ContractsCComponent implements OnInit {
   ngOnInit(): void {
     this.user_id = localStorage.getItem('currentUser');
 
-    this.contractsService.getPending().subscribe((response) => {
+    this.contractsService.getPending(this.user_id).subscribe((response) => {
       this.pendingContracts = response;
     });
-    this.contractsService.getHistory().subscribe((response) => {
+    this.contractsService.getHistory(this.user_id).subscribe((response) => {
       this.historyContracts = response;
     });
   }

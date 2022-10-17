@@ -85,6 +85,94 @@
       "id": 7
     }
   ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "Yuri Isabel",
+      "lastName": "Cotrina Ramirez",
+      "username": "Yuri Cotrina",
+      "email": "yur.cot@gmail.com",
+      "password": "123",
+      "photo": "https://c8.alamy.com/compes/2j8d9nm/pensativo-hermosa-joven-empresaria-adulta-gerente-en-un-traje-con-un-tablet-pc-en-la-oficina-empresario-2j8d9nm.jpg",
+      "typeofUser": "client"
+    },
+    {
+      "id": 2,
+      "name": "Jean Carlos",
+      "lastName": "Rodriguez Mallca",
+      "username": "Jean Rodriguez",
+      "email": "jean.carlos@gmail.com",
+      "password": "jean123",
+      "typeofUser": "client"
+    },
+    {
+      "id": 3,
+      "name": "Alejandra",
+      "lastName": "Tello Barboza",
+      "username": "Alejandra Tello",
+      "email": "ale.telo@gmail.com",
+      "password": "tello123",
+      "typeofUser": "client"
+    },
+    {
+      "id": 6,
+      "name": "Manuel Carlos",
+      "lastName": "Rodriguez Diaz",
+      "username": "Manuel Rodriguez",
+      "photo": "https://i.postimg.cc/jdT1LDZn/client.png",
+      "age": "38",
+      "email": "manuel.rodriguez@gmail.com",
+      "phone": "914234832",
+      "region": "Chancay",
+      "description": "Hello. My name is Manuel and I have a bussiness that It work tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
+      "password": "123456",
+      "typeofUser": "client"
+    },
+    {
+      "id": 7,
+      "email": "mxxrciano@gmail.com",
+      "password": "jajajaja",
+      "first_name": "Ant",
+      "lastName": "Bot",
+      "region": "Ancash",
+      "birthDate": "1969-06-18T05:00:00.000Z",
+      "phone": "1212121212",
+      "idCard": "2323423",
+      "typeofUser": "client",
+      "username": "Ant Bot",
+      "description": "hola xd"
+    }
+  ],
+  "drivers": [
+    {
+      "id": 4,
+      "name": "Oscar Favio",
+      "lastName": "Suarez Agostini",
+      "username": "Oscar",
+      "photo": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
+      "email": "osc.suarez@gmail.com",
+      "phone": "98766221",
+      "region": "Callao, Lima",
+      "password": "ahorasiseoculta",
+      "typeofUser": "driver",
+      "photoAuto": "https://www.mercedes-benz-trucks.com/content/dam/mbo/markets/hq_HQ/model-navigation-images/proven/modelthumb-actros-fv-proven.png"
+    },
+    {
+      "id": 5,
+      "name": "Mario Andy",
+      "lastName": "Gomez Gutierrez",
+      "username": "Mario Gomez",
+      "photo": "https://i.postimg.cc/tTFyyJjz/user.png",
+      "age": "41",
+      "email": "mariogomez@gmail.com",
+      "phone": "987654321",
+      "region": "Carabayllo, Lima",
+      "description": "Hello. My name is Mario and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
+      "password": "123456",
+      "typeofUser": "driver",
+      "photoAuto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    }
+  ],
   "best_ranked": [
     {
       "id": 4,
@@ -118,142 +206,164 @@
       "rating": 5
     }
   ],
-  "offer-contracts": [
+  "offerContracts": [
     {
-      "driver_id": 5,
+      "id": 1,
+      "clientId": 1,
+      "driverId": 5,
       "subject": "Tourist visit",
       "from": "Avenida Arica 601 Lima 05, Breña 15083",
       "to": "Ciudad de Caral, Lomas de Lachay",
       "date": "21/10/2022",
-      "time": {
-        "departure": "8:00",
-        "arrival": "20:00"
-      },
+      "timeDeparture": "8:00",
+      "timeArrival": "17:00",
       "quantity": 15,
-      "client": {
-        "username": "Lili Ramos",
-        "phone": "998 877 665",
-        "photo": "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-      },
-      "amount": 1560
+      "amount": 1560,
+      "status": "rejected"
     },
     {
-      "driver_id": 5,
+      "id": 2,
+      "clientId": 1,
+      "driverId": 5,
       "subject": "School Tour",
       "from": "Marañon, Los Olivos",
       "to": "Fortaleza del Real Felipe, Callao",
       "date": "12/06/2022",
-      "time": {
-        "departure": "8:00",
-        "arrival": "17:00"
-      },
+      "timeDeparture": "8:00",
+      "timeArrival": "17:00",
       "quantity": 30,
-      "client": {
-        "username": "Lourdes Quispe",
-        "phone": "923 231 084",
-        "photo": "https://images.unsplash.com/photo-1518577915332-c2a19f149a75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=862&q=80"
-      },
-      "amount": 1400
+      "amount": 1400,
+      "status": "waiting"
+    },
+    {
+      "driverId": 5,
+      "clientId": 1,
+      "from": "Breña",
+      "to": "Barranco",
+      "date": "2022-10-04T05:00:00.000Z",
+      "quantity": 123,
+      "timeDeparture": "13:02",
+      "timeArrival": "02:02",
+      "amount": 555,
+      "description": "qqweqweqe",
+      "subject": "private",
+      "id": 3
+    },
+    {
+      "driverId": 5,
+      "clientId": 2,
+      "from": "Breña",
+      "to": "Barranco",
+      "date": "2022-10-18T05:00:00.000Z",
+      "quantity": 123,
+      "timeDeparture": "01:02",
+      "timeArrival": "04:05",
+      "amount": 500,
+      "description": "asdad",
+      "subject": "moving",
+      "id": 4
+    },
+    {
+      "driverId": 5,
+      "clientId": 3,
+      "from": "Breña",
+      "to": "Ate",
+      "date": "2022-10-24T05:00:00.000Z",
+      "quantity": 4,
+      "timeDeparture": "17:25",
+      "timeArrival": "17:25",
+      "amount": 4434,
+      "description": "qweqwe",
+      "subject": "moving",
+      "id": 5
+    },
+    {
+      "driverId": 5,
+      "clientId": 3,
+      "from": "Breña",
+      "to": "Ate",
+      "date": "2022-10-24T05:00:00.000Z",
+      "quantity": 4,
+      "timeDeparture": "17:25",
+      "timeArrival": "17:25",
+      "amount": 4434,
+      "description": "qweqwe",
+      "subject": "moving",
+      "id": 6
     }
   ],
-  "pending-contracts": [
+  "pendingContracts": [
     {
-      "driver_id": 5,
+      "id": 1,
+      "driverId": 5,
+      "clientId": 1,
       "subject": "Tourism in Barranca",
       "from": "La Victoria, Lima",
       "to": "Barranca",
       "date": "21/09/2022",
-      "time": {
-        "departure": "10:00",
-        "arrival": "17:00"
-      },
+      "timeDeparture": "10:00",
+      "timeArrival": "17:00",
       "quantity": 5,
-      "client": {
-        "id": 1,
-        "username": "Raul Alvarez",
-        "phone": "912 123 456",
-        "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-      },
       "amount": 300
     },
     {
-      "driver_id": 5,
+      "id": 2,
+      "driverId": 5,
+      "clientId": 2,
       "subject": "School Visit",
       "from": "Ancon, Lima",
       "to": "Chosica",
       "date": "15/10/2022",
-      "time": {
-        "departure": "9:00",
-        "arrival": "18:00"
-      },
+      "timeDeparture": "9:00",
+      "timeArrival": "18:00",
       "quantity": 10,
-      "client": {
-        "username": "Sara Flores",
-        "phone": "974 515 769",
-        "photo": "https://images.unsplash.com/photo-1530577197743-7adf14294584?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80"
-      },
       "amount": 1500
     }
   ],
-  "history-contracts": [
+  "historyContracts": [
     {
-      "driver_id": 5,
-      "client_id": 1,
+      "id": 1,
+      "driverId": 5,
+      "clientId": 1,
       "from": "Independencia",
       "to": "Chosica",
       "date": "10/08/2022",
-      "client": {
-        "username": "Lilia Ramos",
-        "photo": "https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-      },
       "amount": 500
     },
     {
-      "driver_id": 5,
-      "client_id": 1,
+      "id": 2,
+      "driverId": 5,
+      "clientId": 1,
       "from": "Chorrillos",
       "to": "Carabayllo",
       "date": "01/07/22",
-      "client": {
-        "username": "Kyadae Jett",
-        "photo": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-      },
       "amount": 300
     },
     {
-      "driver_id": 5,
-      "client_id": 1,
+      "id": 3,
+      "driverId": 5,
+      "clientId": 1,
       "from": "San Miguel",
       "to": "Barranca",
       "date": "12/08/2022",
-      "client": {
-        "username": "Carlos Lopez",
-        "photo": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-      },
       "amount": 750
     },
     {
-      "driver_id": 4,
-      "client_id": 2,
+      "id": 4,
+      "driverId": 4,
+      "clientId": 2,
       "from": "Independencia",
       "to": "Chosica",
       "date": "10/08/2022",
-      "client": {
-        "username": "Lilia Ramos",
-        "photo": "https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-      },
       "amount": 500
     },
     {
-      "driver_id": 4,
-      "client_id": 2,
+      "id": 5,
+      "driverId": 1,
+      "clientId": 2,
       "from": "Chorrillos",
       "to": "Carabayllo",
       "date": "01/07/22",
-      "client": {
-        "username": "Kyadae Jett",
-        "photo": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-      },
       "amount": 300
     }
   ],

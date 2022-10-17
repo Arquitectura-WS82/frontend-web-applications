@@ -10,10 +10,14 @@ export class ContractsService {
   // Contracts Endpoint
   url: string = 'http://localhost:3000/api/v1';
 
-  getHistory() {
-    return this.http.get(`${this.url}/history-contracts`);
+  getHistory(clientId: number) {
+    return this.http.get(
+      `${this.url}/historyContracts?clientId=${clientId}&_expand=driver`
+    );
   }
-  getPending() {
-    return this.http.get(`${this.url}/pending-contracts`);
+  getPending(clientId: number) {
+    return this.http.get(
+      `${this.url}/pendingContracts?clientId=${clientId}&_expand=driver`
+    );
   }
 }

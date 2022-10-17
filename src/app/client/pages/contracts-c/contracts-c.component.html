@@ -24,8 +24,8 @@
               <p>
                 Time:
                 <strong>
-                  {{ pending.time.departure }} -
-                  {{ pending.time.arrival }}</strong
+                  {{ pending.timeDeparture }} -
+                  {{ pending.timeArrival }}</strong
                 >
               </p>
               <p>
@@ -34,17 +34,17 @@
             </div>
             <hr />
             <div class="client-price">
-              <strong>Client data</strong>
+              <strong>Driver data</strong>
               <strong style="text-align: center">Amount:</strong>
               <div class="client">
                 <img
-                  src="{{ pending.client.photo }}"
+                  src="{{ pending.driver.photo }}"
                   alt="Profile"
                   class="profile-img"
                 />
                 <div style="flex-grow: 2">
-                  <strong>{{ pending.client.username }}</strong>
-                  <p>Phone: {{ pending.client.phone }}</p>
+                  <strong>{{ pending.driver.username }}</strong>
+                  <p>Phone: {{ pending.driver.phone }}</p>
                 </div>
               </div>
               <p class="price">S/. {{ pending.amount }}</p>
@@ -69,13 +69,13 @@
         <mat-card class="card-history">
           <div class="client-history">
             <img
-              src="{{ history.client.photo }}"
+              src="{{ history.driver.photo }}"
               alt="Profile"
               class="profile-img-history"
             />
             <div>
-              <strong>Client</strong>
-              <p>{{ history.client.username }}</p>
+              <strong>Driver data</strong>
+              <p>{{ history.driver.username }}</p>
             </div>
           </div>
           <div>

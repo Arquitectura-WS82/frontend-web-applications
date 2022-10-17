@@ -24,7 +24,7 @@
               <p>
                 Time:
                 <strong>
-                  {{ offer.time.departure }} - {{ offer.time.arrival }}</strong
+                  {{ offer.timeDeparture }} - {{ offer.timeArrival }}</strong
                 >
               </p>
               <p>
@@ -42,9 +42,7 @@
                   class="profile-img"
                 />
                 <div style="flex-grow: 2">
-                  <strong
-                    >{{ offer.client.username }} </strong
-                  >
+                  <strong>{{ offer.client.username }} </strong>
                   <p>Phone: {{ offer.client.phone }}</p>
                 </div>
               </div>
@@ -89,8 +87,8 @@
               <p>
                 Time:
                 <strong>
-                  {{ pending.time.departure }} -
-                  {{ pending.time.arrival }}</strong
+                  {{ pending.timeDeparture }} -
+                  {{ pending.timeArrival }}</strong
                 >
               </p>
               <p>
@@ -108,9 +106,7 @@
                   class="profile-img"
                 />
                 <div style="flex-grow: 2">
-                  <strong
-                    >{{ pending.client.username }}</strong
-                  >
+                  <strong>{{ pending.client.username }}</strong>
                   <p>Phone: {{ pending.client.phone }}</p>
                 </div>
               </div>
@@ -135,7 +131,7 @@
             />
             <div>
               <strong>Client</strong>
-              <p> {{history.client.username}}</p>
+              <p>{{ history.client.username }}</p>
             </div>
           </div>
           <div>
