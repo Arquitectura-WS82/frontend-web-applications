@@ -26,6 +26,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
+import { NgxCcModule } from 'ngx-cc';
 
 // Components
 import { HeaderComponent } from './login/header/header.component';
@@ -48,7 +49,7 @@ import { MyProfileCComponent } from './client/my-profile-c/my-profile-c.componen
 
 
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
-
+import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { ForgotPasswordComponent } from './login/pages/password/forgot-password/
     MyProfileCComponent,
     SearchVehicleComponent,
     FootersComponent,
+    EndContractComponent
   ],
   imports: [
     BrowserModule,
@@ -99,8 +101,10 @@ import { ForgotPasswordComponent } from './login/pages/password/forgot-password/
     MatBadgeModule,
     MatGridListModule,
     MatListModule,
+    NgxCcModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
