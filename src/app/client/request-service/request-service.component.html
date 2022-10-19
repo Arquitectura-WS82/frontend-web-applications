@@ -10,7 +10,11 @@
             <mat-error *ngIf="email?.errors?.['email'] &&
                 !email?.errors?.['required']"> </mat-error> -->
             <mat-label>From</mat-label>
-            <mat-select formControlName="regionFrom">
+            <input matInput
+                formControlName="regionFrom"
+                type="text">
+
+            <!-- <mat-select formControlName="regionFrom">
                 <mat-option value="Ancón"> Ancón </mat-option>
                 <mat-option value="Ate"> Ate </mat-option>
                 <mat-option value="Barranco"> Barranco </mat-option>
@@ -63,7 +67,7 @@
                 </mat-option>
                 <mat-option value="Villa Maria del Triunfo"> Villa Maria del
                     Triunfo </mat-option>
-            </mat-select>
+            </mat-select> -->
         </mat-form-field>
 
 
@@ -73,7 +77,10 @@
             <mat-error *ngIf="email?.errors?.['email'] &&
                 !email?.errors?.['required']"> </mat-error> -->
             <mat-label>To</mat-label>
-            <mat-select formControlName="regionTo">
+            <input matInput
+                formControlName="regionTo"
+                type="text">
+            <!-- <mat-select formControlName="regionTo">
                 <mat-option value="Ancón"> Ancón </mat-option>
                 <mat-option value="Ate"> Ate </mat-option>
                 <mat-option value="Barranco"> Barranco </mat-option>
@@ -126,7 +133,7 @@
                 </mat-option>
                 <mat-option value="Villa Maria del Triunfo"> Villa Maria del
                     Triunfo </mat-option>
-            </mat-select>
+            </mat-select> -->
         </mat-form-field>
 
         <mat-form-field>
@@ -140,7 +147,7 @@
 
         <mat-form-field>
             <mat-label>Type of service</mat-label>
-            <mat-select formControlName="subject" [(ngModel)]="type">
+            <mat-select formControlName="type" [(ngModel)]="typeofService">
                 <mat-option value="commercial"> Commercial </mat-option>
                 <mat-option value="tourism"> Tourism </mat-option>
                 <mat-option value="private"> Private </mat-option>
@@ -149,20 +156,20 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-form-field *ngIf="type=='commercial' || type=='heavy load' ">
+        <mat-form-field *ngIf="typeofService=='commercial' || typeofService=='heavy load' ">
             <mat-label>Weight (Kg)</mat-label>
             <input matInput
                 formControlName="quantity"
                 type="number">
         </mat-form-field>
 
-        <mat-form-field *ngIf="type=='private' || type=='tourism' ">
+        <mat-form-field *ngIf="typeofService=='private' || typeofService=='tourism' ">
             <mat-label>People</mat-label>
             <input matInput
                 formControlName="quantity"
                 type="number">
         </mat-form-field>
-        <mat-form-field *ngIf="type=='moving' ">
+        <mat-form-field *ngIf="typeofService=='moving' ">
             <mat-label>Number of boxes</mat-label>
             <input matInput
                 formControlName="quantity"
@@ -174,7 +181,7 @@
 
 
         <div class="row">
-            <mat-form-field r-time>
+            <mat-form-field class="r-time">
                 <mat-label>Time (start)</mat-label>
                 <input matInput 
                 formControlName="timeStart"
@@ -183,7 +190,7 @@
 
             <strong class="guion"> - </strong>
 
-            <mat-form-field r-time>
+            <mat-form-field class="r-time">
                 <mat-label>Time (finish)</mat-label>
                 <input matInput 
                 formControlName="timeFinish"
@@ -199,8 +206,13 @@
         </mat-form-field>
 
         <mat-form-field>
+            <mat-label>Subject</mat-label>
+            <input matInput formControlName="subject" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
             <textarea type="text" matInput
-                rows="12"
+                rows="7"
                 placeholder="Type a description"
                 formControlName="description">
             </textarea>

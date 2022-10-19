@@ -21,7 +21,7 @@ export class SignupP1Component implements OnInit {
   signupForm: FormGroup
   isValid: boolean = true;
 
-  basePath = 'http://localhost:3000/api/v1/users';
+  basePath = 'http://localhost:3000/api/v1';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -114,12 +114,22 @@ export class SignupP1Component implements OnInit {
 
   registerData() {
     this.formToUser();
-    this.http.post<User>(this.basePath, this.user, this.httpOptions).subscribe(
-      (res) => {
-        console.log(res);
-        alert("Registro exitoso");
-      }
-    );
+    if(this.signupForm.value.typeofuser == 'client'){
+      this.http.post<User>(`${this.basePath}/clients`, this.user, this.httpOptions).subscribe(
+        (res) => {
+          console.log(res);
+          alert("Registro exitoso");
+        }
+      );
+    }
+    else{
+      this.http.post<User>(`${this.basePath}/drivers`, this.user, this.httpOptions).subscribe(
+        (res) => {
+          console.log(res);
+          alert("Registro exitoso");
+        }
+      );
+    }
     this.router.navigate(['/login']);
 
   }
@@ -127,8 +137,8 @@ export class SignupP1Component implements OnInit {
   formToUser() {
     this.user.email = this.signupForm.value.email;
     this.user.password = this.signupForm.value.password;
-    this.user.first_name = this.signupForm.value.first_name;
-    this.user.last_name = this.signupForm.value.last_name;
+    this.user.firstName = this.signupForm.value.first_name;
+    this.user.lastName = this.signupForm.value.last_name;
     this.user.region = this.signupForm.value.region;
     this.user.birthDate = this.signupForm.value.birthDate;
     this.user.phone = this.signupForm.value.phone;

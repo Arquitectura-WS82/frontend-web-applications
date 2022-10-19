@@ -1,13 +1,15 @@
 export interface RequestForm {
-    driver_id: number;
-    client_id: number;
+    driverId: number;
+    clientId: any;
     from: string;
     to: string;
     date: string;
+    type: string;
     quantity: number;
-    time_departure: string;
-    time_arrival: string;
+    timeDeparture: string;
+    timeArrival: string;
     amount: number;
-    description: string;
     subject: string;
+    description: string;
 }
+

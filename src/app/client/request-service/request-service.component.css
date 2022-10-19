@@ -65,3 +65,36 @@ button {
 button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
     color: white;
 }
+
+
+    
+@media only screen and (max-width: 900px) {
+
+    .guion {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    mat-form-field {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        padding: 1vh 3vh 0.5vh 3vh;
+    }
+    button {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    .card .r-time  {
+        width: 23vw;
+    }
+
+    .card{
+        flex-direction: column;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+
+    .card{
+        font-size: smaller;
+    }
+}

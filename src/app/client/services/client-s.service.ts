@@ -11,7 +11,7 @@ export class ClientSService {
   url : string = "http://localhost:3000/api/v1";
 
   addOffer(offer:any) {
-    return this.http.post(`${this.url}/offer-contracts`, offer);
+    return this.http.post(`${this.url}/offerContracts`, offer);
   }
 
 

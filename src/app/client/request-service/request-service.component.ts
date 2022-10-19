@@ -16,14 +16,14 @@ export class RequestServiceComponent implements OnInit {
   request: RequestForm;
 
   requestServiceForm: FormGroup;
-  type: string;
+  typeofService: string;
 
   constructor(
     public formBuilder: FormBuilder, 
     private clientService: ClientSService,
     private router:Router,
     public dialog: MatDialog)  { 
-    this.type = ''
+    this.typeofService = ''
 
     this.request = {} as RequestForm;
 
@@ -31,6 +31,7 @@ export class RequestServiceComponent implements OnInit {
       regionFrom: ['', { validators: [Validators.required], updatedOn: 'change' }],
       regionTo: ['', { validators: [Validators.required], updatedOn: 'change' }],
       date: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      type: ['', { validators: [Validators.required], updatedOn: 'change' }],
       quantity: ['', { validators: [Validators.required], updatedOn: 'change' }],
       timeStart: ['', { validators: [Validators.required], updatedOn: 'change' }],
       timeFinish: ['', { validators: [Validators.required], updatedOn: 'change' }],
@@ -41,6 +42,12 @@ export class RequestServiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dialog.open(ContractDialogComponent, {
+          width: '30vw',
+          data: {
+            message:
+              'The driver has been notified',
+          }})
   }
 
   get regionFrom() {
@@ -51,6 +58,9 @@ export class RequestServiceComponent implements OnInit {
   }
   get date() {
     return this.requestServiceForm.get('date');
+  }
+  get type() {
+    return this.requestServiceForm.get('type');
   }
   get quantity() {
     return this.requestServiceForm.get('quantity');
@@ -73,6 +83,7 @@ export class RequestServiceComponent implements OnInit {
 
   registerOffer(){
     this.formToRequest();
+
     this.clientService.addOffer(this.request).subscribe(
       res => {
         console.log(res);
@@ -82,14 +93,9 @@ export class RequestServiceComponent implements OnInit {
           data: {
             message:
               'The driver has been notified',
-          },
+          }
         })
         //this.router.navigate(['/search']);
-        
-        
-        
-        
-
       }
     )
     
@@ -99,16 +105,19 @@ export class RequestServiceComponent implements OnInit {
   }
 
   formToRequest(){
-    this.request.driver_id = 5;
+    let clientId = localStorage.getItem('currentUser');
+    this.request.driverId = 5;
+    this.request.clientId = clientId;
     this.request.from = this.requestServiceForm.value.regionFrom;
     this.request.to = this.requestServiceForm.value.regionTo;
     this.request.date = this.requestServiceForm.value.date;
+    this.request.type = this.requestServiceForm.value.type;
     this.request.quantity = this.requestServiceForm.value.quantity;
-    this.request.time_departure = this.requestServiceForm.value.timeStart;
-    this.request.time_arrival = this.requestServiceForm.value.timeFinish;
+    this.request.timeDeparture = this.requestServiceForm.value.timeStart;
+    this.request.timeArrival = this.requestServiceForm.value.timeFinish;
     this.request.amount = this.requestServiceForm.value.amount;
-    this.request.description = this.requestServiceForm.value.description;
     this.request.subject = this.requestServiceForm.value.subject;
+    this.request.description = this.requestServiceForm.value.description;
   }
 
   onSubmit() {
