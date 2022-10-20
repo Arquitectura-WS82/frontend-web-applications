@@ -41,10 +41,10 @@
 
         <mat-card *ngFor="let _contract of contracts_user.slice(0,2)">
             <div class="inline-block">
-                <img mat-card-avatar [src]=_contract.client.photo alt="User Avatar">
+                <img mat-card-avatar [src]=_contract.driver.photo alt="User Avatar">
             </div>
             <div class="inline-block info_text">
-                <mat-card-title>{{_contract.client.username}}</mat-card-title>
+                <mat-card-title>{{_contract.driver.name}}</mat-card-title>
                 <mat-card-content>From {{_contract.from}}</mat-card-content>
                 <mat-card-content>To {{_contract.to}}</mat-card-content>
             </div>
