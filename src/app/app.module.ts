@@ -49,6 +49,7 @@ import { MyProfileCComponent } from './client/my-profile-c/my-profile-c.componen
 
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
 import { RequestServiceComponent } from './client/request-service/request-service.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -75,6 +76,7 @@ import { RequestServiceComponent } from './client/request-service/request-servic
     SearchVehicleComponent,
     FootersComponent,
     RequestServiceComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

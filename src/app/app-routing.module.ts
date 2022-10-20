@@ -13,7 +13,7 @@ import { MyProfileCComponent } from './client/my-profile-c/my-profile-c.componen
 import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
 import { SearchVehicleComponent } from './client/search-vehicle/search-vehicle.component';
 import { RequestServiceComponent } from './client/request-service/request-service.component';
-
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'my-profile-c', component: MyProfileCComponent },
   { path: 'my-profile-d', component: MyProfileDComponent },
   { path: 'request-service', component: RequestServiceComponent },
+  { path: 'profile/:id', component: ProfileComponent },
 
 
 ];
