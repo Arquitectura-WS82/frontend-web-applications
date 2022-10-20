@@ -132,20 +132,6 @@
       "status": "rejected"
     },
     {
-      "id": 2,
-      "clientId": 1,
-      "driverId": 5,
-      "subject": "School Tour",
-      "from": "Marañon, Los Olivos",
-      "to": "Fortaleza del Real Felipe, Callao",
-      "date": "12/06/2022",
-      "timeDeparture": "8:00",
-      "timeArrival": "17:00",
-      "quantity": 30,
-      "amount": 1400,
-      "status": "waiting"
-    },
-    {
       "driverId": 5,
       "clientId": 1,
       "from": "Breña",
@@ -214,7 +200,8 @@
       "timeDeparture": "10:00",
       "timeArrival": "17:00",
       "quantity": 5,
-      "amount": 300
+      "amount": 300,
+      "status": "rejected"
     },
     {
       "id": 2,
@@ -227,7 +214,8 @@
       "timeDeparture": "9:00",
       "timeArrival": "18:00",
       "quantity": 10,
-      "amount": 1500
+      "amount": 1500,
+      "status": "waiting"
     }
   ],
   "historyContracts": [
@@ -266,15 +254,6 @@
       "to": "Chosica",
       "date": "10/08/2022",
       "amount": 500
-    },
-    {
-      "id": 5,
-      "driverId": 1,
-      "clientId": 2,
-      "from": "Chorrillos",
-      "to": "Carabayllo",
-      "date": "01/07/22",
-      "amount": 300
     }
   ],
   "jobs": [
@@ -288,13 +267,6 @@
     {
       "id": 2,
       "driverId": 5,
-      "job": "Tourism driver in “Turismo Peru”",
-      "time": "10 years",
-      "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
-    },
-    {
-      "id": 3,
-      "driverId": 2,
       "job": "Tourism driver in “Turismo Peru”",
       "time": "10 years",
       "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
@@ -314,61 +286,14 @@
       "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "clientId": 5,
-      "driverId": 12,
-      "comment": "Good Service",
-      "photoCom": "https://i.postimg.cc/cHp2Q8zq/comment-1.png",
-      "stars": 5
-    },
-    {
-      "id": 2,
-      "clientId": 5,
-      "driverId": 13,
-      "comment": "Highly recommended, on time.",
-      "photoCom": "https://i.postimg.cc/5tkZ2rq2/comment-2.png",
-      "stars": 5
-    },
-    {
-      "id": 3,
-      "clientId": 5,
-      "driverId": 14,
-      "comment": "The best transport service ever.",
-      "photoCom": "https://i.postimg.cc/1tnbnKJc/comment-3.png",
-      "stars": 4
-    },
-    {
-      "id": 4,
-      "clientId": 5,
-      "driverId": 15,
-      "comment": "Good experience.",
-      "photoCom": "https://i.postimg.cc/hvVwMtFX/comment-4.png",
-      "stars": 5
-    }
-  ],
+  "comments": [],
   "vehicles": [
-    {
-      "id": 1,
-      "driverId": 1,
-      "typeOfCar": "Truck",
-      "quantity": 200,
-      "category": "charge"
-    },
     {
       "id": 2,
       "driverId": 4,
       "typeOfCar": "Bus",
       "quantity": 20,
       "category": "transport"
-    },
-    {
-      "id": 3,
-      "driverId": 3,
-      "typeOfCar": "Truck",
-      "quantity": 100,
-      "category": "moving"
     }
   ],
   "clientNotifications": [
@@ -378,13 +303,6 @@
       "pendingContractId": 2,
       "type": "accepted",
       "status": "unread"
-    },
-    {
-      "id": 2,
-      "clientId": 4,
-      "offerContractId": 1,
-      "type": "rejected",
-      "status": "read"
     },
     {
       "id": 3,
@@ -408,16 +326,5 @@
       "status": "unread"
     }
   ],
-  "driverNotifications": [
-    {
-      "id": 1,
-      "driverId": 3,
-      "offerContractsId": 3
-    },
-    {
-      "id": 2,
-      "driverId": 4,
-      "offerContractsId": 2
-    }
-  ]
+  "driverNotifications": []
 }
