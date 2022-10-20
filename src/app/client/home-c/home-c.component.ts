@@ -56,19 +56,19 @@ export class HomeCComponent implements OnInit {
   }
 
   getRanked() {
-    return this.http.get(`${this.basePath}best_ranked`);
+    return this.http.get(`${this.basePath}drivers?_sort=rating&_order=desc`);
   }
 
   getContralct(id:any) {
-    return this.http.get(`${this.basePath}best_ranked`);
+    return this.http.get(`${this.basePath}drivers?_sort=rating&_order=desc`);
   }
 
   getUser(id: any) {
-    return this.http.get(`${this.basePath}users?id=${id}`);
+    return this.http.get(`${this.basePath}clients?id=${id}`);
   }
 
   getContract(id:any):Observable<any>{
-    return this.http.get<any>(`${this.basePath}history-contracts?client_id=${id}`, this.httpOptions).
+    return this.http.get<any>(`${this.basePath}historyContracts?clientId=${id}`, this.httpOptions).
     pipe(
       retry(2));
   }

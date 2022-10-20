@@ -12,7 +12,9 @@ import { ForgotPasswordComponent } from './login/pages/password/forgot-password/
 import { MyProfileCComponent } from './client/my-profile-c/my-profile-c.component';
 import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
 import { SearchVehicleComponent } from './client/search-vehicle/search-vehicle.component';
+import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
 import { RequestServiceComponent } from './client/request-service/request-service.component';
+
 
 
 const routes: Routes = [
@@ -29,6 +31,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'my-profile-c', component: MyProfileCComponent },
   { path: 'my-profile-d', component: MyProfileDComponent },
+  { path: 'end-contract', component: EndContractComponent },
   { path: 'request-service', component: RequestServiceComponent },
 
 
