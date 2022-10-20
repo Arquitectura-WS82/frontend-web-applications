@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { catchError, retry, throwError } from 'rxjs';
+import { CardClient } from '../../models/Card/card';
 
 interface Vehicle {
   value: string;
@@ -15,11 +16,17 @@ interface Vehicle {
   styleUrls: ['./add-card.component.css']
 })
 export class AddCardComponent implements OnInit {
-  user_id= 1;
-  Cards_user: Array<any> = [];
+  
+
+  Card_client: CardClient
+
+  user_id: any;
+  IsCliente:boolean;
+  // Cards_user: Array<any> = [];
   form: any;
   AddForm: FormGroup;
   filteredVehicules: any;
+  
 
   searchForm: FormGroup = this.formBuilder.group({
     Type_s: ['Bus', {updateOn: 'change' }],
@@ -42,6 +49,8 @@ export class AddCardComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder, public formBuilder: FormBuilder, private http: HttpClient, private router:Router) { 
+    this.Card_client ={} as CardClient;
+    this.IsCliente= true;
     this.AddForm = this.formBuilder.group({
       region: ['', { validators: [Validators.required], updatedOn: 'change' }],
       phone: ['', { updatedOn: 'change' }],
@@ -71,10 +80,12 @@ export class AddCardComponent implements OnInit {
       'Something bad happened; please try again later.');
   }
   ngOnInit(): void {
-    this.getCards(this.user_id).subscribe((data: any) => {
-      this.Cards_user = data;
-      console.log(data);
-    });
+    this.user_id=localStorage.getItem('currentUser')
+
+    // this.getCards(this.user_id).subscribe((data: any) => {
+    //   this.Cards_user = data;
+    //   console.log(data);
+    // });
     this.setPhoneValidation();
     // this.form = this.fb.group({
     //   creditCard: [],
@@ -82,9 +93,9 @@ export class AddCardComponent implements OnInit {
     //   creditCardCvv: [],
     // });
   }
-  getCards(id: any) {
-    return this.http.get(`${this.basePath}cards?id=${id}`);
-  }
+  // getCards(id: any) {
+  //   return this.http.get(`${this.basePath}cards?id=${id}`);
+  // }
   get region() {
     return this.AddForm.get('region');
   }
@@ -125,6 +136,32 @@ export class AddCardComponent implements OnInit {
   setPhoneValidation() {
     const phoneControl = this.AddForm.get('phone');
     phoneControl?.setValidators([Validators.pattern('^[0-9]*$'), Validators.required]);
+  }
+  registerData() {
+    this.formToCard();
+    console.log(this.Card_client);
+    this.http.post<CardClient>(`${this.basePath}paymentMethod2`, this.Card_client, this.httpOptions).subscribe(
+      (res) => {
+        console.log(res);
+        alert("Registro exitoso");
+      }
+    );
+    // this.router.navigate(['/login']);
+
+  }
+  formToCard() {
+    this.Card_client.email = this.AddForm.value.email;
+    this.Card_client.cvv = this.AddForm.value.CVV;
+    this.Card_client.ClientId = this.user_id;
+    this.Card_client.holderName = this.AddForm.value.name;
+    this.Card_client.cardNumber = this.AddForm.value.Number_Card;
+    this.Card_client.expirationDate = this.AddForm.value.Date;
+    this.Card_client.phone = this.AddForm.value.phone;
+    this.Card_client.typeOfCard = this.AddForm.value.type;
+    this.Card_client.postalCodeZip = this.AddForm.value.postal;
+    this.Card_client.title = this.AddForm.value.title;
+    console.log(this.Card_client.email);
+    console.log(this.AddForm.value.title);
   }
   // listSearch() {
   //   this.getVehicules().subscribe((data: any) => {

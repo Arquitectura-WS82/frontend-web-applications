@@ -39,7 +39,7 @@
       "region": "Callao, Lima",
       "password": "ahorasiseoculta",
       "typeofuser": "driver",
-      "photo_auto":"https://www.mercedes-benz-trucks.com/content/dam/mbo/markets/hq_HQ/model-navigation-images/proven/modelthumb-actros-fv-proven.png"
+      "photo_auto": "https://www.mercedes-benz-trucks.com/content/dam/mbo/markets/hq_HQ/model-navigation-images/proven/modelthumb-actros-fv-proven.png"
     },
     {
       "id": 5,
@@ -86,429 +86,436 @@
     }
   ],
   "best_ranked": [
-
-{
-  "id": 4,
-  "name": "Oscar Favio",
-  "last_name": "Suarez Agostini",
-  "username": "Oscar",
-  "email": "osc.suarez@gmail.com",
-  "password": "ahorasiseoculta",
-  "photo": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
-  "typeofuser": "driver",
-  "phone": "98766221",
-  "region": "Callao, Lima",
-  "type": "Cargo Truck",
-  "rating": 5
-
-},
-{
-  "id": 5,
-  "name": "Mario Andy",
-  "last_name": "Gomez Gutierrez",
-  "username": "Mario Gomez",
-  "photo": "https://i.postimg.cc/tTFyyJjz/user.png",
-  "age": "41",
-  "email": "mariogomez@gmail.com",
-  "phone": "987654321",
-  "region": "Carabayllo, Lima",
-  "description": "Hello. My name is Mario and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
-  "password": "123456",
-  "typeofuser": "driver",
-  "type": "Cargo Truck",
-  "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png",
-  "rating": 5
-
-}
-
-    
-
-  ],
-  "offer-contracts": [
-      {
-        "driver_id": 5,
-        "subject": "Tourist visit",
-        "from": "Avenida Arica 601 Lima 05, Breña 15083",
-        "to": "Ciudad de Caral, Lomas de Lachay",
-        "date": "21/10/2022",
-        "time": {
-          "departure": "8:00",
-          "arrival": "20:00"
-        },
-        "quantity": 15,
-        "client": {
-          "username": "Lili Ramos",
-          "phone": "998 877 665",
-          "photo": "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        "amount": 1560
-      },
-      {
-        "driver_id": 5,
-        "subject": "School Tour",
-        "from": "Marañon, Los Olivos",
-        "to": "Fortaleza del Real Felipe, Callao",
-        "date": "12/06/2022",
-        "time": {
-          "departure": "8:00",
-          "arrival": "17:00"
-        },
-        "quantity": 30,
-        "client": {
-          "username": "Lourdes Quispe",
-          "phone": "923 231 084",
-          "photo": "https://images.unsplash.com/photo-1518577915332-c2a19f149a75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=862&q=80"
-        },
-        "amount": 1400
-      }
-  ],
-  "pending-contracts": [
-      {
-        "driver_id": 5,
-        "subject": "Tourism in Barranca",
-        "from": "La Victoria, Lima",
-        "to": "Barranca",
-        "date": "21/09/2022",
-        "time": {
-          "departure": "10:00",
-          "arrival": "17:00"
-        },
-        "quantity": 5,
-        "client": {
-          "id": 1,
-          "username": "Raul Alvarez",
-          "phone": "912 123 456",
-          "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        "amount": 300
-      },
-      {
-        "driver_id": 5,
-        "subject": "School Visit",
-        "from": "Ancon, Lima",
-        "to": "Chosica",
-        "date": "15/10/2022",
-        "time": {
-          "departure": "9:00",
-          "arrival": "18:00"
-        },
-        "quantity": 10,
-        "client": {
-          "username": "Sara Flores",
-          "phone": "974 515 769",
-          "photo": "https://images.unsplash.com/photo-1530577197743-7adf14294584?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80"
-        },
-        "amount": 1500
-      }
-  ],
-  "history-contracts": [
-      {
-        "driver_id": 5,
-        "client_id": 1,
-        "from": "Independencia",
-        "to": "Chosica",
-        "date": "10/08/2022",
-        "client": {
-          "username": "Lilia Ramos",
-          "photo": "https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        "amount": 500
-      },
-      {
-        "driver_id": 5,
-        "client_id": 1,
-        "from": "Chorrillos",
-        "to": "Carabayllo",
-        "date": "01/07/22",
-        "client": {
-          "username": "Kyadae Jett",
-          "photo": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        "amount": 300
-      },
-      {
-        "driver_id": 5,
-        "client_id": 1,
-        "from": "San Miguel",
-        "to": "Barranca",
-        "date": "12/08/2022",
-        "client": {
-          "username": "Carlos Lopez",
-          "photo": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        "amount": 750
-      },
-      {
-        "driver_id": 4,
-        "client_id": 2,
-        "from": "Independencia",
-        "to": "Chosica",
-        "date": "10/08/2022",
-        "client": {
-          "username": "Lilia Ramos",
-          "photo": "https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        "amount": 500
-      },
-      {
-        "driver_id": 4,
-        "client_id": 2,
-        "from": "Chorrillos",
-        "to": "Carabayllo",
-        "date": "01/07/22",
-        "client": {
-          "username": "Kyadae Jett",
-          "photo": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        "amount": 300
-      }
-  ],
-  "jobs": [
-    {
-      "id": 5,
-      "job": "Tourism driver in “Turismo Peru”",
-      "time": "10 years",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
-    },
-    {
-      "id": 5,
-      "job": "Tourism driver in “Turismo Peru”",
-      "time": "10 years",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
-    },
-    {
-      "id": 2,
-      "job": "Tourism driver in “Turismo Peru”",
-      "time": "10 years",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
-    },
     {
       "id": 4,
-      "job": "Truck Driver in “Cargo Peru",
-      "time": "4 years",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+      "name": "Oscar Favio",
+      "last_name": "Suarez Agostini",
+      "username": "Oscar",
+      "email": "osc.suarez@gmail.com",
+      "password": "ahorasiseoculta",
+      "photo": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
+      "typeofuser": "driver",
+      "phone": "98766221",
+      "region": "Callao, Lima",
+      "type": "Cargo Truck",
+      "rating": 5
     },
     {
-      "id":4,
-      "job": "Truck Driver in “Cargo Peru",
-      "time": "7 years",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+      "id": 5,
+      "name": "Mario Andy",
+      "last_name": "Gomez Gutierrez",
+      "username": "Mario Gomez",
+      "photo": "https://i.postimg.cc/tTFyyJjz/user.png",
+      "age": "41",
+      "email": "mariogomez@gmail.com",
+      "phone": "987654321",
+      "region": "Carabayllo, Lima",
+      "description": "Hello. My name is Mario and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
+      "password": "123456",
+      "typeofuser": "driver",
+      "type": "Cargo Truck",
+      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png",
+      "rating": 5
     }
   ],
-  "comments": [
+  "offer-contracts": [
     {
-      "id_to": 5,
-      "id_from": 12,
-      "name": "Alejandra Mesa",
-      "comment": "Good Service",
-      "photo_com": "https://i.postimg.cc/cHp2Q8zq/comment-1.png",
-      "stars": 5
+      "driver_id": 5,
+      "subject": "Tourist visit",
+      "from": "Avenida Arica 601 Lima 05, Breña 15083",
+      "to": "Ciudad de Caral, Lomas de Lachay",
+      "date": "21/10/2022",
+      "time": {
+        "departure": "8:00",
+        "arrival": "20:00"
+      },
+      "quantity": 15,
+      "client": {
+        "username": "Lili Ramos",
+        "phone": "998 877 665",
+        "photo": "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+      },
+      "amount": 1560
     },
     {
-      "id_to": 5,
-      "id_from": 13,
-      "name": "Carlos Morales",
-      "comment": "Highly recommended, on time.",
-      "photo_com": "https://i.postimg.cc/5tkZ2rq2/comment-2.png",
-      "stars": 5
+      "driver_id": 5,
+      "subject": "School Tour",
+      "from": "Marañon, Los Olivos",
+      "to": "Fortaleza del Real Felipe, Callao",
+      "date": "12/06/2022",
+      "time": {
+        "departure": "8:00",
+        "arrival": "17:00"
+      },
+      "quantity": 30,
+      "client": {
+        "username": "Lourdes Quispe",
+        "phone": "923 231 084",
+        "photo": "https://images.unsplash.com/photo-1518577915332-c2a19f149a75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=862&q=80"
+      },
+      "amount": 1400
+    }
+  ],
+  "pending-contracts": [
+    {
+      "driver_id": 5,
+      "subject": "Tourism in Barranca",
+      "from": "La Victoria, Lima",
+      "to": "Barranca",
+      "date": "21/09/2022",
+      "time": {
+        "departure": "10:00",
+        "arrival": "17:00"
+      },
+      "quantity": 5,
+      "client": {
+        "id": 1,
+        "username": "Raul Alvarez",
+        "phone": "912 123 456",
+        "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+      },
+      "amount": 300
     },
     {
-      "id_to": 5,
-      "id_from": 14,
-      "name": "Cristiano Ramirez",
-      "comment": "The best transport service ever.",
-      "photo_com": "https://i.postimg.cc/1tnbnKJc/comment-3.png",
-      "stars": 4
+      "driver_id": 5,
+      "subject": "School Visit",
+      "from": "Ancon, Lima",
+      "to": "Chosica",
+      "date": "15/10/2022",
+      "time": {
+        "departure": "9:00",
+        "arrival": "18:00"
+      },
+      "quantity": 10,
+      "client": {
+        "username": "Sara Flores",
+        "phone": "974 515 769",
+        "photo": "https://images.unsplash.com/photo-1530577197743-7adf14294584?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80"
+      },
+      "amount": 1500
+    }
+  ],
+  "history-contracts": [
+    {
+      "driver_id": 5,
+      "client_id": 1,
+      "from": "Independencia",
+      "to": "Chosica",
+      "date": "10/08/2022",
+      "client": {
+        "username": "Lilia Ramos",
+        "photo": "https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+      },
+      "amount": 500
     },
     {
-      "id_to": 5,
-      "id_from": 15,
-      "name": "Cristina Alvarez",
-      "comment": "Good experience.",
-      "photo_com": "https://i.postimg.cc/hvVwMtFX/comment-4.png",
-      "stars": 5
+      "driver_id": 5,
+      "client_id": 1,
+      "from": "Chorrillos",
+      "to": "Carabayllo",
+      "date": "01/07/22",
+      "client": {
+        "username": "Kyadae Jett",
+        "photo": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+      },
+      "amount": 300
+    },
+    {
+      "driver_id": 5,
+      "client_id": 1,
+      "from": "San Miguel",
+      "to": "Barranca",
+      "date": "12/08/2022",
+      "client": {
+        "username": "Carlos Lopez",
+        "photo": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+      },
+      "amount": 750
+    },
+    {
+      "driver_id": 4,
+      "client_id": 2,
+      "from": "Independencia",
+      "to": "Chosica",
+      "date": "10/08/2022",
+      "client": {
+        "username": "Lilia Ramos",
+        "photo": "https://images.unsplash.com/photo-1499887142886-791eca5918cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+      },
+      "amount": 500
+    },
+    {
+      "driver_id": 4,
+      "client_id": 2,
+      "from": "Chorrillos",
+      "to": "Carabayllo",
+      "date": "01/07/22",
+      "client": {
+        "username": "Kyadae Jett",
+        "photo": "https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+      },
+      "amount": 300
     }
   ],
   "carriers": [
     {
-        "id": 4,
-        "name": "Jean Carlos",
-        "photo_url": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
-        "type": "Bus",
-        "size": 15,
-        "Document": "NO",
-        "rating": 5,
-        "description": "Hello. My name is Jean Carlos and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
+      "id": 4,
+      "name": "Jean Carlos",
+      "photo_url": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
+      "type": "Bus",
+      "size": 15,
+      "Document": "NO",
+      "rating": 5,
+      "description": "Hello. My name is Jean Carlos and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
     },
     {
-        "id": 5,
-        "name": "Mario Gomez",
-        "photo_url": "https://i.postimg.cc/tTFyyJjz/user.png",
-        "type": "Bus",
-        "size": 15,
-        "Document": "YES",
-        "rating": 5,
-        "description": "Hello. My name is Mario Gomez and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
-
+      "id": 5,
+      "name": "Mario Gomez",
+      "photo_url": "https://i.postimg.cc/tTFyyJjz/user.png",
+      "type": "Bus",
+      "size": 15,
+      "Document": "YES",
+      "rating": 5,
+      "description": "Hello. My name is Mario Gomez and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
     },
     {
-        "id": 3,
-        "name": "Raul Sanciento",
-        "photo_url": "https://media.istockphoto.com/photos/happy-driver-driving-bus-and-snowing-thumbs-up-picture-id529420242?k=20&m=529420242&s=612x612&w=0&h=95-KvHZHyOovlozAcR5gtwttqOZ1iFD18aFIGdYDob0=",
-        "type": "Bus",
-        "size": 15,
-        "Document": "YES",
-        "rating": 4,
-        "description": "Hello. My name is Raul Sanciento and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
-
+      "id": 3,
+      "name": "Raul Sanciento",
+      "photo_url": "https://media.istockphoto.com/photos/happy-driver-driving-bus-and-snowing-thumbs-up-picture-id529420242?k=20&m=529420242&s=612x612&w=0&h=95-KvHZHyOovlozAcR5gtwttqOZ1iFD18aFIGdYDob0=",
+      "type": "Bus",
+      "size": 15,
+      "Document": "YES",
+      "rating": 4,
+      "description": "Hello. My name is Raul Sanciento and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
     }
   ],
-  "cards": [
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    },
-    {
-      "id":1,
-      "title":"Main Purchase",
-      "Type": "Visa",
-      "Number_Card": 1000000000000000,
-      "Date": "10/20",
-      "CVV": 123,
-      "Number_Phone": 987654321,
-      "Direction": "Av.Palmas 240",
-      "Postal": 541,
-      "E_mail": "manuel.rodirguez@gmail.com"
-    }
-    
-  ]
 
+  "paymentMethod": [
+    {
+      "id": 1,
+      "userId": 2,
+      "holderName": "Jose",
+      "cardNumber": 31247124812,
+      "cvv": 123,
+      "expirationDate": "12/24",
+      "typeOfCard": "visa",
+      "postalCodeZip": 12,
+      "email": "test@test.com",
+      "phone": 12312314,
+      "title": "Main"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "holderName": "Maria",
+      "cardNumber": 1231412412,
+      "cvv": 321,
+      "expirationDate": "12/25",
+      "typeOfCard": "visa",
+      "postalCodeZip": 25,
+      "email": "test@test2.com",
+      "phone": 120751274,
+      "title": "Main"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "holderName": "Maria",
+      "cardNumber": 1231412412,
+      "cvv": 321,
+      "expirationDate": "12/25",
+      "typeOfCard": "visa",
+      "postalCodeZip": 25,
+      "email": "test@test2.com",
+      "phone": 120751274,
+      "title": "Second"
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "holderName": "Jose",
+      "cardNumber": 31247124812,
+      "cvv": 123,
+      "expirationDate": "12/24",
+      "typeOfCard": "visa",
+      "postalCodeZip": 12,
+      "email": "test@test.com",
+      "phone": 12312314,
+      "title": "Third"
+    },
+    {
+      "email": "qewqweqw@gmail.com",
+      "cvv": "313321",
+      "userId": "1",
+      "holderName": "asdasdas",
+      "cardNumber": "23112312",
+      "expirationDate": "123123",
+      "phone": "213123123",
+      "typeOfCard": "Mastercard",
+      "postalCodeZip": "23123",
+      "title": "dasdas",
+      "id": 6
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "clientId": 5,
+      "driverId": 12,
+      "comment": "Good Service",
+      "photoCom": "https://i.postimg.cc/cHp2Q8zq/comment-1.png",
+      "stars": 5
+    },
+    {
+      "id": 2,
+      "clientId": 5,
+      "driverId": 13,
+      "comment": "Highly recommended, on time.",
+      "photoCom": "https://i.postimg.cc/5tkZ2rq2/comment-2.png",
+      "stars": 5
+    },
+    {
+      "id": 3,
+      "clientId": 5,
+      "driverId": 14,
+      "comment": "The best transport service ever.",
+      "photoCom": "https://i.postimg.cc/1tnbnKJc/comment-3.png",
+      "stars": 4
+    },
+    {
+      "id": 4,
+      "clientId": 5,
+      "driverId": 15,
+      "comment": "Good experience.",
+      "photoCom": "https://i.postimg.cc/hvVwMtFX/comment-4.png",
+      "stars": 5
+    }
+  ],
+  "jobs": [
+    {
+      "id": 1,
+      "driverId": 5,
+      "job": "Tourism driver in “Turismo Peru”",
+      "time": "10 years",
+      "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    },
+    {
+      "id": 2,
+      "driverId": 5,
+      "job": "Tourism driver in “Turismo Peru”",
+      "time": "10 years",
+      "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    },
+    {
+      "id": 3,
+      "driverId": 2,
+      "job": "Tourism driver in “Turismo Peru”",
+      "time": "10 years",
+      "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    },
+    {
+      "id": 4,
+      "driverId": 4,
+      "job": "Truck Driver in “Cargo Peru",
+      "time": "4 years",
+      "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    },
+    {
+      "id": 5,
+      "driverId": 4,
+      "job": "Truck Driver in “Cargo Peru",
+      "time": "7 years",
+      "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "driverId": 1,
+      "typeOfCar": "Truck",
+      "quantity": 200,
+      "category": "charge"
+    },
+    {
+      "id": 2,
+      "driverId": 4,
+      "typeOfCar": "Bus",
+      "quantity": 20,
+      "category": "transport"
+    },
+    {
+      "id": 3,
+      "driverId": 3,
+      "typeOfCar": "Truck",
+      "quantity": 100,
+      "category": "moving"
+    }
+  ],
+  "paymentMethod2": [
+    {
+      "id": 1,
+      "ClientId": 1,
+      "holderName": "Jose",
+      "cardNumber": 31247124812,
+      "cvv": 123,
+      "expirationDate": "12/24",
+      "typeOfCard": "visa",
+      "postalCodeZip": 12,
+      "email": "test@test.com",
+      "phone": 12312314,
+      "title": "Main"
+    },
+    {
+      "id": 2,
+      "ClientId": 1,
+      "holderName": "Maria",
+      "cardNumber": 1231412412,
+      "cvv": 321,
+      "expirationDate": "12/25",
+      "typeOfCard": "visa",
+      "postalCodeZip": 25,
+      "email": "test@test2.com",
+      "phone": 120751274,
+      "title": "Main"
+    },
+    {
+      "id": 3,
+      "DriverId": 2,
+      "holderName": "Maria",
+      "cardNumber": 1231412412,
+      "cvv": 321,
+      "expirationDate": "12/25",
+      "typeOfCard": "visa",
+      "postalCodeZip": 25,
+      "email": "test@test2.com",
+      "phone": 120751274,
+      "title": "Second"
+    },
+    {
+      "id": 4,
+      "DriverId": 2,
+      "holderName": "Jose",
+      "cardNumber": 31247124812,
+      "cvv": 123,
+      "expirationDate": "12/24",
+      "typeOfCard": "visa",
+      "postalCodeZip": 12,
+      "email": "test@test.com",
+      "phone": 12312314,
+      "title": "Third"
+    },
+    {
+      "email": "qewqweqw@gmail.com",
+      "cvv": "313321",
+      "DriverId": "1",
+      "holderName": "asdasdas",
+      "cardNumber": "23112312",
+      "expirationDate": "123123",
+      "phone": "213123123",
+      "typeOfCard": "Mastercard",
+      "postalCodeZip": "23123",
+      "title": "dasdas",
+      "id": 6
+    }
+  ]
 }

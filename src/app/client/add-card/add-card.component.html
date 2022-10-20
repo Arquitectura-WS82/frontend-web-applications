@@ -139,19 +139,8 @@
                 
                 </div>
             </div>
-            <button mat-raised-button [disabled]="!AddForm.valid" color="accent">Create</button>
+            <button mat-raised-button (click)="registerData()" color="accent">Create</button>
                 <button mat-raised-button [routerLink]="'/setting'" color="warn">Cancel</button>
-
-
-
-
-
-
-
-
-
-
-
         </form>
         
     </div>
