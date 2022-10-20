@@ -4,50 +4,68 @@ import { RequestForm } from 'src/app/models/request-form/request-form';
 import { ClientSService } from 'src/app/client/services/client-s.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { ContractDialogComponent } from 'src/app/driver/components/contract-dialog/contract-dialog.component';
+import { ContractDialogComponent } from 'src/app/components/contract-dialog/contract-dialog.component';
 
 @Component({
   selector: 'app-request-service',
   templateUrl: './request-service.component.html',
-  styleUrls: ['./request-service.component.css']
+  styleUrls: ['./request-service.component.css'],
 })
 export class RequestServiceComponent implements OnInit {
-
   request: RequestForm;
 
   requestServiceForm: FormGroup;
   typeofService: string;
 
   constructor(
-    public formBuilder: FormBuilder, 
+    public formBuilder: FormBuilder,
     private clientService: ClientSService,
-    private router:Router,
-    public dialog: MatDialog)  { 
-    this.typeofService = ''
+    private router: Router,
+    public dialog: MatDialog
+  ) {
+    this.typeofService = '';
 
     this.request = {} as RequestForm;
 
     this.requestServiceForm = this.formBuilder.group({
-      regionFrom: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      regionTo: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      regionFrom: [
+        '',
+        { validators: [Validators.required], updatedOn: 'change' },
+      ],
+      regionTo: [
+        '',
+        { validators: [Validators.required], updatedOn: 'change' },
+      ],
       date: ['', { validators: [Validators.required], updatedOn: 'change' }],
       type: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      quantity: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      timeStart: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      timeFinish: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      quantity: [
+        '',
+        { validators: [Validators.required], updatedOn: 'change' },
+      ],
+      timeStart: [
+        '',
+        { validators: [Validators.required], updatedOn: 'change' },
+      ],
+      timeFinish: [
+        '',
+        { validators: [Validators.required], updatedOn: 'change' },
+      ],
       amount: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      description: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      description: [
+        '',
+        { validators: [Validators.required], updatedOn: 'change' },
+      ],
       subject: ['', { validators: [Validators.required], updatedOn: 'change' }],
-    })
+    });
   }
 
   ngOnInit(): void {
     this.dialog.open(ContractDialogComponent, {
-          width: '30vw',
-          data: {
-            message:
-              'The driver has been notified',
-          }})
+      width: '30vw',
+      data: {
+        message: 'The driver has been notified',
+      },
+    });
   }
 
   get regionFrom() {
@@ -81,30 +99,25 @@ export class RequestServiceComponent implements OnInit {
     return this.requestServiceForm.get('subject');
   }
 
-  registerOffer(){
+  registerOffer() {
     this.formToRequest();
 
-    this.clientService.addOffer(this.request).subscribe(
-      res => {
-        console.log(res);
-        //alert("Registro exitoso");
-        this.dialog.open(ContractDialogComponent, {
-          width: '30vw',
-          data: {
-            message:
-              'The driver has been notified',
-          }
-        })
-        //this.router.navigate(['/search']);
-      }
-    )
-    
+    this.clientService.addOffer(this.request).subscribe((res) => {
+      console.log(res);
+      //alert("Registro exitoso");
+      this.dialog.open(ContractDialogComponent, {
+        width: '30vw',
+        data: {
+          message: 'The driver has been notified',
+        },
+      });
+      //this.router.navigate(['/search']);
+    });
+
     //this.router.navigate(['/home-c']);
-    
-    
   }
 
-  formToRequest(){
+  formToRequest() {
     let clientId = localStorage.getItem('currentUser');
     this.request.driverId = 5;
     this.request.clientId = clientId;
@@ -123,6 +136,4 @@ export class RequestServiceComponent implements OnInit {
   onSubmit() {
     console.log(this.requestServiceForm.valid);
   }
-
-
 }
