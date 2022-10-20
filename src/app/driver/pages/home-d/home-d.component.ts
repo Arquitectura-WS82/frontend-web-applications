@@ -56,19 +56,19 @@ export class HomeDComponent implements OnInit {
   }
 
   getRanked() {
-    return this.http.get(`${this.basePath}best_ranked`);
+    return this.http.get(`${this.basePath}drivers?_sort=rating&_order=desc`);
   }
 
   getContralct(id:any) {
-    return this.http.get(`${this.basePath}best_ranked`);
+    return this.http.get(`${this.basePath}drivers?_sort=rating&_order=desc`);
   }
 
   getUser(id: any) {
-    return this.http.get(`${this.basePath}users?id=${id}`);
+    return this.http.get(`${this.basePath}drivers?id=${id}`);
   }
 
   getContract(id:any):Observable<any>{
-    return this.http.get<any>(`${this.basePath}history-contracts?driver_id=${id}`, this.httpOptions).
+    return this.http.get<any>(`${this.basePath}historyContracts?_expand=client&driverId=${id}`, this.httpOptions).
     pipe(
       retry(2));
   }

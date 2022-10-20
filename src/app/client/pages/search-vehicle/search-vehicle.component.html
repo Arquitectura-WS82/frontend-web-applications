@@ -44,17 +44,17 @@
             <div *ngIf="filteredVehicules?.length<1">
                 <span>No Results</span>
             </div>
-            <div class="result" *ngFor="let driver of filteredVehicules">
+            <div class="result" *ngFor="let result of filteredVehicules">
                 <mat-card>
                     <div class="inline-block">
-                        <img mat-icon mat-card-avatar [src]="driver.photo_url" alt="User Avatar">
+                        <img mat-icon mat-card-avatar [src]="result.driver.photoAuto" alt="User Avatar">
                     </div>
                     <div class="inline-block">
-                        <mat-card-title> <strong>{{driver.name}}</strong>    {{driver.rating}} <mat-icon style="color: gold;">star</mat-icon> </mat-card-title>
-                        <mat-card-content>{{driver.description}}</mat-card-content>
+                        <mat-card-title> <strong>{{result.driver.username}}</strong>    {{result.driver.rating}} <mat-icon style="color: gold;">star</mat-icon> </mat-card-title>
+                        <mat-card-content>{{result.driver.description}}</mat-card-content>
                     </div>
                     <div class="inline-block">
-                        <button mat-button (click)="goToDriver(driver.id)">
+                        <button mat-button (click)="goToDriver(result.driverId)">
                             <mat-icon>open_in_new</mat-icon>
                             See Profile
                         </button>

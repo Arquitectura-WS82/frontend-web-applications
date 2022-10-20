@@ -24,8 +24,8 @@
                 <img mat-card-avatar [src]=_driver.photo alt="User Avatar">
             </div>
             <div class="inline-block info_text">
-                <mat-card-title>{{_driver.driver_name}}</mat-card-title>
-                <mat-card-content>Type of Service <br> {{_driver.type}} <br> Rating:</mat-card-content>
+                <mat-card-title>{{_driver.name}}</mat-card-title>
+                <mat-card-content>Rating:</mat-card-content>
                 <mat-card-content *ngFor='let in of counter(_driver.rating)' class="rating_stars">&#9733;</mat-card-content>
             </div>
         </mat-card>

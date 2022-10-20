@@ -1,90 +1,4 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "Yuri Isabel",
-      "last_name": "Cotrina Ramirez",
-      "username": "Yuri Cotrina",
-      "email": "yur.cot@gmail.com",
-      "password": "123",
-      "photo": "https://c8.alamy.com/compes/2j8d9nm/pensativo-hermosa-joven-empresaria-adulta-gerente-en-un-traje-con-un-tablet-pc-en-la-oficina-empresario-2j8d9nm.jpg",
-      "typeofuser": "client"
-    },
-    {
-      "id": 2,
-      "name": "Jean Carlos",
-      "last_name": "Rodriguez Mallca",
-      "username": "Jean Rodriguez",
-      "email": "jean.carlos@gmail.com",
-      "password": "jean123",
-      "typeofuser": "client"
-    },
-    {
-      "id": 3,
-      "name": "Alejandra",
-      "last_name": "Tello Barboza",
-      "username": "Alejandra Tello",
-      "email": "ale.telo@gmail.com",
-      "password": "tello123",
-      "typeofuser": "client"
-    },
-    {
-      "id": 4,
-      "name": "Oscar Favio",
-      "last_name": "Suarez Agostini",
-      "username": "Oscar",
-      "photo": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
-      "email": "osc.suarez@gmail.com",
-      "phone": "98766221",
-      "region": "Callao, Lima",
-      "password": "ahorasiseoculta",
-      "typeofuser": "driver",
-      "photo_auto": "https://www.mercedes-benz-trucks.com/content/dam/mbo/markets/hq_HQ/model-navigation-images/proven/modelthumb-actros-fv-proven.png"
-    },
-    {
-      "id": 5,
-      "name": "Mario Andy",
-      "last_name": "Gomez Gutierrez",
-      "username": "Mario Gomez",
-      "photo": "https://i.postimg.cc/tTFyyJjz/user.png",
-      "age": "41",
-      "email": "mariogomez@gmail.com",
-      "phone": "987654321",
-      "region": "Carabayllo, Lima",
-      "description": "Hello. My name is Mario and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
-      "password": "123456",
-      "typeofuser": "driver",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
-    },
-    {
-      "id": 6,
-      "name": "Manuel Carlos",
-      "last_name": "Rodriguez Diaz",
-      "username": "Manuel Rodriguez",
-      "photo": "https://i.postimg.cc/jdT1LDZn/client.png",
-      "age": "38",
-      "email": "manuel.rodriguez@gmail.com",
-      "phone": "914234832",
-      "region": "Chancay",
-      "description": "Hello. My name is Manuel and I have a bussiness that It work tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
-      "password": "123456",
-      "typeofuser": "client"
-    },
-    {
-      "email": "mxxrciano@gmail.com",
-      "password": "jajajaja",
-      "first_name": "Ant",
-      "last_name": "Bot",
-      "region": "Ancash",
-      "birthDate": "1969-06-18T05:00:00.000Z",
-      "phone": "1212121212",
-      "idCard": "2323423",
-      "typeofuser": "client",
-      "username": "Ant Bot",
-      "description": "hola xd",
-      "id": 7
-    }
-  ],
   "clients": [
     {
       "id": 1,
@@ -93,7 +7,6 @@
       "username": "Yuri Cotrina",
       "email": "yur.cot@gmail.com",
       "password": "123",
-      "phone": 987412415,
       "photo": "https://c8.alamy.com/compes/2j8d9nm/pensativo-hermosa-joven-empresaria-adulta-gerente-en-un-traje-con-un-tablet-pc-en-la-oficina-empresario-2j8d9nm.jpg",
       "typeofUser": "client"
     },
@@ -102,9 +15,7 @@
       "name": "Jean Carlos",
       "lastName": "Rodriguez Mallca",
       "username": "Jean Rodriguez",
-      "phone": 987412412,
       "email": "jean.carlos@gmail.com",
-      "photo": "https://i.postimg.cc/jdT1LDZn/client.png",
       "password": "jean123",
       "typeofUser": "client"
     },
@@ -114,7 +25,6 @@
       "lastName": "Tello Barboza",
       "username": "Alejandra Tello",
       "email": "ale.telo@gmail.com",
-      "photo": "https://c8.alamy.com/compes/2j8d9nm/pensativo-hermosa-joven-empresaria-adulta-gerente-en-un-traje-con-un-tablet-pc-en-la-oficina-empresario-2j8d9nm.jpg",
       "password": "tello123",
       "typeofUser": "client"
     },
@@ -131,6 +41,20 @@
       "description": "Hello. My name is Manuel and I have a bussiness that It work tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
       "password": "123456",
       "typeofUser": "client"
+    },
+    {
+      "id": 7,
+      "email": "mxxrciano@gmail.com",
+      "password": "jajajaja",
+      "first_name": "Ant",
+      "lastName": "Bot",
+      "region": "Ancash",
+      "birthDate": "1969-06-18T05:00:00.000Z",
+      "phone": "1212121212",
+      "idCard": "2323423",
+      "typeofUser": "client",
+      "username": "Ant Bot",
+      "description": "hola xd"
     }
   ],
   "drivers": [
@@ -143,8 +67,10 @@
       "email": "osc.suarez@gmail.com",
       "phone": "98766221",
       "region": "Callao, Lima",
+      "description": "Hello. My name is Oscar and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
       "password": "ahorasiseoculta",
       "typeofUser": "driver",
+      "rating": 4,
       "photoAuto": "https://www.mercedes-benz-trucks.com/content/dam/mbo/markets/hq_HQ/model-navigation-images/proven/modelthumb-actros-fv-proven.png"
     },
     {
@@ -159,41 +85,35 @@
       "region": "Carabayllo, Lima",
       "description": "Hello. My name is Mario and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
       "password": "123456",
+      "rating": 5,
       "typeofUser": "driver",
       "photoAuto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
     }
   ],
-  "best_ranked": [
+  "paymentMethod": [
     {
-      "id": 4,
-      "name": "Oscar Favio",
-      "last_name": "Suarez Agostini",
-      "username": "Oscar",
-      "email": "osc.suarez@gmail.com",
-      "password": "ahorasiseoculta",
-      "photo": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
-      "typeofuser": "driver",
-      "phone": "98766221",
-      "region": "Callao, Lima",
-      "type": "Cargo Truck",
-      "rating": 5
+      "id": 1,
+      "userId": 2,
+      "holderName": "Jose",
+      "cardNumber": 31247124812,
+      "cvv": 123,
+      "expirationDate": "12/24",
+      "typeOfCard": "visa",
+      "postalCodeZip": 12,
+      "email": "test@test.com",
+      "phone": 12312314
     },
     {
-      "id": 5,
-      "name": "Mario Andy",
-      "last_name": "Gomez Gutierrez",
-      "username": "Mario Gomez",
-      "photo": "https://i.postimg.cc/tTFyyJjz/user.png",
-      "age": "41",
-      "email": "mariogomez@gmail.com",
-      "phone": "987654321",
-      "region": "Carabayllo, Lima",
-      "description": "Hello. My name is Mario and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
-      "password": "123456",
-      "typeofuser": "driver",
-      "type": "Cargo Truck",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png",
-      "rating": 5
+      "id": 2,
+      "userId": 3,
+      "holderName": "Maria",
+      "cardNumber": 1231412412,
+      "cvv": 321,
+      "expirationDate": "12/25",
+      "typeOfCard": "visa",
+      "postalCodeZip": 25,
+      "email": "test@test2.com",
+      "phone": 120751274
     }
   ],
   "offerContracts": [
@@ -209,21 +129,63 @@
       "timeArrival": "17:00",
       "quantity": 15,
       "amount": 1560,
-      "status": "waiting"
+      "status": "rejected"
     },
     {
-      "clientId": 1,
       "driverId": 5,
-      "subject": "School Tour",
-      "from": "Marañon, Los Olivos",
-      "to": "Fortaleza del Real Felipe, Callao",
-      "date": "12/06/2022",
-      "timeDeparture": "8:00",
-      "timeArrival": "17:00",
-      "quantity": 30,
-      "amount": 1400,
-      "status": "waiting",
-      "id": 2
+      "clientId": 1,
+      "from": "Breña",
+      "to": "Barranco",
+      "date": "2022-10-04T05:00:00.000Z",
+      "quantity": 123,
+      "timeDeparture": "13:02",
+      "timeArrival": "02:02",
+      "amount": 555,
+      "description": "qqweqweqe",
+      "subject": "private",
+      "id": 3
+    },
+    {
+      "driverId": 5,
+      "clientId": 2,
+      "from": "Breña",
+      "to": "Barranco",
+      "date": "2022-10-18T05:00:00.000Z",
+      "quantity": 123,
+      "timeDeparture": "01:02",
+      "timeArrival": "04:05",
+      "amount": 500,
+      "description": "asdad",
+      "subject": "moving",
+      "id": 4
+    },
+    {
+      "driverId": 5,
+      "clientId": 3,
+      "from": "Breña",
+      "to": "Ate",
+      "date": "2022-10-24T05:00:00.000Z",
+      "quantity": 4,
+      "timeDeparture": "17:25",
+      "timeArrival": "17:25",
+      "amount": 4434,
+      "description": "qweqwe",
+      "subject": "moving",
+      "id": 5
+    },
+    {
+      "driverId": 5,
+      "clientId": 3,
+      "from": "Breña",
+      "to": "Ate",
+      "date": "2022-10-24T05:00:00.000Z",
+      "quantity": 4,
+      "timeDeparture": "17:25",
+      "timeArrival": "17:25",
+      "amount": 4434,
+      "description": "qweqwe",
+      "subject": "moving",
+      "id": 6
     }
   ],
   "pendingContracts": [
@@ -239,7 +201,7 @@
       "timeArrival": "17:00",
       "quantity": 5,
       "amount": 300,
-      "status": "waiting"
+      "status": "rejected"
     },
     {
       "id": 2,
@@ -296,100 +258,73 @@
   ],
   "jobs": [
     {
-      "id": 5,
+      "id": 1,
+      "driverId": 5,
       "job": "Tourism driver in “Turismo Peru”",
       "time": "10 years",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
-    },
-    {
-      "id": 5,
-      "job": "Tourism driver in “Turismo Peru”",
-      "time": "10 years",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+      "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
     },
     {
       "id": 2,
+      "driverId": 5,
       "job": "Tourism driver in “Turismo Peru”",
       "time": "10 years",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+      "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
     },
     {
       "id": 4,
+      "driverId": 4,
       "job": "Truck Driver in “Cargo Peru",
       "time": "4 years",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
-    },
-    {
-      "id": 4,
-      "job": "Truck Driver in “Cargo Peru",
-      "time": "7 years",
-      "photo_auto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
-    }
-  ],
-  "comments": [
-    {
-      "id_to": 5,
-      "id_from": 12,
-      "name": "Alejandra Mesa",
-      "comment": "Good Service",
-      "photo_com": "https://i.postimg.cc/cHp2Q8zq/comment-1.png",
-      "stars": 5
-    },
-    {
-      "id_to": 5,
-      "id_from": 13,
-      "name": "Carlos Morales",
-      "comment": "Highly recommended, on time.",
-      "photo_com": "https://i.postimg.cc/5tkZ2rq2/comment-2.png",
-      "stars": 5
-    },
-    {
-      "id_to": 5,
-      "id_from": 14,
-      "name": "Cristiano Ramirez",
-      "comment": "The best transport service ever.",
-      "photo_com": "https://i.postimg.cc/1tnbnKJc/comment-3.png",
-      "stars": 4
-    },
-    {
-      "id_to": 5,
-      "id_from": 15,
-      "name": "Cristina Alvarez",
-      "comment": "Good experience.",
-      "photo_com": "https://i.postimg.cc/hvVwMtFX/comment-4.png",
-      "stars": 5
-    }
-  ],
-  "carriers": [
-    {
-      "id": 4,
-      "name": "Jean Carlos",
-      "photo_url": "https://st2.depositphotos.com/2959013/12445/i/600/depositphotos_124459794-stock-photo-man-driving-a-truck.jpg",
-      "type": "Bus",
-      "size": 15,
-      "Document": "NO",
-      "rating": 5,
-      "description": "Hello. My name is Jean Carlos and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
+      "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
     },
     {
       "id": 5,
-      "name": "Mario Gomez",
-      "photo_url": "https://i.postimg.cc/tTFyyJjz/user.png",
-      "type": "Bus",
-      "size": 15,
-      "Document": "YES",
-      "rating": 5,
-      "description": "Hello. My name is Mario Gomez and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
+      "driverId": 4,
+      "job": "Truck Driver in “Cargo Peru",
+      "time": "7 years",
+      "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
+    }
+  ],
+  "comments": [],
+  "vehicles": [
+    {
+      "id": 2,
+      "driverId": 4,
+      "typeOfCar": "Bus",
+      "quantity": 20,
+      "category": "transport"
+    }
+  ],
+  "clientNotifications": [
+    {
+      "id": 1,
+      "clientId": 3,
+      "pendingContractId": 2,
+      "type": "accepted",
+      "status": "unread"
     },
     {
       "id": 3,
-      "name": "Raul Sanciento",
-      "photo_url": "https://media.istockphoto.com/photos/happy-driver-driving-bus-and-snowing-thumbs-up-picture-id529420242?k=20&m=529420242&s=612x612&w=0&h=95-KvHZHyOovlozAcR5gtwttqOZ1iFD18aFIGdYDob0=",
-      "type": "Bus",
-      "size": 15,
-      "Document": "YES",
-      "rating": 4,
-      "description": "Hello. My name is Raul Sanciento and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago..."
+      "clientId": 3,
+      "pendingContractId": 2,
+      "type": "accepted",
+      "status": "unread"
+    },
+    {
+      "id": 4,
+      "clientId": 3,
+      "pendingContractId": 2,
+      "type": "accepted",
+      "status": "unread"
+    },
+    {
+      "id": 5,
+      "clientId": 3,
+      "pendingContractId": 2,
+      "type": "accepted",
+      "status": "unread"
     }
-  ]
+  ],
+  "driverNotifications": []
 }
