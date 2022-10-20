@@ -12,9 +12,14 @@ import { HomeDComponent } from './driver/pages/home-d/home-d.component';
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
 import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.component';
 import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
+
+import { SettingComponent } from './client/setting/setting.component';
+import { AddCardComponent } from './client/add-card/add-card.component';
+
 import { SearchVehicleComponent } from './client/pages/search-vehicle/search-vehicle.component';
 import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
 import { RequestServiceComponent } from './client/request-service/request-service.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -31,8 +36,11 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'my-profile-c', component: MyProfileCComponent },
   { path: 'my-profile-d', component: MyProfileDComponent },
+  { path: 'setting', component: SettingComponent},
+  { path: 'Add', component: AddCardComponent},
   { path: 'end-contract', component: EndContractComponent },
   { path: 'request-service', component: RequestServiceComponent },
+
 ];
 
 @NgModule({
