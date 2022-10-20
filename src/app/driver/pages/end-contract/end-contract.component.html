@@ -5,28 +5,27 @@
         <mat-card>
             <mat-card-title>Details</mat-card-title>
                 <br>
-            <mat-card-subtitle class="first-subtitle" > <strong> Subject {{contract.subject}} </strong> </mat-card-subtitle>
+            <mat-card-subtitle class="first-subtitle" > <strong> Subject: {{contract.subject}} </strong> </mat-card-subtitle>
                 <br>
             <mat-card-subtitle>  From: <span> {{contract.from}} </span> </mat-card-subtitle>
             <mat-card-subtitle>  To:  <span>{{contract.to}} </span> </mat-card-subtitle>
             <mat-card-subtitle>  Date:  <span>{{contract.date}} </span> </mat-card-subtitle>
-            <mat-card-subtitle> Time:  <span>{{contract.time}} </span> </mat-card-subtitle>
-            <mat-card-subtitle> Type:  <span>{{contract.type}} </span> </mat-card-subtitle>
-            <mat-card-subtitle> Contract Id: <span>{{contract.id}}</span>  </mat-card-subtitle>
+            <mat-card-subtitle> Time Departure:  <span>{{contract.timeDeparture}} </span> </mat-card-subtitle>
+            <mat-card-subtitle> Time Arrival:  <span>{{contract.timeArrival}} </span> </mat-card-subtitle>
 
-            <div class="client-data">
+             <div class="client-data">
                 <br>
                 <mat-card-subtitle> <strong>  Client Data </strong>  </mat-card-subtitle>
                 <div class="inline-block">
-                    <img mat-icon mat-card-avatar [src]="contract.client.photoUrl" alt="">
+                    <img mat-icon mat-card-avatar [src]="driverInfo.photo" alt="">
                 </div>
 
                 <div class="inline-block">
-                    <mat-card-subtitle> <strong> {{contract.client.name}} </strong> </mat-card-subtitle>
-                    <mat-card-subtitle> <strong>Phone: {{contract.client.phone}} </strong> </mat-card-subtitle>
+                    <mat-card-subtitle> <strong> {{driverInfo.name}} </strong> </mat-card-subtitle>
+                    <mat-card-subtitle> <strong>Phone: {{driverInfo.phone}} </strong> </mat-card-subtitle>
                 </div>
                 <div class="inline-block">
-                    <mat-card-subtitle> <strong> Amount: </strong> <br> <br> <strong class="blue-strong"> {{contract.amount}} </strong>  </mat-card-subtitle>
+                    <mat-card-subtitle> <strong> Amount: </strong> <br> <br> <strong class="blue-strong"> S/. {{contract.amount}} </strong>  </mat-card-subtitle>
                 </div>
             </div>
         </mat-card>
@@ -55,7 +54,7 @@
                   </mat-form-field>
                 </div>
                 <div class="btn-container">
-                    <button [disabled]="form.invalid" mat-raised-button color="primary">Purchase</button>
+                    <button [disabled]="form.invalid" (click)="submitPay()" mat-raised-button color="primary">Purchase</button>
                 </div>
               </form>
         </mat-card>

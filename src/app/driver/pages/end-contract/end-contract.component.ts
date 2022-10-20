@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgxCcModule } from 'ngx-cc/lib/ngx-cc.module';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {catchError, Observable, retry, throwError} from "rxjs";
+import { sha256 } from 'js-sha256';
+import { ContractDialogComponent } from '../../components/contract-dialog/contract-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -17,6 +21,24 @@ export class EndContractComponent implements OnInit {
     creditCardCvv: [],
   });
 
+  basePath = 'http://localhost:3000/api/v1/';
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json' //Solo acepta json
+    })
+  }
+
+  acceptContract(): void {
+    const dialogRef = this.dialog.open(ContractDialogComponent, {
+      width: '30vw',
+      data: {
+        message:
+          'Succesfull Payment',
+      },
+    });
+  }
+
   get creditCard() {
     return this.form.get('creditCard');
   }
@@ -29,26 +51,42 @@ export class EndContractComponent implements OnInit {
     return this.form.get('creditCardCvv');
   }
 
-  contract = {
-    subject:'Tourism in Barranca',
-    from: 'La Victoria, Lima',
-    to: 'Barranca',
-    date: '2020-12-12',
-    time: '12:00',
-    type: 'Cargo Truck',
-    id: '87832498',
-    amount: '1000.00',
-    client: {
-      name: 'Raul Alvarez',
-      phone: '987654321',
-      photoUrl: "https://c8.alamy.com/compes/2j8d9nm/pensativo-hermosa-joven-empresaria-adulta-gerente-en-un-traje-con-un-tablet-pc-en-la-oficina-empresario-2j8d9nm.jpg",
+  contractId: any;
+  driverId: any;
 
-    }
-  }
-  constructor(private formBuilder: FormBuilder) { }
+  contract: any;
+  driverInfo: any;
+ 
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    localStorage.setItem('contractId', '2');
+    this.contractId = localStorage.getItem('contractId');
+    this.getOfferContract(this.contractId).subscribe(data => {
+      this.contract = data[0];
+      this.driverId = data[0].driverId;
+      console.log(this.driverId);
+      this.getDriver(this.driverId).subscribe(dataD => {
+        this.driverInfo = dataD;
+        console.log(this.driverId);
+        console.log(dataD);
+      });
+    });
     
+  }
+
+  getOfferContract(id:any):Observable<any>{
+    return this.http.get<any>(`${this.basePath}offerContracts?id=${id}`);
+  }
+
+  getDriver(id: any): Observable<any>{
+    return this.http.get<any>(`${this.basePath}drivers/${id}`);
+  }
+
+  submitPay() {
+    var hash = sha256(this.creditCard?.value+this.creditCardDate?.value+this.creditCardCvv?.value);
+    console.log(hash);
+    this.acceptContract();
   }
 
 }
