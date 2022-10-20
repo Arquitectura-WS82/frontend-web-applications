@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
 
   jobs:any;
   user:any;
-  comments:any;
+  comments: any;
   id:any;
   constructor(private http: HttpClient, 
     private router: Router,
@@ -43,16 +43,17 @@ export class ProfileComponent implements OnInit {
     // localStorage.setItem('visitDriverId',"-1")
     this.getUser(this.id).subscribe((data: any) => {
       this.user = data[0];
+      console.log(this.user)
     });
     this.getComments(this.id).subscribe((data: any) => {
-      this.comments = data[0];
-      //console.log(this.comments)
+      this.comments = data;
+      console.log(this.comments)
     }
     );
   }
   
   getUser(id: any) {
-    return this.http.get(`${this.basePath}drivers?_embed=comments&_embed=jobs&id=${id}`);
+    return this.http.get(`${this.basePath}drivers?_embed=comments&_embed=jobs&_embed=vehicles&id=${id}`);
   }
   getComments(id: any) {
     return this.http.get(`${this.basePath}comments?_expand=client&driverId=${id}`);
