@@ -68,7 +68,7 @@ export class HomeCComponent implements OnInit {
   }
 
   getContract(id:any):Observable<any>{
-    return this.http.get<any>(`${this.basePath}historyContracts?clientId=${id}`, this.httpOptions).
+    return this.http.get<any>(`${this.basePath}historyContracts?_expand=driver&clientId=${id}`, this.httpOptions).
     pipe(
       retry(2));
   }
