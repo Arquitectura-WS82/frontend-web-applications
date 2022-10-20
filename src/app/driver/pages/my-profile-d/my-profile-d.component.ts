@@ -49,7 +49,7 @@ export class MyProfileDComponent implements OnInit {
   }
   
   getUser(id: any) {
-    return this.http.get(`${this.basePath}users?id=${id}`);
+    return this.http.get(`${this.basePath}drivers?id=${id}`);
   }
   getJobs(id: any) {
     return this.http.get(`${this.basePath}jobs?id=${id}`);
