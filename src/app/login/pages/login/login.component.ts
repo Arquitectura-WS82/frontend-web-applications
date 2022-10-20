@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   signInForm!: FormGroup;
 
-  basePath = 'http://localhost:3000/api/v1/users';
+  basePath = 'http://localhost:3000/api/v1';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -34,38 +34,52 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    var typeofuser: any;
-    this.http.get<any>(`${this.basePath}`, this.httpOptions).subscribe(res => {
-      const data = res.find((user: any) => {
-        if (user.email === this.signInForm.value.email && user.password === this.signInForm.value.password) {
-          localStorage.setItem('currentUser', user.id);
-          typeofuser = user.typeofuser;
+    this.http.get<any>(`${this.basePath}/clients`, this.httpOptions).subscribe(res => {
+      const data = res.find((client: any) => {
+        if (client.email === this.signInForm.value.email && client.password === this.signInForm.value.password) {
+          localStorage.setItem('currentUser', client.id);
+          localStorage.setItem('typeofuser', 'client')
           return true;
         }
         else return false;
       });
+
       console.log(this.signInForm.value.email)
       console.log(this.signInForm.value.password);
 
       if (data) {
-        
-        if (typeofuser == "client"){
           this.router.navigate(['/home-c'])
           alert("Welcome, client")
-        }
-        else {
-          this.router.navigate(['/home-d']);
-          alert("Welcome, driver");
-        }
       }
+
       else {
-        alert("Usuario o contraseña incorrecta");
+        this.http.get<any>(`${this.basePath}/drivers`, this.httpOptions).subscribe(res => {
+          const data = res.find((driver: any) => {
+            if (driver.email === this.signInForm.value.email && driver.password === this.signInForm.value.password) {
+              localStorage.setItem('currentUser', driver.id);
+              localStorage.setItem('typeofuser', 'driver')
+              return true;
+            }
+            else return false;
+          });
+          console.log(this.signInForm.value.email)
+          console.log(this.signInForm.value.password);
+
+          if (data) {
+              this.router.navigate(['/home-d'])
+              alert("Welcome, driver")
+          }
+          else {
+            alert("Usuario o contraseña incorrecta");
+          }
+        })
+
       }
     }
     )
   }
 
-  
+
 
 }
 

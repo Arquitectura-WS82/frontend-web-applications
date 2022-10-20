@@ -1,0 +1,228 @@
+<app-header></app-header>
+<h1>Request Service</h1>
+
+<form class="card" [formGroup]="requestServiceForm" (submit)="onSubmit()">
+
+    <div class="column col-main">
+        <mat-form-field>
+            <!-- <mat-error *ngIf="email?.errors?.['required']">Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email'] &&
+                !email?.errors?.['required']"> </mat-error> -->
+            <mat-label>From</mat-label>
+            <input matInput
+                formControlName="regionFrom"
+                type="text">
+
+            <!-- <mat-select formControlName="regionFrom">
+                <mat-option value="Ancón"> Ancón </mat-option>
+                <mat-option value="Ate"> Ate </mat-option>
+                <mat-option value="Barranco"> Barranco </mat-option>
+                <mat-option value="Breña"> Breña </mat-option>
+                <mat-option value="Carabayllo"> Carabayllo </mat-option>
+                <mat-option value="Cercado de Lima"> Cercado de Lima
+                </mat-option>
+                <mat-option value="Chaclacayo"> Chaclacayo </mat-option>
+                <mat-option value="Chorrillos"> Chorrillos </mat-option>
+                <mat-option value="Cieneguilla"> Cieneguilla </mat-option>
+                <mat-option value="Comas"> Comas </mat-option>
+                <mat-option value="El agustino"> El agustino </mat-option>
+                <mat-option value="Independencia"> Independencia </mat-option>
+                <mat-option value="Jesús maría"> Jesús maría </mat-option>
+                <mat-option value="La molina"> La molina </mat-option>
+                <mat-option value="La victoria"> La victoria </mat-option>
+                <mat-option value="Lince"> Lince </mat-option>
+                <mat-option value="Los olivos"> Los olivos </mat-option>
+                <mat-option value="Lurigancho"> Lurigancho </mat-option>
+                <mat-option value="Lurín"> Lurín </mat-option>
+                <mat-option value="Magdalena del mar"> Magdalena del mar
+                </mat-option>
+                <mat-option value="Miraflores"> Miraflores </mat-option>
+                <mat-option value="Pachacámac"> Pachacámac </mat-option>
+                <mat-option value="Pucusana"> Pucusana </mat-option>
+                <mat-option value="Pueblo libre"> Pueblo libre </mat-option>
+                <mat-option value="Puente piedra"> Puente piedra </mat-option>
+                <mat-option value="Punta hermosa"> Punta hermosa </mat-option>
+                <mat-option value="Punta negra"> Punta negra </mat-option>
+                <mat-option value="Rímac"> Rímac </mat-option>
+                <mat-option value="San bartolo"> San bartolo </mat-option>
+                <mat-option value="San borja"> San borja </mat-option>
+                <mat-option value="San isidro"> San isidro </mat-option>
+                <mat-option value="San Juan de Lurigancho"> San Juan de
+                    Lurigancho </mat-option>
+                <mat-option value="San Juan de Miraflores"> San Juan de
+                    Miraflores </mat-option>
+                <mat-option value="San Luis"> San Luis </mat-option>
+                <mat-option value="San Martin de Porres"> San Martin de Porres
+                </mat-option>
+                <mat-option value="San Miguel"> San Miguel </mat-option>
+                <mat-option value="Santa Anita"> Santa Anita </mat-option>
+                <mat-option value="Santa María del Mar"> Santa María del Mar
+                </mat-option>
+                <mat-option value="Santa Rosa"> Santa Rosa </mat-option>
+                <mat-option value="Santiago de Surco"> Santiago de Surco
+                </mat-option>
+                <mat-option value="Surquillo"> Surquillo </mat-option>
+                <mat-option value="Villa el Salvador"> Villa el Salvador
+                </mat-option>
+                <mat-option value="Villa Maria del Triunfo"> Villa Maria del
+                    Triunfo </mat-option>
+            </mat-select> -->
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <!-- <mat-error *ngIf="email?.errors?.['required']">Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email'] &&
+                !email?.errors?.['required']"> </mat-error> -->
+            <mat-label>To</mat-label>
+            <input matInput
+                formControlName="regionTo"
+                type="text">
+            <!-- <mat-select formControlName="regionTo">
+                <mat-option value="Ancón"> Ancón </mat-option>
+                <mat-option value="Ate"> Ate </mat-option>
+                <mat-option value="Barranco"> Barranco </mat-option>
+                <mat-option value="Breña"> Breña </mat-option>
+                <mat-option value="Carabayllo"> Carabayllo </mat-option>
+                <mat-option value="Cercado de Lima"> Cercado de Lima
+                </mat-option>
+                <mat-option value="Chaclacayo"> Chaclacayo </mat-option>
+                <mat-option value="Chorrillos"> Chorrillos </mat-option>
+                <mat-option value="Cieneguilla"> Cieneguilla </mat-option>
+                <mat-option value="Comas"> Comas </mat-option>
+                <mat-option value="El agustino"> El agustino </mat-option>
+                <mat-option value="Independencia"> Independencia </mat-option>
+                <mat-option value="Jesús maría"> Jesús maría </mat-option>
+                <mat-option value="La molina"> La molina </mat-option>
+                <mat-option value="La victoria"> La victoria </mat-option>
+                <mat-option value="Lince"> Lince </mat-option>
+                <mat-option value="Los olivos"> Los olivos </mat-option>
+                <mat-option value="Lurigancho"> Lurigancho </mat-option>
+                <mat-option value="Lurín"> Lurín </mat-option>
+                <mat-option value="Magdalena del mar"> Magdalena del mar
+                </mat-option>
+                <mat-option value="Miraflores"> Miraflores </mat-option>
+                <mat-option value="Pachacámac"> Pachacámac </mat-option>
+                <mat-option value="Pucusana"> Pucusana </mat-option>
+                <mat-option value="Pueblo libre"> Pueblo libre </mat-option>
+                <mat-option value="Puente piedra"> Puente piedra </mat-option>
+                <mat-option value="Punta hermosa"> Punta hermosa </mat-option>
+                <mat-option value="Punta negra"> Punta negra </mat-option>
+                <mat-option value="Rímac"> Rímac </mat-option>
+                <mat-option value="San bartolo"> San bartolo </mat-option>
+                <mat-option value="San borja"> San borja </mat-option>
+                <mat-option value="San isidro"> San isidro </mat-option>
+                <mat-option value="San Juan de Lurigancho"> San Juan de
+                    Lurigancho </mat-option>
+                <mat-option value="San Juan de Miraflores"> San Juan de
+                    Miraflores </mat-option>
+                <mat-option value="San Luis"> San Luis </mat-option>
+                <mat-option value="San Martin de Porres"> San Martin de Porres
+                </mat-option>
+                <mat-option value="San Miguel"> San Miguel </mat-option>
+                <mat-option value="Santa Anita"> Santa Anita </mat-option>
+                <mat-option value="Santa María del Mar"> Santa María del Mar
+                </mat-option>
+                <mat-option value="Santa Rosa"> Santa Rosa </mat-option>
+                <mat-option value="Santiago de Surco"> Santiago de Surco
+                </mat-option>
+                <mat-option value="Surquillo"> Surquillo </mat-option>
+                <mat-option value="Villa el Salvador"> Villa el Salvador
+                </mat-option>
+                <mat-option value="Villa Maria del Triunfo"> Villa Maria del
+                    Triunfo </mat-option>
+            </mat-select> -->
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Date (mm/dd/yyyy)</mat-label>
+            <input matInput [matDatepicker]="picker"
+                formControlName="date"
+                readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Type of service</mat-label>
+            <mat-select formControlName="type" [(ngModel)]="typeofService">
+                <mat-option value="commercial"> Commercial </mat-option>
+                <mat-option value="tourism"> Tourism </mat-option>
+                <mat-option value="private"> Private </mat-option>
+                <mat-option value="moving"> Moving </mat-option>
+                <mat-option value="heavy load"> Heavy load </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="typeofService=='commercial' || typeofService=='heavy load' ">
+            <mat-label>Weight (Kg)</mat-label>
+            <input matInput
+                formControlName="quantity"
+                type="number">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="typeofService=='private' || typeofService=='tourism' ">
+            <mat-label>People</mat-label>
+            <input matInput
+                formControlName="quantity"
+                type="number">
+        </mat-form-field>
+        <mat-form-field *ngIf="typeofService=='moving' ">
+            <mat-label>Number of boxes</mat-label>
+            <input matInput
+                formControlName="quantity"
+                type="number">
+        </mat-form-field>
+    </div>
+
+    <div class="column col-main">
+
+
+        <div class="row">
+            <mat-form-field class="r-time">
+                <mat-label>Time (start)</mat-label>
+                <input matInput 
+                formControlName="timeStart"
+                type="time">
+            </mat-form-field>
+
+            <strong class="guion"> - </strong>
+
+            <mat-form-field class="r-time">
+                <mat-label>Time (finish)</mat-label>
+                <input matInput 
+                formControlName="timeFinish"
+                type="time">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Amount (S/.)</mat-label>
+            <input matInput
+                formControlName="amount"
+                type="number">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Subject</mat-label>
+            <input matInput formControlName="subject" type="text">
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea type="text" matInput
+                rows="7"
+                placeholder="Type a description"
+                formControlName="description">
+            </textarea>
+        </mat-form-field>
+
+        <button mat-raised-button [disabled]="!requestServiceForm.valid"
+            color="accent"
+            (click)="registerOffer()">Submit</button>
+    </div>
+
+</form>
+
+<app-footers></app-footers>
