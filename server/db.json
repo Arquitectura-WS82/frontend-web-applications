@@ -69,7 +69,7 @@
       "region": "Callao, Lima",
       "password": "ahorasiseoculta",
       "typeofUser": "driver",
-      "rating":4,
+      "rating": 4,
       "photoAuto": "https://www.mercedes-benz-trucks.com/content/dam/mbo/markets/hq_HQ/model-navigation-images/proven/modelthumb-actros-fv-proven.png"
     },
     {
@@ -84,7 +84,7 @@
       "region": "Carabayllo, Lima",
       "description": "Hello. My name is Mario and I have a car that I use to give tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
       "password": "123456",
-      "rating":5,
+      "rating": 5,
       "typeofUser": "driver",
       "photoAuto": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
     }

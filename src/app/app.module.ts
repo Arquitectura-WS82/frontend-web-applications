@@ -50,6 +50,8 @@ import { MyProfileCComponent } from './client/my-profile-c/my-profile-c.componen
 
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
 import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
+import { RequestServiceComponent } from './client/request-service/request-service.component';
+
 
 
 @NgModule({
@@ -74,7 +76,8 @@ import { EndContractComponent } from './driver/pages/end-contract/end-contract.c
     MyProfileCComponent,
     SearchVehicleComponent,
     FootersComponent,
-    EndContractComponent
+    EndContractComponent,
+    RequestServiceComponent,
   ],
   imports: [
     BrowserModule,
