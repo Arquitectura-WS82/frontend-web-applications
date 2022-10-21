@@ -116,6 +116,7 @@
       "phone": 120751274
     }
   ],
+
   "offerContracts": [
     {
       "id": 1,
@@ -326,5 +327,73 @@
       "status": "unread"
     }
   ],
-  "driverNotifications": []
+  "driverNotifications": [],
+  "paymentMethod": [
+    {
+      "id": 1,
+      "ClientId": 1,
+      "holderName": "Jose",
+      "cardNumber": 31247124812,
+      "cvv": 123,
+      "expirationDate": "12/24",
+      "typeOfCard": "visa",
+      "postalCodeZip": 12,
+      "email": "test@test.com",
+      "phone": 12312314,
+      "title": "Main"
+    },
+    {
+      "id": 2,
+      "ClientId": 1,
+      "holderName": "Maria",
+      "cardNumber": 1231412412,
+      "cvv": 321,
+      "expirationDate": "12/25",
+      "typeOfCard": "visa",
+      "postalCodeZip": 25,
+      "email": "test@test2.com",
+      "phone": 120751274,
+      "title": "Main"
+    },
+    {
+      "id": 3,
+      "DriverId": 2,
+      "holderName": "Maria",
+      "cardNumber": 1231412412,
+      "cvv": 321,
+      "expirationDate": "12/25",
+      "typeOfCard": "visa",
+      "postalCodeZip": 25,
+      "email": "test@test2.com",
+      "phone": 120751274,
+      "title": "Second"
+    },
+    {
+      "id": 4,
+      "DriverId": 2,
+      "holderName": "Jose",
+      "cardNumber": 31247124812,
+      "cvv": 123,
+      "expirationDate": "12/24",
+      "typeOfCard": "visa",
+      "postalCodeZip": 12,
+      "email": "test@test.com",
+      "phone": 12312314,
+      "title": "Third"
+    },
+    {
+      "email": "qewqweqw@gmail.com",
+      "cvv": "313321",
+      "DriverId": "1",
+      "holderName": "asdasdas",
+      "cardNumber": "23112312",
+      "expirationDate": "123123",
+      "phone": "213123123",
+      "typeOfCard": "Mastercard",
+      "postalCodeZip": "23123",
+      "title": "dasdas",
+      "id": 6
+    }
+  ]
+
 }

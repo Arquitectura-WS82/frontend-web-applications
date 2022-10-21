@@ -48,10 +48,15 @@ import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.co
 import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.component';
 
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
+
+import { SettingComponent } from './client/setting/setting.component';
+import { AddCardComponent } from './client/add-card/add-card.component';
+
 import { ContractsCComponent } from './client/pages/contracts-c/contracts-c.component';
 import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
 import { RequestServiceComponent } from './client/request-service/request-service.component';
 import { SupportComponent } from './components/support/support.component';
+
 
 @NgModule({
   declarations: [
@@ -75,6 +80,8 @@ import { SupportComponent } from './components/support/support.component';
     MyProfileCComponent,
     SearchVehicleComponent,
     FootersComponent,
+    SettingComponent,
+    AddCardComponent,
     ContractsCComponent,
     EndContractComponent,
     RequestServiceComponent,

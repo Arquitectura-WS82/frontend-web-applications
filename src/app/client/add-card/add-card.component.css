@@ -1,0 +1,59 @@
+h1 {
+    margin: 3vh;
+}
+button{
+    margin-bottom: 3vh;
+    margin-left: 3vh;
+}
+.info {
+    width: 100%;
+}
+.home_title{
+    margin-left: 3vh;
+}
+.inline-block {
+    display: inline-block;
+    width: 100%;
+  }
+.container{
+width: 90vw;
+/* border:solid 1px red; */
+display:flex;
+height: 100%;
+/* flex-wrap:wrap; */
+row-gap: 38px;
+column-gap: 2vw;
+margin: 50px 0px;
+}
+.center {
+    display:flex;
+    justify-content: center;
+    overflow-y:auto;
+}
+.center_button{  
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 0px;
+}
+.box_text{
+    width: 24vw;
+}
+.margin{
+    margin: 0 8VW;
+}
+.Center_Box{
+    display: flex;
+    justify-content: space-around;
+}
+.Box{
+    width: 25vw;
+    padding: 0 2vw 2vw;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px 15px #00000014;
+    margin: 4vh 0;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+}

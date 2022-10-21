@@ -5,4 +5,3 @@ describe('User', () => {
     expect(new User()).toBeTruthy();
   });
 });
-zz
