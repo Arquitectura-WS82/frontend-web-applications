@@ -55,6 +55,7 @@ import { AddCardComponent } from './client/add-card/add-card.component';
 import { ContractsCComponent } from './client/pages/contracts-c/contracts-c.component';
 import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
 import { RequestServiceComponent } from './client/request-service/request-service.component';
+import { SupportComponent } from './components/support/support.component';
 
 
 @NgModule({
@@ -84,6 +85,7 @@ import { RequestServiceComponent } from './client/request-service/request-servic
     ContractsCComponent,
     EndContractComponent,
     RequestServiceComponent,
+    SupportComponent,
   ],
   imports: [
     BrowserModule,
