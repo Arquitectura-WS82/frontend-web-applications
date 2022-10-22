@@ -340,7 +340,40 @@
       "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "id_to": 5,
+      "id_from": 12,
+      "name": "Alejandra Mesa",
+      "comment": "Good Service",
+      "photo_com": "https://i.postimg.cc/cHp2Q8zq/comment-1.png",
+      "stars": 5
+    },
+    {
+      "id_to": 5,
+      "id_from": 13,
+      "name": "Carlos Morales",
+      "comment": "Highly recommended, on time.",
+      "photo_com": "https://i.postimg.cc/5tkZ2rq2/comment-2.png",
+      "stars": 5
+    },
+    {
+      "id_to": 5,
+      "id_from": 14,
+      "name": "Cristiano Ramirez",
+      "comment": "The best transport service ever.",
+      "photo_com": "https://i.postimg.cc/1tnbnKJc/comment-3.png",
+      "stars": 4
+    },
+    {
+      "id_to": 5,
+      "id_from": 15,
+      "name": "Cristina Alvarez",
+      "comment": "Good experience.",
+      "photo_com": "https://i.postimg.cc/hvVwMtFX/comment-4.png",
+      "stars": 5
+    }
+  ],
   "vehicles": [
     {
       "id": 2,
@@ -353,32 +386,146 @@
   "clientNotifications": [
     {
       "id": 1,
-      "clientId": 3,
-      "pendingContractId": 2,
+      "clientId": 6,
+      "pendingContract": {
+        "id":1,
+        "driver_id": 5,
+        "subject": "Tourism in Barranca",
+        "from": "La Victoria, Lima",
+        "to": "Barranca",
+        "date": "21/09/2022",
+        "time": {
+          "departure": "10:00",
+          "arrival": "17:00"
+        },
+        "quantity": 5,
+        "client": {
+          "id": 1,
+          "username": "Raul Alvarez",
+          "phone": "912 123 456",
+          "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+        },
+        "amount": 300
+      },
+      "type": "accepted",
+      "status": "unread"
+
+    },
+    {
+      "id": 2,
+      "clientId": 6,
+      "pendingContract": {
+        "id":2,
+        "driver_id": 5,
+        "subject": "Tourism in Barranca",
+        "from": "La Victoria, Lima",
+        "to": "Barranca",
+        "date": "21/09/2022",
+        "time": {
+          "departure": "10:00",
+          "arrival": "17:00"
+        },
+        "quantity": 5,
+        "client": {
+          "id": 1,
+          "username": "Raul Alvarez",
+          "phone": "912 123 456",
+          "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+        },
+        "amount": 300
+      },
       "type": "accepted",
       "status": "unread"
     },
     {
       "id": 3,
-      "clientId": 3,
-      "pendingContractId": 2,
-      "type": "accepted",
-      "status": "unread"
+      "clientId": 6,
+      "pendingContract": {
+        "id":3,
+        "driver_id": 5,
+        "subject": "Tourism in Barranca",
+        "from": "La Victoria, Lima",
+        "to": "Barranca",
+        "date": "21/09/2022",
+        "time": {
+          "departure": "10:00",
+          "arrival": "17:00"
+        },
+        "quantity": 5,
+        "client": {
+          "id": 1,
+          "username": "Raul Alvarez",
+          "phone": "912 123 456",
+          "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+        },
+        "amount": 300
+      },
+      "type": "rejected",
+      "status": "read"
     },
     {
       "id": 4,
-      "clientId": 3,
-      "pendingContractId": 2,
-      "type": "accepted",
+      "clientId": 4,
+      "pendingContract": {
+        "id":4,
+        "driver_id": 5,
+        "subject": "Tourism in Barranca",
+        "from": "La Victoria, Lima",
+        "to": "Barranca",
+        "date": "21/09/2022",
+        "time": {
+          "departure": "10:00",
+          "arrival": "17:00"
+        },
+        "quantity": 5,
+        "client": {
+          "id": 1,
+          "username": "Raul Alvarez",
+          "phone": "912 123 456",
+          "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+        },
+        "amount": 300
+      },
+      "type": "rejected",
       "status": "unread"
     },
     {
       "id": 5,
-      "clientId": 3,
-      "pendingContractId": 2,
-      "type": "accepted",
+      "clientId": 6,
+      "pendingContract": {
+        "id":5,
+        "driver_id": 5,
+        "subject": "Tourism in Barranca",
+        "from": "La Victoria, Lima",
+        "to": "Barranca",
+        "date": "21/09/2022",
+        "time": {
+          "departure": "10:00",
+          "arrival": "17:00"
+        },
+        "quantity": 5,
+        "client": {
+          "id": 1,
+          "username": "Raul Alvarez",
+          "phone": "912 123 456",
+          "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+        },
+        "amount": 300
+      },
+      "type": "rejected",
       "status": "unread"
     }
   ],
-  "driverNotifications": []
+  "driverNotifications": [
+    {
+      "id": 1,
+      "driverId": 3,
+      "offerContractsId": 3
+    },
+    {
+      "id": 2,
+      "driverId": 4,
+      "offerContractsId": 2
+    }
+  ]
 }

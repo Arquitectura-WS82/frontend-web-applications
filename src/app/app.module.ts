@@ -49,6 +49,9 @@ import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.co
 
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
 
+import { NotificationsComponent } from './client/pages/notifications/notifications.component';
+import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contract-c.component';
+
 import { SettingComponent } from './client/setting/setting.component';
 import { AddCardComponent } from './client/add-card/add-card.component';
 
@@ -80,6 +83,8 @@ import { SupportComponent } from './components/support/support.component';
     MyProfileCComponent,
     SearchVehicleComponent,
     FootersComponent,
+    NotificationsComponent,
+    PayContractCComponent,
     SettingComponent,
     AddCardComponent,
     ContractsCComponent,
@@ -112,7 +117,7 @@ import { SupportComponent } from './components/support/support.component';
     MatBadgeModule,
     MatGridListModule,
     MatListModule,
-    NgxCcModule,
+    NgxCcModule
   ],
   providers: [],
   bootstrap: [AppComponent],
