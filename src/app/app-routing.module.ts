@@ -12,9 +12,15 @@ import { HomeDComponent } from './driver/pages/home-d/home-d.component';
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
 import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.component';
 import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
+
+import { SettingComponent } from './client/setting/setting.component';
+import { AddCardComponent } from './client/add-card/add-card.component';
+
 import { SearchVehicleComponent } from './client/pages/search-vehicle/search-vehicle.component';
 import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
 import { RequestServiceComponent } from './client/request-service/request-service.component';
+import { SupportComponent } from './components/support/support.component';
+import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contract-c.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
@@ -32,8 +38,12 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'my-profile-c', component: MyProfileCComponent },
   { path: 'my-profile-d', component: MyProfileDComponent },
+  { path: 'setting', component: SettingComponent },
+  { path: 'Add', component: AddCardComponent },
   { path: 'end-contract', component: EndContractComponent },
   { path: 'request-service', component: RequestServiceComponent },
+  { path: 'support', component: SupportComponent },
+  { path: 'app-pay-contract-c', component: PayContractCComponent },
   { path: 'profile/:id', component: ProfileComponent },
 
 ];

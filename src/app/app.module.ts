@@ -48,9 +48,17 @@ import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.co
 import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.component';
 
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
+
+import { NotificationsComponent } from './client/pages/notifications/notifications.component';
+import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contract-c.component';
+
+import { SettingComponent } from './client/setting/setting.component';
+import { AddCardComponent } from './client/add-card/add-card.component';
+
 import { ContractsCComponent } from './client/pages/contracts-c/contracts-c.component';
 import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
 import { RequestServiceComponent } from './client/request-service/request-service.component';
+import { SupportComponent } from './components/support/support.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
@@ -75,9 +83,14 @@ import { ProfileComponent } from './components/profile/profile.component';
     MyProfileCComponent,
     SearchVehicleComponent,
     FootersComponent,
+    NotificationsComponent,
+    PayContractCComponent,
+    SettingComponent,
+    AddCardComponent,
     ContractsCComponent,
     EndContractComponent,
     RequestServiceComponent,
+    SupportComponent,
     ProfileComponent,
   ],
   imports: [
@@ -105,7 +118,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatBadgeModule,
     MatGridListModule,
     MatListModule,
-    NgxCcModule,
+    NgxCcModule
   ],
   providers: [],
   bootstrap: [AppComponent],

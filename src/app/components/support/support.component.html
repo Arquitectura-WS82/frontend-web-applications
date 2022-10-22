@@ -1,0 +1,43 @@
+<app-header-c *ngIf="typeOfUser == 'client'"></app-header-c>
+<app-header-d *ngIf="typeOfUser == 'driver'"></app-header-d>
+
+<div class="support">
+  <section class="message">
+    <h1>Do you need help?</h1>
+    <img src="../../../assets/imgs/support.png" alt="Questions" id="question" />
+  </section>
+  <section class="contact">
+    <div class="contact-data">
+      <h3 class="box">
+        <mat-icon fontIcon="mail"></mat-icon>
+        FastPorte_support@gmail.com
+      </h3>
+      <h3 class="box">
+        <mat-icon fontIcon="person"></mat-icon>
+        +51 987 654 321
+      </h3>
+    </div>
+    <div class="logos">
+      <a href="https://es-la.facebook.com/"
+        ><img src="../../../assets/imgs/facebook-logo.png" alt="Facebook"
+      /></a>
+      <a href="https://www.instagram.com/">
+        <img src="../../../assets/imgs/instagram-logo.png" alt="Instagram" />
+      </a>
+      <a href="https://web.whatsapp.com/">
+        <img src="../../../assets/imgs/whatsapp-logo.png" alt="WhatsApp" />
+      </a>
+    </div>
+    <div class="buttons">
+      <a
+        href="https://tech-company-sw52.github.io/landing-page/"
+        target="_blank"
+      >
+        <button mat-raised-button color="primary">Send us a message</button>
+      </a>
+      <button mat-raised-button color="primary">Frequently questions</button>
+    </div>
+  </section>
+</div>
+
+<app-footers></app-footers>
