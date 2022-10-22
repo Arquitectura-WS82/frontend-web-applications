@@ -23,7 +23,6 @@ export class MyProfileCComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    localStorage.setItem('currentUser', '6');
     this.user_id = localStorage.getItem('currentUser');
     this.getUser(this.user_id).subscribe((data: any) => {
       this.user = data[0];

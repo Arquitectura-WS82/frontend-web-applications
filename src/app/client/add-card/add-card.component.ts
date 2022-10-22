@@ -164,6 +164,7 @@ export class AddCardComponent implements OnInit {
           alert("Registro exitoso");
         }
       );
+      this.router.navigate(["/setting"]);
 
     }
     
