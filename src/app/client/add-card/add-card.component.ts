@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { catchError, retry, throwError } from 'rxjs';
-import { CardClient } from '../../models/Card/card';
+import { CardClient, Carddriver } from '../../models/Card/card';
 
 interface Vehicle {
   value: string;
@@ -18,7 +18,8 @@ interface Vehicle {
 export class AddCardComponent implements OnInit {
   
 
-  Card_client: CardClient
+  Card_client: CardClient;
+  Card_Driver: Carddriver;
 
   user_id: any;
   IsCliente:boolean;
@@ -26,6 +27,8 @@ export class AddCardComponent implements OnInit {
   form: any;
   AddForm: FormGroup;
   filteredVehicules: any;
+  type_user: any;
+  dataCliente='client';
   
 
   searchForm: FormGroup = this.formBuilder.group({
@@ -50,6 +53,7 @@ export class AddCardComponent implements OnInit {
 
   constructor(private fb: FormBuilder, public formBuilder: FormBuilder, private http: HttpClient, private router:Router) { 
     this.Card_client ={} as CardClient;
+    this.Card_Driver ={} as Carddriver;
     this.IsCliente= true;
     this.AddForm = this.formBuilder.group({
       region: ['', { validators: [Validators.required], updatedOn: 'change' }],
@@ -81,6 +85,7 @@ export class AddCardComponent implements OnInit {
   }
   ngOnInit(): void {
     this.user_id=localStorage.getItem('currentUser')
+    this.type_user=localStorage.getItem('typeofuser')
 
     // this.getCards(this.user_id).subscribe((data: any) => {
     //   this.Cards_user = data;
@@ -138,18 +143,34 @@ export class AddCardComponent implements OnInit {
     phoneControl?.setValidators([Validators.pattern('^[0-9]*$'), Validators.required]);
   }
   registerData() {
-    this.formToCard();
-    console.log(this.Card_client);
-    this.http.post<CardClient>(`${this.basePath}paymentMethod2`, this.Card_client, this.httpOptions).subscribe(
-      (res) => {
-        console.log(res);
-        alert("Registro exitoso");
-      }
-    );
+    if(this.type_user == this.dataCliente){
+      this.formToCardClient();
+      console.log(this.Card_client);
+      this.http.post<CardClient>(`${this.basePath}paymentMethod`, this.Card_client, this.httpOptions).subscribe(
+        (res) => {
+          console.log(res);
+          alert("Registro exitoso");
+        }
+      );
+      this.router.navigate(["/setting"]);
+    }
+    else{
+      
+      this.formToCardDriver();
+      console.log(this.Card_Driver);
+      this.http.post<Carddriver>(`${this.basePath}paymentMethod`, this.Card_Driver, this.httpOptions).subscribe(
+        (res) => {
+          console.log(res);
+          alert("Registro exitoso");
+        }
+      );
+
+    }
+    
     // this.router.navigate(['/login']);
 
   }
-  formToCard() {
+  formToCardClient() {
     this.Card_client.email = this.AddForm.value.email;
     this.Card_client.cvv = this.AddForm.value.CVV;
     this.Card_client.ClientId = this.user_id;
@@ -160,6 +181,20 @@ export class AddCardComponent implements OnInit {
     this.Card_client.typeOfCard = this.AddForm.value.type;
     this.Card_client.postalCodeZip = this.AddForm.value.postal;
     this.Card_client.title = this.AddForm.value.title;
+    console.log(this.Card_client.email);
+    console.log(this.AddForm.value.title);
+  }
+  formToCardDriver() {
+    this.Card_Driver.email = this.AddForm.value.email;
+    this.Card_Driver.cvv = this.AddForm.value.CVV;
+    this.Card_Driver.DriverId = this.user_id;
+    this.Card_Driver.holderName = this.AddForm.value.name;
+    this.Card_Driver.cardNumber = this.AddForm.value.Number_Card;
+    this.Card_Driver.expirationDate = this.AddForm.value.Date;
+    this.Card_Driver.phone = this.AddForm.value.phone;
+    this.Card_Driver.typeOfCard = this.AddForm.value.type;
+    this.Card_Driver.postalCodeZip = this.AddForm.value.postal;
+    this.Card_Driver.title = this.AddForm.value.title;
     console.log(this.Card_client.email);
     console.log(this.AddForm.value.title);
   }
