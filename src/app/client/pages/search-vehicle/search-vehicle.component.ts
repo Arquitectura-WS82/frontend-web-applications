@@ -65,9 +65,9 @@ export class SearchVehicleComponent implements OnInit {
   }
 
   goToDriver(id: any) {
-    this.router.navigate([`my-profile-d/`])
+    //this.router.navigate([`my-profile-d/`])
+    this.router.navigate([`profile/${id}`])
     localStorage.setItem('visitDriverId', id)
   }
-
 
 }

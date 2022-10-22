@@ -59,7 +59,7 @@ import { ContractsCComponent } from './client/pages/contracts-c/contracts-c.comp
 import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
 import { RequestServiceComponent } from './client/request-service/request-service.component';
 import { SupportComponent } from './components/support/support.component';
-
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +91,7 @@ import { SupportComponent } from './components/support/support.component';
     EndContractComponent,
     RequestServiceComponent,
     SupportComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

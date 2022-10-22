@@ -21,6 +21,7 @@ import { EndContractComponent } from './driver/pages/end-contract/end-contract.c
 import { RequestServiceComponent } from './client/request-service/request-service.component';
 import { SupportComponent } from './components/support/support.component';
 import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contract-c.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'request-service', component: RequestServiceComponent },
   { path: 'support', component: SupportComponent },
   { path: 'app-pay-contract-c', component: PayContractCComponent },
+  { path: 'profile/:id', component: ProfileComponent },
 
 ];
 
