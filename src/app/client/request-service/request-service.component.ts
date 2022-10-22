@@ -60,12 +60,7 @@ export class RequestServiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dialog.open(ContractDialogComponent, {
-      width: '30vw',
-      data: {
-        message: 'The driver has been notified',
-      },
-    });
+
   }
 
   get regionFrom() {
@@ -111,7 +106,7 @@ export class RequestServiceComponent implements OnInit {
           message: 'The driver has been notified',
         },
       });
-      //this.router.navigate(['/search']);
+      this.router.navigate(['/home-c']);
     });
 
     //this.router.navigate(['/home-c']);
