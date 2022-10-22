@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
             if (driver.email === this.signInForm.value.email && driver.password === this.signInForm.value.password) {
               localStorage.setItem('currentUser', driver.id);
               localStorage.setItem('typeofuser', 'driver')
+              console.log("prueba")
               return true;
             }
             else return false;
