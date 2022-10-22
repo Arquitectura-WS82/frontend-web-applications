@@ -1,0 +1,68 @@
+<app-header-c></app-header-c>
+<div class="block-container">
+    <div class="block form-container inline-block">
+        <mat-card>
+            <mat-card-header>
+                    <mat-card-title>
+                        <mat-icon>search</mat-icon>
+                        <strong> Search Vehicle</strong>
+                    </mat-card-title>
+            </mat-card-header>
+            <form [formGroup]="searchForm" (submit)="listSearch()">
+                <mat-card-content>
+                    <mat-grid-list cols="2" rowHeight="4:1">
+
+                        <mat-form-field appearance="fill">
+                            <!--Type-->
+                            <mat-label>Type of Service</mat-label>
+                            <mat-select value="Bus" formControlName="Type_s" name="vehicule">
+                                <mat-option *ngFor="let vehichle of Type" [value]="vehichle.viewValue">
+                                {{vehichle.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <br>
+                            <!--Size_s-->
+                            <mat-form-field appearance="fill" class="full-width">
+                                <mat-label>Size</mat-label>
+                                <input type="number" matInput formControlName="Size_s" placeholder="Ex. 15">
+                            </mat-form-field>
+
+                    </mat-grid-list>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button  mat-raised-button color="primary" type="submit">Submit</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </div>
+
+    <div class="block results inline-block">
+        <mat-card>
+            <h2> <strong> Results:</strong></h2>
+            <div *ngIf="filteredVehicules?.length<1">
+                <span>No Results</span>
+            </div>
+            <div class="result" *ngFor="let result of filteredVehicules">
+                <mat-card>
+                    <div class="inline-block">
+                        <img mat-icon mat-card-avatar [src]="result.driver.photoAuto" alt="User Avatar">
+                    </div>
+                    <div class="inline-block">
+                        <mat-card-title> <strong>{{result.driver.username}}</strong>    {{result.driver.rating}} <mat-icon style="color: gold;">star</mat-icon> </mat-card-title>
+                        <mat-card-content>{{result.driver.description}}</mat-card-content>
+                    </div>
+                    <div class="inline-block">
+                        <button mat-button (click)="goToDriver(result.driverId)">
+                            <mat-icon>open_in_new</mat-icon>
+                            See Profile
+                        </button>
+                    </div>
+                </mat-card>
+            </div>
+        </mat-card>
+
+    </div>
+</div>
+<app-footers></app-footers>

@@ -1,0 +1,180 @@
+<app-header-d></app-header-d>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Offers">
+    <br />
+    <h1 style="margin-left: 5%"><strong>Offer Information</strong></h1>
+    <div *ngIf="offerContracts.length != 0; else notFoundOffers">
+      <div *ngFor="let offer of offerContracts" class="card-group">
+        <div class="contract-information">
+          <mat-card class="card">
+            <mat-card-title>Resume</mat-card-title>
+            <mat-card-subtitle>
+              <strong>Subject: </strong> {{ offer.subject }}
+            </mat-card-subtitle>
+            <mat-card-content>
+              <div>
+                <p>
+                  From <strong> {{ offer.from }}</strong>
+                </p>
+                <p>
+                  To: <strong>{{ offer.to }}</strong>
+                </p>
+                <p>
+                  Date: <strong> {{ offer.date }}</strong>
+                </p>
+                <p>
+                  Time:
+                  <strong>
+                    {{ offer.timeDeparture }} - {{ offer.timeArrival }}</strong
+                  >
+                </p>
+                <p>
+                  Quantity: <strong>{{ offer.quantity }}</strong>
+                </p>
+              </div>
+              <hr />
+              <div class="client-price">
+                <strong>Client data</strong>
+                <strong style="text-align: center">Amount:</strong>
+                <div class="client">
+                  <img
+                    src="{{ offer.client.photo }}"
+                    alt="Profile"
+                    class="profile-img"
+                  />
+                  <div style="flex-grow: 2">
+                    <strong>{{ offer.client.username }} </strong>
+                    <p>Phone: {{ offer.client.phone }}</p>
+                  </div>
+                </div>
+                <p class="price">S/. {{ offer.amount }}</p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <div class="buttons-area">
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="acceptContract(offer.id)"
+            >
+              Accept
+            </button>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="declineContract(offer.id)"
+            >
+              Decline
+            </button>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+    <ng-template #notFoundOffers>
+      <h1 class="not-found">You have no offer contracts</h1>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Pending Contracts">
+    <br />
+    <h1 style="margin-left: 5%"><strong>Pending Contracts </strong></h1>
+    <div *ngIf="pendingContracts.length != 0; else notFoundPending">
+      <div *ngFor="let pending of pendingContracts" class="card-group">
+        <div class="contract-information">
+          <mat-card class="card">
+            <mat-card-title>Resume</mat-card-title>
+            <mat-card-subtitle>
+              <strong>Subject: </strong> {{ pending.subject }}
+            </mat-card-subtitle>
+            <mat-card-content>
+              <div>
+                <p>
+                  From <strong> {{ pending.from }}</strong>
+                </p>
+                <p>
+                  To: <strong>{{ pending.to }}</strong>
+                </p>
+                <p>
+                  Date: <strong> {{ pending.date }}</strong>
+                </p>
+                <p>
+                  Time:
+                  <strong>
+                    {{ pending.timeDeparture }} -
+                    {{ pending.timeArrival }}</strong
+                  >
+                </p>
+                <p>
+                  Quantity: <strong>{{ pending.quantity }}</strong>
+                </p>
+              </div>
+              <hr />
+              <div class="client-price">
+                <strong>Client data</strong>
+                <strong style="text-align: center">Amount:</strong>
+                <div class="client">
+                  <img
+                    src="{{ pending.client.photo }}"
+                    alt="Profile"
+                    class="profile-img"
+                  />
+                  <div style="flex-grow: 2">
+                    <strong>{{ pending.client.username }}</strong>
+                    <p>Phone: {{ pending.client.phone }}</p>
+                  </div>
+                </div>
+                <p class="price">S/. {{ pending.amount }}</p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <ng-template #notFoundPending>
+      <h1 class="not-found">You have no pending contracts</h1>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="History">
+    <br />
+    <h1 style="margin-left: 5%"><strong>Contracts History</strong></h1>
+    <div *ngIf="historyContracts.length != 0; else notFoundHistory">
+      <div *ngFor="let history of historyContracts" class="card-group">
+        <div class="contract-information">
+          <mat-card class="card-history">
+            <div class="client-history">
+              <img
+                src="{{ history.client.photo }}"
+                alt="Profile"
+                class="profile-img-history"
+              />
+              <div>
+                <strong>Client</strong>
+                <p>{{ history.client.username }}</p>
+              </div>
+            </div>
+            <div>
+              <h4>DETAILS</h4>
+              <p>
+                Date: <strong>{{ history.date }}</strong>
+              </p>
+              <p>
+                From: <strong>{{ history.from }}</strong>
+              </p>
+              <p>
+                To: <strong>{{ history.to }}</strong>
+              </p>
+              <p>
+                Amount: <strong>{{ history.amount }}</strong>
+              </p>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <ng-template #notFoundHistory>
+      <h1 class="not-found">You have no contract history</h1>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
+<app-footers></app-footers>

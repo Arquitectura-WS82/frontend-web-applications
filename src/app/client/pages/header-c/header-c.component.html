@@ -1,0 +1,76 @@
+<mat-toolbar color="primary">
+
+    <img class="logo" src="../assets/imgs/fastporte-logo.png" alt="Logo"/>
+    <h1> FastPorte</h1>
+    <div class="mat-spacer"></div>
+    <!-- App options -->
+    <a mat-button [routerLink]="'/home-c'">Home</a>
+    <a mat-button [routerLink]="'/my-profile-c'">My Profile</a>
+    <a mat-button [routerLink]="'/search'">Search Vehicles</a>
+    <a mat-button [routerLink]="'/contracts-c'">Contracts</a>
+    <a mat-button [routerLink]="'/support'">Support</a>
+    <mat-icon [matBadge]="i" matBadgeColor="warn" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility();notification.showModal(); updateNoti() ">notifications_active</mat-icon>
+    
+</mat-toolbar>
+
+
+
+
+<app-notifications [title]="'Notifications'" #notification >
+<div *ngFor="let clientnotification of clientnotifications;"  >
+  
+    <mat-card class="example-card" *ngIf="clientnotification.type=='accepted'">
+      <mat-card-header >
+          <img mat-card class="accept" src="https://i.postimg.cc/GpWLNrx0/image-47.png"/>
+         
+          <mat-card-title>Congratulations! The carrier accepted your request for services. </mat-card-title>
+          <mat-card-subtitle>Click on the button to access the payment form.</mat-card-subtitle>
+      </mat-card-header>
+     
+      <mat-card-actions >
+          <button  mat-raised-button color="primary" type="submit" (click)="goToContract(clientnotification.pendingContract.id)">See More Details</button>
+      </mat-card-actions>
+      
+    </mat-card>
+    <br>
+    <mat-card class="card-rejected"  *ngIf="clientnotification.type=='rejected'" >
+        <mat-card-header>
+          <mat-card-title class="card-title">Contract rejected</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-card class="card-history">
+                <div class="client-history">
+                  <img
+                    [src]="clientnotification.pendingContract.client.photo"
+                    alt="Profile"
+                    class="profile-img-history"
+                  />
+                  <div>
+                    <strong>Client</strong>
+                    <p>{{clientnotification.pendingContract.client.username}}</p>
+                  </div>
+                </div>
+                <div>
+                  <h4>DETAILS</h4>
+                  <p>
+                    Date: <strong>{{clientnotification.pendingContract.date}}</strong>
+                  </p>
+                  <p>
+                    From: <strong>{{clientnotification.pendingContract.from}}</strong>
+                  </p>
+                  <p>
+                    To: <strong>{{clientnotification.pendingContract.to}}</strong>
+                  </p>
+                  <p>
+                    Amount: <strong>{{clientnotification.pendingContract.amount}}</strong>
+                  </p>
+                </div>
+                </mat-card>
+        </mat-card-content>
+
+    </mat-card>
+    <br>
+    
+</div>
+    
+</app-notifications>

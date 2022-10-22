@@ -1,0 +1,55 @@
+<app-header-c></app-header-c>
+
+<div class="mini_profile">
+    <mat-card class="inline-block profile_card">
+        <span class="_badge" matBadge="&#8288;" matBadgeOverlap="true" matBadgePosition="after" matBadgeColor="accent" matBadgeSize="medium">
+            <img mat-icon mat-card-avatar [src]="user.photo" alt="User Avatar">
+        </span>
+        <mat-card-title class="inline-block user_name" layout-align="center center">
+            <strong>Hi,<br>{{user.username}} &excl;</strong>
+        </mat-card-title>
+    </mat-card>
+
+    <a mat-button [routerLink]="'/search'">Search Vehicules</a>
+</div>
+
+
+<div class="info" fxLayout="row">
+    <div class="popular_drivers" class="inline-block" >
+        <mat-card-title class="home_title"> <strong>Popular Drivers</strong> </mat-card-title>
+
+ 
+        <mat-card *ngFor="let _driver of best_ranked.slice(0,2)">
+            <div class="inline-block">
+                <img mat-card-avatar [src]=_driver.photo alt="User Avatar">
+            </div>
+            <div class="inline-block info_text">
+                <mat-card-title>{{_driver.name}}</mat-card-title>
+                <mat-card-content>Type of Service <br> {{_driver.type}} <br> Rating:</mat-card-content>
+                <mat-card-content *ngFor='let in of counter(_driver.rating)' class="rating_stars">&#9733;</mat-card-content>
+            </div>
+            <!--<a mat-button [routerLink]="'../my-profile-d'" >Go</a>-->
+            <a mat-button (click)="goToDriver(_driver.id)" >Go</a>
+        </mat-card>
+
+
+
+    </div>
+
+    <div class="contracts" class="inline-block">
+        <mat-card-title class="home_title"> <strong>Lasts Contracts</strong> </mat-card-title>
+
+        <mat-card *ngFor="let _contract of contracts_user.slice(0,2)">
+            <div class="inline-block">
+                <img mat-card-avatar [src]=_contract.driver.photo alt="User Avatar">
+            </div>
+            <div class="inline-block info_text">
+                <mat-card-title>{{_contract.driver.name}}</mat-card-title>
+                <mat-card-content>From {{_contract.from}}</mat-card-content>
+                <mat-card-content>To {{_contract.to}}</mat-card-content>
+            </div>
+        </mat-card>
+
+    </div>
+</div>
+<app-footers></app-footers>

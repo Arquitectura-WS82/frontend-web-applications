@@ -1,0 +1,100 @@
+/* .calendar-form{
+    width: 30vw;
+    height: auto;
+} */
+
+.card {
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.col-main {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.r-time mat-form-field {
+    width: 15vw;
+    align-content: center;
+}
+
+.guion {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+h1 {
+    margin-left: 5vw;
+    margin-top: 5vh;
+    font-weight: bolder;
+}
+
+mat-form-field {
+    margin-top: 3.5vh;
+    margin-bottom: 3.5vh;
+    border-radius: 30px;
+    /* width: 35vw; */
+    padding: 1vw 3vw 0.5vw 3vw;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+
+}
+
+button {
+    margin-top: 3vh;
+    border-radius: 5vh;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 3vh;
+    width: 70%;
+    font-size: larger;
+}
+
+button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+    color: white;
+}
+
+
+    
+@media only screen and (max-width: 900px) {
+
+    .guion {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    mat-form-field {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        padding: 1vh 3vh 0.5vh 3vh;
+    }
+    button {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+    .card .r-time  {
+        width: 23vw;
+    }
+
+    .card{
+        flex-direction: column;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+
+    .card{
+        font-size: smaller;
+    }
+}

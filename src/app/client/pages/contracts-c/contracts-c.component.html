@@ -1,0 +1,115 @@
+<app-header-c></app-header-c>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Pending Contracts">
+    <br />
+    <h1 style="margin-left: 5%"><strong>Pending Contracts </strong></h1>
+    <div *ngIf="pendingContracts.length != 0; else notFoundPending">
+      <div *ngFor="let pending of pendingContracts" class="card-group">
+        <div class="contract-information">
+          <mat-card class="card">
+            <mat-card-title>Resume</mat-card-title>
+            <mat-card-subtitle>
+              <strong>Subject: </strong> {{ pending.subject }}
+            </mat-card-subtitle>
+            <mat-card-content>
+              <div>
+                <p>
+                  From <strong> {{ pending.from }}</strong>
+                </p>
+                <p>
+                  To: <strong>{{ pending.to }}</strong>
+                </p>
+                <p>
+                  Date: <strong> {{ pending.date }}</strong>
+                </p>
+                <p>
+                  Time:
+                  <strong>
+                    {{ pending.timeDeparture }} -
+                    {{ pending.timeArrival }}</strong
+                  >
+                </p>
+                <p>
+                  Quantity: <strong>{{ pending.quantity }}</strong>
+                </p>
+              </div>
+              <hr />
+              <div class="client-price">
+                <strong>Driver data</strong>
+                <strong style="text-align: center">Amount:</strong>
+                <div class="client">
+                  <img
+                    src="{{ pending.driver.photo }}"
+                    alt="Profile"
+                    class="profile-img"
+                  />
+                  <div style="flex-grow: 2">
+                    <strong>{{ pending.driver.username }}</strong>
+                    <p>Phone: {{ pending.driver.phone }}</p>
+                  </div>
+                </div>
+                <p class="price">S/. {{ pending.amount }}</p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <div class="buttons-area">
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="declineContract(pending.id)"
+            >
+              Decline
+            </button>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+    <ng-template #notFoundPending>
+      <h1 class="not-found">You have no pending contracts</h1>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="History">
+    <br />
+    <h1 style="margin-left: 5%"><strong>Contracts History</strong></h1>
+    <div *ngIf="historyContracts.length != 0; else notFoundHistory">
+      <div *ngFor="let history of historyContracts" class="card-group">
+        <div class="contract-information">
+          <mat-card class="card-history">
+            <div class="client-history">
+              <img
+                src="{{ history.driver.photo }}"
+                alt="Profile"
+                class="profile-img-history"
+              />
+              <div>
+                <strong>Driver data</strong>
+                <p>{{ history.driver.username }}</p>
+              </div>
+            </div>
+            <div>
+              <h4>DETAILS</h4>
+              <p>
+                Date: <strong>{{ history.date }}</strong>
+              </p>
+              <p>
+                From: <strong>{{ history.from }}</strong>
+              </p>
+              <p>
+                To: <strong>{{ history.to }}</strong>
+              </p>
+              <p>
+                Amount: <strong>{{ history.amount }}</strong>
+              </p>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <ng-template #notFoundHistory>
+      <h1 class="not-found">You have no contract history</h1>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
+<app-footers></app-footers>

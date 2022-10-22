@@ -1,0 +1,63 @@
+<app-header-d></app-header-d>
+<h1> <strong> Contract Finished! </strong> </h1>
+<div class="details-container">
+    <div class="details inline">
+        <mat-card>
+            <mat-card-title>Details</mat-card-title>
+                <br>
+            <mat-card-subtitle class="first-subtitle" > <strong> Subject: {{contract.subject}} </strong> </mat-card-subtitle>
+                <br>
+            <mat-card-subtitle>  From: <span> {{contract.from}} </span> </mat-card-subtitle>
+            <mat-card-subtitle>  To:  <span>{{contract.to}} </span> </mat-card-subtitle>
+            <mat-card-subtitle>  Date:  <span>{{contract.date}} </span> </mat-card-subtitle>
+            <mat-card-subtitle> Time Departure:  <span>{{contract.timeDeparture}} </span> </mat-card-subtitle>
+            <mat-card-subtitle> Time Arrival:  <span>{{contract.timeArrival}} </span> </mat-card-subtitle>
+
+             <div class="client-data">
+                <br>
+                <mat-card-subtitle> <strong>  Client Data </strong>  </mat-card-subtitle>
+                <div class="inline-block">
+                    <img mat-icon mat-card-avatar [src]="driverInfo.photo" alt="">
+                </div>
+
+                <div class="inline-block">
+                    <mat-card-subtitle> <strong> {{driverInfo.name}} </strong> </mat-card-subtitle>
+                    <mat-card-subtitle> <strong>Phone: {{driverInfo.phone}} </strong> </mat-card-subtitle>
+                </div>
+                <div class="inline-block">
+                    <mat-card-subtitle> <strong> Amount: </strong> <br> <br> <strong class="blue-strong"> S/. {{contract.amount}} </strong>  </mat-card-subtitle>
+                </div>
+            </div>
+        </mat-card>
+
+    </div>
+
+    <div class="payment-details inline">
+        <mat-card>
+            <mat-card-title>Payment Details</mat-card-title>
+            <form class="cc-form" [formGroup]="form">
+                <mat-form-field class="ngx-cc-form-field">
+                  <ngx-cc maxlength="16" name="cardNumber" styleClass="card" formControlName="creditCard"></ngx-cc>
+                  <mat-placeholder>0000 0000 0000 0000</mat-placeholder>
+                  <mat-error *ngIf="creditCard?.invalid">Card number is not valid</mat-error>
+                </mat-form-field>
+                <div class="cc-date-cvv-container">
+                  <mat-form-field class="ngx-cc-form-field">
+                      <ngx-cc-date formControlName="creditCardDate"></ngx-cc-date>
+                      <mat-placeholder>MM / YY</mat-placeholder>
+                      <mat-error *ngIf="creditCardDate?.invalid">Expiration date is not valid</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="ngx-cc-form-field">
+                      <ngx-cc-cvv formControlName="creditCardCvv"></ngx-cc-cvv>
+                      <mat-placeholder>CVV</mat-placeholder>
+                      <mat-error *ngIf="creditCardCvv?.invalid">Security code is not valid</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="btn-container">
+                    <button [disabled]="form.invalid" (click)="submitPay()" mat-raised-button color="primary">Purchase</button>
+                </div>
+              </form>
+        </mat-card>
+
+    </div>
+</div>

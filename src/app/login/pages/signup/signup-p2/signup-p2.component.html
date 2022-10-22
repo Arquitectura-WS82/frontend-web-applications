@@ -1,0 +1,80 @@
+<app-header></app-header>
+
+<img src="../../../../assets/imgs/fastporte-logo.png" alt="" class="card
+    img-logo">
+
+<h1>Fill In Your User Information</h1>
+<form mat action="" class="card">
+
+    <div class="row">
+        <div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Full Name">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Region</mat-label>
+                    <mat-select>
+                        <mat-option value="Amazonas">Amazonas</mat-option>
+                        <mat-option value="Ancash">Ancash</mat-option>
+                        <mat-option value="Apurimac">Apurimac</mat-option>
+                        <mat-option value="Arequipa">Arequipa</mat-option>
+                        <mat-option value="Ayacucho">Ayacucho</mat-option>
+                        <mat-option value="Cajamarca">Cajamarca</mat-option>
+                        <mat-option value="Callao">Callao</mat-option>
+                        <mat-option value="Cusco">Cusco</mat-option>
+                        <mat-option value="Huancavelica">Huancavelica</mat-option>
+                        <mat-option value="Huanuco">Huanuco</mat-option>
+                        <mat-option value="Ica">Ica</mat-option>
+                        <mat-option value="Junin">Junin</mat-option>
+                        <mat-option value="La Libertad">La Libertad</mat-option>
+                        <mat-option value="Lambayeque">Lambayeque</mat-option>
+                        <mat-option value="Lima">Lima</mat-option>
+                        <mat-option value="Loreto">Loreto</mat-option>
+                        <mat-option value="Madre de Dios">Madre de Dios</mat-option>
+                        <mat-option value="Moquegua">Moquegua</mat-option>
+                        <mat-option value="Pasco">Pasco</mat-option>
+                        <mat-option value="Piura">Piura</mat-option>
+                        <mat-option value="Puno">Puno</mat-option>
+                        <mat-option value="San Martin">San Martin</mat-option>
+                        <mat-option value="Tacna">Tacna</mat-option>
+                        <mat-option value="Tumbes">Tumbes</mat-option>
+                        <mat-option value="Ucayali">Ucayali</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Phone number">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Identify card">
+                </mat-form-field>
+                <mat-form-field matInput placeholder="Type of user">
+                    <mat-label>Type of user</mat-label>
+                    <mat-select>
+                        <mat-option value="client">Client</mat-option>
+                        <mat-option value="driver">Driver</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="img-user">
+            <img src="../../../../../assets/imgs/user-vector.png"
+                alt="user-vector" class="img-user">
+            <p><a href="#"><u>Upload a photo</u></a></p>
+        </div>
+    </div>
+    <button mat-raised-button [routerLink]="'/signup-p3'" color="primary">Continue</button>
+</form>
+
+<app-footer></app-footer>

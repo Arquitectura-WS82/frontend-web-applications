@@ -1,0 +1,201 @@
+.card{
+    margin-bottom: -40px;
+    margin-top: 0%;
+    left: 19%;
+    margin-right: 19%;
+    word-break: break-all;
+    align-items: center;
+    width: 80%;
+    
+}
+
+h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 24px;
+    text-align: center;
+
+}
+p{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    
+    right: 10%;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    
+}
+label{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    white-space: nowrap;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.profilePhoto{
+    
+    margin-top:12%;
+    margin-bottom: 3%;
+    margin-left: 13%;
+    width: 75%;
+    height: auto;
+}
+.starIcon{
+    color:#0f15a3;
+    align-items: center;
+}
+.starsUser{
+    align-items: center;
+    margin-inline: 29%;
+    align-content: center;
+    
+}
+button{
+    background-color:#0f15a3;
+    color: #FFFFFF;
+    border-radius: 45px;
+}
+.editP{
+    background-color:#0f15a3;
+    color: #FFFFFF;
+    border-radius: 45px;
+    left: 12%;
+    padding-inline: 20% ;
+}
+.btn{
+    background-color:#ffffff;
+    color: #000000;
+    align-items: right;
+    margin-top:20px;
+    margin-bottom: 20px;
+    width: 410px;
+    height: 41px;
+    margin-left: 20%;
+}
+
+.mat-ink-bar{
+    color: #1ACC8D;
+    background: #1ACC8D;
+    scrollbar-color: #1ACC8D;
+}
+
+.btn-edit{
+    background: #1ACC8D;
+    margin-top:10px;
+    margin-bottom: 20px;
+    width: 260px;
+    height: 40px;
+    margin-inline: 200px;
+}
+.foto-comments{
+    position: absolute;
+    left: 20;
+}
+
+h2{
+    
+    position: absolute;
+    
+    left: 110px;
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+
+    color: #0F15A3;
+}
+h6{
+    position: absolute;
+    left: 110px;
+    top: 30px;
+}
+h4{
+    position: absolute;
+    right: 100px;
+    top: 13px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+
+    color: #0F15A3;
+}
+.star-foto{
+    position: absolute;
+    right: 5%;
+}
+.title2{
+    position: absolute;
+    left: 25px;
+    top: 30px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 24px;
+/* identical to box height, or 141% */
+
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+
+    color: #000000;
+}
+.title3{
+    position: absolute;
+    left: 25px;
+    top: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 190%;
+/* identical to box height, or 27px */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+.title4{
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 190%;
+/* or 30px */
+
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+
+    color: #0F15A3;
+}
+.btn-update{
+    position: absolute;
+    width: 250px;
+    padding-left: 50px;
+    top: 87%;
+    background: #1ACC8D;;
+    text-align: center;
+}
+.btn-add{
+    position: absolute;
+    width: 180px;
+    padding-left: 50px;
+    top: 87%;
+    background: #1ACC8D;;
+    text-align: center;
+}

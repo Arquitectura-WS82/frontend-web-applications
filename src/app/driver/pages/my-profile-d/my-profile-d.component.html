@@ -1,0 +1,154 @@
+<app-header-d></app-header-d>
+
+
+   
+    <!--<mat-grid-tile [colspan]="1"
+        [rowspan]="1">
+    </mat-grid-tile>
+
+    <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        [style.background]="'transparent'">
+        <div class="card">
+            
+            <img mat-icon mat-card-avatar class="profilePhoto" [src]="user.photo" alt="User Avatar">   
+            <br><br>
+            <h1>{{user.username}}</h1>
+            <br>
+            <p>{{user.description}}</p>
+            <div class="starsUser">
+                <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                <mat-icon class="starIcon" fontIcon="star" ></mat-icon>    
+            </div>
+            <button class="editP" mat-raised-button >Edit profile&nbsp;&nbsp;<mat-icon width="12px" >edit</mat-icon></button>
+            
+        </div>
+        
+        
+    </mat-grid-tile>-->
+    <div class="container">
+        <div class="column profile-column">
+
+                <img mat-icon mat-card-avatar class="profile-Photo" [src]="user.photo" alt="User Avatar"/>   
+                <br><br>
+                <h1 style="font-weight: bolder;">{{user.username}}</h1>
+                <br>
+                <p class="description">{{user.description}}</p>
+                <div class="starsUser">
+                    <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star" ></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star" ></mat-icon>    
+                </div>
+                <button class="editP" mat-raised-button >Edit profile&nbsp;&nbsp;<mat-icon width="12px" >edit</mat-icon></button>
+        </div>
+
+        
+        <div class="column tab-column">
+
+            <mat-tab-group   mat-align-tabs="center" style="max-height: 90%">
+                
+                <mat-tab label="Personal information">
+                    
+                    <p>Full name<button class="btn" mat-raised-button color="primary">{{user.name}}</button></p>
+                    
+                    <p>Age<button class="btn" mat-raised-button color="primary">{{user.age}} years</button></p>
+                    
+                    <p>E-mail<button class="btn" mat-raised-button color="primary">{{user.email}}</button></p>
+                    
+                    <p>Phone<button class="btn"  mat-raised-button color="primary">{{user.phone}}</button></p>
+                    
+                    <p>Location<button class="btn"  mat-raised-button color="primary">{{user.region}}</button></p>
+                </mat-tab>
+                <mat-tab label="Experience" >
+                    <div>
+                        <div *ngFor="let job of jobs" >
+                            <br>
+                            <p>Job<button  class="btn" style=" right: 20px;" mat-raised-button color="primary">{{job.job}}</button></p>
+                            
+                            <p>Time<button class="btn"  style="right: 20px;" mat-raised-button color="primary">{{job.time}}</button></p>
+                            <br>
+                            <mat-divider></mat-divider> 
+                        </div>
+                        <div>
+                        <button class="btn-edit" mat-raised-button >Add experience&nbsp;&nbsp;</button>
+
+                        </div>
+                    </div>
+
+                </mat-tab>
+                
+                <mat-tab label="About the vehicle">
+                    <div>
+                        <mat-grid-list cols="2" rowHeight="">
+                            <mat-grid-tile>
+                                <div class="title2">
+                                    Update documentation
+                                </div>
+                                <div class="title3">
+                                    Click to check the documents
+                                </div>
+                                <div>
+                                    <br><br><br>
+                                    
+                                    <p class="title4">
+                                        Licencia de conducir
+                                        
+                                    </p>
+                                    <p class="title4">
+                                        SOAT                    
+                                    </p>
+                                    <p class="title4">
+                                        
+                                        Documento de propiedad
+                                    </p>
+                                    <p class="title4">
+                                        Certificado de revisión técnica
+                                        
+                                    </p>
+                                </div>
+                                
+                                <br><br>
+                                
+                                <button class="btn-update" mat-raised-button >Update documentation&nbsp;&nbsp;</button>
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                                <div class="title2">
+                                    Photos
+                                </div>
+                                <img mat-icon  [src]="user.photo_auto" alt="User Avatar">
+                                <button class="btn-add" mat-raised-button >Add a photo&nbsp;&nbsp;</button>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </div>
+                    
+                </mat-tab>
+                <mat-tab label="Comments">
+                    <div>
+                        <mat-list *ngFor="let comment of comments">
+                            <br><br>
+                            <mat-list-item >
+                                <img [src]="comment.photo_com" alt="" class="foto-comments">
+                                <img src="../../../../assets/imgs/Star.png" alt="" class="star-foto">
+                                <h2 >{{comment.name}}</h2>
+                                <h6 mat-line>{{comment.comment}}</h6>
+                                <h4 >{{comment.stars}}</h4>
+                            </mat-list-item>
+                            <br><br>
+                            <mat-divider></mat-divider>
+                            
+                        </mat-list>
+                    
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+</div>
+
+
+<app-footers></app-footers>

@@ -1,0 +1,160 @@
+<app-header-c></app-header-c>
+
+<div class="container">
+
+    <div class="column profile-column">
+
+        <img [src]="user.photo" mat-card-avatar class="profile-photo" alt="User
+            Avatar" />
+        <h1 style="font-weight: bolder;">{{user.username}}</h1>
+        <p class="description">{{user.description}}</p>
+        <div class="stars-user">
+            <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+            <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+            <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+            <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+            <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+        </div>
+        <button class="editP" color="accent" mat-raised-button (click)="goRequestService()" >Contract&nbsp;&nbsp;<mat-icon width="12px">drive_eta</mat-icon></button>
+    </div>
+
+
+    <div class="column tab-column">
+
+        <mat-tab-group mat-align-tabs="center" style="max-height: 90%">
+            <mat-tab label="Personal information">
+
+                <div class="tab-panel">
+                    <div class="p-info">
+                        <b>Full name</b>
+                        <button class="p-info-btn" mat-raised-button
+                            color="primary">{{user.name}} {{user.lastName}}</button>
+                    </div>
+
+                    <div class="p-info">
+                        <b>Age</b>
+                        <button class="p-info-btn" mat-raised-button
+                            color="primary">{{user.age}}
+                            years</button>
+                    </div>
+
+                    <div class="p-info">
+                        <b>E-mail</b>
+                        <button class="p-info-btn" mat-raised-button
+                            color="primary">{{user.email}}</button>
+                    </div>
+
+                    <div class="p-info">
+                        <b>Phone</b>
+                        <button class="p-info-btn" mat-raised-button
+                            color="primary">{{user.phone}}</button>
+                    </div>
+
+                    <div class="p-info">
+                        <b>Location</b>
+                        <button class="p-info-btn" mat-raised-button
+                            color="primary">{{user.region}}</button>
+                    </div>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="Experience">
+
+                <div *ngFor="let job of user.jobs" class="tab-panel">
+                    <div class="p-info">
+                        <b>Job</b>
+                        <button class="p-info-btn" style=" right: 20px;"
+                            mat-raised-button color="primary">{{job.job}}</button>
+                    </div>
+
+                    <div class="p-info">
+                        <b>Time</b>
+                        <button class="p-info-btn" style="right: 20px;"
+                            mat-raised-button color="primary">{{job.time}}</button>
+                    </div>
+
+                    <mat-divider class="divider"></mat-divider>
+
+
+                </div>
+                <div style="display: flex;">
+                    <button mat-raised-button color="accent"
+                        class="btn-edit-exp" mat-raised-button>Add
+                        experience</button>
+                </div>
+
+            </mat-tab>
+
+            <mat-tab label="About the vehicle">
+                <div class="row row-se tab-panel">
+                    <div class="column">
+                        <h4 class="title2">
+                            Documentation
+                        </h4>
+                        <p class="title3">
+                            Click to check the documents
+                        </p>
+                        <div class="column">
+                            <ul>
+                                <li><a href=""> Licencia de conducir</a> </li>
+                                <li><a href=""> SOAT </a> </li>
+                                <li><a href=""> Documento de propiedad </a>
+                                </li>
+                                <li><a href=""> Certificado de revisión técnica
+                                    </a> </li>
+                            </ul>
+                        </div>
+                        <button color="accent" class="btn-edit-exp"
+                            mat-raised-button>Update
+                            documentation&nbsp;&nbsp;</button>
+                    </div>
+
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <div class="column">
+
+
+                        <div class="title2">
+                            Photos
+                        </div>
+                        <img mat-icon [src]="user.vehicles[0].photoAuto"
+                            class="img-responsive"
+                            alt="User Avatar">
+                        <button color="accent" class="btn-edit-exp"
+                            mat-raised-button>Add a
+                            photo&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+
+
+            </mat-tab>
+
+            <mat-tab label="Comments">
+                <div class="comments">
+                    <div *ngFor="let comment of comments" class="tab-panel">
+                        <div class="row ">
+                            <img [src]="comment.client.photo" alt=""
+                                class="photo-comments" mat-card-avatar>
+                            <div class="c-column">
+                                <h2>{{comment.client.username}}</h2>
+                                <p mat-line>{{comment.comment}}</p>
+                            </div>
+                            <div class="row">
+                                <b style="font-size: larger;">{{comment.stars}}</b>
+                                <mat-icon fontIcon="star"></mat-icon>
+
+                            </div>
+                        </div>
+
+
+                        <mat-divider class="divider"></mat-divider>
+
+                    </div>
+
+                </div>
+            </mat-tab>
+
+        </mat-tab-group>
+    </div>
+</div>
+
+<app-footers></app-footers>

@@ -1,0 +1,73 @@
+.mat-card {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-group {
+  display: inline-block;
+}
+
+.card {
+  max-width: 100%;
+}
+
+.contract-information {
+  margin: 6vw;
+  width: 20vw;
+}
+
+.client-price {
+  display: grid;
+  grid-template-columns: 63% 37%;
+  grid-template-rows: 40% 60%;
+}
+
+.client {
+  display: flex;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 150px;
+  margin-right: 7px;
+}
+
+.client-history {
+  margin: 40px;
+}
+
+.profile-img-history {
+  width: 100px;
+  height: 100px;
+  border-radius: 150px;
+  margin-right: 7px;
+}
+
+.price {
+  color: #0f15a3;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.buttons-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-area button {
+  border-radius: 18px;
+  width: 45%;
+}
+
+.card-history {
+  display: flex;
+}
+
+.not-found {
+  display: flex;
+  justify-content: center;
+  margin-top: 30vh;
+  margin-bottom: 30vh;
+}

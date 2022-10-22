@@ -1,0 +1,262 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 10vh;
+    height: 90%;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.row-se{
+    justify-content: space-around;
+}
+
+.profile-photo{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin: 10px;
+    position: relative;
+    border-radius: 50%;
+
+    margin-bottom: 3vh;
+}
+
+.description{
+    text-align: justify;
+}
+
+.profile-column{
+    margin-right: 5vw;
+}
+
+.tab-column{
+    align-content: center;
+    align-items: center;
+    width: 70%;
+    margin-left: 2vw;
+}
+
+.stars-user{
+    display: flex;
+    justify-content: left;
+}
+
+.p-info{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.p-info-btn{
+    width: 80%;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border-radius: 30px;
+    /* width: 35vw; */
+    padding: 1vw;
+    background: #fff;
+    color: black;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+}
+
+.tab-panel{
+    margin: 5vh 2vw 0vh 2vw;
+} 
+
+.divider{
+    margin-top: 5vh
+}
+
+.p-info button{
+    font-weight: lighter;
+}
+
+.btn-edit-exp{
+    color: white;
+    margin-top: 3vh;
+    border-radius: 5vh;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 3vh;
+
+    text-align: center;
+}
+
+.column ul li{
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+.title2{
+    font-weight: bolder
+}
+
+.img-responsive{
+    height: 200px;
+    width: 200px;
+
+    overflow: hidden;
+    margin: 10px;
+    position: relative;
+}
+
+.photo-comments{
+    height: 70px;
+    width: 70px;
+
+    overflow: hidden;
+    margin: 10px;
+    position: relative;
+}
+
+.c-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+
+}
+
+.c-column p{
+    text-align: justify;
+}
+
+.comments .row{
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+button {
+    margin-top: 3vh;
+    border-radius: 5vh;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 3vh;
+    width: 70%;
+    font-size: larger;
+}
+
+button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+    color: white;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        margin-left: 7vw;
+        margin-right: 7vw;
+        height: auto;
+    }
+
+    .column{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-column{
+        margin-right: 0vw;
+    }
+    .column .profile-column{
+        margin-right: 0vw;
+    }
+
+    .row{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .row-se{
+        justify-content: space-around;
+    }
+
+    .profile-photo{
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        margin: 10px;
+        position: relative;
+        border-radius: 50%;
+
+        margin-bottom: 3vh;
+    }
+
+    .description{
+        text-align: justify;
+    }
+
+    .tab-column{
+        align-content: center;
+        align-items: center;
+        width: 100%;
+        margin-left: 0vw;
+        margin-top: 5vh;
+    }
+
+    .stars-user{
+        display: flex;
+        justify-content: left;
+    }
+
+    .p-info{
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
+    .p-info-btn{
+        width: 80%;
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+        border-radius: 30px;
+        /* width: 35vw; */
+        padding: 1vw;
+        background: #fff;
+        color: black;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+    }
+
+    .tab-panel{
+        margin: 5vh 2vw 0vh 2vw;
+    } 
+
+    .divider{
+        margin-top: 5vh
+    }
+
+    .p-info button{
+        font-weight: lighter;
+    }
+
+    .btn-edit-exp{
+        color: white;
+        margin-top: 3vh;
+        border-radius: 5vh;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 3vh;
+
+        text-align: center;
+    }
+
+    .column ul li{
+        margin-top: 1vw;
+        margin-bottom: 1
+    }
+    .c-column{
+        width: 90%;
+    }
+    
+}
