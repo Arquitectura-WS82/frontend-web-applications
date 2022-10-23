@@ -68,7 +68,7 @@ export class HeaderCComponent implements OnInit {
   }
 
   getPendingContracts(id: any){
-    return this.http.get(`${this.basePath}pending-contracts?id=${id}`);
+    return this.http.get(`${this.basePath}pendingContracts?id=${id}`);
   }
   goToContract(id: any) {
     this.router.navigate([`app-pay-contract-c/`])

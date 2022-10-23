@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./pay-contract-c.component.css']
 })
 export class PayContractCComponent implements OnInit {
-  pendingcontract:any;
+  pendingcontract: any = [];
   contract_id:any;
   basePath = 'http://localhost:3000/api/v1/';
 
@@ -48,7 +48,7 @@ export class PayContractCComponent implements OnInit {
   }
 
   getContract(id: any) {
-    return this.http.get(`${this.basePath}pending-contracts?id=${id}`);
+    return this.http.get(`${this.basePath}pendingContracts?id=${id}`);
   }
 
 }

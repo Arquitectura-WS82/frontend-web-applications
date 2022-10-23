@@ -31,7 +31,7 @@
                         <p>
                           Time:
                           <strong>
-                            {{pendingcontract.time.departure}} - {{pendingcontract.time.arrival}}
+                            {{pendingcontract.timeDeparture}} - {{pendingcontract.timeArrival}}
                             </strong
                           >
                         </p>
@@ -49,13 +49,13 @@
                         <strong style="text-align: center">Amount:</strong>
                         <div class="client">
                           <img
-                            [src]="pendingcontract.client.photo"
+                            src="https://i.postimg.cc/jdT1LDZn/client.png"
                             alt="Profile"
                             class="profile-img"
                           />
                           <div style="flex-grow: 2">
-                            <strong>{{pendingcontract.client.username}}</strong><span></span>
-                            <div class="phoneclient">Phone: {{pendingcontract.client.phone}}</div>
+                            <strong>Oscar</strong><span></span>
+                            <div class="phoneclient">Phone: 994683291</div>
                           </div>
                         </div>
                         <div class="price">S/. {{pendingcontract.amount}} </div>
