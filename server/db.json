@@ -29,20 +29,6 @@
       "typeofUser": "client"
     },
     {
-      "id": 5,
-      "name": "Manuel Carlos",
-      "lastName": "Rodriguez Diaz",
-      "username": "Manuel Rodriguez",
-      "photo": "https://i.postimg.cc/jdT1LDZn/client.png",
-      "age": "38",
-      "email": "manuel.rodriguez@gmail.com",
-      "phone": "914234832",
-      "region": "Chancay",
-      "description": "Hello. My name is Manuel and I have a bussiness that It work tourism service. I have too much experience because I started in this job 15 years ago. I promise to give the best service and you won’t regret. You can phone any time of the day and you can text me on WhatsApp too.",
-      "password": "123456",
-      "typeofUser": "client"
-    },
-    {
       "id": 6,
       "name": "Manuel Carlos",
       "lastName": "Rodriguez Diaz",
@@ -161,19 +147,6 @@
       "title": "Main"
     },
     {
-      "id": 2,
-      "ClientId": 1,
-      "holderName": "Maria",
-      "cardNumber": 1231412412,
-      "cvv": 321,
-      "expirationDate": "12/25",
-      "typeOfCard": "visa",
-      "postalCodeZip": 25,
-      "email": "test@test2.com",
-      "phone": 120751274,
-      "title": "Main"
-    },
-    {
       "id": 3,
       "DriverId": 4,
       "holderName": "Maria",
@@ -242,6 +215,20 @@
       "status": "rejected"
     },
     {
+      "id": 2,
+      "clientId": 1,
+      "driverId": 5,
+      "subject": "School Tour",
+      "from": "Marañon, Los Olivos",
+      "to": "Fortaleza del Real Felipe, Callao",
+      "date": "12/06/2022",
+      "timeDeparture": "8:00",
+      "timeArrival": "17:00",
+      "quantity": 30,
+      "amount": 1400,
+      "status": "waiting"
+    },
+    {
       "driverId": 5,
       "clientId": 1,
       "from": "Breña",
@@ -296,28 +283,13 @@
       "description": "qweqwe",
       "subject": "moving",
       "id": 6
-    },
-    {
-      "driverId": 5,
-      "clientId": "1",
-      "from": "dsadas",
-      "to": "dasdas",
-      "date": "2022-10-05T05:00:00.000Z",
-      "type": "private",
-      "quantity": 123,
-      "timeDeparture": "04:45",
-      "timeArrival": "00:32",
-      "amount": 123,
-      "subject": "dsadas",
-      "description": "dasdas",
-      "id": 7
     }
   ],
   "pendingContracts": [
     {
       "id": 1,
       "driverId": 5,
-      "clientId": 1,
+      "clientId": 6,
       "subject": "Tourism in Barranca",
       "from": "La Victoria, Lima",
       "to": "Barranca",
@@ -326,21 +298,35 @@
       "timeArrival": "17:00",
       "quantity": 5,
       "amount": 300,
-      "status": "rejected"
+      "status": "waiting"
     },
     {
-      "id": 2,
+      "clientId": 1,
       "driverId": 5,
-      "clientId": 2,
-      "subject": "School Visit",
-      "from": "Ancon, Lima",
-      "to": "Chosica",
-      "date": "15/10/2022",
-      "timeDeparture": "9:00",
-      "timeArrival": "18:00",
-      "quantity": 10,
-      "amount": 1500,
-      "status": "waiting"
+      "subject": "Tourist visit",
+      "from": "Avenida Arica 601 Lima 05, Breña 15083",
+      "to": "Ciudad de Caral, Lomas de Lachay",
+      "date": "21/10/2022",
+      "timeDeparture": "8:00",
+      "timeArrival": "17:00",
+      "quantity": 15,
+      "amount": 1560,
+      "status": "waiting",
+      "id": 3
+    },
+    {
+      "clientId": 1,
+      "driverId": 5,
+      "subject": "School Tour",
+      "from": "Marañon, Los Olivos",
+      "to": "Fortaleza del Real Felipe, Callao",
+      "date": "12/06/2022",
+      "timeDeparture": "8:00",
+      "timeArrival": "17:00",
+      "quantity": 30,
+      "amount": 1400,
+      "status": "waiting",
+      "id": 4
     }
   ],
   "historyContracts": [
@@ -443,30 +429,6 @@
       "comment": "Good experience.",
       "photo_com": "https://i.postimg.cc/hvVwMtFX/comment-4.png",
       "stars": 5
-    },
-    {
-      "id": 1,
-      "clientId": 5,
-      "driverId": 4,
-      "comment": "Good Service",
-      "photoCom": "https://i.postimg.cc/cHp2Q8zq/comment-1.png",
-      "stars": 5
-    },
-    {
-      "id": 2,
-      "clientId": 5,
-      "driverId": 4,
-      "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      "photoCom": "https://i.postimg.cc/5tkZ2rq2/comment-2.png",
-      "stars": 5
-    },
-    {
-      "id": 3,
-      "clientId": 5,
-      "driverId": 5,
-      "comment": "The best transport service ever.",
-      "photoCom": "https://i.postimg.cc/1tnbnKJc/comment-3.png",
-      "stars": 4
     },
     {
       "id": 4,
@@ -581,32 +543,6 @@
       "status": "read"
     },
     {
-      "id": 4,
-      "clientId": 4,
-      "pendingContract": {
-        "id": 4,
-        "driver_id": 5,
-        "subject": "Tourism in Barranca",
-        "from": "La Victoria, Lima",
-        "to": "Barranca",
-        "date": "21/09/2022",
-        "time": {
-          "departure": "10:00",
-          "arrival": "17:00"
-        },
-        "quantity": 5,
-        "client": {
-          "id": 1,
-          "username": "Raul Alvarez",
-          "phone": "912 123 456",
-          "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        "amount": 300
-      },
-      "type": "rejected",
-      "status": "unread"
-    },
-    {
       "id": 5,
       "clientId": 6,
       "pendingContract": {
@@ -633,16 +569,5 @@
       "status": "unread"
     }
   ],
-  "driverNotifications": [
-    {
-      "id": 1,
-      "driverId": 3,
-      "offerContractsId": 3
-    },
-    {
-      "id": 2,
-      "driverId": 4,
-      "offerContractsId": 2
-    }
-  ]
+  "driverNotifications": []
 }
