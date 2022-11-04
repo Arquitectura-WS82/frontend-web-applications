@@ -144,7 +144,8 @@
       "postalCodeZip": 12,
       "email": "test@test.com",
       "phone": 12312314,
-      "title": "Main"
+      "title": "Main",
+      "typeofuser": "client"
     },
     {
       "id": 3,
@@ -157,7 +158,8 @@
       "postalCodeZip": 25,
       "email": "test@test2.com",
       "phone": 120751274,
-      "title": "Second"
+      "title": "Second",
+      "typeofuser": "driver"
     },
     {
       "id": 4,
@@ -170,7 +172,8 @@
       "postalCodeZip": 12,
       "email": "test@test.com",
       "phone": 12312314,
-      "title": "Third"
+      "title": "Third",
+      "typeofuser": "driver"
     },
     {
       "email": "qewqweqw@gmail.com",
@@ -183,7 +186,8 @@
       "typeOfCard": "Mastercard",
       "postalCodeZip": "23123",
       "title": "dasdas",
-      "id": 6
+      "id": 6,
+      "typeofuser": "driver"
     },
     {
       "email": "adsads@gmail.com",
@@ -196,7 +200,37 @@
       "typeOfCard": "Mastercard",
       "postalCodeZip": "12231",
       "title": "adasdas",
-      "id": 7
+      "id": 7,
+      "typeofuser": "driver"
+    },
+    {
+      "email": "juna@gmail.com",
+      "cvv": "254",
+      "ClientId": "1",
+      "holderName": "Juan",
+      "cardNumber": "100100200300",
+      "expirationDate": "20/05",
+      "phone": "987654321",
+      "typeOfCard": "Mastercard",
+      "postalCodeZip": "10203",
+      "title": "Secundaria",
+      "id": 8,
+      "typeofuser": "client"
+    },
+    {
+      "email": "ale@gmail.com",
+      "cvv": "123",
+      "DriverId": "5",
+      "holderName": "Alejandra Garamendi",
+      "cardNumber": "154789546214200",
+      "expirationDate": "02/58",
+      "phone": "987546521",
+      "typeOfCard": "Visa",
+      "postalCodeZip": "12547",
+      "title": "Principal",
+      "id": 9,
+      "typeofuser": "driver"
+
     }
   ],
   "offerContracts": [

@@ -37,23 +37,23 @@ export class CardSettingComponent implements OnInit {
       this.getCardsClient(this.user_id).subscribe((data: any) => {
       this.Cards_user = data;
       console.log(data);
-      console.log("error cliente");
+      //console.log("error cliente");
     });
     }
     else{
       this.getCardsDriver(this.user_id).subscribe((data: any) => {
       this.Cards_user = data;
       console.log(data);
-      console.log("error driver")
+      //console.log("error driver")
     });
     }
     console.log("error");
   }
   getCardsClient(id: any) {
-    return this.http.get(`${this.basePath}paymentMethod?ClientId=${id}`);
+    return this.http.get(`${this.basePath}paymentMethod?typeofuser=client&ClientId=${id}`);
   }
   getCardsDriver(id: any) {
-    return this.http.get(`${this.basePath}paymentMethod?DriverId=${id}`);
+    return this.http.get(`${this.basePath}paymentMethod?typeofuser=driver&DriverId=${id}`);
   }
   DeleteCard(id: number) {
     return this.http.delete(`${this.basePath}paymentMethod/${id}`);
@@ -68,6 +68,15 @@ export class CardSettingComponent implements OnInit {
 
     });
     
+  }
+
+  goAddCard(){
+    if(localStorage.getItem('typeofuser')=='client'){
+      this.router.navigate(['/settings-c/add'])
+    }
+    else{
+      this.router.navigate(['/settings-d/add'])
+    }
   }
 
 }

@@ -52,8 +52,8 @@ import { ForgotPasswordComponent } from './login/pages/password/forgot-password/
 import { NotificationsComponent } from './client/pages/notifications/notifications.component';
 import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contract-c.component';
 
-import { CardSettingComponent } from './client/card-setting/card-setting.component';
-import { AddCardComponent } from './client/add-card/add-card.component';
+import { CardSettingComponent } from './components/card-setting/card-setting.component';
+import { AddCardComponent } from './components/add-card/add-card.component';
 
 import { ContractsCComponent } from './client/pages/contracts-c/contracts-c.component';
 import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
@@ -61,6 +61,8 @@ import { RequestServiceComponent } from './client/request-service/request-servic
 import { SupportComponent } from './components/support/support.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { SettingsDComponent } from './driver/pages/settings-d/settings-d.component';
+import { SettingsCComponent } from './client/pages/settings-c/settings-c.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,9 @@ import { SettingsComponent } from './components/settings/settings.component';
     RequestServiceComponent,
     SupportComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    SettingsDComponent,
+    SettingsCComponent,
   ],
   imports: [
     BrowserModule,

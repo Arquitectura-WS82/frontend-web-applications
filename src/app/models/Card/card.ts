@@ -9,6 +9,7 @@ export interface CardClient {
     email: String;
     phone: number;
     title: String;
+    typeofuser: String;
 }
 export interface Carddriver {
     DriverId: number;
@@ -21,4 +22,5 @@ export interface Carddriver {
     email: String;
     phone: number;
     title: String;
+    typeofuser: String;
 }

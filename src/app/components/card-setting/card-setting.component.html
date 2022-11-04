@@ -1,7 +1,7 @@
 <!-- <app-header-c></app-header-c> -->
 <h1>Payment method</h1>
 
-<button mat-raised-button [routerLink]="'/Add'" color="accent" class="add-button">Add Card</button>
+<a><button mat-raised-button (click)="goAddCard()" color="accent" class="add-button">Add Card</button></a>
 
 <div class="info" fxLayout="row">
     <div class="popular_drivers" class="inline-block" >
@@ -20,7 +20,7 @@
                         <mat-card-content><b>Postal Code o zip:</b> {{_cards.postalCodeZip}} </mat-card-content>
                         <div class="center_button">
                             <!-- <button mat-raised-button [routerLink]="'/add-card'" color="accent">Setting</button> -->
-                            <button mat-raised-button (click)="deleteItem(_cards.id)" color="warn">Decline</button>
+                            <button mat-raised-button (click)="deleteItem(_cards.id)" color="warn">Delete</button>
                         </div>
 
                     </div>
