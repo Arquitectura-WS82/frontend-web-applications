@@ -59,7 +59,8 @@ export class ProfileComponent implements OnInit {
     return this.http.get(`${this.basePath}comments?_expand=client&driverId=${id}`);
   }
   goRequestService(){
-    this.router.navigate(['request-service']);
+    //this.router.navigate(['request-service']);
+    this.router.navigate(['/request-service']);
   }
 
 }
