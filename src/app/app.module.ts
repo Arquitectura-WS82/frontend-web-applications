@@ -27,7 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { NgxCcModule } from 'ngx-cc';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
 // Components
 import { HeaderComponent } from './login/header/header.component';
 import { FooterComponent } from './login/footer/footer.component';
@@ -52,7 +52,7 @@ import { ForgotPasswordComponent } from './login/pages/password/forgot-password/
 import { NotificationsComponent } from './client/pages/notifications/notifications.component';
 import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contract-c.component';
 
-import { SettingComponent } from './client/setting/setting.component';
+import { CardSettingComponent } from './client/card-setting/card-setting.component';
 import { AddCardComponent } from './client/add-card/add-card.component';
 
 import { ContractsCComponent } from './client/pages/contracts-c/contracts-c.component';
@@ -60,6 +60,7 @@ import { EndContractComponent } from './driver/pages/end-contract/end-contract.c
 import { RequestServiceComponent } from './client/request-service/request-service.component';
 import { SupportComponent } from './components/support/support.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -85,13 +86,14 @@ import { ProfileComponent } from './components/profile/profile.component';
     FootersComponent,
     NotificationsComponent,
     PayContractCComponent,
-    SettingComponent,
+    CardSettingComponent,
     AddCardComponent,
     ContractsCComponent,
     EndContractComponent,
     RequestServiceComponent,
     SupportComponent,
     ProfileComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -118,7 +120,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatBadgeModule,
     MatGridListModule,
     MatListModule,
-    NgxCcModule
+    NgxCcModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,33 @@
+<!-- <app-header-c></app-header-c> -->
+<h1>Payment method</h1>
+
+<button mat-raised-button [routerLink]="'/Add'" color="accent" class="add-button">Add Card</button>
+
+<div class="info" fxLayout="row">
+    <div class="popular_drivers" class="inline-block" >
+        
+        <h2 class="home_title"> <strong>Cards</strong> </h2>
+        <div class="center">
+            <div class="container">
+                <mat-card *ngFor="let _cards of Cards_user" >
+                    <div class="inline-block box_text">
+                        <mat-card-title >{{_cards.title}}</mat-card-title>
+                        <mat-card-content><b>Type:</b> {{_cards.typeOfCard}} </mat-card-content>
+                        <mat-card-content><b>Number Card:</b> {{_cards.cardNumber}} </mat-card-content>
+                        <mat-card-content><b>E-mail:</b> {{_cards.email}} </mat-card-content>
+                        <mat-card-content><b>Number:</b> {{_cards.phone}} </mat-card-content>
+                        <mat-card-content><b>Direction:</b> {{_cards.Direction}} </mat-card-content>
+                        <mat-card-content><b>Postal Code o zip:</b> {{_cards.postalCodeZip}} </mat-card-content>
+                        <div class="center_button">
+                            <!-- <button mat-raised-button [routerLink]="'/add-card'" color="accent">Setting</button> -->
+                            <button mat-raised-button (click)="deleteItem(_cards.id)" color="warn">Decline</button>
+                        </div>
+
+                    </div>
+                </mat-card> 
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- <app-footers></app-footers> -->

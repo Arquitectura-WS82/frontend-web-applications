@@ -3,11 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-setting',
-  templateUrl: './setting.component.html',
-  styleUrls: ['./setting.component.css']
+  selector: 'app-card-setting',
+  templateUrl: './card-setting.component.html',
+  styleUrls: ['./card-setting.component.css']
 })
-export class SettingComponent implements OnInit {
+export class CardSettingComponent implements OnInit {
 
   user_id: any;
   type_user:any;

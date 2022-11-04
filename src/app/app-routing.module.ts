@@ -13,7 +13,7 @@ import { ForgotPasswordComponent } from './login/pages/password/forgot-password/
 import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.component';
 import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
 
-import { SettingComponent } from './client/setting/setting.component';
+import { CardSettingComponent } from './client/card-setting/card-setting.component';
 import { AddCardComponent } from './client/add-card/add-card.component';
 
 import { SearchVehicleComponent } from './client/pages/search-vehicle/search-vehicle.component';
@@ -22,6 +22,7 @@ import { RequestServiceComponent } from './client/request-service/request-servic
 import { SupportComponent } from './components/support/support.component';
 import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contract-c.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -38,13 +39,17 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'my-profile-c', component: MyProfileCComponent },
   { path: 'my-profile-d', component: MyProfileDComponent },
-  { path: 'setting', component: SettingComponent },
   { path: 'Add', component: AddCardComponent },
   { path: 'end-contract', component: EndContractComponent },
   { path: 'request-service', component: RequestServiceComponent },
   { path: 'support', component: SupportComponent },
   { path: 'app-pay-contract-c', component: PayContractCComponent },
   { path: 'profile/:id', component: ProfileComponent },
+  {
+    path: 'settings', component: SettingsComponent,
+    children: [
+      { path: 'card-settings', component: CardSettingComponent }]
+  },
 
 ];
 
@@ -52,4 +57,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

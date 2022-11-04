@@ -1,0 +1,48 @@
+.example-container {
+    height: 100vh;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+
+  .izq{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 380px;
+    
+  }
+
+  .container-1{
+    background-color: #e3e4f1;
+  }
+
+  a{
+    height: 80px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+
+  .container-1 .izq a:hover{
+    color: #171dcb;
+  }
+
+  .resaltado{
+    color: red;
+    font-weight: bolder;
+  }
+  .container-1 .izq .resaltado:hover{
+    color: rgb(202, 0, 0)
+  }
