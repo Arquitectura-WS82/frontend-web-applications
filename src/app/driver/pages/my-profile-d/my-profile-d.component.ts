@@ -55,7 +55,7 @@ export class MyProfileDComponent implements OnInit {
     return this.http.get(`${this.basePath}jobs?id=${id}`);
   }
   getComments(id: any) {
-    return this.http.get(`${this.basePath}comments?id=${id}`);
+    return this.http.get(`${this.basePath}comments?id_to=${id}`);
   }
 
 }
