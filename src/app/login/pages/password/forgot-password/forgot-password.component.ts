@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../../../models/user/user';
 import { Router } from '@angular/router';
+import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
 @Component({
   selector: 'app-forgot-password',
@@ -15,7 +16,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   display1 = true;
   display2 = false;
-  basePath = 'http://localhost:3000/api/v1/users';
+  // basePath = 'http://localhost:3000/api/v1/users';
+  basePath = GlobalVariable.BASE_API_URL;
 
   httpOptions = {
     headers: new HttpHeaders({

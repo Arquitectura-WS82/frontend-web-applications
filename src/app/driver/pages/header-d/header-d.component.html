@@ -8,69 +8,89 @@
   <a mat-button [routerLink]="'/contracts-d'">Contracts</a>
   <a mat-button [routerLink]="'/settings-d/card-settings'">Settings</a>
   <a mat-button [routerLink]="'/support'">Support</a>
-  <mat-icon [matBadge]="i" matBadgeColor="warn" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility();notification.showModal(); updateNoti() ">notifications_active</mat-icon>
-  
+  <mat-icon
+    [matBadge]="i"
+    matBadgeColor="warn"
+    [matBadgeHidden]="hidden"
+    (click)="
+      toggleBadgeVisibility();
+      notification.showModal();
+      updateNotification(user_id)
+    "
+    >notifications_active</mat-icon
+  >
 </mat-toolbar>
 
+<app-notifications [title]="'Notifications'" #notification>
+  <div *ngFor="let drivernotification of drivernotifications">
+    <mat-card
+      class="example-card"
+      *ngIf="drivernotification.type == 'accepted'"
+    >
+      <mat-card-header>
+        <img
+          mat-card
+          class="accept"
+          src="https://i.postimg.cc/mDR2DDnT/image-50.png"
+        />
 
+        <mat-card-title>The contract has just finished</mat-card-title>
+        <mat-card-subtitle>Click below to see details</mat-card-subtitle>
+      </mat-card-header>
 
-
-<app-notifications [title]="'Notifications'" #notification >
-  <div *ngFor="let drivernotification of drivernotifications;"  >
-    
-      <mat-card class="example-card" *ngIf="drivernotification.type=='accepted'">
-        <mat-card-header >
-            <img mat-card class="accept" src="https://i.postimg.cc/mDR2DDnT/image-50.png"/>
-           
-            <mat-card-title>The contract has just finished</mat-card-title>
-            <mat-card-subtitle>Click below to see details</mat-card-subtitle>
-        </mat-card-header>
-       
-        <mat-card-actions >
-            <button  mat-raised-button color="primary" type="submit" (click)="goToContract()">Details</button>
-        </mat-card-actions>
-        
-      </mat-card>
-      <br>
-      <mat-card class="card-rejected"  *ngIf="drivernotification.type=='rejected'" >
-          <mat-card-header>
-            <mat-card-title class="card-title">Contract rejected</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-              <mat-card class="card-history">
-                  <div class="client-history">
-                    <img
-                      [src]="drivernotification.pendingContract.client.photo"
-                      alt="Profile"
-                      class="profile-img-history"
-                    />
-                    <div>
-                      <strong>Client</strong>
-                      <p>{{drivernotification.pendingContract.client.username}}</p>
-                    </div>
-                  </div>
-                  <div>
-                    <h4>DETAILS</h4>
-                    <p>
-                      Date: <strong>{{drivernotification.pendingContract.date}}</strong>
-                    </p>
-                    <p>
-                      From: <strong>{{drivernotification.pendingContract.from}}</strong>
-                    </p>
-                    <p>
-                      To: <strong>{{drivernotification.pendingContract.to}}</strong>
-                    </p>
-                    <p>
-                      Amount: <strong>{{drivernotification.pendingContract.amount}}</strong>
-                    </p>
-                    
-                  </div>
-                  </mat-card>
-          </mat-card-content>
-  
-      </mat-card>
-      <br>
-      
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="goToContract()"
+        >
+          Details
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    <br />
+    <mat-card
+      class="card-rejected"
+      *ngIf="drivernotification.type == 'rejected'"
+    >
+      <mat-card-header>
+        <mat-card-title class="card-title">Contract rejected</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-card class="card-history">
+          <div class="client-history">
+            <img
+              [src]="drivernotification.pendingContract.client.photo"
+              alt="Profile"
+              class="profile-img-history"
+            />
+            <div>
+              <strong>Client</strong>
+              <p>{{ drivernotification.pendingContract.client.username }}</p>
+            </div>
+          </div>
+          <div>
+            <h4>DETAILS</h4>
+            <p>
+              Date:
+              <strong>{{ drivernotification.pendingContract.date }}</strong>
+            </p>
+            <p>
+              From:
+              <strong>{{ drivernotification.pendingContract.from }}</strong>
+            </p>
+            <p>
+              To: <strong>{{ drivernotification.pendingContract.to }}</strong>
+            </p>
+            <p>
+              Amount:
+              <strong>{{ drivernotification.pendingContract.amount }}</strong>
+            </p>
+          </div>
+        </mat-card>
+      </mat-card-content>
+    </mat-card>
+    <br />
   </div>
-      
-  </app-notifications>
+</app-notifications>

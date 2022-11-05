@@ -1,20 +1,19 @@
 export interface User {
-
-    email: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    region: string;
-    birthDate: Date;
-    phone: number;
-    idCard: number;
-    typeofuser: string;
-    username: string;
-    description: string;
+  name: string;
+  lastname: string;
+  username: string;
+  email: string;
+  phone: string;
+  region: string;
+  birthdate: Date;
+  description: string;
+  password: string;
+  photo: string;
 }
-export interface driver_ranked{
-    driver_name: string;
-    photo: string;
-    type: string;
-    rating: Int16Array;
+
+export interface driver_ranked {
+  driver_name: string;
+  photo: string;
+  type: string;
+  rating: Int16Array;
 }

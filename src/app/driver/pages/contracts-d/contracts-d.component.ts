@@ -27,29 +27,35 @@ export class ContractsDComponent implements OnInit {
   }
 
   acceptContract(id: number): void {
-    this.contractsService.getOfferContractById(id).subscribe((response) => {
-      this.offerContract = response;
-      console.log(this.offerContract);
-      this.pendingContract.clientId = this.offerContract.clientId;
-      this.pendingContract.driverId = this.offerContract.driverId;
-      this.pendingContract.subject = this.offerContract.subject;
-      this.pendingContract.from = this.offerContract.from;
-      this.pendingContract.to = this.offerContract.to;
-      this.pendingContract.date = this.offerContract.date;
-      this.pendingContract.timeDeparture = this.offerContract.timeDeparture;
-      this.pendingContract.timeArrival = this.offerContract.timeArrival;
-      this.pendingContract.quantity = this.offerContract.quantity;
-      this.pendingContract.amount = this.offerContract.amount;
-      this.pendingContract.status = this.offerContract.status;
-      this.contractsService.removeOfferContract(id).subscribe((response) => {
+    this.contractsService
+      .changeContractStatusOfferToPending(id, this.user_id)
+      .subscribe((response) => {
         console.log(response);
       });
-      this.contractsService
-        .addPendingContract(this.pendingContract)
-        .subscribe((response) => {
-          console.log(response);
-        });
-    });
+    // this.contractsService.getOfferContractById(id).subscribe((response) => {
+    //   this.offerContract = response;
+    //   console.log(this.offerContract);
+    //   TODO: Mapping?
+    //   this.pendingContract.clientId = this.offerContract.clientId;
+    //   this.pendingContract.driverId = this.offerContract.driverId;
+    //   this.pendingContract.subject = this.offerContract.subject;
+    //   this.pendingContract.from = this.offerContract.from;
+    //   this.pendingContract.to = this.offerContract.to;
+    //   this.pendingContract.date = this.offerContract.date;
+    //   this.pendingContract.timeDeparture = this.offerContract.timeDeparture;
+    //   this.pendingContract.timeArrival = this.offerContract.timeArrival;
+    //   this.pendingContract.quantity = this.offerContract.quantity;
+    //   this.pendingContract.amount = this.offerContract.amount;
+    //   this.pendingContract.status = this.offerContract.status;
+    //   this.contractsService.removeOfferContract(id).subscribe((response) => {
+    //     console.log(response);
+    //   });
+    //   this.contractsService
+    //     .addPendingContract(this.pendingContract)
+    //     .subscribe((response) => {
+    //       console.log(response);
+    //     });
+    // });
     const dialogRef = this.dialog.open(ContractDialogComponent, {
       width: '30vw',
       data: {
@@ -59,16 +65,21 @@ export class ContractsDComponent implements OnInit {
     });
   }
   declineContract(id: number): void {
-    this.contractsService.getOfferContractById(id).subscribe((response) => {
-      this.offerContract = response;
-      console.log(this.offerContract);
-      this.offerContract.status = 'rejected';
-      this.contractsService
-        .updateOfferContract(id, this.offerContract)
-        .subscribe((response) => {
-          console.log(response);
-        });
-    });
+    // this.contractsService.getOfferContractById(id).subscribe((response) => {
+    //   this.offerContract = response;
+    //   console.log(this.offerContract);
+    //   this.offerContract.status = 'rejected';
+    //   this.contractsService
+    //     .updateOfferContract(id, this.offerContract)
+    //     .subscribe((response) => {
+    //       console.log(response);
+    //     });
+    // });
+    this.contractsService
+      .changeContractVisibleToFalse(id)
+      .subscribe((response) => {
+        console.log(response);
+      });
     const dialogRef = this.dialog.open(ContractDialogComponent, {
       width: '30vw',
       data: {
@@ -81,18 +92,18 @@ export class ContractsDComponent implements OnInit {
     this.user_id = localStorage.getItem('currentUser');
 
     this.contractsService
-      .getOfferContractsClient(this.user_id)
+      .getOfferContracts(this.user_id)
       .subscribe((response) => {
         this.offerContracts = response;
         console.log(this.offerContracts);
       });
     this.contractsService
-      .getPendingContractsClient(this.user_id)
+      .getPendingContracts(this.user_id)
       .subscribe((response) => {
         this.pendingContracts = response;
       });
     this.contractsService
-      .getHistoryContractsClient(this.user_id)
+      .getHistoryContracts(this.user_id)
       .subscribe((response) => {
         this.historyContracts = response;
       });

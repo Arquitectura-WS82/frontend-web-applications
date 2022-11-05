@@ -1,87 +1,74 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User, driver_ranked } from '../../../models/user/user'
-import {catchError, Observable, retry, throwError} from "rxjs";
-
-
+import { User, driver_ranked } from '../../../models/user/user';
+import { catchError, Observable, retry, throwError } from 'rxjs';
+import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
 @Component({
   selector: 'app-home-d',
   templateUrl: './home-d.component.html',
-  styleUrls: ['./home-d.component.css']
+  styleUrls: ['./home-d.component.css'],
 })
 export class HomeDComponent implements OnInit {
-  user_id: any;
+  driver_id: any;
   user: any;
-  user_name: string="";
+  user_name: string = '';
   best_ranked: Array<any> = [];
-  Best_ranked:Array<any> = [];
+  Best_ranked: Array<any> = [];
   contracts_user: Array<any> = [];
   driver_route: any;
 
-  basePath = 'http://localhost:3000/api/v1/';
+  // basePath = 'http://localhost:3000/api/v1/';
+  basePath = GlobalVariable.BASE_API_URL;
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json' //Solo acepta json
-    })
-  }
-  
-  
-  constructor(private http: HttpClient, private router: Router) { }
+      'Content-Type': 'application/json', //Solo acepta json
+    }),
+  };
+
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.user_id=localStorage.getItem('currentUser')
-   // console.log(typeof localStorage.getItem('currentUser'))
+    this.driver_id = localStorage.getItem('currentUser');
+    // console.log(typeof localStorage.getItem('currentUser'))
     this.getRanked().subscribe((data: any) => {
-    this.best_ranked = data;
+      this.best_ranked = data;
+      console.log(
+        '🚀 ~ file: home-d.component.ts ~ line 38 ~ HomeDComponent ~ this.getRanked ~ this.best_ranked',
+        this.best_ranked
+      );
     });
-    console.log(localStorage.getItem('currentUser'))
+    console.log(localStorage.getItem('currentUser'));
 
-    this.getContract(this.user_id).subscribe((data: any) => {
+    this.getContract(this.driver_id).subscribe((data: any) => {
       this.contracts_user = data;
     });
-    
-    this.getUser(this.user_id).subscribe((data: any) => {
-      this.user = data[0];
+
+    this.getDriverById(this.driver_id).subscribe((data: any) => {
+      this.user = data;
     });
-
-    
   }
-
 
   counter(i: number) {
     return new Array(i);
   }
 
   getRanked() {
-    return this.http.get(`${this.basePath}drivers?_sort=rating&_order=desc`);
+    return this.http.get(`${this.basePath}/drivers`);
   }
 
-  getContralct(id:any) {
-    return this.http.get(`${this.basePath}drivers?_sort=rating&_order=desc`);
+  getDriverById(id: any) {
+    return this.http.get(`${this.basePath}/drivers/${id}`);
   }
 
-  getUser(id: any) {
-    return this.http.get(`${this.basePath}drivers?id=${id}`);
+  getContract(id: any): Observable<any> {
+    return this.http
+      .get<any>(
+        `${this.basePath}/contracts/history/driver/${id}`,
+        this.httpOptions
+      )
+      .pipe(retry(2));
   }
-
-  getContract(id:any):Observable<any>{
-    return this.http.get<any>(`${this.basePath}historyContracts?_expand=client&driverId=${id}`, this.httpOptions).
-    pipe(
-      retry(2));
-  }
-
-
-  
 }
-  
-
-
-    
-    
-    
-
-
-

@@ -59,9 +59,7 @@ export class RequestServiceComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   get regionFrom() {
     return this.requestServiceForm.get('regionFrom');
@@ -97,7 +95,7 @@ export class RequestServiceComponent implements OnInit {
   registerOffer() {
     this.formToRequest();
 
-    this.clientService.addOffer(this.request).subscribe((res) => {
+    this.clientService.addOffer(this.request.clientId, this.request.driverId,this.request).subscribe((res) => {
       console.log(res);
       //alert("Registro exitoso");
       this.dialog.open(ContractDialogComponent, {

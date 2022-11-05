@@ -49,7 +49,7 @@
       "name": "Anthony Jeampierre",
       "lastName": "Botello Saldarriaga",
       "region": "Ancon, Lima",
-      "age":21,
+      "age": 21,
       "photo": "https://i.postimg.cc/mZYqK3YZ/89035933.jpg",
       "birthDate": "1969-06-18T05:00:00.000Z",
       "phone": "923743321",
@@ -232,7 +232,6 @@
       "title": "Principal",
       "id": 9,
       "typeofuser": "driver"
-
     }
   ],
   "offerContracts": [

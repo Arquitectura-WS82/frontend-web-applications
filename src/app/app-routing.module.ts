@@ -12,10 +12,8 @@ import { HomeDComponent } from './driver/pages/home-d/home-d.component';
 import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
 import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.component';
 import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
-
 import { CardSettingComponent } from './components/card-setting/card-setting.component';
 import { AddCardComponent } from './components/add-card/add-card.component';
-
 import { SearchVehicleComponent } from './client/pages/search-vehicle/search-vehicle.component';
 import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
 import { RequestServiceComponent } from './client/request-service/request-service.component';
@@ -25,6 +23,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { SettingsDComponent } from './driver/pages/settings-d/settings-d.component';
 import { SettingsCComponent } from './client/pages/settings-c/settings-c.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -48,23 +47,27 @@ const routes: Routes = [
   { path: 'app-pay-contract-c', component: PayContractCComponent },
   { path: 'profile/:id', component: ProfileComponent },
   {
-    path: 'settings-c', component: SettingsCComponent,
+    path: 'settings-c',
+    component: SettingsCComponent,
     children: [
       { path: 'card-settings', component: CardSettingComponent },
-      { path: 'add', component: AddCardComponent },]
+      { path: 'add', component: AddCardComponent },
+    ],
   },
   {
-    path: 'settings-d', component: SettingsDComponent,
+    path: 'settings-d',
+    component: SettingsDComponent,
     children: [
-      { path: 'card-settings', component: CardSettingComponent},
-      { path: 'add', component: AddCardComponent }
-      ]
+      { path: 'card-settings', component: CardSettingComponent },
+      { path: 'add', component: AddCardComponent },
+    ],
   },
-
+  //Wild Card Route for 404 request
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

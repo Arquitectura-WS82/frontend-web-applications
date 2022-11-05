@@ -1,78 +1,83 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
 @Component({
   selector: 'app-header-c',
   templateUrl: './header-c.component.html',
-  styleUrls: ['./header-c.component.css']
+  styleUrls: ['./header-c.component.css'],
 })
 export class HeaderCComponent implements OnInit {
   hidden = false;
-  i=0;
-  public accepted=true;
-  clientnotifications:any;
-  unreadnoti:any;
-  pendingcontrats:any;
-  user_id:any;
-  
-  constructor(private http: HttpClient, private router: Router) { }
-  
-  basePath = 'http://localhost:3000/api/v1/';
-  
+  i = 0;
+  public accepted = true;
+  clientnotifications: any;
+  unreadnoti: any;
+  pendingcontrats: any;
+  user_id: any;
+
+  constructor(private http: HttpClient, private router: Router) {}
+
+  //basePath = 'http://localhost:3000/api/v1/';
+  url: string = GlobalVariable.BASE_API_URL;
+
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json' //Solo acepta json
-    })
-  }
+      'Content-Type': 'application/json', //Solo acepta json
+    }),
+  };
   ngOnInit(): void {
-    this.user_id=localStorage.getItem('currentUser')
+    this.user_id = localStorage.getItem('currentUser');
     this.getClientNotifications(this.user_id).subscribe((data: any) => {
       this.clientnotifications = data;
-      this.i=this.clientnotifications.length;
-      console.log(this.i)
-
+      this.i = this.clientnotifications.length;
+      console.log(this.i);
     });
     this.getUnreadNotifications(this.user_id).subscribe((data: any) => {
-      this.i=data.length;
-      console.log(this.unreadnoti)
-
+      this.i = data.length;
+      console.log(this.unreadnoti);
     });
-    this.getPendingContracts(this.user_id).subscribe((data: any) => {
-      this.pendingcontrats = data;
-    });
-
-    
+    // this.getPendingContracts(this.user_id).subscribe((data: any) => {
+    //   this.pendingcontrats = data;
+    // });
   }
 
-  showAccept(){
-    this.accepted=true;
+  showAccept() {
+    this.accepted = true;
   }
   toggleBadgeVisibility() {
     this.hidden = true;
   }
-  
-  getUser(id: any) {
-    return this.http.get(`${this.basePath}users?id=${id}`);
+
+  // Cambio
+  getUserById(userId: any) {
+    return this.http.get(`${this.url}clients/${userId}`);
   }
 
   getClientNotifications(id: any) {
-    return this.http.get(`${this.basePath}clientNotifications?clientId=${id}`);
+    return this.http.get(`${this.url}contracts/notifications-client/${id}`);
   }
+
   getUnreadNotifications(id: any) {
-    return this.http.get(`${this.basePath}clientNotifications?clientId=${id}&status=unread`);
+    return this.http.get(
+      `${this.url}contracts/unread-notifications/client/{id}`
+    );
   }
 
-  updateNoti(){
-    this.unreadnoti.status=this.unreadnoti.status.setValue('read');
+  updateNotification(clientId: number) {
+    return this.http.put(
+      `${this.url}contracts/notification-read/client/${clientId}`,
+      null
+    );
   }
 
-  getPendingContracts(id: any){
-    return this.http.get(`${this.basePath}pendingContracts?id=${id}`);
-  }
+  // getPendingContracts(id: any) {
+  //   return this.http.get(`${this.url}pendingContracts?id=${id}`);
+  // }
+
   goToContract(id: any) {
-    this.router.navigate([`app-pay-contract-c/`])
-    localStorage.setItem('ContractId', id)
+    this.router.navigate([`app-pay-contract-c/`]);
+    localStorage.setItem('ContractId', id);
   }
-
 }

@@ -23,16 +23,21 @@ export class ContractsCComponent implements OnInit {
   }
 
   declineContract(id: number): void {
-    this.contractsService.getPendingContractById(id).subscribe((response) => {
-      this.pendingContract = response;
-      console.log(this.pendingContract);
-      this.pendingContract.status = 'rejected';
-      this.contractsService
-        .updatePendingContract(id, this.pendingContract)
-        .subscribe((response) => {
-          console.log(response);
-        });
-    });
+    // this.contractsService.getPendingContractById(id).subscribe((response) => {
+    //   this.pendingContract = response;
+    //   console.log(this.pendingContract);
+    //   this.pendingContract.status = 'rejected';
+    //   this.contractsService
+    //     .updatePendingContract(id, this.pendingContract)
+    //     .subscribe((response) => {
+    //       console.log(response);
+    //     });
+    // });
+    this.contractsService
+      .changeContractVisibleToFalse(id)
+      .subscribe((response) => {
+        console.log(response);
+      });
     const dialogRef = this.dialog.open(ContractDialogComponent, {
       width: '30vw',
       data: {
@@ -45,13 +50,13 @@ export class ContractsCComponent implements OnInit {
     this.user_id = localStorage.getItem('currentUser');
 
     this.contractsService
-      .getPendingContractsDriver(this.user_id)
+      .getPendingContracts(this.user_id)
       .subscribe((response) => {
         this.pendingContracts = response;
         console.log(this.pendingContracts.length);
       });
     this.contractsService
-      .getHistoryContractsDriver(this.user_id)
+      .getHistoryContracts(this.user_id)
       .subscribe((response) => {
         this.historyContracts = response;
       });

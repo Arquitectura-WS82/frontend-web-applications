@@ -63,6 +63,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { SettingsDComponent } from './driver/pages/settings-d/settings-d.component';
 import { SettingsCComponent } from './client/pages/settings-c/settings-c.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { SettingsCComponent } from './client/pages/settings-c/settings-c.compone
     SettingsComponent,
     SettingsDComponent,
     SettingsCComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

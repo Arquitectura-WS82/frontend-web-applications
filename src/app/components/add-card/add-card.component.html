@@ -3,167 +3,153 @@
 
 <!-- <button mat-raised-button [routerLink]="'/login'" color="accent">Add Card</button> -->
 <div class="info" fxLayout="row">
-    <div class="center">
-        <form class="card" [formGroup]="AddForm" (submit)="onSubmit()">
-            <mat-form-field class="margin">
-                <mat-label>Type Card</mat-label>
-                <mat-select formControlName="type">
-                    <mat-option value="Visa">Visa</mat-option>
-                    <mat-option value="Mastercard">Mastercard</mat-option>
-                </mat-select>
-                <mat-error *ngIf="type?.errors?.['required']">Type Card is
-                    <strong>required</strong>
-                </mat-error>
+  <div class="center">
+    <form class="card" [formGroup]="AddForm" (submit)="onSubmit()">
+      <mat-form-field class="margin">
+        <mat-label>Type Card</mat-label>
+        <mat-select formControlName="type">
+          <mat-option value="Visa">Visa</mat-option>
+          <mat-option value="Mastercard">Mastercard</mat-option>
+        </mat-select>
+        <mat-error *ngIf="type?.errors?.['required']"
+          >Type Card is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field class="margin"> </mat-form-field> -->
+      <mat-form-field class="margin">
+        <input matInput placeholder="Title" formControlName="title" />
+        <mat-error *ngIf="title?.errors?.['required']"
+          >Title is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="Center_Box">
+        <div class="Box">
+          <h1>Payment Details</h1>
+          <div class="content">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Holder Name"
+                formControlName="name"
+              />
+              <mat-error *ngIf="name?.errors?.['required']">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Card Number"
+                formControlName="numberCard"
+              />
+              <mat-error *ngIf="numberCard?.errors?.['required']">
+                Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Expiration date"
+                formControlName="date"
+              />
+              <mat-error *ngIf="date?.errors?.['required']">
+                Expiration date is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="CVV" formControlName="cvv" />
+              <mat-error *ngIf="cvv?.errors?.['required']">
+                CVV is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="Box">
+          <h1>Billing information</h1>
+          <div class="content">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Phone number"
+                formControlName="phone"
+                maxlength="9"
+                minlength="9"
+              />
+
+              <mat-error *ngIf="phone?.errors?.['required']">
+                Phone is <strong>required</strong>
+              </mat-error>
+
+              <mat-error
+                *ngIf="phone?.errors?.['pattern'] &&
+                                !phone?.errors?.['required']"
+              >
+                Phone must have only <strong>numbers</strong>
+              </mat-error>
             </mat-form-field>
 
-            <mat-form-field class="margin">
-                <mat-label>Region</mat-label>
-                <mat-select formControlName="region">
-                    <mat-option value="Amazonas">Amazonas</mat-option>
-                    <mat-option value="Ancash">Ancash</mat-option>
-                    <mat-option value="Apurimac">Apurimac</mat-option>
-                    <mat-option value="Arequipa">Arequipa</mat-option>
-                    <mat-option value="Ayacucho">Ayacucho</mat-option>
-                    <mat-option value="Cajamarca">Cajamarca</mat-option>
-                    <mat-option value="Callao">Callao</mat-option>
-                    <mat-option value="Cusco">Cusco</mat-option>
-                    <mat-option value="Huancavelica">Huancavelica</mat-option>
-                    <mat-option value="Huanuco">Huanuco</mat-option>
-                    <mat-option value="Ica">Ica</mat-option>
-                    <mat-option value="Junin">Junin</mat-option>
-                    <mat-option value="La Libertad">La Libertad</mat-option>
-                    <mat-option value="Lambayeque">Lambayeque</mat-option>
-                    <mat-option value="Lima">Lima</mat-option>
-                    <mat-option value="Loreto">Loreto</mat-option>
-                    <mat-option value="Madre de Dios">Madre de Dios</mat-option>
-                    <mat-option value="Moquegua">Moquegua</mat-option>
-                    <mat-option value="Pasco">Pasco</mat-option>
-                    <mat-option value="Piura">Piura</mat-option>
-                    <mat-option value="Puno">Puno</mat-option>
-                    <mat-option value="San Martin">San Martin</mat-option>
-                    <mat-option value="Tacna">Tacna</mat-option>
-                    <mat-option value="Tumbes">Tumbes</mat-option>
-                    <mat-option value="Ucayali">Ucayali</mat-option>
-                </mat-select>
-                <mat-error *ngIf="region?.errors?.['required']">Region is
-                    <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field class="margin">
-                <input matInput placeholder="Title"
-                    formControlName="title">
-                <mat-error *ngIf="title?.errors?.['required']">Title is
-                    <strong>required</strong>
-                </mat-error>
-
+            <mat-form-field>
+              <textarea
+                matInput
+                placeholder="Address"
+                formControlName="direction"
+              ></textarea>
+              <mat-error *ngIf="direction?.errors?.['required']">
+                Direction is <strong>required</strong>
+              </mat-error>
             </mat-form-field>
 
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Postal code o zip"
+                formControlName="postal"
+                maxlength="5"
+                minlength="5"
+              />
+              <mat-hint align="end">{{ postal?.value.length }} / 5</mat-hint>
+              <mat-error *ngIf="postal?.errors?.['required']">
+                Postal is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
 
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="email" />
+              <mat-error
+                *ngIf="email?.errors?.['email'] &&
+                                !email?.errors?.['required']"
+              >
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="email?.errors?.['required']">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
 
+      <div class="btns">
+        <button
+          mat-raised-button
+          (click)="registerData()"
+          [disabled]="!AddForm.valid"
+          color="accent"
+        >
+          Create
+        </button>
+        <button mat-raised-button (click)="cancel()" color="warn">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
 
-
-            <div class="Center_Box">
-                <div class="Box">
-                    <h1>Payment Details</h1>
-                    <div class="content">
-                        <mat-form-field>
-                            <input matInput placeholder="Holder Name"
-                                formControlName="name">
-                            <mat-error *ngIf="name?.errors?.['required']">
-                                Name is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field>
-                            <input matInput placeholder="Card Number"
-                                formControlName="Number_Card">
-                            <mat-error
-                                *ngIf="Number_Card?.errors?.['required']">
-                                Name is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field>
-                            <input matInput placeholder="Expiration date"
-                                formControlName="Date">
-                            <mat-error *ngIf="Date?.errors?.['required']">
-                                Expiration date is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-                        <mat-form-field>
-                            <input matInput placeholder="CVV"
-                                formControlName="CVV">
-                            <mat-error *ngIf="CVV?.errors?.['required']">
-                                CVV is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-
-
-                    </div>
-                </div>
-                <div class="Box">
-                    <h1>Billing information</h1>
-                    <div class="content">
-                        <mat-form-field>
-                            <input matInput placeholder="Phone number"
-                                formControlName="phone" maxlength="9"
-                                minlength="9">
-
-                            <mat-error *ngIf="phone?.errors?.['required']">
-                                Phone is <strong>required</strong>
-                            </mat-error>
-
-                            <mat-error *ngIf="phone?.errors?.['pattern'] &&
-                                !phone?.errors?.['required']">
-                                Phone must have only <strong>numbers</strong>
-                            </mat-error>
-                        </mat-form-field>
-
-                        <mat-form-field>
-                            <textarea matInput placeholder="Address"
-                                formControlName="Direction"></textarea>
-                            <mat-error *ngIf="Direction?.errors?.['required']">
-                                Direction is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-
-                        <mat-form-field>
-                            <input matInput placeholder="Postal code o zip"
-                                formControlName="postal" maxlength="5"
-                                minlength="5">
-                            <mat-hint align="end">{{postal?.value.length}} / 5</mat-hint>
-                            <mat-error *ngIf="postal?.errors?.['required']">
-                                Postal is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-
-                        <mat-form-field>
-                            <input matInput placeholder="Email"
-                                formControlName="email">
-                            <mat-error *ngIf="email?.errors?.['email'] &&
-                                !email?.errors?.['required']">
-                                Please enter a valid email address
-                            </mat-error>
-                            <mat-error *ngIf="email?.errors?.['required']">
-                                Email is <strong>required</strong>
-                            </mat-error>
-                        </mat-form-field>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="btns">
-                <button mat-raised-button (click)="registerData()"
-                    [disabled]="!AddForm.valid" color="accent">Create</button>
-                <button mat-raised-button (click)="cancel()"
-                    color="warn">Cancel</button>
-            </div>
-
-        </form>
-
-    </div>
-
-    <!-- <form class="cc-form" [formGroup]="form">
+  <!-- <form class="cc-form" [formGroup]="form">
         <mat-form-field class="ngx-cc-form-field">
           <ngx-cc name="cardNumber" styleClass="card" formControlName="creditCard"></ngx-cc>
           <mat-placeholder>0000 0000 0000 0000</mat-placeholder>

@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { catchError, retry, throwError } from 'rxjs';
-import { CardClient, Carddriver } from '../../models/Card/card';
+import { Card } from '../../models/Card/card';
+import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
 interface Vehicle {
   value: string;
@@ -13,27 +18,21 @@ interface Vehicle {
 @Component({
   selector: 'app-add-card',
   templateUrl: './add-card.component.html',
-  styleUrls: ['./add-card.component.css']
+  styleUrls: ['./add-card.component.css'],
 })
 export class AddCardComponent implements OnInit {
-
-
-  Card_client: CardClient;
-  Card_Driver: Carddriver;
-
+  card: Card;
   user_id: any;
   IsCliente: boolean;
-  // Cards_user: Array<any> = [];
   form: any;
   AddForm: FormGroup;
   filteredVehicules: any;
   type_user: any;
   dataCliente = 'client';
 
-
   searchForm: FormGroup = this.formBuilder.group({
     Type_s: ['Bus', { updateOn: 'change' }],
-    Size_s: ['Bus', { updateOn: 'change' }]
+    Size_s: ['Bus', { updateOn: 'change' }],
   });
 
   Type: Vehicle[] = [
@@ -43,31 +42,46 @@ export class AddCardComponent implements OnInit {
     { value: 'vehicle-3', viewValue: 'Truck' },
   ];
 
-  basePath = 'http://localhost:3000/api/v1/';
+  basePath = GlobalVariable.BASE_API_URL;
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json' //Solo acepta json
-    })
-  }
+      'Content-Type': 'application/json', //Solo acepta json
+    }),
+  };
 
-  constructor(private fb: FormBuilder, public formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
-    this.Card_client = {} as CardClient;
-    this.Card_Driver = {} as Carddriver;
+  constructor(
+    //private fb: FormBuilder,
+    public formBuilder: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {
+    this.card = {} as Card;
     this.IsCliente = true;
     this.AddForm = this.formBuilder.group({
-      region: ['', { validators: [Validators.required], updatedOn: 'change' }],
       phone: ['', { updatedOn: 'change' }],
       title: ['', { validators: [Validators.required], updatedOn: 'change' }],
       type: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      email: ['', { validators: [Validators.required, Validators.email], updatedOn: 'change' }],
-      Direction: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      email: [
+        '',
+        {
+          validators: [Validators.required, Validators.email],
+          updatedOn: 'change',
+        },
+      ],
+      direction: [
+        '',
+        { validators: [Validators.required], updatedOn: 'change' },
+      ],
       postal: ['', { validators: [Validators.required], updatedOn: 'change' }],
       name: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      Number_Card: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      Date: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      CVV: ['', { validators: [Validators.required], updatedOn: 'change' }]
-    })
+      numberCard: [
+        '',
+        { validators: [Validators.required], updatedOn: 'change' },
+      ],
+      date: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      cvv: ['', { validators: [Validators.required], updatedOn: 'change' }],
+    });
   }
   //API error handling
   handleError(error: HttpErrorResponse) {
@@ -77,15 +91,15 @@ export class AddCardComponent implements OnInit {
     } else {
       //Server-side errors || unsuccesful response error code returned from backend
       console.error(
-        `Backend returned code ${error.status}, body was: ${error.error}`);
+        `Backend returned code ${error.status}, body was: ${error.error}`
+      );
     }
     //Return observable with error message to client
-    return throwError(
-      'Something bad happened; please try again later.');
+    return throwError('Something bad happened; please try again later.');
   }
   ngOnInit(): void {
-    this.user_id = localStorage.getItem('currentUser')
-    this.type_user = localStorage.getItem('typeofuser')
+    this.user_id = localStorage.getItem('currentUser');
+    this.type_user = localStorage.getItem('typeofuser');
 
     // this.getCards(this.user_id).subscribe((data: any) => {
     //   this.Cards_user = data;
@@ -101,9 +115,6 @@ export class AddCardComponent implements OnInit {
   // getCards(id: any) {
   //   return this.http.get(`${this.basePath}cards?id=${id}`);
   // }
-  get region() {
-    return this.AddForm.get('region');
-  }
   get phone() {
     return this.AddForm.get('phone');
   }
@@ -116,8 +127,8 @@ export class AddCardComponent implements OnInit {
   get email() {
     return this.AddForm.get('email');
   }
-  get Direction() {
-    return this.AddForm.get('Direction');
+  get direction() {
+    return this.AddForm.get('direction');
   }
   get postal() {
     return this.AddForm.get('postal');
@@ -125,14 +136,14 @@ export class AddCardComponent implements OnInit {
   get name() {
     return this.AddForm.get('name');
   }
-  get Number_Card() {
-    return this.AddForm.get('Number_Card');
+  get numberCard() {
+    return this.AddForm.get('numberCard');
   }
-  get Date() {
-    return this.AddForm.get('Date');
+  get date() {
+    return this.AddForm.get('date');
   }
-  get CVV() {
-    return this.AddForm.get('CVV');
+  get cvv() {
+    return this.AddForm.get('cvv');
   }
   onSubmit() {
     console.log(this.AddForm.valid);
@@ -140,74 +151,53 @@ export class AddCardComponent implements OnInit {
 
   setPhoneValidation() {
     const phoneControl = this.AddForm.get('phone');
-    phoneControl?.setValidators([Validators.pattern('^[0-9]*$'), Validators.required]);
+    phoneControl?.setValidators([
+      Validators.pattern('^[0-9]*$'),
+      Validators.required,
+    ]);
   }
   registerData() {
     if (this.type_user == this.dataCliente) {
-      this.formToCardClient();
-      console.log(this.Card_client);
-      this.http.post<CardClient>(`${this.basePath}paymentMethod`, this.Card_client, this.httpOptions).subscribe(
-        (res) => {
-          console.log(res);
-          alert("Registro exitoso");
-        }
-      );
+      this.formToCard();
+      console.log(this.card);
+      this.http
+        .post<Card>(
+          `${this.basePath}/cardsClient/${this.user_id}/add`,
+          this.card,
+          this.httpOptions
+        )
+        .subscribe((res) => {
+          alert('Registro exitoso');
+        });
       this.router.navigate(['/settings-c/card-settings']);
-
-    }
-    else {
-
-      this.formToCardDriver();
-      console.log(this.Card_Driver);
-      this.http.post<Carddriver>(`${this.basePath}paymentMethod`, this.Card_Driver, this.httpOptions).subscribe(
-        (res) => {
-          console.log(res);
-          alert("Registro exitoso");
-        }
-      );
+    } else {
+      this.formToCard();
+      this.http
+        .post<Card>(
+          `${this.basePath}/cardsDriver/${this.user_id}/add`,
+          this.card,
+          this.httpOptions
+        )
+        .subscribe((res) => {
+          alert('Registro exitoso');
+        });
       this.router.navigate(['/settings-d/card-settings']);
-
     }
-
-    // this.router.navigate(['/login']);
-
   }
-  formToCardClient() {
-    this.Card_client.email = this.AddForm.value.email;
-    this.Card_client.cvv = this.AddForm.value.CVV;
-    this.Card_client.ClientId = this.user_id;
-    this.Card_client.holderName = this.AddForm.value.name;
-    this.Card_client.cardNumber = this.AddForm.value.Number_Card;
-    this.Card_client.expirationDate = this.AddForm.value.Date;
-    this.Card_client.phone = this.AddForm.value.phone;
-    this.Card_client.typeOfCard = this.AddForm.value.type;
-    this.Card_client.postalCodeZip = this.AddForm.value.postal;
-    this.Card_client.title = this.AddForm.value.title;
-    this.Card_client.typeofuser = "client";
-    console.log(this.Card_client.email);
-    console.log(this.AddForm.value.title);
-  }
-  formToCardDriver() {
-    this.Card_Driver.email = this.AddForm.value.email;
-    this.Card_Driver.cvv = this.AddForm.value.CVV;
-    this.Card_Driver.DriverId = this.user_id;
-    this.Card_Driver.holderName = this.AddForm.value.name;
-    this.Card_Driver.cardNumber = this.AddForm.value.Number_Card;
-    this.Card_Driver.expirationDate = this.AddForm.value.Date;
-    this.Card_Driver.phone = this.AddForm.value.phone;
-    this.Card_Driver.typeOfCard = this.AddForm.value.type;
-    this.Card_Driver.postalCodeZip = this.AddForm.value.postal;
-    this.Card_Driver.title = this.AddForm.value.title;
-    this.Card_Driver.typeofuser = "driver";
-    console.log(this.Card_client.email);
-    console.log(this.AddForm.value.title);
+  formToCard() {
+    this.card.email = this.AddForm.value.email;
+    this.card.holderName = this.AddForm.value.name;
+    this.card.cardNumber = this.AddForm.value.numberCard;
+    this.card.expirationDate = this.AddForm.value.date;
+    this.card.cardNickname = this.AddForm.value.title;
+    this.card.issuer = this.AddForm.value.type;
+    this.card.zip = this.AddForm.value.postal;
   }
 
   cancel() {
     if (localStorage.getItem('typeofuser') == 'client') {
       this.router.navigate(['/settings-c/card-settings']);
-    }
-    else if (localStorage.getItem('typeofuser') == 'driver') {
+    } else if (localStorage.getItem('typeofuser') == 'driver') {
       this.router.navigate(['/settings-d/card-settings']);
     }
   }
@@ -226,5 +216,4 @@ export class AddCardComponent implements OnInit {
   // get phone() {
   //   return this.signupForm.get('phone');
   // }
-
 }
