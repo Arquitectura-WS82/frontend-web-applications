@@ -46,14 +46,16 @@
       "id": 7,
       "email": "mxxrciano@gmail.com",
       "password": "jajajaja",
-      "first_name": "Ant",
-      "lastName": "Bot",
-      "region": "Ancash",
+      "name": "Anthony Jeampierre",
+      "lastName": "Botello Saldarriaga",
+      "region": "Ancon, Lima",
+      "age":21,
+      "photo": "https://i.postimg.cc/mZYqK3YZ/89035933.jpg",
       "birthDate": "1969-06-18T05:00:00.000Z",
-      "phone": "1212121212",
+      "phone": "923743321",
       "idCard": "2323423",
       "typeofUser": "client",
-      "username": "Ant Bot",
+      "username": "Anthony Botello",
       "description": "hola xd"
     }
   ],
@@ -418,14 +420,14 @@
     },
     {
       "id": 4,
-      "driverId": 4,
+      "driverId": 1,
       "job": "Truck Driver in “Cargo Peru",
       "time": "4 years",
       "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
     },
     {
       "id": 5,
-      "driverId": 4,
+      "driverId": 1,
       "job": "Truck Driver in “Cargo Peru",
       "time": "7 years",
       "photoCar": "https://i.postimg.cc/8PMxSfg0/foto-auto.png"
@@ -465,9 +467,9 @@
       "stars": 5
     },
     {
-      "id": 4,
+      "id": 1,
       "clientId": 7,
-      "driverId": 5,
+      "driverId": 1,
       "comment": "Good experience.",
       "photoCom": "https://i.postimg.cc/hvVwMtFX/comment-4.png",
       "stars": 4
@@ -514,33 +516,7 @@
         },
         "quantity": 5,
         "client": {
-          "id": 1,
-          "username": "Raul Alvarez",
-          "phone": "912 123 456",
-          "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        "amount": 300
-      },
-      "type": "accepted",
-      "status": "unread"
-    },
-    {
-      "id": 2,
-      "clientId": 6,
-      "pendingContract": {
-        "id": 2,
-        "driver_id": 5,
-        "subject": "Tourism in Barranca",
-        "from": "La Victoria, Lima",
-        "to": "Barranca",
-        "date": "21/09/2022",
-        "time": {
-          "departure": "10:00",
-          "arrival": "17:00"
-        },
-        "quantity": 5,
-        "client": {
-          "id": 1,
+          "id": 6,
           "username": "Raul Alvarez",
           "phone": "912 123 456",
           "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
@@ -566,42 +542,31 @@
         },
         "quantity": 5,
         "client": {
-          "id": 1,
-          "username": "Raul Alvarez",
-          "phone": "912 123 456",
-          "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+          "id": 6,
+          "username": "Manuel Rodriguez",
+          "photo": "https://i.postimg.cc/jdT1LDZn/client.png",
+          "phone": "914234832"
         },
         "amount": 300
       },
       "type": "rejected",
       "status": "read"
-    },
-    {
-      "id": 5,
-      "clientId": 6,
-      "pendingContract": {
-        "id": 5,
-        "driver_id": 5,
-        "subject": "Tourism in Barranca",
-        "from": "La Victoria, Lima",
-        "to": "Barranca",
-        "date": "21/09/2022",
-        "time": {
-          "departure": "10:00",
-          "arrival": "17:00"
-        },
-        "quantity": 5,
-        "client": {
-          "id": 1,
-          "username": "Raul Alvarez",
-          "phone": "912 123 456",
-          "photo": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-        },
-        "amount": 300
-      },
-      "type": "rejected",
-      "status": "unread"
     }
   ],
-  "driverNotifications": []
+  "driverNotifications": [
+    {
+      "id": 1,
+      "driverId": 5,
+      "offerContractsId": 3,
+      "type": "accepted",
+      "status": "unread"
+    },
+    {
+      "id": 2,
+      "driverId": 4,
+      "offerContractsId": 2,
+      "type": "accepted",
+      "status": "unread"
+    }
+  ]
 }

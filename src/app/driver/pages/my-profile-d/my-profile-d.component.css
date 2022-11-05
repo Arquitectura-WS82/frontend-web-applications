@@ -257,6 +257,8 @@
     align-content: center;    
     border-radius: 50%;
     font-size: 40px; 
+    height: 200px;
+    width: 200px;
 }
 
 h1{
