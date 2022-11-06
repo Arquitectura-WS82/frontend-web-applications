@@ -192,6 +192,7 @@ export class AddCardComponent implements OnInit {
     this.card.cardNickname = this.AddForm.value.title;
     this.card.issuer = this.AddForm.value.type;
     this.card.zip = this.AddForm.value.postal;
+    //console.log(this.card)
   }
 
   cancel() {

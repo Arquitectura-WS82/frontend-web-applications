@@ -145,7 +145,7 @@
             </mat-grid-tile>
             <mat-grid-tile>
               <div class="title2">Photos</div>
-              <img mat-icon [src]="user.photoAuto" alt="User Avatar" />
+             <img mat-icon [src]="vehicle.photo_car" alt="car_photo" style="max-width: 100%;"/>
               <button class="btn-add" mat-raised-button>
                 Add a photo&nbsp;&nbsp;
               </button>
@@ -164,7 +164,7 @@
                 alt=""
                 class="star-foto"
               />
-              <h2>{{ comment.name }}</h2>
+              <h2>{{ comment.client.username }}</h2>
               <h6 mat-line>{{ comment.comment }}</h6>
               <h4>{{ comment.stars }}</h4>
             </mat-list-item>

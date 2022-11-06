@@ -56,7 +56,7 @@ export class SearchVehicleComponent implements OnInit {
   }
 
   getVehicles(): Observable<any> {
-    return this.http.get<any>(
+    return this.http.get(
       `${this.basePath}/vehicle/find/${this.Type_s}/${this.Size_s}`,
       this.httpOptions
     );
@@ -65,8 +65,10 @@ export class SearchVehicleComponent implements OnInit {
   listSearch() {
     this.getVehicles().subscribe((data: any) => {
       this.filteredVehicules = data;
+      console.log(data)
     });
     console.log(this.filteredVehicules);
+    console.log(`${this.basePath}/vehicle/find/${this.Type_s}/${this.Size_s}`);
   }
 
   goToDriver(id: any) {

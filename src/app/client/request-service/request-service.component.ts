@@ -119,8 +119,7 @@ export class RequestServiceComponent implements OnInit {
   }
 
   formToRequest() {
-    console.log(this.requestServiceForm.value.timeFinish);
-    console.log(this.requestServiceForm.value.contractDate);
+    
     this.request.from = this.requestServiceForm.value.regionFrom;
     this.request.to = this.requestServiceForm.value.regionTo;
     this.request.contractDate = this.requestServiceForm.value.date;
@@ -132,6 +131,8 @@ export class RequestServiceComponent implements OnInit {
     this.request.subject = this.requestServiceForm.value.subject;
     this.request.description = this.requestServiceForm.value.description;
     this.request.visible = false;
+    console.log(this.request.timeArrival);
+    console.log(this.request.timeDeparture);
   }
 
   onSubmit() {

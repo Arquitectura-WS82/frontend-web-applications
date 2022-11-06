@@ -133,9 +133,10 @@
             <div class="title2">Photos</div>
             <img
               mat-icon
-              [src]="vehicle.photo_card"
+              [src]="vehicle.photo_car"
               class="img-responsive"
               alt="User Avatar"
+              style="max-width: 90%;"
             />
             <button color="accent" class="btn-edit-exp" mat-raised-button>
               Add a photo&nbsp;&nbsp;
@@ -159,7 +160,7 @@
                 <p mat-line>{{ comment.comment }}</p>
               </div>
               <div class="row">
-                <b style="font-size: larger">{{ comment.stars }}</b>
+                <b style="font-size: larger">{{ comment.star }}</b>
                 <mat-icon fontIcon="star"></mat-icon>
               </div>
             </div>

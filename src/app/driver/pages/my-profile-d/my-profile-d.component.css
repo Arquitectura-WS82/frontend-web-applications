@@ -366,6 +366,13 @@ mat-bar{
 .foto-comments{
     position: absolute;
     left: 20;
+    height: 70px;
+    width: 70px;
+
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 50%;
+    /* position: relative; */
 }
 
 h2{

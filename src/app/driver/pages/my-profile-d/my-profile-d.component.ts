@@ -13,6 +13,8 @@ export class MyProfileDComponent implements OnInit {
   user: any;
   comments: any;
   user_id: any;
+  vehicle: any;
+
   constructor(private http: HttpClient, private router: Router) {}
 
   basePath = GlobalVariable.BASE_API_URL;
@@ -29,8 +31,13 @@ export class MyProfileDComponent implements OnInit {
       this.user_id = localStorage.getItem('visitDriverId');
     else this.user_id = localStorage.getItem('currentUser');
     localStorage.setItem('visitDriverId', '-1');
+
     this.getUser(this.user_id).subscribe((data: any) => {
       this.user = data;
+    });
+
+    this.getVehicle(this.user_id).subscribe((data: any) => {
+      this.vehicle = data;
     });
 
     this.getJobs(this.user_id).subscribe((data: any) => {
@@ -39,6 +46,12 @@ export class MyProfileDComponent implements OnInit {
     this.getComments(this.user_id).subscribe((data: any) => {
       this.comments = data;
     });
+  }
+
+
+  
+  getVehicle(id: any) {
+    return this.http.get(`${this.basePath}/vehicle/${id}`);
   }
 
   getUser(id: any) {
