@@ -118,6 +118,7 @@
     overflow: hidden;
     margin: 10px;
     position: relative;
+    border-radius: 50%;
 }
 
 .c-column{

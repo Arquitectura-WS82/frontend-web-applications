@@ -60,7 +60,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getComments(id: any) {
-    return this.http.get(`${this.basePath}/comments/${id}`);
+    return this.http.get(`${this.basePath}/comments/driver/${id}`);
   }
 
   goRequestService() {
