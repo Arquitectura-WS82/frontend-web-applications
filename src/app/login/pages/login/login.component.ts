@@ -12,7 +12,7 @@ import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 })
 export class LoginComponent implements OnInit {
   loginFormm!: NgForm;
-
+  logged: boolean = false;
   signInForm!: FormGroup;
 
   basePath = GlobalVariable.BASE_API_URL;
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    
     this.http
       .get<Array<User>>(`${this.basePath}/clients`, this.httpOptions)
       .subscribe((res: Array<User>) => {
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit {
           ) {
             localStorage.setItem('currentUser', client.id);
             localStorage.setItem('typeofuser', 'client');
+            this.logged = true;
             return true;
           } else return false;
         });
@@ -62,30 +64,33 @@ export class LoginComponent implements OnInit {
           alert('Welcome, client');
         }
 
-        this.http
-          .get<any>(`${this.basePath}/drivers`, this.httpOptions)
-          .subscribe((res) => {
-            const data = res.find((driver: any) => {
-              if (
-                driver.email === this.signInForm.value.email &&
-                driver.password === this.signInForm.value.password
-              ) {
-                localStorage.setItem('currentUser', driver.id);
-                localStorage.setItem('typeofuser', 'driver');
-                console.log('prueba');
-                return true;
-              } else return false;
-            });
-            console.log(this.signInForm.value.email);
-            console.log(this.signInForm.value.password);
+        if (!this.logged) { 
+          this.http
+            .get<any>(`${this.basePath}/drivers`, this.httpOptions)
+            .subscribe((res) => {
+              const data = res.find((driver: any) => {
+                if (
+                  driver.email === this.signInForm.value.email &&
+                  driver.password === this.signInForm.value.password
+                ) {
+                  localStorage.setItem('currentUser', driver.id);
+                  localStorage.setItem('typeofuser', 'driver');
+                  console.log('prueba');
+                  return true;
+                } else return false;
+              });
+              console.log(this.signInForm.value.email);
+              console.log(this.signInForm.value.password);
 
-            if (data) {
-              this.router.navigate(['/home-d']);
-              alert('Welcome, driver');
-            } else {
-              alert('Usuario o contraseña incorrecta');
-            }
-          });
+              if (data) {
+                this.router.navigate(['/home-d']);
+                alert('Welcome, driver');
+              } else {
+                alert('Usuario o contraseña incorrecta');
+              }
+            });
+        }
       });
+    
   }
 }
