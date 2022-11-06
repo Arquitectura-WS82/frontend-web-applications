@@ -4,18 +4,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  styleUrls: ['./settings.component.css'],
 })
 export class SettingsComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(private router : Router) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  logout(){
+  logout() {
     localStorage.clear();
     this.router.navigate(['/login']);
   }
-
 }

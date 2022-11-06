@@ -8,10 +8,12 @@ import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 export class ClientSService {
   constructor(private http: HttpClient) {}
 
-  // basePath = 'http://localhost:3000/api/v1';
-  basePath: string = GlobalVariable.BASE_API_URL + 'api/contracts';
+  basePath: string = GlobalVariable.BASE_API_URL + '/contracts';
 
   addOffer(clientId: any, driverId: any, offer: any) {
-    return this.http.post(`${this.basePath}/add/client=${clientId}/driver=${driverId}`, offer);
+    return this.http.post(
+      `${this.basePath}/add/${clientId}/${driverId}`,
+      offer
+    );
   }
 }

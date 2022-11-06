@@ -3,7 +3,8 @@ import { getLocaleExtraDayPeriodRules } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {catchError, Observable, retry, throwError} from "rxjs";
+import { catchError, Observable, retry, throwError } from 'rxjs';
+import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
 interface Vehicle {
   value: string;
@@ -13,37 +14,38 @@ interface Vehicle {
 @Component({
   selector: 'app-search-vehicle',
   templateUrl: './search-vehicle.component.html',
-  styleUrls: ['./search-vehicle.component.css']
+  styleUrls: ['./search-vehicle.component.css'],
 })
 export class SearchVehicleComponent implements OnInit {
-
   filteredVehicules: any;
 
   searchForm: FormGroup = this.formBuilder.group({
-    Type_s: ['Bus', {updateOn: 'change' }],
-    Size_s: ['Bus', {updateOn: 'change' }]
+    Type_s: ['Bus', { updateOn: 'change' }],
+    Size_s: ['Bus', { updateOn: 'change' }],
   });
 
-  basePath = 'http://localhost:3000/api/v1/';
+  basePath = GlobalVariable.BASE_API_URL;
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json' //Solo acepta json
-    })
-  }
-
+      'Content-Type': 'application/json', //Solo acepta json
+    }),
+  };
 
   Type: Vehicle[] = [
-    {value: 'vehicle-0', viewValue: 'Bus'},
-    {value: 'vehicle-1', viewValue: 'Van'},
-    {value: 'vehicle-2', viewValue: 'Cargo Truck'},
-    {value: 'vehicle-3', viewValue: 'Truck'},
+    { value: 'vehicle-0', viewValue: 'Bus' },
+    { value: 'vehicle-1', viewValue: 'Van' },
+    { value: 'vehicle-2', viewValue: 'Cargo Truck' },
+    { value: 'vehicle-3', viewValue: 'Truck' },
   ];
 
-  constructor(private formBuilder:FormBuilder, private http: HttpClient, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   get Type_s() {
     return this.searchForm.get('Type_s')?.value;
@@ -53,21 +55,22 @@ export class SearchVehicleComponent implements OnInit {
     return this.searchForm.get('Size_s')?.value;
   }
 
-  getVehicules():Observable<any>{
-    return this.http.get<any>(`${this.basePath}vehicles?_expand=driver&typeOfCar=${this.Type_s}&&quantity=${this.Size_s}`,this.httpOptions);
+  getVehicles(): Observable<any> {
+    return this.http.get<any>(
+      `${this.basePath}/vehicle/find/${this.Type_s}/${this.Size_s}`,
+      this.httpOptions
+    );
   }
 
   listSearch() {
-    this.getVehicules().subscribe((data: any) => {
+    this.getVehicles().subscribe((data: any) => {
       this.filteredVehicules = data;
     });
-    console.log(this.filteredVehicules)
+    console.log(this.filteredVehicules);
   }
 
   goToDriver(id: any) {
-    //this.router.navigate([`my-profile-d/`])
-    this.router.navigate([`profile/${id}`])
-    localStorage.setItem('visitDriverId', id)
+    this.router.navigate([`profile/${id}`]);
+    localStorage.setItem('visitDriverId', id);
   }
-
 }

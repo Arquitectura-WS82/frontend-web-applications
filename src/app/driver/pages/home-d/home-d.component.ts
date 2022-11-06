@@ -19,7 +19,6 @@ export class HomeDComponent implements OnInit {
   contracts_user: Array<any> = [];
   driver_route: any;
 
-  // basePath = 'http://localhost:3000/api/v1/';
   basePath = GlobalVariable.BASE_API_URL;
 
   httpOptions = {
@@ -35,10 +34,6 @@ export class HomeDComponent implements OnInit {
     // console.log(typeof localStorage.getItem('currentUser'))
     this.getRanked().subscribe((data: any) => {
       this.best_ranked = data;
-      console.log(
-        '🚀 ~ file: home-d.component.ts ~ line 38 ~ HomeDComponent ~ this.getRanked ~ this.best_ranked',
-        this.best_ranked
-      );
     });
     console.log(localStorage.getItem('currentUser'));
 

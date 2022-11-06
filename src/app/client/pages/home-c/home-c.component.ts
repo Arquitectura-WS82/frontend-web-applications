@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../../../models/user/user';
 import { catchError, Observable, retry, throwError } from 'rxjs';
+import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
 @Component({
   selector: 'app-home-c',
@@ -18,7 +19,7 @@ export class HomeCComponent implements OnInit {
   contracts_user: Array<any> = [];
   driver_route: any;
 
-  basePath = 'http://localhost:3000/api/v1/';
+  basePath = GlobalVariable.BASE_API_URL;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -40,8 +41,8 @@ export class HomeCComponent implements OnInit {
       this.contracts_user = data;
     });
 
-    this.getUser(this.user_id).subscribe((data: any) => {
-      this.user = data[0];
+    this.getClientById(this.user_id).subscribe((data: any) => {
+      this.user = data;
     });
   }
 
@@ -50,28 +51,24 @@ export class HomeCComponent implements OnInit {
   }
 
   getRanked() {
-    return this.http.get(`${this.basePath}drivers?_sort=rating&_order=desc`);
+    return this.http.get(`${this.basePath}/drivers`);
   }
 
-  getContralct(id: any) {
-    return this.http.get(`${this.basePath}drivers?_sort=rating&_order=desc`);
-  }
-
-  getUser(id: any) {
-    return this.http.get(`${this.basePath}clients?id=${id}`);
+  getClientById(id: any) {
+    return this.http.get(`${this.basePath}/clients/${id}`);
   }
 
   getContract(id: any): Observable<any> {
     return this.http
       .get<any>(
-        `${this.basePath}historyContracts?_expand=driver&clientId=${id}`,
+        `${this.basePath}/contracts/history/client/${id}`,
         this.httpOptions
       )
       .pipe(retry(2));
   }
 
   goToDriver(id: any) {
-    this.router.navigate([`profile/${id}`])
+    this.router.navigate([`profile/${id}`]);
     localStorage.setItem('visitDriverId', id);
   }
 }

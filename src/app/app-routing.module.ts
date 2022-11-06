@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'my-profile-d', component: MyProfileDComponent },
   { path: 'add', component: AddCardComponent },
   { path: 'end-contract', component: EndContractComponent },
-  { path: 'request-service', component: RequestServiceComponent },
+  { path: 'request-service/:id', component: RequestServiceComponent },
   { path: 'support', component: SupportComponent },
   { path: 'app-pay-contract-c', component: PayContractCComponent },
   { path: 'profile/:id', component: ProfileComponent },

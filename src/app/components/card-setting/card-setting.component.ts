@@ -12,10 +12,8 @@ import { _MatTabGroupBase } from '@angular/material/tabs';
 export class CardSettingComponent implements OnInit {
   user_id: any;
   type_user: any;
-  client = 'client';
   Cards_user: Array<any> = [];
 
-  // basePath = 'http://localhost:3000/api/v1/';
   basePath = GlobalVariable.BASE_API_URL;
 
   httpOptions = {
@@ -34,7 +32,7 @@ export class CardSettingComponent implements OnInit {
   }
 
   getCard() {
-    if (this.type_user == this.client) {
+    if (this.type_user == 'client') {
       this.getCardsClient(this.user_id).subscribe((data: any) => {
         this.Cards_user = data;
       });
@@ -55,7 +53,7 @@ export class CardSettingComponent implements OnInit {
   }
 
   deleteCard(id: number) {
-    if (this.type_user == this.client) {
+    if (this.type_user == 'client') {
       return this.http.delete(
         `${this.basePath}/cardsClient/${this.user_id}/delete/${id}`
       );
