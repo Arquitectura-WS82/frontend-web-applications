@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-my-profile-d',
@@ -14,8 +15,12 @@ export class MyProfileDComponent implements OnInit {
   comments: any;
   user_id: any;
   vehicle: any;
+  show: boolean = false;
+  vehicleForm!: FormGroup;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private formBuilder: FormBuilder) {
+    
+  }
 
   basePath = GlobalVariable.BASE_API_URL;
 
@@ -26,11 +31,20 @@ export class MyProfileDComponent implements OnInit {
   };
 
   ngOnInit(): void {
+
+    this.vehicleForm = this.formBuilder.group({
+      Quantity: ['0'],
+      Brand: ['Brand'],
+      Category: ['-'],
+      Typecar: ['-'],
+      Photo: ['-'],
+    });
     //localStorage.setItem('currentUser', '5');
     if (localStorage.getItem('visitDriverId') != '-1')
       this.user_id = localStorage.getItem('visitDriverId');
     else this.user_id = localStorage.getItem('currentUser');
     localStorage.setItem('visitDriverId', '-1');
+
 
     this.getUser(this.user_id).subscribe((data: any) => {
       this.user = data;
@@ -46,9 +60,27 @@ export class MyProfileDComponent implements OnInit {
     this.getComments(this.user_id).subscribe((data: any) => {
       this.comments = data;
     });
+    this.vehicleForm.value.Brand=this.vehicle.brand;
+    this.vehicleForm.value.Quantity=this.vehicle.quantity;
+    this.vehicleForm.value.Typecar=this.vehicle.type_car;
+    this.vehicleForm.value.Category=this.vehicle.category;
+    this.vehicleForm.value.Photo=this.vehicle.photo_car;
   }
 
-
+  Update(){
+    this.show = !this.show;
+    this.vehicle.brand =this.vehicleForm.value.Brand;
+    this.vehicle.quantity=this.vehicleForm.value.Quantity;
+    this.vehicle.type_car=this.vehicleForm.value.Typecar;
+    this.vehicle.category=this.vehicleForm.value.Category;
+    this.vehicle.photo_car=this.vehicleForm.value.Photo;
+    this.http
+        .put(`${this.basePath}/vehicle/${this.user_id}`, this.vehicle, this.httpOptions)
+        .subscribe((res) => {
+          console.log(res);
+          alert('Registro exitoso');
+        });
+  }
   
   getVehicle(id: any) {
     return this.http.get(`${this.basePath}/vehicle/${id}`);

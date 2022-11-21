@@ -435,7 +435,7 @@ h4{
 .title3{
     position: absolute;
     left: 25px;
-    top: 50px;
+    top: 55px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 300;
@@ -451,24 +451,29 @@ h4{
 
 .title4{
     
+    position: relative;
+    left: -40px;
+    top: +30px;
     font-family: 'Inter';
+    margin-top: 14%;
     font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 190%;
-/* or 30px */
-    padding-bottom: 10%;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 24px;
     display: flex;
     align-items: center;
-    text-decoration-line: underline;
+    text-transform: capitalize;
+    color: #000000;
+    
 
-    color: #0F15A3;
+
 }
 
 .btn-update{
     position: absolute;
     width: 250px;
     top: 87%;
+    left:10%;
     background: #1ACC8D;;
     text-align: center;
 }
@@ -494,4 +499,21 @@ h4{
 
 mat-tab{
     margin-top: 10%;
+}
+
+.info{
+    position: relative;
+    left: +65px;
+    top: +50px;
+}
+.mat-form-field{
+    height: 45px;
+}
+.btn-save {
+    position: absolute;
+    width: 250px;
+    top: 87%;
+    left: 10%;
+    background: #1ACC8D;
+    text-align: center;
 }
