@@ -3,7 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
-
+import { PageEvent } from '@angular/material/paginator';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AddCommentDialogComponent, CommentData } from '../add-comment-dialog/add-comment-dialog.component';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -15,14 +17,19 @@ export class ProfileComponent implements OnInit {
   comments: any;
   id: any;
   vehicle: any;
+  pageSlice: any;
+  commentData: CommentData;
+
   constructor(
     private http: HttpClient,
     private router: Router,
-    route: ActivatedRoute
+    route: ActivatedRoute,
+    public dialog: MatDialog
   ) {
     route.params.subscribe((params) => {
       this.id = params['id'];
     });
+    this.commentData = {} as CommentData;
   }
 
   basePath = GlobalVariable.BASE_API_URL;
@@ -32,7 +39,18 @@ export class ProfileComponent implements OnInit {
       'Content-Type': 'application/json', //Solo acepta json
     }),
   };
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddCommentDialogComponent, {
+      width: '20%',
+      
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      //console.log('The dialog was closed');
+      //this.commentData = result;
+      console.log(result);
+    });
+  }
   ngOnInit(): void {
     //localStorage.setItem('currentUser', '5');
     // if (localStorage.getItem("visitDriverId") != '-1')
@@ -46,10 +64,21 @@ export class ProfileComponent implements OnInit {
     });
     this.getComments(this.id).subscribe((data: any) => {
       this.comments = data;
+      this.pageSlice = this.comments.slice(0, 3);
     });
     this.getVehicle(this.id).subscribe((data: any) => {
       this.vehicle = data;
     });
+    this.onPageChange;
+
+  }
+  onPageChange(event: PageEvent) {
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+    if (endIndex > this.comments.length) {
+      endIndex = this.comments.length;
+    }
+    this.pageSlice = this.comments.slice(startIndex, endIndex);
   }
 
   getUser(id: any) {
@@ -65,5 +94,29 @@ export class ProfileComponent implements OnInit {
 
   goRequestService() {
     this.router.navigate([`/request-service/${this.id}`]);
+  }
+  openCommentModal() {
+    const dialogRef = this.dialog.open(AddCommentDialogComponent, {
+      width: '250px',
+      data: this.commentData,
+
+    });
+    console.log(this.commentData)
+    dialogRef.afterClosed().subscribe(result => {
+      this.commentData.comment = result.comment;
+      this.commentData.star = result.rating;
+      this.saveComment().subscribe((data: any) => {
+        console.log(data);
+        this.ngOnInit();
+      })
+    });
+
+  }
+  saveComment() {
+
+    return this.http.post(
+      `${this.basePath}/comments/add/${localStorage.getItem("currentUser")}/${this.id}`, 
+      this.commentData, 
+      this.httpOptions);
   }
 }

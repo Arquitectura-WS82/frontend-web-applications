@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Leave a comment </h1>
+<div mat-dialog-content>
+    <form class="card" [formGroup]="commentForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Type something</mat-label>
+            <input matInput formControlName="comment">
+            <mat-error *ngIf="comment?.errors?.['required']">
+                Comment is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Rate this driver</mat-label>
+            <mat-select disableRipple formControlName="rating">
+                <mat-option value="1">1
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                </mat-option>
+                <mat-option value="2">2
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                </mat-option>
+                <mat-option value="3">3
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                </mat-option>
+                <mat-option value="4">4
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                </mat-option>
+                <mat-option value="5">5
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                    <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="rate?.errors?.['required']">Rate is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [disabled]="!commentForm.valid"
+        [mat-dialog-close]="commentForm.value">Ok</button>
+</div>

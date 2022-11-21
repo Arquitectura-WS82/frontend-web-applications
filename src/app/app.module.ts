@@ -28,6 +28,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { NgxCcModule } from 'ngx-cc';
 import { MatSidenavModule } from '@angular/material/sidenav';
+
 // Components
 import { HeaderComponent } from './login/header/header.component';
 import { FooterComponent } from './login/footer/footer.component';
@@ -64,6 +65,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { SettingsDComponent } from './driver/pages/settings-d/settings-d.component';
 import { SettingsCComponent } from './client/pages/settings-c/settings-c.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AddCommentDialogComponent } from './components/add-comment-dialog/add-comment-dialog.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     SettingsDComponent,
     SettingsCComponent,
     PageNotFoundComponent,
+    AddCommentDialogComponent,
   ],
   imports: [
     BrowserModule,
