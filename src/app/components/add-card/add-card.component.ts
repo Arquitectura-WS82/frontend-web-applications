@@ -73,14 +73,14 @@ export class AddCardComponent implements OnInit {
         '',
         { validators: [Validators.required], updatedOn: 'change' },
       ],
-      postal: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      postal: ['', { validators: [Validators.required, Validators.minLength(5)], updatedOn: 'change' }],
       name: ['', { validators: [Validators.required], updatedOn: 'change' }],
       numberCard: [
         '',
-        { validators: [Validators.required], updatedOn: 'change' },
+        { validators: [Validators.required, Validators.minLength(16), Validators.maxLength(16)], updatedOn: 'change' },
       ],
       date: ['', { validators: [Validators.required], updatedOn: 'change' }],
-      cvv: ['', { validators: [Validators.required], updatedOn: 'change' }],
+      cvv: ['', { validators: [Validators.required, Validators.minLength(3)], updatedOn: 'change' }],
     });
   }
   //API error handling
@@ -106,6 +106,9 @@ export class AddCardComponent implements OnInit {
     //   console.log(data);
     // });
     this.setPhoneValidation();
+    this.setnumberCardValidation();
+    this.setPostalCodeValidation();
+    this.setCVVValidation();
     // this.form = this.fb.group({
     //   creditCard: [],
     //   creditCardDate: [],
@@ -201,6 +204,27 @@ export class AddCardComponent implements OnInit {
     } else if (localStorage.getItem('typeofuser') == 'driver') {
       this.router.navigate(['/settings-d/card-settings']);
     }
+  }
+  setnumberCardValidation() {
+    const idControl = this.AddForm.get('numberCard');
+    idControl?.setValidators([
+      Validators.pattern('^[0-9]*$'),
+      Validators.required,
+    ]);
+  }
+  setCVVValidation() {
+    const idControl = this.AddForm.get('cvv');
+    idControl?.setValidators([
+      Validators.pattern('^[0-9]*$'),
+      Validators.required,
+    ]);
+  }
+  setPostalCodeValidation() {
+    const idControl = this.AddForm.get('postal');
+    idControl?.setValidators([
+      Validators.pattern('^[0-9]*$'),
+      Validators.required,
+    ]);
   }
 
   // listSearch() {

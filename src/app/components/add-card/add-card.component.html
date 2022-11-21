@@ -11,8 +11,7 @@
           <mat-option value="Visa">Visa</mat-option>
           <mat-option value="Mastercard">Mastercard</mat-option>
         </mat-select>
-        <mat-error *ngIf="type?.errors?.['required']"
-          >Type Card is
+        <mat-error *ngIf="type?.errors?.['required']">Type Card is
           <strong>required</strong>
         </mat-error>
       </mat-form-field>
@@ -20,8 +19,7 @@
       <!-- <mat-form-field class="margin"> </mat-form-field> -->
       <mat-form-field class="margin">
         <input matInput placeholder="Title" formControlName="title" />
-        <mat-error *ngIf="title?.errors?.['required']"
-          >Title is
+        <mat-error *ngIf="title?.errors?.['required']">Title is
           <strong>required</strong>
         </mat-error>
       </mat-form-field>
@@ -35,7 +33,7 @@
                 matInput
                 placeholder="Holder Name"
                 formControlName="name"
-              />
+                />
               <mat-error *ngIf="name?.errors?.['required']">
                 Name is <strong>required</strong>
               </mat-error>
@@ -45,25 +43,59 @@
                 matInput
                 placeholder="Card Number"
                 formControlName="numberCard"
-              />
+                maxlength="16"
+                minlength="16"
+                />
               <mat-error *ngIf="numberCard?.errors?.['required']">
-                Name is <strong>required</strong>
+                Card number is <strong>required</strong>
               </mat-error>
+
+              <mat-error *ngIf="numberCard?.errors?.['pattern'] &&
+                !numberCard?.errors?.['required']">
+                Card number must have only <strong>numbers</strong>
+              </mat-error>
+              <mat-error *ngIf="numberCard?.errors?.['minlength'] &&
+                !numberCard?.errors?.['required']">
+                Card number must have <strong> 16 </strong> numbers
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <!-- <input
+                matInput
+                placeholder="Expiration date"
+                formControlName="date"
+                />
+                
+              <mat-error *ngIf="date?.errors?.['required']">
+                Expiration date is <strong>required</strong>
+              </mat-error> -->
+              <input matInput [matDatepicker]="picker"
+                placeholder="Expiration date"
+                readonly="true"
+                formControlName="date">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="date?.errors?.['required']">Birth date is
+                <strong>required</strong> </mat-error>
             </mat-form-field>
             <mat-form-field>
               <input
                 matInput
-                placeholder="Expiration date"
-                formControlName="date"
-              />
-              <mat-error *ngIf="date?.errors?.['required']">
-                Expiration date is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="CVV" formControlName="cvv" />
+                placeholder="CVV"
+                formControlName="cvv"
+                maxlength="3"
+                minlength="3" />
               <mat-error *ngIf="cvv?.errors?.['required']">
                 CVV is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="cvv?.errors?.['pattern'] &&
+                !cvv?.errors?.['required']">
+                CVV number must have only <strong>numbers</strong>
+              </mat-error>
+              <mat-error *ngIf="cvv?.errors?.['minlength'] &&
+                !cvv?.errors?.['required']">
+                CVV must have <strong> 3 </strong> numbers
               </mat-error>
             </mat-form-field>
           </div>
@@ -78,7 +110,7 @@
                 formControlName="phone"
                 maxlength="9"
                 minlength="9"
-              />
+                />
 
               <mat-error *ngIf="phone?.errors?.['required']">
                 Phone is <strong>required</strong>
@@ -86,9 +118,13 @@
 
               <mat-error
                 *ngIf="phone?.errors?.['pattern'] &&
-                                !phone?.errors?.['required']"
-              >
+                !phone?.errors?.['required']">
                 Phone must have only <strong>numbers</strong>
+              </mat-error>
+
+              <mat-error *ngIf="phone?.errors?.['minlength'] &&
+                !phone?.errors?.['required']">
+                Phone field must have <strong> 9 </strong> numbers
               </mat-error>
             </mat-form-field>
 
@@ -96,8 +132,7 @@
               <textarea
                 matInput
                 placeholder="Address"
-                formControlName="direction"
-              ></textarea>
+                formControlName="direction"></textarea>
               <mat-error *ngIf="direction?.errors?.['required']">
                 Direction is <strong>required</strong>
               </mat-error>
@@ -110,10 +145,18 @@
                 formControlName="postal"
                 maxlength="5"
                 minlength="5"
-              />
+                />
               <mat-hint align="end">{{ postal?.value.length }} / 5</mat-hint>
               <mat-error *ngIf="postal?.errors?.['required']">
                 Postal is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="postal?.errors?.['pattern'] &&
+                !postal?.errors?.['required']">
+                Postal code must have only <strong>numbers</strong>
+              </mat-error>
+              <mat-error *ngIf="postal?.errors?.['minlength'] &&
+                !postal?.errors?.['required']">
+                Postal code must have <strong> 5 </strong> numbers
               </mat-error>
             </mat-form-field>
 
@@ -121,8 +164,7 @@
               <input matInput placeholder="Email" formControlName="email" />
               <mat-error
                 *ngIf="email?.errors?.['email'] &&
-                                !email?.errors?.['required']"
-              >
+                !email?.errors?.['required']">
                 Please enter a valid email address
               </mat-error>
               <mat-error *ngIf="email?.errors?.['required']">
@@ -138,8 +180,7 @@
           mat-raised-button
           (click)="registerData()"
           [disabled]="!AddForm.valid"
-          color="accent"
-        >
+          color="accent">
           Create
         </button>
         <button mat-raised-button (click)="cancel()" color="warn">
