@@ -61,7 +61,7 @@ export class HeaderCComponent implements OnInit {
 
   getUnreadNotifications(id: any) {
     return this.http.get(
-      `${this.url}contracts/unread-notifications/client/{id}`
+      `${this.url}contracts/unread-notifications/client/${id}`
     );
   }
 

@@ -26,7 +26,7 @@
   <div *ngFor="let clientnotification of clientnotifications">
     <mat-card
       class="example-card"
-      *ngIf="clientnotification.type == 'accepted'"
+      *ngIf="clientnotification.status.status == 'accepted'"
     >
       <mat-card-header>
         <img
@@ -48,8 +48,7 @@
           mat-raised-button
           color="primary"
           type="submit"
-          (click)="goToContract(clientnotification.pendingContract.id)"
-        >
+          (click)="goToContract(clientnotification.id)">
           See More Details
         </button>
       </mat-card-actions>
@@ -57,7 +56,7 @@
     <br />
     <mat-card
       class="card-rejected"
-      *ngIf="clientnotification.type == 'rejected'"
+      *ngIf="clientnotification.status.status == 'rejected'"
     >
       <mat-card-header>
         <mat-card-title class="card-title">Contract rejected</mat-card-title>
@@ -66,31 +65,31 @@
         <mat-card class="card-history">
           <div class="client-history">
             <img
-              [src]="clientnotification.pendingContract.client.photo"
+              [src]="clientnotification.client.photo"
               alt="Profile"
               class="profile-img-history"
             />
             <div>
               <strong>Client</strong>
-              <p>{{ clientnotification.pendingContract.client.username }}</p>
+              <p>{{ clientnotification.client.username }}</p>
             </div>
           </div>
           <div>
             <h4>DETAILS</h4>
             <p>
               Date:
-              <strong>{{ clientnotification.pendingContract.date }}</strong>
+              <strong>{{ clientnotification.contractDate }}</strong>
             </p>
             <p>
               From:
-              <strong>{{ clientnotification.pendingContract.from }}</strong>
+              <strong>{{ clientnotification.from }}</strong>
             </p>
             <p>
-              To: <strong>{{ clientnotification.pendingContract.to }}</strong>
+              To: <strong>{{ clientnotification.to }}</strong>
             </p>
             <p>
               Amount:
-              <strong>{{ clientnotification.pendingContract.amount }}</strong>
+              <strong>{{ clientnotification.amount }}</strong>
             </p>
           </div>
         </mat-card>
