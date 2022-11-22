@@ -115,11 +115,28 @@
               <br />
               <mat-divider></mat-divider>
             </div>
+            <button class="btn-edit" mat-raised-button (click)="show = !show">
+              Update experience&nbsp;&nbsp;
+            </button>
+          </div>
+          <div *ngIf="show" class="experience">
+            <ng-template [ngIf]="show"><div>
+              <form mat class="info2" [formGroup]="experienceForm">
+                <mat-form-field>
+                  <input matInput type="Job" placeholder="Job" formControlName="Jobs">
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                  <input matInput type="String" placeholder="Time" formControlName="Time">
+                </mat-form-field>
+              </form>
+              <button class="btn-edit" mat-raised-button (click)=" Updateexpe()" style="margin-top: 70px;">
+                Save&nbsp;&nbsp;
+              </button>
+            </div></ng-template>
           </div>
           <div>
-            <button class="btn-edit" mat-raised-button>
-              Add experience&nbsp;&nbsp;
-            </button>
+            
           </div>
         </div>
       </mat-tab>
