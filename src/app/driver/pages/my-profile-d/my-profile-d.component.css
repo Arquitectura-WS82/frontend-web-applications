@@ -552,3 +552,13 @@ mat-tab{
     background: #1ACC8D;
     text-align: center;
 }
+.experience{
+    width: 40vw;
+    height: 40vh;
+    display: block;
+}
+.info2{
+    position: relative;
+    left: +225px;
+    top: +50px;
+}

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
+import { Experience } from 'src/app/models/Experience/Experience'; 
 
 @Component({
   selector: 'app-my-profile-d',
@@ -19,9 +20,11 @@ export class MyProfileDComponent implements OnInit {
   show: boolean = false;
   pageSlice: any;
   vehicleForm!: FormGroup;
+  experienceForm!: FormGroup;
+  experience: Experience;
 
   constructor(private http: HttpClient, private router: Router, private formBuilder: FormBuilder) {
-    
+    this.experience={} as Experience;
   }
 
   basePath = GlobalVariable.BASE_API_URL;
@@ -33,7 +36,10 @@ export class MyProfileDComponent implements OnInit {
   };
 
   ngOnInit(): void {
-
+    this.experienceForm= this.formBuilder.group({
+      Jobs:['-'],
+      Time:['-'],
+    });
     this.vehicleForm = this.formBuilder.group({
       Quantity: ['0'],
       Brand: ['Brand'],
@@ -81,6 +87,19 @@ export class MyProfileDComponent implements OnInit {
     }
     this.pageSlice = this.comments.slice(startIndex, endIndex);
   }
+  Updateexpe(){
+    this.show = !this.show;
+    this.experience.time =this.experienceForm.value.Time;
+    this.experience.job=this.experienceForm.value.Jobs;
+
+    this.http
+        .put(`${this.basePath}/experience/${this.user_id}`, this.experience, this.httpOptions)
+        .subscribe((res) => {
+          console.log(res);
+          //alert('Registro exitoso');
+        });
+        this.ngOnInit();
+  }
 
   Update(){
     this.show = !this.show;
@@ -93,8 +112,10 @@ export class MyProfileDComponent implements OnInit {
         .put(`${this.basePath}/vehicle/${this.user_id}`, this.vehicle, this.httpOptions)
         .subscribe((res) => {
           console.log(res);
-          alert('Registro exitoso');
+          //alert('Registro exitoso');
+          
         });
+        this.ngOnInit();
   }
   
   getVehicle(id: any) {

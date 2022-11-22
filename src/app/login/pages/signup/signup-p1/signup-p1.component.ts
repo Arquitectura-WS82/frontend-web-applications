@@ -10,7 +10,7 @@ import { User } from '../../../../models/user/user';
 import { Router } from '@angular/router';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 import {  Vehicle } from '../../../../models/Vehicle/vehicle';
-import { Experience } from 'src/app/models/Experience/Experience';
+import { Experience } from 'src/app/models/Experience/Experience'; 
 
 @Component({
   selector: 'app-signup-p1',
