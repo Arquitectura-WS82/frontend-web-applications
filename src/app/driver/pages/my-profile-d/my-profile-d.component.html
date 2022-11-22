@@ -218,8 +218,10 @@
 
             <mat-divider class="divider"></mat-divider>
           </div>
-          <div class="comment-paginator">
+          <div class="comment-paginator" >
+
             <mat-paginator [length]="this.comments.length"
+            *ngIf="this.comments"
               [pageSize]="3"
               [pageSizeOptions]="[3]"
               class="paginator"
