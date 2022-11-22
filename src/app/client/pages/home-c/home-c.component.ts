@@ -12,7 +12,10 @@ import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 })
 export class HomeCComponent implements OnInit {
   user_id: any;
-  user: any;
+  user: {
+    photo: string;
+    username: string ;
+  };
   user_name: string = '';
   best_ranked: Array<any> = [];
   Best_ranked: Array<any> = [];
@@ -27,7 +30,12 @@ export class HomeCComponent implements OnInit {
     }),
   };
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    this.user = {
+      photo: '-',
+      username: '-',
+    };
+  }
 
   ngOnInit(): void {
     this.user_id = localStorage.getItem('currentUser');

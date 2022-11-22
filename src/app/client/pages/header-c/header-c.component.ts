@@ -10,7 +10,7 @@ import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 })
 export class HeaderCComponent implements OnInit {
   hidden = false;
-  i = 0;
+  cont = 0;
   public accepted = true;
   clientnotifications: any;
   unreadnoti: any;
@@ -31,12 +31,24 @@ export class HeaderCComponent implements OnInit {
     this.user_id = localStorage.getItem('currentUser');
     this.getClientNotifications(this.user_id).subscribe((data: any) => {
       this.clientnotifications = data;
-      this.i = this.clientnotifications.length;
-      console.log(this.i);
+      //this.i = this.clientnotifications.length;
+      
+      // console.log(this.i);
     });
     this.getUnreadNotifications(this.user_id).subscribe((data: any) => {
-      this.i = data.length;
-      console.log(this.unreadnoti);
+       console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        console.log("adios")
+        if (data[i].notification.readStatus == false &&
+          (data[i].status.status == "PENDING" || 
+          (data[i].status.status == "OFFER" && data[i].visible == false))) {
+            console.log("hola")
+            this.cont++;
+        }
+      }
+
+      // console.log(this.unreadnoti);
+      
     });
     // this.getPendingContracts(this.user_id).subscribe((data: any) => {
     //   this.pendingcontrats = data;
@@ -49,29 +61,29 @@ export class HeaderCComponent implements OnInit {
   toggleBadgeVisibility() {
     this.hidden = true;
   }
-
+  updateNotification(userId: any){
+    this.updateNot(userId).subscribe((data: any) => {
+      console.log(data);
+    });
+  }
   // Cambio
   getUserById(userId: any) {
-    return this.http.get(`${this.url}clients/${userId}`);
+    return this.http.get(`${this.url}/clients/${userId}`);
   }
-
   getClientNotifications(id: any) {
-    return this.http.get(`${this.url}contracts/notifications-client/${id}`);
+    return this.http.get(`${this.url}/contracts/notifications-client/${id}`);
   }
-
   getUnreadNotifications(id: any) {
     return this.http.get(
-      `${this.url}contracts/unread-notifications/client/${id}`
+      `${this.url}/contracts/unread-notifications/client/${id}`
     );
   }
-
-  updateNotification(clientId: number) {
+  updateNot(clientId: number) {
     return this.http.put(
-      `${this.url}contracts/notification-read/client/${clientId}`,
+      `${this.url}/contracts/notification-read/client/${clientId}`,
       null
     );
   }
-
   // getPendingContracts(id: any) {
   //   return this.http.get(`${this.url}pendingContracts?id=${id}`);
   // }

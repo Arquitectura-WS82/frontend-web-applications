@@ -51,3 +51,9 @@ export class MyProfileCComponent implements OnInit {
     return this.http.get(`${this.basePath}/comments/client/${id}`);
   }
 }
+
+
+
+
+
+

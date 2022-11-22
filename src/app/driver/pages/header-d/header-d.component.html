@@ -9,7 +9,7 @@
   <a mat-button [routerLink]="'/settings-d/card-settings'">Settings</a>
   <a mat-button [routerLink]="'/support'">Support</a>
   <mat-icon
-    [matBadge]="i"
+    [matBadge]="cont"
     matBadgeColor="warn"
     [matBadgeHidden]="hidden"
     (click)="
@@ -25,7 +25,7 @@
   <div *ngFor="let drivernotification of drivernotifications">
     <mat-card
       class="example-card"
-      *ngIf="drivernotification.status.status == 'accepted'"
+      *ngIf="drivernotification.status.status == 'HISTORY'"
     >
       <mat-card-header>
         <img
@@ -52,10 +52,10 @@
     <br />
     <mat-card
       class="card-rejected"
-      *ngIf="drivernotification.status.status == 'rejected'"
+      *ngIf="drivernotification.status.status == 'OFFER' && drivernotification.visible == false" 
     >
       <mat-card-header>
-        <mat-card-title class="card-title">Contract rejected</mat-card-title>
+        <mat-card-title class="card-title">You rejected a contract</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <mat-card class="card-history">

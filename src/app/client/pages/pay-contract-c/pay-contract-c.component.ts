@@ -50,7 +50,7 @@ export class PayContractCComponent implements OnInit {
   }
 
   getContract(id: any) {
-    return this.http.get(`${this.url}contracts/${id}`);
+    return this.http.get(`${this.url}/contracts/${id}`);
   }
 
 }

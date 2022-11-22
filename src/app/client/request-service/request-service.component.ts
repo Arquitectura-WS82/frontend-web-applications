@@ -130,7 +130,7 @@ export class RequestServiceComponent implements OnInit {
     this.request.amount = this.requestServiceForm.value.amount;
     this.request.subject = this.requestServiceForm.value.subject;
     this.request.description = this.requestServiceForm.value.description;
-    this.request.visible = false;
+    this.request.visible = true;
     console.log(this.request.timeArrival);
     console.log(this.request.timeDeparture);
   }

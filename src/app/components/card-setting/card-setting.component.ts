@@ -30,6 +30,12 @@ export class CardSettingComponent implements OnInit {
     this.getCard();
     console.log(this.type_user);
   }
+  mounted() {
+    this.ngOnInit();
+  }
+  created() {
+    this.ngOnInit();
+  }
 
   getCard() {
     if (this.type_user == 'client') {

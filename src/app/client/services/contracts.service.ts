@@ -10,7 +10,7 @@ export class ContractsService {
   constructor(private http: HttpClient) {}
   // Contracts Endpoint
   // url: string = 'http://localhost:3000/api/v1';
-  url: string = GlobalVariable.BASE_API_URL + 'contracts';
+  url: string = GlobalVariable.BASE_API_URL + '/contracts';
 
   getHistoryContracts(clientId: number) {
     return this.http.get(`${this.url}/history/client/${clientId}`);
@@ -44,4 +44,7 @@ export class ContractsService {
     return this.http.put(`${this.url}/${idContract}/change-visible`, {});
   }
 
+  changeContractStatus(idContract: number, status: number) {
+    return this.http.put(`${this.url}/${idContract}/update-status/${status}`, {});
+  }
 }

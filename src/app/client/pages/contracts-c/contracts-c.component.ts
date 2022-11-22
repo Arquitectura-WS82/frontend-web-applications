@@ -46,6 +46,14 @@ export class ContractsCComponent implements OnInit {
     });
   }
 
+  finishContract(id: number){
+    this.contractsService.changeContractStatus(id, 3).subscribe((response) => {
+      console.log(response);
+      this.ngOnInit();
+    });
+    ///contracts/1/update-status/2
+  }
+
   ngOnInit(): void {
     this.user_id = localStorage.getItem('currentUser');
 
@@ -53,12 +61,13 @@ export class ContractsCComponent implements OnInit {
       .getPendingContracts(this.user_id)
       .subscribe((response) => {
         this.pendingContracts = response;
-        console.log(this.pendingContracts.length);
+        //console.log(this.pendingContracts);
       });
     this.contractsService
       .getHistoryContracts(this.user_id)
       .subscribe((response) => {
         this.historyContracts = response;
+        //console.log(this.historyContracts);
       });
   }
 }
