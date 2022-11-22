@@ -34,13 +34,17 @@ export class HeaderDComponent implements OnInit {
     });
     this.getUnreadNotifications(this.user_id).subscribe((data: any) => {
       console.log(data);
-      for (let i = 0; i < data.length; i++) {
-        console.log("adios")
-        if (data[i].notification.readStatus == false &&
-          (data[i].status.status == "HISTORY" || 
-          (data[i].status.status == "OFFER" && data[i].visible == false))) {
-            console.log("hola")
+      if (data) {
+        for (let i = 0; i < data.length; i++) {
+          console.log('adios');
+          if (
+            data[i].notification.readStatus == false &&
+            (data[i].status.status == 'HISTORY' ||
+              (data[i].status.status == 'OFFER' && data[i].visible == false))
+          ) {
+            console.log('hola');
             this.cont++;
+          }
         }
       }
     });
@@ -54,7 +58,7 @@ export class HeaderDComponent implements OnInit {
   toggleBadgeVisibility() {
     this.hidden = true;
   }
-  updateNotification(userId: any){
+  updateNotification(userId: any) {
     this.updateNot(userId).subscribe((data: any) => {
       console.log(data);
     });
@@ -74,14 +78,12 @@ export class HeaderDComponent implements OnInit {
     );
   }
 
-  
   updateNot(driverId: number) {
     return this.http.put(
       `${this.basePath}/contracts/notification-read/driver/${driverId}`,
       null
     );
   }
-
 
   //getPendingContracts(id: any) {
   //  return this.http.get(`${this.basePath}pending-contracts?id=${id}`);
