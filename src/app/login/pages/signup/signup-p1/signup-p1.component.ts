@@ -9,6 +9,8 @@ import { catchError, retry, throwError } from 'rxjs';
 import { User } from '../../../../models/user/user';
 import { Router } from '@angular/router';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import {  Vehicle } from '../../../../models/Vehicle/vehicle';
+import { Experience } from 'src/app/models/Experience/Experience';
 
 @Component({
   selector: 'app-signup-p1',
@@ -23,7 +25,9 @@ export class SignupP1Component implements OnInit {
 
   samePassword: boolean = false;
   signupForm: FormGroup;
-  isValid: boolean = true;
+  vehicle: Vehicle;
+  experience: Experience;
+
 
   // basePath = 'http://localhost:3000/api/v1';
   basePath = GlobalVariable.BASE_API_URL;
@@ -40,6 +44,15 @@ export class SignupP1Component implements OnInit {
     private router: Router
   ) {
     this.user = {} as User;
+    this.vehicle={} as Vehicle;
+    this.vehicle.brand= "-";
+    this.vehicle.category="-";
+    this.vehicle.photo_car="https://cdn-icons-png.flaticon.com/512/2554/2554969.png";
+    this.vehicle.quantity=0;
+    this.vehicle.type_car="-";
+    this.experience={} as Experience;
+    this.experience.job="-";
+    this.experience.time="00:00:00"
 
     this.signupForm = this.formBuilder.group({
       email: [
@@ -154,7 +167,18 @@ export class SignupP1Component implements OnInit {
     } else {
       this.http
         .post(`${this.basePath}/drivers`, this.user, this.httpOptions)
-        .subscribe((res) => {
+        .subscribe((res:any) => {
+          
+          this.http
+          .post(`${this.basePath}/vehicle/${res.id}`, this.vehicle, this.httpOptions)
+          .subscribe((vehicle) =>{
+            console.log(vehicle);
+          });
+          this.http
+          .post(`${this.basePath}/experience/${res.id}`, this.experience, this.httpOptions)
+          .subscribe((expe) =>{
+            console.log(expe);
+          });
           console.log(res);
           alert('Registro exitoso');
         });
@@ -175,7 +199,7 @@ export class SignupP1Component implements OnInit {
     this.user.username =
       this.signupForm.value.first_name + ' ' + this.signupForm.value.last_name;
     this.user.description = this.signupForm.value.description;
-    this.user.photo = 'https://';
+    this.user.photo = 'https://thumbs.dreamstime.com/b/icono-de-usuario-predeterminado-vectores-imagen-perfil-avatar-predeterminada-vectorial-medios-sociales-retrato-182347582.jpg';
   }
 
   onSubmit() {
