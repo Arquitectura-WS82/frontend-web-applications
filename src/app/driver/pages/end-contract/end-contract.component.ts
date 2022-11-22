@@ -7,6 +7,7 @@ import { sha256 } from 'js-sha256';
 import { ContractDialogComponent } from '../../../components/contract-dialog/contract-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-end-contract',
@@ -58,16 +59,16 @@ export class EndContractComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     localStorage.setItem('contractId', '2');
     this.contractId = localStorage.getItem('contractId');
     this.getOfferContract(this.contractId).subscribe((data) => {
-      this.contract = data;
-      this.driverId = data.driverId;
-      console.log(this.driverId);
+      this.contract = data[0];
+      this.driverId = this.contract.driver.id;
       this.getDriverById(this.driverId).subscribe((dataD) => {
         this.driverInfo = dataD;
         console.log(this.driverId);
@@ -77,7 +78,7 @@ export class EndContractComponent implements OnInit {
   }
 
   getOfferContract(id: any): Observable<any> {
-    return this.http.get<any>(`${this.basePath}/offer/driver/${id}`);
+    return this.http.get<any>(`${this.basePath}/contracts/offer/driver/${id}`);
   }
 
   getDriverById(id: any): Observable<any> {
@@ -92,5 +93,6 @@ export class EndContractComponent implements OnInit {
     );
     console.log(hash);
     this.acceptContract();
+    this.router.navigate(['/home-d']);
   }
 }

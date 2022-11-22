@@ -63,6 +63,7 @@ export class ContractsDComponent implements OnInit {
           'The contract has been signed. When you finish the work, we will pay you',
       },
     });
+    this.ngOnInit();
   }
   declineContract(id: number): void {
     // this.contractsService.getOfferContractById(id).subscribe((response) => {
@@ -86,6 +87,7 @@ export class ContractsDComponent implements OnInit {
         message: 'You turned down the job offer',
       },
     });
+    this.ngOnInit();
   }
 
   ngOnInit(): void {

@@ -3,7 +3,7 @@
   <mat-tab label="Offers">
     <br />
     <h1 style="margin-left: 5%"><strong>Offer Information</strong></h1>
-    <div *ngIf="offerContracts.length != 0; else notFoundOffers">
+    <div *ngIf="offerContracts; else notFoundOffers">
       <div *ngFor="let offer of offerContracts" class="card-group">
         <div class="contract-information">
           <mat-card class="card">
@@ -138,7 +138,7 @@
   <mat-tab label="History">
     <br />
     <h1 style="margin-left: 5%"><strong>Contracts History</strong></h1>
-    <div *ngIf="historyContracts.length != 0; else notFoundHistory">
+    <div *ngIf="historyContracts; else notFoundHistory">
       <div *ngFor="let history of historyContracts" class="card-group">
         <div class="contract-information">
           <mat-card class="card-history">
