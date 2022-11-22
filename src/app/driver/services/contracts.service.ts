@@ -13,7 +13,7 @@ export class ContractsService {
 
   // Contracts Endpoint
   // url: string = 'http://localhost:3000/api/v1';
-  url: string = GlobalVariable.BASE_API_URL + 'contracts';
+  url: string = GlobalVariable.BASE_API_URL + '/contracts';
 
   getOfferContracts(driverId: number) {
     return this.http.get(`${this.url}/offer/driver/${driverId}`);

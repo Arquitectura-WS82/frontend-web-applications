@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
 @Component({
   selector: 'app-pay-contract-c',
@@ -9,9 +10,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./pay-contract-c.component.css']
 })
 export class PayContractCComponent implements OnInit {
-  pendingcontract: any = [];
+  acceptedcontract: any = [];
   contract_id:any;
-  basePath = 'http://localhost:3000/api/v1/';
+  //basePath = 'http://localhost:3000/api/v1/';
+  url: string = GlobalVariable.BASE_API_URL;
 
   constructor(private formBuilder: FormBuilder,private http: HttpClient, private router: Router) { }
   httpOptions = {
@@ -43,12 +45,12 @@ export class PayContractCComponent implements OnInit {
     this.contract_id=localStorage.getItem('ContractId')
 
     this.getContract(this.contract_id).subscribe((data: any) => {
-      this.pendingcontract = data[0];
+      this.acceptedcontract = data;
     });
   }
 
   getContract(id: any) {
-    return this.http.get(`${this.basePath}pendingContracts?id=${id}`);
+    return this.http.get(`${this.url}/contracts/${id}`);
   }
 
 }

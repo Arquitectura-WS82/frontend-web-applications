@@ -176,7 +176,7 @@
           </mat-grid-list>
         </div>
       </mat-tab>
-      <mat-tab label="Comments">
+      <!-- <mat-tab label="Comments">
         <div>
           <mat-list *ngFor="let comment of comments">
             <br /><br />
@@ -194,6 +194,47 @@
             <br /><br />
             <mat-divider></mat-divider>
           </mat-list>
+        </div>
+      </mat-tab> -->
+      <mat-tab label="Comments">
+        <div>
+          <div *ngFor="let comment of pageSlice" class="tab-panel">
+            <div class="row">
+              <img
+                [src]="comment.client.photo"
+                alt=""
+                class="foto-comments"
+                mat-card-avatar
+                />
+              <div class="c-column">
+                <h2>{{ comment.client.username }}</h2>
+                <p mat-line>{{ comment.comment }}</p>
+              </div>
+              <div class="row">
+                <b style="font-size: larger">{{ comment.star }}</b>
+                <mat-icon fontIcon="star"></mat-icon>
+              </div>
+            </div>
+
+            <mat-divider class="divider"></mat-divider>
+          </div>
+          <div class="comment-paginator">
+            <mat-paginator [length]="this.comments.length"
+              [pageSize]="3"
+              [pageSizeOptions]="[3]"
+              class="paginator"
+              (page)="onPageChange($event)">
+              aria-label="Select page">
+            </mat-paginator>
+            <!-- <button
+              color="accent"
+              class="btn-add-comment"
+              mat-raised-button
+              (click)="openCommentModal()">
+              Add comment&nbsp;&nbsp; 
+              <mat-icon fontIcon="comment"></mat-icon>
+            </button> -->
+          </div>
         </div>
       </mat-tab>
     </mat-tab-group>

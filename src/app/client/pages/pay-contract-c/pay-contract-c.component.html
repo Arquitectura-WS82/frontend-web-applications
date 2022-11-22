@@ -13,52 +13,52 @@
                 <div class="contract-information">
                   <mat-card class="card">
                     <br><br>
-                    <mat-card-title>Subject: {{pendingcontract.subject}}</mat-card-title>
+                    <mat-card-title>Subject: {{acceptedcontract.subject}}</mat-card-title>
                     <mat-card-subtitle>
                       <strong></strong>
                     </mat-card-subtitle>
                     <mat-card-content>
                       <div>
                         <p>
-                          From <strong>{{pendingcontract.from}} </strong>
+                          From <strong>{{acceptedcontract.from}} </strong>
                         </p>
                         <p>
-                          To: <strong>{{pendingcontract.to}}</strong>
+                          To: <strong>{{acceptedcontract.to}}</strong>
                         </p>
                         <p>
-                          Date: <strong> {{pendingcontract.date}}</strong>
+                          Date: <strong> {{acceptedcontract.contractDate}}</strong>
                         </p>
                         <p>
                           Time:
                           <strong>
-                            {{pendingcontract.timeDeparture}} - {{pendingcontract.timeArrival}}
+                            {{acceptedcontract.timeDeparture}} - {{acceptedcontract.timeArrival}}
                             </strong
                           >
                         </p>
                         <p>
-                            Type: <strong>{{pendingcontract.subject}}</strong>
+                            Type: <strong>{{acceptedcontract.subject}}</strong>
                         </p>
-                        <p>
-                            Contract ID: <strong>{{pendingcontract.id}}</strong>
-                        </p>
+                        <!-- <p>
+                            Contract ID: <strong>{{acceptedcontract.id}}</strong>
+                        </p> -->
                       </div>
                       <hr />
                       <br>
                       <div class="client-price">
                         <strong>Client data</strong>
-                        <strong style="text-align: center">Amount:</strong>
+                        <strong style="text-align: center">Amount:{{acceptedcontract.amount}}</strong>
                         <div class="client">
                           <img
-                            src="https://i.postimg.cc/jdT1LDZn/client.png"
+                            [src]="acceptedcontract.client.photo"
                             alt="Profile"
                             class="profile-img"
                           />
                           <div style="flex-grow: 2">
-                            <strong>Oscar</strong><span></span>
-                            <div class="phoneclient">Phone: 994683291</div>
+                            <strong>{{acceptedcontract.client.name}}</strong><span></span>
+                            <div class="phoneclient">Phone: {{acceptedcontract.client.phone}}</div>
                           </div>
                         </div>
-                        <div class="price">S/. {{pendingcontract.amount}} </div>
+                        <div class="price">S/. {{acceptedcontract.amount}} </div>
                       </div>
                       <br>
                     </mat-card-content>

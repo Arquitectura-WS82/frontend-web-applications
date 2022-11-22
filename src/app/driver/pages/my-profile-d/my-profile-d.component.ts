@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-my-profile-d',
@@ -16,6 +17,7 @@ export class MyProfileDComponent implements OnInit {
   user_id: any;
   vehicle: any;
   show: boolean = false;
+  pageSlice: any;
   vehicleForm!: FormGroup;
 
   constructor(private http: HttpClient, private router: Router, private formBuilder: FormBuilder) {
@@ -59,12 +61,25 @@ export class MyProfileDComponent implements OnInit {
     });
     this.getComments(this.user_id).subscribe((data: any) => {
       this.comments = data;
+      this.pageSlice = this.comments.slice(0, 3);
+
     });
     this.vehicleForm.value.Brand=this.vehicle.brand;
     this.vehicleForm.value.Quantity=this.vehicle.quantity;
     this.vehicleForm.value.Typecar=this.vehicle.type_car;
     this.vehicleForm.value.Category=this.vehicle.category;
     this.vehicleForm.value.Photo=this.vehicle.photo_car;
+    this.onPageChange;
+
+  }
+
+  onPageChange(event: PageEvent) {
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+    if (endIndex > this.comments.length) {
+      endIndex = this.comments.length;
+    }
+    this.pageSlice = this.comments.slice(startIndex, endIndex);
   }
 
   Update(){

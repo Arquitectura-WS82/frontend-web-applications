@@ -3,7 +3,7 @@
   <mat-tab label="Pending Contracts">
     <br />
     <h1 style="margin-left: 5%"><strong>Pending Contracts </strong></h1>
-    <div *ngIf="pendingContracts.length != 0; else notFoundPending">
+    <div *ngIf="pendingContracts; else notFoundPending">
       <div *ngFor="let pending of pendingContracts" class="card-group">
         <div class="contract-information">
           <mat-card class="card">
@@ -54,12 +54,19 @@
           </mat-card>
           <br />
           <div class="buttons-area">
-            <button
+            <!-- <button
               mat-raised-button
               color="warn"
               (click)="declineContract(pending.id)"
             >
               Decline
+            </button> -->
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="finishContract(pending.id)"
+            >
+              Finish Contract
             </button>
           </div>
           <br />
@@ -73,7 +80,7 @@
   <mat-tab label="History">
     <br />
     <h1 style="margin-left: 5%"><strong>Contracts History</strong></h1>
-    <div *ngIf="historyContracts.length != 0; else notFoundHistory">
+    <div *ngIf="historyContracts; else notFoundHistory">
       <div *ngFor="let history of historyContracts" class="card-group">
         <div class="contract-information">
           <mat-card class="card-history">

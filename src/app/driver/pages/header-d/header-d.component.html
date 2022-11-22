@@ -9,7 +9,7 @@
   <a mat-button [routerLink]="'/settings-d/card-settings'">Settings</a>
   <a mat-button [routerLink]="'/support'">Support</a>
   <mat-icon
-    [matBadge]="i"
+    [matBadge]="cont"
     matBadgeColor="warn"
     [matBadgeHidden]="hidden"
     (click)="
@@ -25,7 +25,7 @@
   <div *ngFor="let drivernotification of drivernotifications">
     <mat-card
       class="example-card"
-      *ngIf="drivernotification.type == 'accepted'"
+      *ngIf="drivernotification.status.status == 'HISTORY'"
     >
       <mat-card-header>
         <img
@@ -52,40 +52,40 @@
     <br />
     <mat-card
       class="card-rejected"
-      *ngIf="drivernotification.type == 'rejected'"
+      *ngIf="drivernotification.status.status == 'OFFER' && drivernotification.visible == false" 
     >
       <mat-card-header>
-        <mat-card-title class="card-title">Contract rejected</mat-card-title>
+        <mat-card-title class="card-title">You rejected a contract</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <mat-card class="card-history">
           <div class="client-history">
             <img
-              [src]="drivernotification.pendingContract.client.photo"
+              [src]="drivernotification.client.photo"
               alt="Profile"
               class="profile-img-history"
             />
             <div>
               <strong>Client</strong>
-              <p>{{ drivernotification.pendingContract.client.username }}</p>
+              <p>{{ drivernotification.client.username }}</p>
             </div>
           </div>
           <div>
             <h4>DETAILS</h4>
             <p>
               Date:
-              <strong>{{ drivernotification.pendingContract.date }}</strong>
+              <strong>{{ drivernotification.contractDate }}</strong>
             </p>
             <p>
               From:
-              <strong>{{ drivernotification.pendingContract.from }}</strong>
+              <strong>{{ drivernotification.from }}</strong>
             </p>
             <p>
-              To: <strong>{{ drivernotification.pendingContract.to }}</strong>
+              To: <strong>{{ drivernotification.to }}</strong>
             </p>
             <p>
               Amount:
-              <strong>{{ drivernotification.pendingContract.amount }}</strong>
+              <strong>{{ drivernotification.amount }}</strong>
             </p>
           </div>
         </mat-card>
