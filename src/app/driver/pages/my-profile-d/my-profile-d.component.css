@@ -103,6 +103,41 @@
     justify-content: space-between;
 }
 
+.vehicle-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+}
+.experience-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+}
+.buttons-container-vehicle{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    width: 100%;
+}
+.buttons-container-experience{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    width: 30%;
+}
+.experience .mat-tab-body-content{
+    overflow: inherit;
+}
 .p-info-btn{
     width: 80%;
     margin-top: 1vh;
@@ -537,9 +572,14 @@ mat-tab{
 }
 
 .info{
-    position: relative;
+    /* position: relative;
     left: +65px;
-    top: +50px;
+    top: +50px; */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 15vh;
 }
 .mat-form-field{
     height: 45px;
@@ -553,8 +593,7 @@ mat-tab{
     text-align: center;
 }
 .experience{
-    width: 40vw;
-    height: 40vh;
+    
     display: block;
 }
 .info2{

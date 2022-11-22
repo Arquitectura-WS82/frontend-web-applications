@@ -62,6 +62,10 @@ export class ProfileComponent implements OnInit {
     this.getUser(this.id).subscribe((data: any) => {
       this.user = data;
     });
+    this.getExperience(this.id).subscribe((data: any) => {
+      this.jobs = data;
+      console.log(this.jobs);
+    });
     this.getComments(this.id).subscribe((data: any) => {
       this.comments = data;
       this.pageSlice = this.comments.slice(0, 3);
@@ -87,7 +91,9 @@ export class ProfileComponent implements OnInit {
   getVehicle(id: any) {
     return this.http.get(`${this.basePath}/vehicle/${id}`);
   }
-
+  getExperience(id: any) {
+    return this.http.get(`${this.basePath}/experience/${id}`);
+  }
   getComments(id: any) {
     return this.http.get(`${this.basePath}/comments/driver/${id}`);
   }

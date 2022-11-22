@@ -50,6 +50,12 @@ export class MyProfileCComponent implements OnInit {
   getComments(id: any) {
     return this.http.get(`${this.basePath}/comments/client/${id}`);
   }
+
+  calculateAge(birthday: any) {
+    let ageDifMs = Date.now() - birthday.getTime();
+    let ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
 }
 
 

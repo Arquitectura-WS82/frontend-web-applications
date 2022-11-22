@@ -36,7 +36,7 @@
       class="profile-Photo"
       [src]="user.photo"
       alt="User Avatar"
-    />
+      />
     <br /><br />
     <h1 style="font-weight: bolder">{{ user.username }}</h1>
     <br />
@@ -96,101 +96,128 @@
                   class="btn"
                   style="right: 20px"
                   mat-raised-button
-                  color="primary"
-                >
+                  color="primary">
                   {{ job.job }}
                 </button>
               </p>
-  
+
               <p>
                 Time<button
                   class="btn"
                   style="right: 20px"
                   mat-raised-button
-                  color="primary"
-                >
+                  color="primary">
                   {{ job.time }}
                 </button>
               </p>
               <br />
               <mat-divider></mat-divider>
             </div>
-            <button class="btn-edit" mat-raised-button (click)="show = !show">
+            <button class="btn-edit" mat-raised-button (click)="show=!show">
               Update experience&nbsp;&nbsp;
             </button>
           </div>
           <div *ngIf="show" class="experience">
-            <ng-template [ngIf]="show"><div>
-              <form mat class="info2" [formGroup]="experienceForm">
-                <mat-form-field>
-                  <input matInput type="Job" placeholder="Job" formControlName="Jobs">
-                </mat-form-field>
-                <br />
-                <mat-form-field>
-                  <input matInput type="String" placeholder="Time" formControlName="Time">
-                </mat-form-field>
-              </form>
-              <button class="btn-edit" mat-raised-button (click)=" Updateexpe()" style="margin-top: 70px;">
-                Save&nbsp;&nbsp;
-              </button>
-            </div></ng-template>
+            <ng-template [ngIf]="show"><div class="experience-container">
+                <form mat [formGroup]="experienceForm">
+                  <mat-form-field>
+                    <input matInput type="Job" placeholder="Job"
+                      formControlName="Jobs">
+                  </mat-form-field>
+                  <br />
+                  <mat-form-field>
+                    <input matInput type="String" placeholder="Time"
+                      formControlName="Time">
+                  </mat-form-field>
+                </form>
+                <div class="buttons-container-experience">
+                  <button mat-raised-button style="background-color: white;
+                    color: black" (click)="show=!show">
+                    Cancel&nbsp;&nbsp;
+                  </button>
+
+                  <button mat-raised-button (click)="
+                    Updateexpe()"
+                    color="accent">
+                    Save&nbsp;&nbsp;
+                  </button>
+                </div>
+              </div></ng-template>
           </div>
           <div>
-            
+
           </div>
         </div>
       </mat-tab>
 
       <mat-tab label="About the vehicle">
         <div>
-          <mat-grid-list cols="2" rowHeight="">
+          <mat-grid-list cols="2" rowHeight="400px">
             <mat-grid-tile>
               <div class="title2">Vehicle Information</div>
               <div class="title3">This information will be seen by the client</div>
               <div>
-                <ng-template [ngIf]="show"><div>
-                  <form mat class="info" [formGroup]="vehicleForm">
-                    <mat-form-field>
-                      <input matInput type="Brand" placeholder="Brand" formControlName="Brand">
-                    </mat-form-field>
-                    <mat-form-field>
-                      <input matInput type="Typecar" placeholder="Typecar" formControlName="Typecar">
-                    </mat-form-field>
-                    <mat-form-field>
-                      <input matInput type="Category" placeholder="Category" formControlName="Category">
-                    </mat-form-field>
-                    <mat-form-field>
-                      <input matInput type="Quantity" placeholder="Quantity" formControlName="Quantity">
-                    </mat-form-field>
-                    <mat-form-field>
-                      <input matInput type="Photo" placeholder="Photo" formControlName="Photo">
-                    </mat-form-field>
-                  </form>
-                  <button class="btn-save" mat-raised-button (click)=" Update()">
-                    Save&nbsp;&nbsp;
-                  </button>
-                </div></ng-template>
+                <ng-template [ngIf]="show">
+                  <div class="vehicle-container">
+                    <form mat class="info" [formGroup]="vehicleForm">
+                      <mat-form-field>
+                        <input matInput type="Brand" placeholder="Brand"
+                          formControlName="Brand">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput type="Typecar" placeholder="Typecar"
+                          formControlName="Typecar">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput type="Category" placeholder="Category"
+                          formControlName="Category">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput type="Quantity" placeholder="Quantity"
+                          formControlName="Quantity">
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput type="Photo" placeholder="Photo"
+                          formControlName="Photo">
+                      </mat-form-field>
+                    </form>
+                    <div class="buttons-container-vehicle">
+                      <button mat-raised-button style="background-color: white;
+                        color: black" (click)="show=!show">
+                        Cancel&nbsp;&nbsp;
+                      </button>
+                      <button mat-raised-button color="accent" (click)="
+                        Update()">
+                        Save&nbsp;&nbsp;
+                      </button>
+                    </div>
+
+                  </div>
+                </ng-template>
                 <ng-template [ngIf]="!show"><div>
                     <div class="title4">Brand: {{vehicle.brand}}</div>
                     <div class="title4">Type car:{{vehicle.type_car}}</div>
                     <div class="title4">Category: {{vehicle.category}}</div>
                     <div class="title4">Quantity: {{vehicle.quantity}}</div>
-                    <button class="btn-update" mat-raised-button (click)="show = !show">
+                    <button class="btn-update" mat-raised-button (click)="show=
+                      !show">
                       Update information&nbsp;
                     </button>
-                </div></ng-template>
+
+                  </div></ng-template>
                 <br /><br /><br />
 
               </div>
 
               <br /><br />
 
-              
+
             </mat-grid-tile>
             <mat-grid-tile>
               <div class="title2">Photos</div>
-             <img mat-icon [src]="vehicle.photo_car" alt="car_photo" style="max-width: 100%;"/>
-              
+              <img mat-icon [src]="vehicle.photo_car" alt="car_photo"
+                style="max-width: 100%;"/>
+
             </mat-grid-tile>
           </mat-grid-list>
         </div>
@@ -237,10 +264,10 @@
 
             <mat-divider class="divider"></mat-divider>
           </div>
-          <div class="comment-paginator" >
+          <div class="comment-paginator">
 
             <mat-paginator [length]="this.comments.length"
-            *ngIf="this.comments"
+              *ngIf="this.comments"
               [pageSize]="3"
               [pageSizeOptions]="[3]"
               class="paginator"
