@@ -88,31 +88,33 @@
       </mat-tab>
       <mat-tab label="Experience">
         <div>
-          <div *ngFor="let job of jobs">
-            <br />
-            <p>
-              Job<button
-                class="btn"
-                style="right: 20px"
-                mat-raised-button
-                color="primary"
-              >
-                {{ job.job }}
-              </button>
-            </p>
-
-            <p>
-              Time<button
-                class="btn"
-                style="right: 20px"
-                mat-raised-button
-                color="primary"
-              >
-                {{ job.time }}
-              </button>
-            </p>
-            <br />
-            <mat-divider></mat-divider>
+          <div *ngIf="!show">
+            <div *ngFor="let job of jobs">
+              <br />
+              <p>
+                Job<button
+                  class="btn"
+                  style="right: 20px"
+                  mat-raised-button
+                  color="primary"
+                >
+                  {{ job.job }}
+                </button>
+              </p>
+  
+              <p>
+                Time<button
+                  class="btn"
+                  style="right: 20px"
+                  mat-raised-button
+                  color="primary"
+                >
+                  {{ job.time }}
+                </button>
+              </p>
+              <br />
+              <mat-divider></mat-divider>
+            </div>
           </div>
           <div>
             <button class="btn-edit" mat-raised-button>
