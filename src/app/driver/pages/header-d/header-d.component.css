@@ -84,12 +84,20 @@ button{
   background-color:#FBF0F0;
   overflow: auto;
 }
+.card-accepted{
+  background-color:#8af0cc;
+  overflow: auto;
+}
 .card-title{
   color: #DE1919;
+}
+.card-title-acc{
+  color: #ffffff;
 }
 mat-card-title{
   text-align: center;
 }
+
 mat-card-subtitle{
   text-align: center;
 }

@@ -92,5 +92,54 @@
       </mat-card-content>
     </mat-card>
     <br />
+    <mat-card
+      class="card-accepted"
+      *ngIf="drivernotification.status.status == 'OFFER' && drivernotification.visible == true" 
+    >
+      <mat-card-header>
+        <mat-card-title class="card-title-acc">You have a new offer contract</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-card class="card-history">
+          <div class="client-history">
+            <img
+              [src]="drivernotification.client.photo"
+              alt="Profile"
+              class="profile-img-history"
+            />
+            <div>
+              <strong>Client</strong>
+              <p>{{ drivernotification.client.username }}</p>
+            </div>
+          </div>
+          <div>
+            <h4>DETAILS</h4>
+            <p>
+              Date:
+              <strong>{{ drivernotification.contractDate }}</strong>
+            </p>
+            <p>
+              From:
+              <strong>{{ drivernotification.from }}</strong>
+            </p>
+            <p>
+              To: <strong>{{ drivernotification.to }}</strong>
+            </p>
+            <p>
+              Amount:
+              <strong>{{ drivernotification.amount }}</strong>
+            </p>
+          </div>
+        </mat-card>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          (click)="goOfferContracts()"
+          color="accent">
+          <p style="color: white">See offer contracts</p>
+        </button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </app-notifications>

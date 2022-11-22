@@ -84,6 +84,9 @@ export class HeaderDComponent implements OnInit {
       null
     );
   }
+  goOfferContracts(){
+    this.router.navigate([`contracts-d/`]);
+  }
 
   //getPendingContracts(id: any) {
   //  return this.http.get(`${this.basePath}pending-contracts?id=${id}`);
