@@ -10,7 +10,7 @@
       alt="User Avatar"
       />
     <br /><br />
-    <h1 style="font-weight: bolder">Hola</h1>
+    <h1 style="font-weight: bolder">{{user.username}}</h1>
     <br />
     <p class="description">{{ user.description }}</p>
     <div class="starsUser">
@@ -35,8 +35,8 @@
         </p>
 
         <p>
-          Age<button class="btn" mat-raised-button color="primary">
-            {{ user.age }} years
+          Birthday<button class="btn" mat-raised-button color="primary">
+            {{ user.birthdate }} 
           </button>
         </p>
 
@@ -79,7 +79,7 @@
                   style="right: 20px"
                   mat-raised-button
                   color="primary">
-                  {{ job.time }}
+                  {{ (job.time).slice(0,2) }} years
                 </button>
               </p>
               <br />

@@ -119,7 +119,6 @@ export class MyProfileDComponent implements OnInit {
   }
 
   onPageChange(event: PageEvent) {
-    this.ngOnInit();
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
     if (endIndex > this.comments.length) {
