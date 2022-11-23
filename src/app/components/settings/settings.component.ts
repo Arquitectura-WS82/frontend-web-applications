@@ -8,8 +8,12 @@ import { Router } from '@angular/router';
 })
 export class SettingsComponent implements OnInit {
   constructor(private router: Router) {}
+  type: any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.type = localStorage.getItem('typeofuser')
+
+  }
 
   logout() {
     localStorage.clear();

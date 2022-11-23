@@ -58,22 +58,27 @@ export class MyProfileDComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
+    console.log("here 0")
 
     //localStorage.setItem('currentUser', '5');
+    localStorage.setItem('visitDriverId', '-1');
     if (localStorage.getItem('visitDriverId') != '-1')
       this.user_id = localStorage.getItem('visitDriverId');
-    else this.user_id = localStorage.getItem('currentUser');
+    else
+      this.user_id = localStorage.getItem('currentUser');
     localStorage.setItem('visitDriverId', '-1');
-
+    console.log("here 1") 
+    console.log(this.user_id)
 
     this.getUser(this.user_id).subscribe((data: any) => {
       this.user = data;
     });
+    console.log("here 2")
 
     this.getVehicle(this.user_id).subscribe((data: any) => {
       this.vehicle = data;
     });
+    console.log("here 3")
 
     this.getJobs(this.user_id).subscribe((data: any) => {
       this.jobs = data;
@@ -90,6 +95,8 @@ export class MyProfileDComponent implements OnInit {
       });
 
     });
+    console.log("here 4")
+
     this.getComments(this.user_id).subscribe((data: any) => {
       this.comments = data;
       this.pageSlice = this.comments.slice(0, 3);
@@ -97,18 +104,22 @@ export class MyProfileDComponent implements OnInit {
     });
 
 
+    console.log("here 5")
 
-    this.vehicleForm.value.Brand = this.vehicle.brand;
-    this.vehicleForm.value.Quantity = this.vehicle.quantity;
-    this.vehicleForm.value.Typecar = this.vehicle.type_car;
-    this.vehicleForm.value.Category = this.vehicle.category;
-    this.vehicleForm.value.Photo = this.vehicle.photo_car;
+    // this.vehicleForm.value.Brand = this.vehicle.brand;
+    // this.vehicleForm.value.Quantity = this.vehicle.quantity;
+    // this.vehicleForm.value.Typecar = this.vehicle.type_car;
+    // this.vehicleForm.value.Category = this.vehicle.category;
+    // this.vehicleForm.value.Photo = this.vehicle.photo_car;
+    console.log("here 6")
 
     this.onPageChange;
+    console.log("here 7")
 
   }
 
   onPageChange(event: PageEvent) {
+    this.ngOnInit();
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
     if (endIndex > this.comments.length) {

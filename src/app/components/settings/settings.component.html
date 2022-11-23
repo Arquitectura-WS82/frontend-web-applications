@@ -4,7 +4,8 @@
     <mat-drawer mode="side" opened class="container-1">
         <div class="izq">
             <a routerLink='card-settings'>Cards</a>
-            <a routerLink='#'>Account</a>
+            <a *ngIf="type=='client'" routerLink='/my-profile-c'>Account</a>
+            <a *ngIf="type=='driver'" routerLink='/my-profile-d'>Account</a>
             <a class="resaltado" (click)="logout()" routerLink='#'>Logout</a>
         </div>
 

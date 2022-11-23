@@ -54,6 +54,8 @@ export class ContractsDComponent implements OnInit {
       },
     });
     this.ngOnInit();
+    this.ngOnInit();
+    this.ngOnInit();
   }
 
   ngOnInit(): void {

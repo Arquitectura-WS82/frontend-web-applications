@@ -23,7 +23,7 @@
 </mat-toolbar>
 
 <app-notifications [title]="'Notifications'" #notification>
-  <div *ngFor="let clientnotification of clientnotifications">
+  <div *ngFor="let clientnotification of clientnotifications.slice().reverse()">
     <mat-card
       class="example-card"
       *ngIf="clientnotification.status.status == 'PENDING'"
