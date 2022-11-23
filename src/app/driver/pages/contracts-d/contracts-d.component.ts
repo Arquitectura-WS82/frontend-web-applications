@@ -32,30 +32,6 @@ export class ContractsDComponent implements OnInit {
       .subscribe((response) => {
         console.log(response);
       });
-    // this.contractsService.getOfferContractById(id).subscribe((response) => {
-    //   this.offerContract = response;
-    //   console.log(this.offerContract);
-    //   TODO: Mapping?
-    //   this.pendingContract.clientId = this.offerContract.clientId;
-    //   this.pendingContract.driverId = this.offerContract.driverId;
-    //   this.pendingContract.subject = this.offerContract.subject;
-    //   this.pendingContract.from = this.offerContract.from;
-    //   this.pendingContract.to = this.offerContract.to;
-    //   this.pendingContract.date = this.offerContract.date;
-    //   this.pendingContract.timeDeparture = this.offerContract.timeDeparture;
-    //   this.pendingContract.timeArrival = this.offerContract.timeArrival;
-    //   this.pendingContract.quantity = this.offerContract.quantity;
-    //   this.pendingContract.amount = this.offerContract.amount;
-    //   this.pendingContract.status = this.offerContract.status;
-    //   this.contractsService.removeOfferContract(id).subscribe((response) => {
-    //     console.log(response);
-    //   });
-    //   this.contractsService
-    //     .addPendingContract(this.pendingContract)
-    //     .subscribe((response) => {
-    //       console.log(response);
-    //     });
-    // });
     const dialogRef = this.dialog.open(ContractDialogComponent, {
       width: '30vw',
       data: {
@@ -66,16 +42,6 @@ export class ContractsDComponent implements OnInit {
     this.ngOnInit();
   }
   declineContract(id: number): void {
-    // this.contractsService.getOfferContractById(id).subscribe((response) => {
-    //   this.offerContract = response;
-    //   console.log(this.offerContract);
-    //   this.offerContract.status = 'rejected';
-    //   this.contractsService
-    //     .updateOfferContract(id, this.offerContract)
-    //     .subscribe((response) => {
-    //       console.log(response);
-    //     });
-    // });
     this.contractsService
       .changeContractVisibleToFalse(id)
       .subscribe((response) => {
@@ -97,17 +63,30 @@ export class ContractsDComponent implements OnInit {
       .getOfferContracts(this.user_id)
       .subscribe((response) => {
         this.offerContracts = response;
+        this.offerContracts = this.filterContracts(this.offerContracts);
         console.log(this.offerContracts);
       });
     this.contractsService
       .getPendingContracts(this.user_id)
       .subscribe((response) => {
         this.pendingContracts = response;
+        this.pendingContracts = this.filterContracts(this.pendingContracts);
       });
     this.contractsService
       .getHistoryContracts(this.user_id)
       .subscribe((response) => {
         this.historyContracts = response;
+        this.historyContracts = this.filterContracts(this.historyContracts);
       });
   }
+
+  filterContracts = (contracts: any) => {
+    let filterContracts: any = [];
+    contracts.forEach((element: any) => {
+      if (element.visible === true) {
+        filterContracts.push(element);
+      }
+    });
+    return filterContracts;
+  };
 }

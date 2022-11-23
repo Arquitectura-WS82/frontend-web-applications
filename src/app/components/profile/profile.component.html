@@ -70,7 +70,7 @@
       </mat-tab>
 
       <mat-tab label="Experience">
-        <div *ngFor="let job of user.jobs" class="tab-panel">
+        <div  class="tab-panel">
           <div class="p-info">
             <b>Job</b>
             <button
@@ -78,7 +78,7 @@
               style="right: 20px"
               mat-raised-button
               color="primary">
-              {{ job.job }}
+              {{ jobs[0].job }}
             </button>
           </div>
 
@@ -89,7 +89,7 @@
               style="right: 20px"
               mat-raised-button
               color="primary">
-              {{ job.time }}
+              {{ jobs[0].time }}
             </button>
           </div>
 

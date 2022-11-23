@@ -52,5 +52,9 @@ export class PayContractCComponent implements OnInit {
   getContract(id: any) {
     return this.http.get(`${this.url}/contracts/${id}`);
   }
+  
+  goHome(){
+    this.router.navigate(['/home-c']);
+  }
 
 }
