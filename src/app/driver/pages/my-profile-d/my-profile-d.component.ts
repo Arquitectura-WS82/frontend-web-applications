@@ -5,6 +5,9 @@ import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { Experience } from 'src/app/models/Experience/Experience'; 
+import { DescriptionData } from 'src/app/components/add-info-one/add-info-one.component';
+import { AddInfoOneComponent } from 'src/app/components/add-info-one/add-info-one.component';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-my-profile-d',
@@ -22,9 +25,11 @@ export class MyProfileDComponent implements OnInit {
   vehicleForm!: FormGroup;
   experienceForm!: FormGroup;
   experience: Experience;
+  descriptionData:DescriptionData;
 
-  constructor(private http: HttpClient, private router: Router, private formBuilder: FormBuilder) {
+  constructor(private http: HttpClient, private router: Router, private formBuilder: FormBuilder, public dialog: MatDialog) {
     this.experience={} as Experience;
+    this.descriptionData={} as DescriptionData;
   }
 
   basePath = GlobalVariable.BASE_API_URL;
@@ -34,6 +39,18 @@ export class MyProfileDComponent implements OnInit {
       'Content-Type': 'application/json', //Solo acepta json
     }),
   };
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddInfoOneComponent, {
+      width: '20%',
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      //console.log('The dialog was closed');
+      //this.commentData = result;
+      console.log(result);
+    });
+  }
 
   ngOnInit(): void {
     this.experienceForm= this.formBuilder.group({
@@ -116,6 +133,29 @@ export class MyProfileDComponent implements OnInit {
           
         });
         this.ngOnInit();
+  }
+  openDescriptionModal() {
+    const dialogRef = this.dialog.open(AddInfoOneComponent, {
+      width: '250px',
+      data: this.descriptionData,
+
+    });
+    console.log(this.descriptionData)
+    dialogRef.afterClosed().subscribe(result => {
+      this.user.description = result.Description;
+      console.log(this.user);
+      this.saveDescription().subscribe((data: any) => {
+        console.log(data);
+        this.ngOnInit();
+      })
+    });
+  }
+  saveDescription() {
+
+    return this.http.put(
+      `${this.basePath}/drivers/${this.user_id}`, 
+      this.user, 
+      this.httpOptions);
   }
   
   getVehicle(id: any) {

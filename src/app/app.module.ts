@@ -66,6 +66,7 @@ import { SettingsDComponent } from './driver/pages/settings-d/settings-d.compone
 import { SettingsCComponent } from './client/pages/settings-c/settings-c.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AddCommentDialogComponent } from './components/add-comment-dialog/add-comment-dialog.component';
+import { AddInfoOneComponent } from './components/add-info-one/add-info-one.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { AddCommentDialogComponent } from './components/add-comment-dialog/add-c
     SettingsCComponent,
     PageNotFoundComponent,
     AddCommentDialogComponent,
+    AddInfoOneComponent,
   ],
   imports: [
     BrowserModule,

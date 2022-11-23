@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    route: ActivatedRoute,
+    route: ActivatedRoute, 
     public dialog: MatDialog
   ) {
     route.params.subscribe((params) => {
