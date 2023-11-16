@@ -11,8 +11,6 @@ import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 export class ContractsService {
   constructor(private http: HttpClient) {}
 
-  // Contracts Endpoint
-  // url: string = 'http://localhost:3000/api/v1';
   url: string = GlobalVariable.BASE_API_URL + '/contracts';
 
   getOfferContracts(driverId: number) {

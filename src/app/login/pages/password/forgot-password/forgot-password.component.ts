@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../../../models/user/user';
+import { User } from '../../../../models/user';
 import { Router } from '@angular/router';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 

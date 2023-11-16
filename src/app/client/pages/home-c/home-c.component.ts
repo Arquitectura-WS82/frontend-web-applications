@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User } from '../../../models/user/user';
+import { User } from '../../../models/user';
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
@@ -14,7 +14,7 @@ export class HomeCComponent implements OnInit {
   user_id: any;
   user: {
     photo: string;
-    username: string ;
+    username: string;
   };
   user_name: string = '';
   best_ranked: Array<any> = [];

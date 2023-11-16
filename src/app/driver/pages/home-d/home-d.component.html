@@ -26,16 +26,14 @@
       <strong>Popular Drivers</strong>
     </mat-card-title>
 
-    <mat-card *ngFor="let _driver of best_ranked.slice(0,2)">
+    <mat-card *ngFor="let _driver of best_ranked.slice(0, 2)">
       <div class="inline-block">
         <img mat-card-avatar [src]="_driver.photo" alt="User Avatar" />
       </div>
       <div class="inline-block info_text">
         <mat-card-title>{{ _driver.name }}</mat-card-title>
         <mat-card-content>Rating:</mat-card-content>
-        <mat-card-content
-          *ngFor="let in of counter(5)"
-          class="rating_stars"
+        <mat-card-content *ngFor="let in of counter(5)" class="rating_stars"
           >&#9733;</mat-card-content
         >
       </div>
