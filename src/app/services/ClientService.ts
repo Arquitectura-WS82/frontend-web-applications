@@ -48,4 +48,20 @@ export class ClientService {
       )
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  registerClient(user: User): Observable<User> {
+    return this.http
+      .post<User>(
+        `${this.basePath}/client`,
+        JSON.stringify(user),
+        this.httpOptions
+      )
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getClientById(id: any): Observable<any> {
+    return this.http
+      .get<any>(`${this.basePath}/client/${id}`, this.httpOptions)
+      .pipe(retry(2));
+  }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { GlobalVariable } from '@app/shared/GlobalVariable';
+import { ContractService } from '@services/ContractService';
+import { Contract } from '@models/contract';
 
 @Component({
   selector: 'app-header-c',
@@ -11,82 +12,82 @@ import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 export class HeaderCComponent implements OnInit {
   hidden = false;
   cont = 0;
-  public accepted = true;
-  clientnotifications: any;
-  unreadnoti: any;
-  pendingcontrats: any;
-  user_id: any;
+  accepted = true;
+  clientNotifications: Contract[];
+  defaultImage: string = 'assets/images/default-user.png';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private contractService: ContractService,
+    private router: Router
+  ) {
+    this.clientNotifications = [] as Contract[];
+  }
 
-  //basePath = 'http://localhost:3000/api/v1/';
   url: string = GlobalVariable.BASE_API_URL;
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json', //Solo acepta json
-    }),
-  };
   ngOnInit(): void {
-    this.user_id = localStorage.getItem('currentUser');
-    this.getClientNotifications(this.user_id).subscribe((data: any) => {
-      this.clientnotifications = data;
-      //this.i = this.clientnotifications.length;
-      
-      // console.log(this.i);
-    });
-    this.getUnreadNotifications(this.user_id).subscribe((data: any) => {
-       console.log(data);
-      for (let i = 0; i < data.length; i++) {
-        console.log("adios")
-        if (data[i].notification.readStatus == false &&
-          (data[i].status.status == "PENDING" || 
-          (data[i].status.status == "OFFER" && data[i].visible == false))) {
-            console.log("hola")
-            this.cont++;
-        }
-      }
+    let user_id = localStorage.getItem('currentUser') || '';
 
-      // console.log(this.unreadnoti);
-      
-    });
-    // this.getPendingContracts(this.user_id).subscribe((data: any) => {
-    //   this.pendingcontrats = data;
-    // });
+    this.getClientNotifications(parseInt(user_id));
+
+    this.getUnreadNotifications(parseInt(user_id));
   }
 
   showAccept() {
     this.accepted = true;
   }
+
   toggleBadgeVisibility() {
     this.hidden = true;
   }
-  updateNotification(userId: any){
-    this.updateNot(userId).subscribe((data: any) => {
-      console.log(data);
+
+  updateNotification() {
+    let user_id = localStorage.getItem('currentUser') || '';
+
+    this.updateNot(parseInt(user_id));
+  }
+
+  getClientNotifications(id: number) {
+    this.contractService.getContracts().subscribe((data: any) => {
+      this.clientNotifications = data.filter((contract: Contract) => {
+        if (contract.client.id == id) {
+          return contract;
+        }
+        return null;
+      }) as Contract[];
     });
   }
-  // Cambio
-  getUserById(userId: any) {
-    return this.http.get(`${this.url}/clients/${userId}`);
+
+  getUnreadNotifications(id: number) {
+    this.contractService
+      .getUnreadNotifications(id, 'client')
+      .subscribe((data: any) => {
+        for (let i = 0; i < data.length; i++) {
+          if (
+            data[i].notification.readStatus == false &&
+            (data[i].status.status == 'PENDING' ||
+              (data[i].status.status == 'OFFER' && data[i].visible == false))
+          ) {
+            this.cont++;
+          }
+        }
+      });
   }
-  getClientNotifications(id: any) {
-    return this.http.get(`${this.url}/contracts/notifications-client/${id}`);
-  }
-  getUnreadNotifications(id: any) {
-    return this.http.get(
-      `${this.url}/contracts/unread-notifications/client/${id}`
-    );
-  }
+
   updateNot(clientId: number) {
-    return this.http.put(
-      `${this.url}/contracts/notification-read/client/${clientId}`,
-      null
-    );
+    this.contractService
+      .getUnreadNotifications(clientId, 'client')
+      .subscribe((data: any) => {
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].status.status != 'OFFER')
+            this.contractService.changeNotificationStatus(data[i].id);
+        }
+        console.log(
+          '🚀 ~ file: header-c.component.ts:80 ~ HeaderCComponent ~ .subscribe ~ data:',
+          data
+        );
+      });
   }
-  // getPendingContracts(id: any) {
-  //   return this.http.get(`${this.url}pendingContracts?id=${id}`);
-  // }
 
   goToContract(id: any) {
     this.router.navigate([`app-pay-contract-c/`]);

@@ -1,3 +1,4 @@
+import { District } from './../models/user';
 import { Injectable } from '@angular/core';
 import {
   HttpClient,
@@ -6,13 +7,12 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { User } from '../models/user';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CarrierService {
+export class DistrictService {
   basePath: string = GlobalVariable.BASE_API_URL;
 
   httpOptions = {
@@ -40,28 +40,24 @@ export class CarrierService {
     return throwError('Something bad happened; please try again later.');
   }
 
-  findAccount(email: string, password: string): Observable<User> {
+  getDistricts(): Observable<District[]> {
     return this.http
-      .get<User>(
-        `${this.basePath}/carrier/searchEmailAndPassword/${email}/${password}`,
-        this.httpOptions
-      )
+      .get<District[]>(`${this.basePath}/district`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  registerCarrier(user: User): Observable<User> {
+  getDistrictById(id: string): Observable<District> {
     return this.http
-      .post<User>(
-        `${this.basePath}/carrier`,
-        JSON.stringify(user),
-        this.httpOptions
-      )
+      .get<District>(`${this.basePath}/district/id/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getCarriers(): Observable<User[]> {
+  getDistrictByName(name: string): Observable<District[]> {
     return this.http
-      .get<User[]>(`${this.basePath}/carrier`, this.httpOptions)
+      .get<District[]>(
+        `${this.basePath}/district/name/${name}`,
+        this.httpOptions
+      )
       .pipe(retry(2), catchError(this.handleError));
   }
 }

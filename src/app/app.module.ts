@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -26,15 +25,17 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
-import { NgxCcModule } from 'ngx-cc';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { NgxCcModule } from 'ngx-cc';
 
 // Components
-import { HeaderComponent } from './login/header/header.component';
-import { FooterComponent } from './login/footer/footer.component';
-import { SignupP1Component } from './login/pages/signup/signup-p1/signup-p1.component';
-import { SignupP2Component } from './login/pages/signup/signup-p2/signup-p2.component';
-import { SignupP3Component } from './login/pages/signup/signup-p3/signup-p3.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { HeaderCComponent } from './client/pages/header-c/header-c.component';
 import { HomeCComponent } from './client/pages/home-c/home-c.component';
 import { HeaderDComponent } from './driver/pages/header-d/header-d.component';
@@ -47,8 +48,6 @@ import { HomeDComponent } from './driver/pages/home-d/home-d.component';
 
 import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
 import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.component';
-
-import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
 
 import { NotificationsComponent } from './client/pages/notifications/notifications.component';
 import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contract-c.component';
@@ -76,9 +75,7 @@ import { AddInfoOneComponent } from './components/add-info-one/add-info-one.comp
     FooterComponent,
     HeaderDComponent,
     HomeDComponent,
-    SignupP1Component,
-    SignupP2Component,
-    SignupP3Component,
+    SignupComponent,
     HeaderCComponent,
     HomeCComponent,
     HeaderDComponent,
@@ -131,8 +128,9 @@ import { AddInfoOneComponent } from './components/add-info-one/add-info-one.comp
     MatBadgeModule,
     MatGridListModule,
     MatListModule,
+    MatAutocompleteModule,
+    MatSidenavModule,
     NgxCcModule,
-    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent],

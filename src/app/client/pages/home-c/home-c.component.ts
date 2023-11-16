@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User } from '../../../models/user';
-import { catchError, Observable, retry, throwError } from 'rxjs';
-import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { User } from '@models/user';
+import { CarrierService } from '@services/CarrierService';
+import { GlobalVariable } from '@app/shared/GlobalVariable';
+import { ContractService } from '@services/ContractService';
+import { ClientService } from '@services/ClientService';
+import { Contract } from '@models/contract';
 
 @Component({
   selector: 'app-home-c',
@@ -11,68 +13,46 @@ import { GlobalVariable } from 'src/app/shared/GlobalVariable';
   styleUrls: ['./home-c.component.css'],
 })
 export class HomeCComponent implements OnInit {
-  user_id: any;
-  user: {
-    photo: string;
-    username: string;
-  };
-  user_name: string = '';
-  best_ranked: Array<any> = [];
-  Best_ranked: Array<any> = [];
-  contracts_user: Array<any> = [];
+  client: User;
+  best_ranked: User[];
+  defaultImage: string = '../../../../assets/imgs/user-vector.png';
+
+  pendingContracts: Contract[];
   driver_route: any;
 
   basePath = GlobalVariable.BASE_API_URL;
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json', //Solo acepta json
-    }),
-  };
-
-  constructor(private http: HttpClient, private router: Router) {
-    this.user = {
-      photo: '-',
-      username: '-',
-    };
+  constructor(
+    private clientService: ClientService,
+    private carrierService: CarrierService,
+    private contractService: ContractService,
+    private router: Router
+  ) {
+    this.best_ranked = [] as User[];
+    this.client = {} as User;
+    this.pendingContracts = [] as Contract[];
   }
 
   ngOnInit(): void {
-    this.user_id = localStorage.getItem('currentUser');
-    // console.log(typeof localStorage.getItem('currentUser'))
-    this.getRanked().subscribe((data: any) => {
-      this.best_ranked = data;
-    });
-    console.log(localStorage.getItem('currentUser'));
+    let user_id = localStorage.getItem('currentUser') || '';
 
-    this.getContract(this.user_id).subscribe((data: any) => {
-      this.contracts_user = data;
+    this.clientService.getClientById(user_id).subscribe((res: any) => {
+      this.client = res;
     });
 
-    this.getClientById(this.user_id).subscribe((data: any) => {
-      this.user = data;
+    this.carrierService.getCarriers().subscribe((res: any) => {
+      this.best_ranked = res;
     });
+
+    this.contractService
+      .getHistoryContract(parseInt(user_id), 'client')
+      .subscribe((res: any) => {
+        this.pendingContracts = res;
+      });
   }
 
   counter(i: number) {
     return new Array(i);
-  }
-
-  getRanked() {
-    return this.http.get(`${this.basePath}/drivers`);
-  }
-
-  getClientById(id: any) {
-    return this.http.get(`${this.basePath}/clients/${id}`);
-  }
-
-  getContract(id: any): Observable<any> {
-    return this.http
-      .get<any>(
-        `${this.basePath}/contracts/history/client/${id}`,
-        this.httpOptions
-      )
-      .pipe(retry(2));
   }
 
   goToDriver(id: any) {

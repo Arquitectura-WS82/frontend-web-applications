@@ -10,10 +10,15 @@
       matBadgeColor="accent"
       matBadgeSize="medium"
     >
-      <img mat-icon mat-card-avatar [src]="user.photo" alt="User Avatar" />
+      <img
+        mat-icon
+        mat-card-avatar
+        [src]="client.photoUrl || defaultImage"
+        alt="User Avatar"
+      />
     </span>
     <mat-card-title class="inline-block user_name" layout-align="center center">
-      <strong>Hi,<br />{{ user.username }} &excl;</strong>
+      <strong>Hi,<br />{{ client.username }} &excl;</strong>
     </mat-card-title>
   </mat-card>
 
@@ -28,10 +33,14 @@
 
     <mat-card *ngFor="let _driver of best_ranked.slice(0, 2)">
       <div class="inline-block">
-        <img mat-card-avatar [src]="_driver.photo" alt="User Avatar" />
+        <img
+          mat-card-avatar
+          [src]="_driver.photoUrl != null ? _driver.photoUrl : defaultImage"
+          alt="User Avatar"
+        />
       </div>
       <div class="inline-block info_text">
-        <mat-card-title>{{ _driver.name }}</mat-card-title>
+        <mat-card-title>{{ _driver.firstName }}</mat-card-title>
         <mat-card-content
           >Type of Service <br />
           {{ _driver.type }} <br />
@@ -50,16 +59,31 @@
       <strong>Lasts Contracts</strong>
     </mat-card-title>
 
-    <mat-card *ngFor="let _contract of contracts_user">
-      <div class="inline-block">
-        <img mat-card-avatar [src]="_contract.driver.photo" alt="User Avatar" />
+    <div *ngIf="pendingContracts; else noPendingContracts">
+      <mat-card *ngFor="let _contract of pendingContracts">
+        <div class="inline-block">
+          <img
+            mat-card-avatar
+            [src]="_contract.carrier.photoUrl || defaultImage"
+            alt="User Avatar"
+          />
+        </div>
+        <div class="inline-block info_text">
+          <mat-card-title>{{ _contract.carrier.username }}</mat-card-title>
+          <mat-card-content>From {{ _contract.streetFrom }}</mat-card-content>
+          <mat-card-content>To {{ _contract.streetTo }}</mat-card-content>
+        </div>
+      </mat-card>
+    </div>
+
+    <ng-template #noPendingContracts>
+      <div>
+        <mat-card>
+          <mat-card-title>No pending contracts</mat-card-title>
+        </mat-card>
       </div>
-      <div class="inline-block info_text">
-        <mat-card-title>{{ _contract.driver.name }}</mat-card-title>
-        <mat-card-content>From {{ _contract.from }}</mat-card-content>
-        <mat-card-content>To {{ _contract.to }}</mat-card-content>
-      </div>
-    </mat-card>
+    </ng-template>
   </div>
 </div>
-<app-footers></app-footers>
+
+<app-footer></app-footer>

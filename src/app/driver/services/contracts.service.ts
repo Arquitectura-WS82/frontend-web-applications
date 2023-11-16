@@ -35,49 +35,4 @@ export class ContractsService {
       {}
     );
   }
-
-  // ACCEPT CONTRACT
-
-  // getOfferContractById(id: number) {
-  //   return this.http.get<OfferContract>(`${this.url}/offerContracts/${id}`);
-  // }
-
-  // removeOfferContract(id: number) {
-  //   return this.http.delete(`${this.url}/offerContracts/${id}`);
-  // }
-
-  // addPendingContract(pendingContract: PendingContract) {
-  //   return this.http.post<PendingContract>(
-  //     `${this.url}/pendingContracts`,
-  //     pendingContract
-  //   );
-  // }
-
-  // END ACCEPT CONTRACT
-
-  // getPendingContracts(driverId: number) {
-  //   return this.http.get(`${this.url}/pendingContracts?driverId=${driverId}`);
-  // }
-
-  // DECLINE
-
-  // getPendingContractById(id: number) {
-  //   return this.http.get<PendingContract>(`${this.url}/pendingContracts/${id}`);
-  // }
-
-  // updateOfferContract(id: number, offerContract: OfferContract) {
-  //   return this.http.put<OfferContract>(
-  //     `${this.url}/offerContracts/${id}`,
-  //     offerContract
-  //   );
-  // }
-
-  // END DECLINE
-
-  // updatePendingContract(id: number, pendingContract: PendingContract) {
-  //   return this.http.put<PendingContract>(
-  //     `${this.url}/pendingContracts/${id}`,
-  //     pendingContract
-  //   );
-  // }
 }

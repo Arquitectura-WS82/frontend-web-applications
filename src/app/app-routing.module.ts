@@ -1,37 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/pages/login/login.component';
-import { SignupP1Component } from './login/pages/signup/signup-p1/signup-p1.component';
-import { SignupP2Component } from './login/pages/signup/signup-p2/signup-p2.component';
-import { SignupP3Component } from './login/pages/signup/signup-p3/signup-p3.component';
-import { HeaderComponent } from './login/header/header.component';
-import { HomeCComponent } from './client/pages/home-c/home-c.component';
-import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.component';
 import { ContractsCComponent } from './client/pages/contracts-c/contracts-c.component';
-import { HomeDComponent } from './driver/pages/home-d/home-d.component';
-import { ForgotPasswordComponent } from './login/pages/password/forgot-password/forgot-password.component';
+import { HomeCComponent } from './client/pages/home-c/home-c.component';
 import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.component';
-import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
-import { CardSettingComponent } from './components/card-setting/card-setting.component';
-import { AddCardComponent } from './components/add-card/add-card.component';
-import { SearchVehicleComponent } from './client/pages/search-vehicle/search-vehicle.component';
-import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
-import { RequestServiceComponent } from './client/request-service/request-service.component';
-import { SupportComponent } from './components/support/support.component';
 import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contract-c.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { SettingsComponent } from './components/settings/settings.component';
-import { SettingsDComponent } from './driver/pages/settings-d/settings-d.component';
+import { SearchVehicleComponent } from './client/pages/search-vehicle/search-vehicle.component';
 import { SettingsCComponent } from './client/pages/settings-c/settings-c.component';
+import { RequestServiceComponent } from './client/request-service/request-service.component';
+import { AddCardComponent } from './components/add-card/add-card.component';
+import { CardSettingComponent } from './components/card-setting/card-setting.component';
+import { HeaderComponent } from './components/header/header.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SupportComponent } from './components/support/support.component';
+import { ContractsDComponent } from './driver/pages/contracts-d/contracts-d.component';
+import { EndContractComponent } from './driver/pages/end-contract/end-contract.component';
+import { HomeDComponent } from './driver/pages/home-d/home-d.component';
+import { MyProfileDComponent } from './driver/pages/my-profile-d/my-profile-d.component';
+import { SettingsDComponent } from './driver/pages/settings-d/settings-d.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'header', component: HeaderComponent },
-  { path: 'signup-p1', component: SignupP1Component },
-  { path: 'signup-p2', component: SignupP2Component },
-  { path: 'signup-p3', component: SignupP3Component },
+  { path: 'signup', component: SignupComponent },
   { path: 'home-c', component: HomeCComponent },
   { path: 'search', component: SearchVehicleComponent },
   { path: 'contracts-d', component: ContractsDComponent },

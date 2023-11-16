@@ -1,0 +1,138 @@
+<app-header></app-header>
+
+<div class="signup1">
+  <img src="../../../../assets/imgs/fastporte-logo.png" alt="" class="card" />
+  <h1>Create A New Account</h1>
+  <form class="card" [formGroup]="signupForm" (submit)="onSubmit()">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Email address"
+        formControlName="email"
+        required
+        type="email"
+      />
+      <mat-error *ngIf="signupForm.get('email')?.errors?.['required']">
+        Email is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('email')?.errors?.['email']">
+        Email is <strong>invalid</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Password"
+        formControlName="password"
+        type="password"
+      />
+      <mat-error *ngIf="signupForm.get('password')?.errors?.['required']">
+        Password is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('password')?.errors?.['minlength']">
+        Password must have at least <strong> 7 </strong> characters
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="First Name" formControlName="first_name" />
+      <mat-error *ngIf="signupForm.get('first_name')?.errors?.['required']">
+        First name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Last Name" formControlName="last_name" />
+      <mat-error *ngIf="signupForm.get('last_name')?.errors?.['required']">
+        Last name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Date of birth</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthdate" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="signupForm.get('birthdate')?.errors?.['required']"
+        >Birthdate is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Phone" formControlName="phone" />
+      <mat-error *ngIf="signupForm.get('phone')?.errors?.['required']">
+        Phone is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('phone')?.errors?.['pattern']">
+        Phone must have only <strong>numbers</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field matInput placeholder="Type of user">
+      <mat-label>Type of user</mat-label>
+      <mat-select formControlName="typeofuser">
+        <mat-option value="client">Client</mat-option>
+        <mat-option value="carrier">Carrier</mat-option>
+      </mat-select>
+      <mat-error *ngIf="signupForm.get('typeofuser')?.errors?.['required']">
+        Type of user is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="District"
+        formControlName="district"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let district of filteredDistricts | async"
+          [value]="district.name"
+        >
+          {{ district.name }} - {{ district.province.name }}</mat-option
+        >
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Street" formControlName="street" />
+      <mat-error *ngIf="signupForm.get('street')?.errors?.['required']">
+        Street is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        type="text"
+        matInput
+        placeholder="Type a description about you"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+
+    <img
+      src="./../../../../../assets/imgs/user-vector.png"
+      alt="user-vector"
+      class="img-user"
+    />
+
+    <p style="text-align: center">
+      <a href="#"><u>Upload a photo</u></a>
+    </p>
+    <button
+      mat-raised-button
+      [disabled]="!signupForm.valid"
+      color="primary"
+      (click)="registerData()"
+    >
+      Create account
+    </button>
+  </form>
+</div>
+
+<app-footer></app-footer>

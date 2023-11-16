@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/ClientService';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
-import { User } from '../../../models/user';
+import { User } from '@models/user';
 
 @Component({
   selector: 'app-login',
@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
           })
         )
         .subscribe((res: User) => {
+          console.log(res);
           localStorage.setItem('currentUser', res.id.toString());
           localStorage.setItem('typeofuser', 'client');
           this.router.navigate(['/home-c']);

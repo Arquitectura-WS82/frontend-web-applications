@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit, Input } from '@angular/core';
-import { User } from '../../../../models/user';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '@models/user';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
 @Component({

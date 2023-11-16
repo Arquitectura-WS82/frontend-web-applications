@@ -23,16 +23,6 @@ export class ContractsCComponent implements OnInit {
   }
 
   declineContract(id: number): void {
-    // this.contractsService.getPendingContractById(id).subscribe((response) => {
-    //   this.pendingContract = response;
-    //   console.log(this.pendingContract);
-    //   this.pendingContract.status = 'rejected';
-    //   this.contractsService
-    //     .updatePendingContract(id, this.pendingContract)
-    //     .subscribe((response) => {
-    //       console.log(response);
-    //     });
-    // });
     this.contractsService
       .changeContractVisibleToFalse(id)
       .subscribe((response) => {
@@ -46,7 +36,7 @@ export class ContractsCComponent implements OnInit {
     });
   }
 
-  finishContract(id: number){
+  finishContract(id: number) {
     this.contractsService.changeContractStatus(id, 3).subscribe((response) => {
       console.log(response);
       this.ngOnInit();

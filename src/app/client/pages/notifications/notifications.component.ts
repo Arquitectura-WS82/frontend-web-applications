@@ -1,24 +1,21 @@
-
-import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.css']
+  styleUrls: ['./notifications.component.css'],
 })
-export class NotificationsComponent implements OnInit{
-  @Input() title='';
-  
-  
-  
-  public show=false;
-  
+export class NotificationsComponent implements OnInit {
+  @Input() title = '';
+
+  public show = false;
+
   ngOnInit(): void {}
- 
-  showModal(){
-    this.show=true;
+
+  showModal() {
+    this.show = true;
   }
-  hideModal(){
-    this.show=false;
+  hideModal() {
+    this.show = false;
   }
 }
