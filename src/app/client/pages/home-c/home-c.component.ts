@@ -15,7 +15,7 @@ import { Contract } from '@models/contract';
 export class HomeCComponent implements OnInit {
   client: User;
   best_ranked: User[];
-  defaultImage: string = '../../../../assets/imgs/user-vector.png';
+  defaultImage: string = '../../../../assets/img/user-vector.png';
 
   pendingContracts: Contract[];
   driver_route: any;
@@ -45,7 +45,7 @@ export class HomeCComponent implements OnInit {
     });
 
     this.contractService
-      .getHistoryContract(parseInt(user_id), 'client')
+      .getHistoryContracts(parseInt(user_id), 'client')
       .subscribe((res: any) => {
         this.pendingContracts = res;
       });

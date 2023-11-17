@@ -4,8 +4,9 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
-import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { Contract } from '@models/contract';
+import { Observable, throwError } from 'rxjs';
+import { GlobalVariable } from '@app/shared/GlobalVariable';
 
 @Injectable({
   providedIn: 'root',
@@ -39,42 +40,75 @@ export class ContractService {
     return throwError('Something bad happened; please try again later.');
   }
 
-  getContracts() {
-    return this.http.get(`${this.url}`);
+  addContract(
+    contract: Contract,
+    clientId: number,
+    driverId: number,
+    districtFrom: string,
+    districtTo: string
+  ) {
+    return this.http.post(
+      `${this.url}/add/client/${clientId}/carrier/${driverId}/districtFrom/${districtFrom}/districtTo/${districtTo}`,
+      JSON.stringify(contract),
+      this.httpOptions
+    );
   }
 
-  getOfferContract(userId: number) {
-    return this.http.get(`${this.url}/offer/${userId}`);
+  getContracts(): Observable<Contract[]> {
+    return this.http.get<Contract[]>(`${this.url}`);
   }
 
-  getHistoryContract(userId: number, typeUser: string) {
-    return this.http.get(`${this.url}/history/${typeUser}/${userId}`);
+  getOfferContracts(userId: number): Observable<Contract[]> {
+    return this.http.get<Contract[]>(`${this.url}/offer/${userId}`);
   }
 
-  getPendingContracts(userId: number, typeUser: string) {
-    return this.http.get(`${this.url}/pending/${typeUser}/${userId}`);
+  getPendingContracts(
+    userId: number,
+    typeUser: string
+  ): Observable<Contract[]> {
+    return this.http.get<Contract[]>(
+      `${this.url}/pending/${typeUser}/${userId}`
+    );
   }
 
-  getUnreadNotifications(userId: number, typeUser: string) {
-    return this.http.get(
+  getHistoryContracts(
+    userId: number,
+    typeUser: string
+  ): Observable<Contract[]> {
+    return this.http.get<Contract[]>(
+      `${this.url}/history/${typeUser}/${userId}`
+    );
+  }
+
+  getUnreadNotifications(
+    userId: number,
+    typeUser: string
+  ): Observable<Contract[]> {
+    return this.http.get<Contract[]>(
       `${this.url}/unread-notifications/${typeUser}/${userId}`
     );
   }
 
-  changeContractVisibility(idContract: number) {
-    return this.http.put(`${this.url}/${idContract}/change-visible`, {});
-  }
-
-  changeNotificationStatus(idContract: number) {
-    return this.http.put(
-      `${this.url}/${idContract}/change-notification-status`,
+  changeContractVisibility(contract: Contract): Observable<Contract> {
+    return this.http.put<Contract>(
+      `${this.url}/${contract.id}/change-visible`,
       {}
     );
   }
 
-  changeContractStatus(idContract: number, status: number) {
-    return this.http.put(
-      `${this.url}/${idContract}/update-status/${status}`,
+  changeNotificationStatus(contract: Contract): Observable<Contract> {
+    return this.http.put<Contract>(
+      `${this.url}/${contract.id}/change-notification-status`,
+      contract
+    );
+  }
+
+  changeContractStatus(
+    contract: Contract,
+    status: string
+  ): Observable<Contract> {
+    return this.http.put<Contract>(
+      `${this.url}/${contract.id}/update-status/${status}`,
       {}
     );
   }

@@ -14,7 +14,7 @@
 
 .contract-information {
   margin: 6vw;
-  width: 20vw;
+  width: fit-content;
 }
 
 .client-price {

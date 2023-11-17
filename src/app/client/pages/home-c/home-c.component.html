@@ -1,6 +1,6 @@
 <app-header-c></app-header-c>
 
-<div class="mini_profile">
+<div class="mini_profile content">
   <mat-card class="inline-block profile_card">
     <span
       class="_badge"
@@ -22,10 +22,12 @@
     </mat-card-title>
   </mat-card>
 
-  <a mat-button [routerLink]="'/search'">Search Vehicules</a>
+  <a mat-raised-button class="search" [routerLink]="'/search'"
+    >Search Vehicules</a
+  >
 </div>
 
-<div class="info" fxLayout="row">
+<div class="info content">
   <div class="popular_drivers" class="inline-block">
     <mat-card-title class="home_title">
       <strong>Popular Drivers</strong>
@@ -50,7 +52,9 @@
           >&#9733;</mat-card-content
         >
       </div>
-      <a mat-button (click)="goToDriver(_driver.id)">Go</a>
+      <a mat-raised-button color="primary" (click)="goToDriver(_driver.id)"
+        >Go</a
+      >
     </mat-card>
   </div>
 

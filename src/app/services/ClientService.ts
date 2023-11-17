@@ -49,19 +49,29 @@ export class ClientService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  registerClient(user: User): Observable<User> {
+  registerClient(client: User): Observable<User> {
     return this.http
       .post<User>(
         `${this.basePath}/client`,
-        JSON.stringify(user),
+        JSON.stringify(client),
         this.httpOptions
       )
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getClientById(id: any): Observable<any> {
+  updateClient(client: User, districtId: number): Observable<User> {
     return this.http
-      .get<any>(`${this.basePath}/client/${id}`, this.httpOptions)
+      .put<User>(
+        `${this.basePath}/personal-data/client/${client.id}/district/${districtId}/`,
+        JSON.stringify(client),
+        this.httpOptions
+      )
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getClientById(id: any): Observable<User> {
+    return this.http
+      .get<User>(`${this.basePath}/client/${id}`, this.httpOptions)
       .pipe(retry(2));
   }
 }

@@ -1,4 +1,5 @@
 <app-header-d></app-header-d>
+
 <mat-tab-group mat-align-tabs="center">
   <mat-tab label="Offers">
     <br />
@@ -14,13 +15,13 @@
             <mat-card-content>
               <div>
                 <p>
-                  From <strong> {{ offer.from }}</strong>
+                  From <strong> {{ offer.streetFrom }}</strong>
                 </p>
                 <p>
-                  To: <strong>{{ offer.to }}</strong>
+                  To: <strong>{{ offer.streetTo }}</strong>
                 </p>
                 <p>
-                  Date: <strong> {{ offer.contractDate }}</strong>
+                  Date: <strong> {{ offer.date }}</strong>
                 </p>
                 <p>
                   Time:
@@ -38,7 +39,7 @@
                 <strong style="text-align: center">Amount:</strong>
                 <div class="client">
                   <img
-                    src="{{ offer.client.photo }}"
+                    src="{{ offer.client.photoUrl }}"
                     alt="Profile"
                     class="profile-img"
                   />
@@ -56,14 +57,14 @@
             <button
               mat-raised-button
               color="accent"
-              (click)="acceptContract(offer.id)"
+              (click)="acceptContract(offer)"
             >
               Accept
             </button>
             <button
               mat-raised-button
               color="warn"
-              (click)="declineContract(offer.id)"
+              (click)="declineContract(offer)"
             >
               Decline
             </button>
@@ -90,13 +91,13 @@
             <mat-card-content>
               <div>
                 <p>
-                  From <strong> {{ pending.from }}</strong>
+                  From <strong> {{ pending.streetFrom }}</strong>
                 </p>
                 <p>
-                  To: <strong>{{ pending.to }}</strong>
+                  To: <strong>{{ pending.streetTo }}</strong>
                 </p>
                 <p>
-                  Date: <strong> {{ pending.contractDate }} </strong>
+                  Date: <strong> {{ pending.date }} </strong>
                 </p>
                 <p>
                   Time:
@@ -115,7 +116,7 @@
                 <strong style="text-align: center">Amount:</strong>
                 <div class="client">
                   <img
-                    src="{{ pending.client.photo }}"
+                    src="{{ pending.client.photoUrl }}"
                     alt="Profile"
                     class="profile-img"
                   />
@@ -144,7 +145,7 @@
           <mat-card class="card-history">
             <div class="client-history">
               <img
-                src="{{ history.client.photo }}"
+                src="{{ history.client.photoUrl }}"
                 alt="Profile"
                 class="profile-img-history"
               />
@@ -156,13 +157,13 @@
             <div>
               <h4>DETAILS</h4>
               <p>
-                Date: <strong>{{ history.contractDate }}</strong>
+                Date: <strong>{{ history.date }}</strong>
               </p>
               <p>
-                From: <strong>{{ history.from }}</strong>
+                From: <strong>{{ history.streetFrom }}</strong>
               </p>
               <p>
-                To: <strong>{{ history.to }}</strong>
+                To: <strong>{{ history.streetTo }}</strong>
               </p>
               <p>
                 Amount: <strong>{{ history.amount }}</strong>
@@ -177,4 +178,5 @@
     </ng-template>
   </mat-tab>
 </mat-tab-group>
+
 <app-footers></app-footers>

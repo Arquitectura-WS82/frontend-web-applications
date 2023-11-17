@@ -6,7 +6,7 @@ import { MyProfileCComponent } from './client/pages/my-profile-c/my-profile-c.co
 import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contract-c.component';
 import { SearchVehicleComponent } from './client/pages/search-vehicle/search-vehicle.component';
 import { SettingsCComponent } from './client/pages/settings-c/settings-c.component';
-import { RequestServiceComponent } from './client/request-service/request-service.component';
+import { RequestServiceComponent } from './client/pages/request-service/request-service.component';
 import { AddCardComponent } from './components/add-card/add-card.component';
 import { CardSettingComponent } from './components/card-setting/card-setting.component';
 import { HeaderComponent } from './components/header/header.component';
