@@ -3,6 +3,7 @@ import {
   HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
+import { Comment } from '@models/comment';
 import { Injectable } from '@angular/core';
 import { GlobalVariable } from '@app/shared/GlobalVariable';
 import { Observable, throwError } from 'rxjs';
@@ -39,7 +40,7 @@ export class CommentService {
     return throwError('Something bad happened; please try again later.');
   }
 
-  getContracts(): Observable<Comment[]> {
+  getComments(): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.url}`);
   }
 }

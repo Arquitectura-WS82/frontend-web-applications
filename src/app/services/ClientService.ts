@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
 import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { User } from '../models/user';
+import { catchError } from 'rxjs/operators';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -46,7 +46,7 @@ export class ClientService {
         `${this.basePath}/client/searchEmailAndPassword/${email}/${password}`,
         this.httpOptions
       )
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   registerClient(client: User): Observable<User> {
@@ -56,7 +56,7 @@ export class ClientService {
         JSON.stringify(client),
         this.httpOptions
       )
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   updateClient(client: User, districtId: number): Observable<User> {
@@ -66,12 +66,13 @@ export class ClientService {
         JSON.stringify(client),
         this.httpOptions
       )
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   getClientById(id: any): Observable<User> {
-    return this.http
-      .get<User>(`${this.basePath}/client/${id}`, this.httpOptions)
-      .pipe(retry(2));
+    return this.http.get<User>(
+      `${this.basePath}/client/${id}`,
+      this.httpOptions
+    );
   }
 }

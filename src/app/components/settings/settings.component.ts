@@ -11,8 +11,7 @@ export class SettingsComponent implements OnInit {
   type: any;
 
   ngOnInit(): void {
-    this.type = localStorage.getItem('typeofuser')
-
+    this.type = localStorage.getItem('typeofuser');
   }
 
   logout() {

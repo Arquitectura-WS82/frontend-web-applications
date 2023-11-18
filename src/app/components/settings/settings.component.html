@@ -1,23 +1,13 @@
-
-
 <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened class="container-1">
-        <div class="izq">
-            <a routerLink='card-settings'>Cards</a>
-            <a *ngIf="type=='client'" routerLink='/my-profile-c'>Account</a>
-            <a *ngIf="type=='driver'" routerLink='/my-profile-d'>Account</a>
-            <a class="resaltado" (click)="logout()" routerLink='#'>Logout</a>
-        </div>
-
-    </mat-drawer>
-    <router-outlet>
-    </router-outlet>
-
+  <mat-drawer mode="side" opened class="container-1">
+    <div class="izq">
+      <a routerLink="card-settings">Cards</a>
+      <a *ngIf="type == 'client'" routerLink="/my-profile-c">Account</a>
+      <a *ngIf="type == 'carrier'" routerLink="/my-profile-d">Account</a>
+      <a class="resaltado" (click)="logout()" routerLink="#">Logout</a>
+    </div>
+  </mat-drawer>
+  <router-outlet> </router-outlet>
 </mat-drawer-container>
 
 <app-footers></app-footers>
-<!-- <mat-sidenav-container opened>
-    <mat-sidenav>Start</mat-sidenav>
-    <mat-sidenav position="end">End</mat-sidenav>
-    <section>Main</section>
-  </mat-sidenav-container> -->

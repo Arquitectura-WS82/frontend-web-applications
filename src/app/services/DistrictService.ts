@@ -1,13 +1,13 @@
-import { District } from './../models/user';
-import { Injectable } from '@angular/core';
 import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { District } from './../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -43,13 +43,13 @@ export class DistrictService {
   getDistricts(): Observable<District[]> {
     return this.http
       .get<District[]>(`${this.basePath}/district`, this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   getDistrictById(id: string): Observable<District> {
     return this.http
       .get<District>(`${this.basePath}/district/id/${id}`, this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   getDistrictByName(name: string): Observable<District[]> {
@@ -58,6 +58,6 @@ export class DistrictService {
         `${this.basePath}/district/name/${name}`,
         this.httpOptions
       )
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 }

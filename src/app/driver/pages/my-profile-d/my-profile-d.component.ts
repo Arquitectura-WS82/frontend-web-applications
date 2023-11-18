@@ -1,4 +1,3 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -8,17 +7,18 @@ import {
 } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 
 import { MatDialog } from '@angular/material/dialog';
+import { Comment } from '@models/comment';
+import { Experience } from '@models/experience';
+import { User } from '@models/user';
+import { Vehicle } from '@models/vehicle';
+import { CarrierService } from '@services/CarrierService';
+import { CommentService } from '@services/CommentService';
 import {
   AddInfoOneComponent,
   DescriptionData,
 } from 'src/app/components/add-info-one/add-info-one.component';
-import { User } from '@app/models/user';
-import { CarrierService } from '@app/services/CarrierService';
-import { Experience } from '@app/models/experience';
-import { Vehicle } from '@app/models/vehicle';
 
 @Component({
   selector: 'app-my-profile-d',
@@ -27,18 +27,20 @@ import { Vehicle } from '@app/models/vehicle';
 })
 export class MyProfileDComponent implements OnInit {
   experiences: Experience[];
-  carrier: User;
   comments: Comment[];
   vehicles: Vehicle[];
+  carrier: User;
   user_id: any;
   show: boolean = false;
-  pageSlice: any;
+  stars: number[];
   vehicleForm!: FormGroup;
   experienceForm!: FormGroup;
   descriptionData: DescriptionData;
+  defaultImage: string = '../../../../assets/img/user-vector.png';
 
   constructor(
     private carrierService: CarrierService,
+    private contractService: CommentService,
     private router: Router,
     private formBuilder: FormBuilder,
     public dialog: MatDialog
@@ -48,6 +50,7 @@ export class MyProfileDComponent implements OnInit {
     this.comments = [] as Comment[];
     this.carrier = {} as User;
     this.descriptionData = {} as DescriptionData;
+    this.stars = [] as number[];
 
     this.experienceForm = this.formBuilder.group({
       job: new FormControl('', [Validators.required]),
@@ -61,27 +64,12 @@ export class MyProfileDComponent implements OnInit {
     });
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AddInfoOneComponent, {
-      width: '20%',
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-    });
-  }
-
   ngOnInit(): void {
-    localStorage.setItem('visitDriverId', '-1');
-
-    if (localStorage.getItem('visitDriverId') != '-1')
-      this.user_id = localStorage.getItem('visitDriverId');
-    else this.user_id = localStorage.getItem('currentUser');
-
-    localStorage.setItem('visitDriverId', '-1');
+    this.user_id = localStorage.getItem('currentUser');
 
     this.carrierService.getCarrierById(this.user_id).subscribe((res: User) => {
       this.carrier = res;
+      this.stars = Array(Math.round(this.carrier.stars)).fill(0);
     });
 
     this.carrierService
@@ -96,21 +84,30 @@ export class MyProfileDComponent implements OnInit {
         this.experiences = res;
       });
 
-    // this.getComments(this.user_id).subscribe((data: any) => {
-    //   this.comments = data;
-    //   this.pageSlice = this.comments.slice(0, 3);
-    // });
+    this.contractService.getComments().subscribe((res: Comment[]) => {
+      this.comments = res;
+    });
 
-    this.onPageChange;
+    // this.onPageChange;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddInfoOneComponent, {
+      width: '20%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+    });
   }
 
   onPageChange(event: PageEvent) {
-    const startIndex = event.pageIndex * event.pageSize;
-    let endIndex = startIndex + event.pageSize;
-    if (endIndex > this.comments.length) {
-      endIndex = this.comments.length;
-    }
-    this.pageSlice = this.comments.slice(startIndex, endIndex);
+    // const startIndex = event.pageIndex * event.pageSize;
+    // let endIndex = startIndex + event.pageSize;
+    // if (endIndex > this.comments.length) {
+    //   endIndex = this.comments.length;
+    // }
+    // this.pageSlice = this.comments.slice(startIndex, endIndex);
   }
 
   updateExperience() {

@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
 import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders,
 } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { User } from '../models/user';
-import { GlobalVariable } from 'src/app/shared/GlobalVariable';
-import { Vehicle } from '@app/models/vehicle';
+import { Injectable } from '@angular/core';
 import { Experience } from '@app/models/experience';
+import { Vehicle } from '@app/models/vehicle';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -49,7 +49,7 @@ export class CarrierService {
         `${this.basePath}/carrier/searchEmailAndPassword/${email}/${password}`,
         this.httpOptions
       )
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   registerCarrier(user: User): Observable<User> {
@@ -59,30 +59,34 @@ export class CarrierService {
         JSON.stringify(user),
         this.httpOptions
       )
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   getCarriers(): Observable<User[]> {
     return this.http
       .get<User[]>(this.url, this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   getCarrierById(id: number): Observable<User> {
-    return this.http
-      .get<User>(`${this.url}/${id}`, this.httpOptions)
-      .pipe(retry(2));
+    return this.http.get<User>(`${this.url}/${id}`, this.httpOptions);
+  }
+
+  getVehicles(): Observable<Vehicle[]> {
+    return this.http.get<Vehicle[]>(`${this.url}/vehicles`, this.httpOptions);
   }
 
   getVehiclesByCarrierId(carrierId: number): Observable<Vehicle[]> {
-    return this.http
-      .get<any>(`${this.url}/${carrierId}/vehicles`, this.httpOptions)
-      .pipe(retry(2));
+    return this.http.get<Vehicle[]>(
+      `${this.url}/${carrierId}/vehicles`,
+      this.httpOptions
+    );
   }
 
   getExperiencesByCarrierId(carrierId: number): Observable<Experience[]> {
-    return this.http
-      .get<any>(`${this.url}/${carrierId}/experiences`, this.httpOptions)
-      .pipe(retry(2));
+    return this.http.get<Experience[]>(
+      `${this.url}/${carrierId}/experiences`,
+      this.httpOptions
+    );
   }
 }

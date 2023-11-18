@@ -3,21 +3,14 @@
 <div class="container">
   <div class="column profile-column">
     <img
-      [src]="user.photo"
+      [src]="carrier.photoUrl || defaultImage"
       mat-card-avatar
       class="profile-photo"
       alt="User
       Avatar"
     />
-    <h1 style="font-weight: bolder">{{ user.username }}</h1>
-    <p class="description">{{ user.description }}</p>
-    <div class="stars-user">
-      <mat-icon class="starIcon" fontIcon="star"></mat-icon>
-      <mat-icon class="starIcon" fontIcon="star"></mat-icon>
-      <mat-icon class="starIcon" fontIcon="star"></mat-icon>
-      <mat-icon class="starIcon" fontIcon="star"></mat-icon>
-      <mat-icon class="starIcon" fontIcon="star"></mat-icon>
-    </div>
+    <h1 style="font-weight: bolder">{{ carrier.username }}</h1>
+    <p class="description">{{ carrier.description }}</p>
     <button
       color="accent"
       class="editP"
@@ -26,7 +19,6 @@
     >
       Contract
     </button>
-    <!-- <button class="editP" color="accent" mat-raised-button (click)="goRequestService()" >Contract<mat-icon width="12px">drive_eta</mat-icon></button> -->
   </div>
 
   <div class="column tab-column">
@@ -36,35 +28,35 @@
           <div class="p-info">
             <b>Full name</b>
             <button class="p-info-btn" mat-raised-button color="primary">
-              {{ user.name }} {{ user.lastname }}
+              {{ carrier.username }}
             </button>
           </div>
 
           <div class="p-info">
-            <b>Age</b>
+            <b>Birthdate</b>
             <button class="p-info-btn" mat-raised-button color="primary">
-              {{ user.age }} years
+              {{ carrier.birthdate }}
             </button>
           </div>
 
           <div class="p-info">
             <b>E-mail</b>
             <button class="p-info-btn" mat-raised-button color="primary">
-              {{ user.email }}
+              {{ carrier.email }}
             </button>
           </div>
 
           <div class="p-info">
             <b>Phone</b>
             <button class="p-info-btn" mat-raised-button color="primary">
-              {{ user.phone }}
+              {{ carrier.phone }}
             </button>
           </div>
 
           <div class="p-info">
             <b>Location</b>
             <button class="p-info-btn" mat-raised-button color="primary">
-              {{ user.region }}
+              {{ carrier.street }}
             </button>
           </div>
         </div>
@@ -72,84 +64,88 @@
 
       <mat-tab label="Experience">
         <div class="tab-panel">
-          <div class="p-info">
-            <b>Job</b>
-            <button
-              class="p-info-btn"
-              style="right: 20px"
-              mat-raised-button
-              color="primary"
-            >
-              {{ jobs[0].job }}
-            </button>
-          </div>
+          <div *ngIf="experiences; else noExperiences">
+            <div *ngFor="let experience of experiences">
+              <br />
+              <p>
+                Job
+                <button
+                  class="btn"
+                  style="right: 20px"
+                  mat-raised-button
+                  color="primary"
+                >
+                  {{ experience.job }}
+                </button>
+              </p>
 
-          <div class="p-info">
-            <b>Time</b>
-            <button
-              class="p-info-btn"
-              style="right: 20px"
-              mat-raised-button
-              color="primary"
-            >
-              {{ jobs[0].time }}
-            </button>
-          </div>
+              <p>
+                Years
+                <button
+                  class="btn"
+                  style="right: 20px"
+                  mat-raised-button
+                  color="primary"
+                >
+                  {{ experience.years }} years
+                </button>
+              </p>
 
-          <mat-divider class="divider"></mat-divider>
-        </div>
-        <div style="display: flex">
-          <!-- <button
-            mat-raised-button
-            color="accent"
-            class="btn-edit-exp"
-            mat-raised-button>
-            Add experience
-          </button> -->
+              <br />
+              <mat-divider></mat-divider>
+            </div>
+          </div>
+          <ng-template #noExperiences>
+            <div class="no-experiences">
+              <p>There are no experiences</p>
+            </div>
+          </ng-template>
         </div>
       </mat-tab>
 
       <mat-tab label="About the vehicle">
-        <div class="row row-se tab-panel">
-          <div class="column">
-            <h4 class="title2">Documentation</h4>
-            <p class="title3">Click to check the documents</p>
-            <div class="column">
-              <ul>
-                <li><a href=""> Licencia de conducir</a></li>
-                <li><a href=""> SOAT </a></li>
-                <li><a href=""> Documento de propiedad </a></li>
-                <li><a href=""> Certificado de revisión técnica </a></li>
-              </ul>
+        <mat-grid-list cols="2" rowHeight="400px">
+          <mat-grid-tile>
+            <div class="title2">Vehicle Information</div>
+            <div *ngIf="vehicles; else noVehiclesInfo">
+              <div *ngFor="let vehicle of vehicles">
+                <p class="title4">Type: {{ vehicle.type }}</p>
+                <p class="title4">Quantity: {{ vehicle.quantity }}</p>
+              </div>
             </div>
-            <!-- <button color="accent" class="btn-edit-exp" mat-raised-button>
-              Update documentation
-            </button> -->
-          </div>
-
-          <mat-divider [vertical]="true"></mat-divider>
-          <div class="column">
+            <ng-template #noVehiclesInfo>
+              <div>
+                <p>There are no vehicles</p>
+              </div>
+            </ng-template>
+          </mat-grid-tile>
+          <mat-grid-tile>
             <div class="title2">Photos</div>
-            <img
-              mat-icon
-              [src]="vehicle.photo_car"
-              class="img-responsive"
-              alt="User Avatar"
-              style="max-width: 90%"
-            />
-            <!-- <button color="accent" class="btn-edit-exp" mat-raised-button>
-              Add a photo
-            </button> -->
-          </div>
-        </div>
+            <div *ngIf="vehicles; else noVehiclesImg">
+              <div *ngFor="let vehicle of vehicles">
+                <img
+                  mat-icon
+                  [src]="vehicle.photo"
+                  alt="Vehicle photo"
+                  style="max-width: 100%"
+                />
+              </div>
+            </div>
+            <ng-template #noVehiclesImg>
+              <div>
+                <p>There are no images</p>
+              </div>
+            </ng-template>
+          </mat-grid-tile>
+        </mat-grid-list>
       </mat-tab>
 
       <mat-tab label="Comments">
         <div class="comments">
-          <div *ngFor="let comment of pageSlice" class="tab-panel">
+          <div *ngFor="let comment of comments" class="tab-panel">
             <div class="row">
               <img
-                [src]="comment.client.photo"
+                [src]="comment.client.photoUrl"
                 alt=""
                 class="photo-comments"
                 mat-card-avatar
@@ -159,7 +155,7 @@
                 <p mat-line>{{ comment.comment }}</p>
               </div>
               <div class="row">
-                <b style="font-size: larger">{{ comment.star }}</b>
+                <b style="font-size: larger">{{ comment.stars }}</b>
                 <mat-icon fontIcon="star"></mat-icon>
               </div>
             </div>

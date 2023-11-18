@@ -7,8 +7,6 @@ import { PayContractCComponent } from './client/pages/pay-contract-c/pay-contrac
 import { SearchVehicleComponent } from './client/pages/search-vehicle/search-vehicle.component';
 import { SettingsCComponent } from './client/pages/settings-c/settings-c.component';
 import { RequestServiceComponent } from './client/pages/request-service/request-service.component';
-import { AddCardComponent } from './components/add-card/add-card.component';
-import { CardSettingComponent } from './components/card-setting/card-setting.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -35,28 +33,13 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'my-profile-c', component: MyProfileCComponent },
   { path: 'my-profile-d', component: MyProfileDComponent },
-  { path: 'add', component: AddCardComponent },
   { path: 'end-contract', component: EndContractComponent },
   { path: 'request-service/:id', component: RequestServiceComponent },
   { path: 'support', component: SupportComponent },
   { path: 'app-pay-contract-c', component: PayContractCComponent },
   { path: 'profile/:id', component: ProfileComponent },
-  {
-    path: 'settings-c',
-    component: SettingsCComponent,
-    children: [
-      { path: 'card-settings', component: CardSettingComponent },
-      { path: 'add', component: AddCardComponent },
-    ],
-  },
-  {
-    path: 'settings-d',
-    component: SettingsDComponent,
-    children: [
-      { path: 'card-settings', component: CardSettingComponent },
-      { path: 'add', component: AddCardComponent },
-    ],
-  },
+  { path: 'settings-c', component: SettingsCComponent },
+  { path: 'settings-d', component: SettingsDComponent },
   //Wild Card Route for 404 request
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];

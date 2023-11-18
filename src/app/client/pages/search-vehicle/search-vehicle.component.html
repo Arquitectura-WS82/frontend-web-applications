@@ -1,4 +1,5 @@
 <app-header-c></app-header-c>
+
 <div class="block-container">
   <div class="block form-container inline-block">
     <mat-card>
@@ -8,30 +9,32 @@
           <strong> Search Vehicle</strong>
         </mat-card-title>
       </mat-card-header>
-      <form [formGroup]="searchForm" (submit)="listSearch()">
+      <form [formGroup]="searchForm" (submit)="filterVehicles()">
         <mat-card-content>
           <mat-grid-list cols="2" rowHeight="4:1">
             <mat-form-field appearance="fill">
-              <!--Type-->
-              <mat-label>Type of Service</mat-label>
-              <mat-select value="Bus" formControlName="Type_s" name="vehicule">
+              <mat-label>Type of Vehicle</mat-label>
+              <mat-select
+                formControlName="type"
+                name="vehicle"
+                [value]="searchForm.value.type"
+              >
                 <mat-option
-                  *ngFor="let vehichle of Type"
-                  [value]="vehichle.viewValue"
+                  *ngFor="let vehicle of vehicles"
+                  [value]="vehicle.type"
                 >
-                  {{ vehichle.viewValue }}
+                  {{ vehicle.type }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
 
             <br />
-            <!--Size_s-->
             <mat-form-field appearance="fill" class="full-width">
-              <mat-label>Size</mat-label>
+              <mat-label>Quantity</mat-label>
               <input
                 type="number"
                 matInput
-                formControlName="Size_s"
+                formControlName="quantity"
                 placeholder="Ex. 15"
               />
             </mat-form-field>
@@ -49,29 +52,31 @@
   <div class="block results inline-block">
     <mat-card>
       <h2><strong> Results:</strong></h2>
-      <div *ngIf="filteredVehicules?.length < 1">
+      <div *ngIf="!filteredVehicles">
         <span>No Results</span>
       </div>
-      <div class="result" *ngFor="let result of filteredVehicules">
+      <div class="result" *ngFor="let result of filteredVehicles">
         <mat-card>
           <div class="inline-block">
             <img
               mat-icon
               mat-card-avatar
-              [src]="result.driver.photo"
+              [src]="result.carrier.photoUrl || defaultImage"
               alt="User Avatar"
             />
           </div>
           <div class="inline-block">
             <mat-card-title>
-              <strong>{{ result.driver.username }}</strong>
-              {{ result.driver.rating }}
+              <strong>{{ result.carrier.username }}</strong>
+              {{ result.carrier.stars }}
               <mat-icon style="color: gold">star</mat-icon>
             </mat-card-title>
-            <mat-card-content>{{ result.driver.description }}</mat-card-content>
+            <mat-card-content>{{
+              result.carrier.description
+            }}</mat-card-content>
           </div>
           <div class="inline-block">
-            <button mat-button (click)="goToDriver(result.driver.id)">
+            <button mat-button (click)="goToDriver(result.carrier.id)">
               <mat-icon>open_in_new</mat-icon>
               See Profile
             </button>
@@ -81,4 +86,5 @@
     </mat-card>
   </div>
 </div>
+
 <app-footers></app-footers>

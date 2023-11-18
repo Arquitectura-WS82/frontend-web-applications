@@ -4,9 +4,9 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { GlobalVariable } from '@app/shared/GlobalVariable';
 import { Contract } from '@models/contract';
 import { Observable, throwError } from 'rxjs';
-import { GlobalVariable } from '@app/shared/GlobalVariable';
 
 @Injectable({
   providedIn: 'root',
@@ -92,7 +92,7 @@ export class ContractService {
   changeContractVisibility(contract: Contract): Observable<Contract> {
     return this.http.put<Contract>(
       `${this.url}/${contract.id}/change-visible`,
-      {}
+      contract
     );
   }
 
@@ -109,7 +109,7 @@ export class ContractService {
   ): Observable<Contract> {
     return this.http.put<Contract>(
       `${this.url}/${contract.id}/update-status/${status}`,
-      {}
+      contract
     );
   }
 }
