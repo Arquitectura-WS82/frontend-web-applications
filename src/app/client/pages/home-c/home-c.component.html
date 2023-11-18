@@ -63,8 +63,8 @@
       <strong>Lasts Contracts</strong>
     </mat-card-title>
 
-    <div *ngIf="pendingContracts; else noPendingContracts">
-      <mat-card *ngFor="let _contract of pendingContracts">
+    <div *ngIf="historyContracts; else noContracts">
+      <mat-card *ngFor="let _contract of historyContracts">
         <div class="inline-block">
           <img
             mat-card-avatar
@@ -74,13 +74,13 @@
         </div>
         <div class="inline-block info_text">
           <mat-card-title>{{ _contract.carrier.username }}</mat-card-title>
-          <mat-card-content>From {{ _contract.streetFrom }}</mat-card-content>
-          <mat-card-content>To {{ _contract.streetTo }}</mat-card-content>
+          <mat-card-content>From: {{ _contract.streetFrom }}</mat-card-content>
+          <mat-card-content>To: {{ _contract.streetTo }}</mat-card-content>
         </div>
       </mat-card>
     </div>
 
-    <ng-template #noPendingContracts>
+    <ng-template #noContracts>
       <div>
         <mat-card>
           <mat-card-title>No pending contracts</mat-card-title>

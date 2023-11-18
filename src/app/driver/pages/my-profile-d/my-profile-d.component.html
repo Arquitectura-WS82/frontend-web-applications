@@ -6,110 +6,116 @@
       mat-icon
       mat-card-avatar
       class="profile-Photo"
-      [src]="user.photo"
+      [src]="carrier.photoUrl"
       alt="User Avatar"
     />
     <br /><br />
-    <h1 style="font-weight: bolder">{{ user.username }}</h1>
+    <h1 style="font-weight: bolder">{{ carrier.username }}</h1>
     <br />
-    <p class="description">{{ user.description }}</p>
+    <p class="description">{{ carrier.description }}</p>
     <div class="starsUser">
-      <mat-icon class="starIcon" fontIcon="star"></mat-icon>
-      <mat-icon class="starIcon" fontIcon="star"></mat-icon>
-      <mat-icon class="starIcon" fontIcon="star"></mat-icon>
-      <mat-icon class="starIcon" fontIcon="star"></mat-icon>
-      <mat-icon class="starIcon" fontIcon="star"></mat-icon>
+      <mat-icon
+        ngFor="let i = 0; i < carrier.stars.length; i++"
+        class="starIcon"
+        fontIcon="star"
+      ></mat-icon>
     </div>
     <button class="editP" mat-raised-button (click)="openDescriptionModal()">
-      Edit profile&nbsp;&nbsp;<mat-icon width="12px">edit</mat-icon>
+      Edit profile<mat-icon width="12px">edit</mat-icon>
     </button>
   </div>
 
   <div class="column tab-column">
     <mat-tab-group mat-align-tabs="center" style="max-height: 90%">
       <mat-tab label="Personal information">
-        <p>
-          Full name<button class="btn" mat-raised-button color="primary">
-            {{ user.name }}
-          </button>
-        </p>
-
-        <p>
-          Birthday<button class="btn" mat-raised-button color="primary">
-            {{ user.birthdate }}
-          </button>
-        </p>
-
-        <p>
-          E-mail<button class="btn" mat-raised-button color="primary">
-            {{ user.email }}
-          </button>
-        </p>
-
-        <p>
-          Phone<button class="btn" mat-raised-button color="primary">
-            {{ user.phone }}
-          </button>
-        </p>
-
-        <p>
-          Location<button class="btn" mat-raised-button color="primary">
-            {{ user.region }}
-          </button>
-        </p>
+        <div class="data-profile">
+          <div class="fields">
+            <p>Fullname</p>
+            <p>Birthdate</p>
+            <p>E-mail</p>
+            <p>Phone</p>
+            <p>Location</p>
+          </div>
+          <div class="data">
+            <p>
+              {{ carrier.username }}
+            </p>
+            <p>
+              {{ carrier.birthdate }}
+            </p>
+            <p>
+              {{ carrier.email }}
+            </p>
+            <p>
+              {{ carrier.phone }}
+            </p>
+            <p>
+              {{ carrier.street }}
+            </p>
+          </div>
+        </div>
       </mat-tab>
+
       <mat-tab label="Experience">
         <div>
-          <div *ngIf="!show">
-            <div *ngFor="let job of jobs">
-              <br />
-              <p>
-                Job<button
-                  class="btn"
-                  style="right: 20px"
-                  mat-raised-button
-                  color="primary"
-                >
-                  {{ job.job }}
-                </button>
-              </p>
+          <div *ngIf="!show; else editExperience">
+            <div *ngIf="experiences; else noExperiences">
+              <div *ngFor="let experience of experiences">
+                <br />
+                <p>
+                  Job
+                  <button
+                    class="btn"
+                    style="right: 20px"
+                    mat-raised-button
+                    color="primary"
+                  >
+                    {{ experience.job }}
+                  </button>
+                </p>
 
-              <p>
-                Time<button
-                  class="btn"
-                  style="right: 20px"
+                <p>
+                  Time<button
+                    class="btn"
+                    style="right: 20px"
+                    mat-raised-button
+                    color="primary"
+                  >
+                    {{ experience.years }} years
+                  </button>
+                </p>
+
+                <br />
+                <mat-divider></mat-divider>
+
+                <button
+                  class="btn-edit"
                   mat-raised-button
-                  color="primary"
+                  (click)="show = !show"
                 >
-                  {{ job.time.slice(0, 2) }} years
+                  Update experience
                 </button>
-              </p>
-              <br />
-              <mat-divider></mat-divider>
+              </div>
             </div>
-            <button class="btn-edit" mat-raised-button (click)="show = !show">
-              Update experience&nbsp;&nbsp;
-            </button>
+            <ng-template #noExperiences>
+              <div class="no-experiences">
+                <p>You don't have any experience yet</p>
+              </div>
+            </ng-template>
           </div>
-          <div *ngIf="show" class="experience">
-            <ng-template [ngIf]="show"
-              ><div class="experience-container">
+          <ng-template #editExperience class="experience">
+            <ng-template [ngIf]="show">
+              <div class="experience-container">
                 <form mat [formGroup]="experienceForm">
                   <mat-form-field>
-                    <input
-                      matInput
-                      type="Job"
-                      placeholder="Job"
-                      formControlName="Jobs"
-                    />
+                    <input matInput placeholder="Job" formControlName="job" />
                   </mat-form-field>
                   <br />
                   <mat-form-field>
                     <input
                       matInput
-                      type="String"
-                      placeholder="Time"
-                      formControlName="Time"
+                      placeholder="Years"
+                      formControlName="years"
                     />
                   </mat-form-field>
                 </form>
@@ -119,21 +125,20 @@
                     style="background-color: white; color: black"
                     (click)="show = !show"
                   >
-                    Cancel&nbsp;&nbsp;
+                    Cancel
                   </button>
 
                   <button
                     mat-raised-button
-                    (click)="Updateexpe()"
+                    (click)="updateExperience()"
                     color="accent"
                   >
-                    Save&nbsp;&nbsp;
+                    Save
                   </button>
                 </div>
-              </div></ng-template
-            >
-          </div>
-          <div></div>
+              </div>
+            </ng-template>
+          </ng-template>
         </div>
       </mat-tab>
 
@@ -141,127 +146,94 @@
         <div>
           <mat-grid-list cols="2" rowHeight="400px">
             <mat-grid-tile>
-              <div class="title2">Vehicle Information</div>
-              <div class="title3">
-                This information will be seen by the client
-              </div>
-              <div>
-                <ng-template [ngIf]="show">
-                  <div class="vehicle-container">
-                    <form mat class="info" [formGroup]="vehicleForm">
-                      <mat-form-field>
-                        <input
-                          matInput
-                          type="Brand"
-                          placeholder="Brand"
-                          formControlName="Brand"
-                        />
-                      </mat-form-field>
-                      <mat-form-field>
-                        <input
-                          matInput
-                          type="Typecar"
-                          placeholder="Typecar"
-                          formControlName="Typecar"
-                        />
-                      </mat-form-field>
-                      <mat-form-field>
-                        <input
-                          matInput
-                          type="Category"
-                          placeholder="Category"
-                          formControlName="Category"
-                        />
-                      </mat-form-field>
-                      <mat-form-field>
-                        <input
-                          matInput
-                          type="Quantity"
-                          placeholder="Quantity"
-                          formControlName="Quantity"
-                        />
-                      </mat-form-field>
-                      <mat-form-field>
-                        <input
-                          matInput
-                          type="Photo"
-                          placeholder="Photo"
-                          formControlName="Photo"
-                        />
-                      </mat-form-field>
-                    </form>
-                    <div class="buttons-container-vehicle">
-                      <button
-                        mat-raised-button
-                        style="background-color: white; color: black"
-                        (click)="show = !show"
-                      >
-                        Cancel&nbsp;&nbsp;
-                      </button>
-                      <button
-                        mat-raised-button
-                        color="accent"
-                        (click)="Update()"
-                      >
-                        Save&nbsp;&nbsp;
-                      </button>
-                    </div>
-                  </div>
-                </ng-template>
-                <ng-template [ngIf]="!show"
-                  ><div>
-                    <div class="title4">Brand: {{ vehicle.brand }}</div>
-                    <div class="title4">Type car:{{ vehicle.type_car }}</div>
-                    <div class="title4">Category: {{ vehicle.category }}</div>
-                    <div class="title4">Quantity: {{ vehicle.quantity }}</div>
+              <div *ngIf="!show; else editCar">
+                <div class="title2">Vehicle Information</div>
+                <div *ngIf="vehicles; else noVehiclesInfo">
+                  <div *ngFor="let vehicle of vehicles">
+                    <p class="title4">Type: {{ vehicle.type }}</p>
+                    <p class="title4">Quantity: {{ vehicle.quantity }}</p>
                     <button
                       class="btn-update"
                       mat-raised-button
                       (click)="show = !show"
                     >
-                      Update information&nbsp;
+                      Update information
                     </button>
-                  </div></ng-template
-                >
-                <br /><br /><br />
+                  </div>
+                </div>
+                <ng-template #noVehiclesInfo>
+                  <div class="no-vehicles">
+                    <p>You don't have any vehicle yet</p>
+                  </div>
+                </ng-template>
               </div>
-
-              <br /><br />
+              <ng-template #editCar>
+                <div class="vehicle-container">
+                  <form mat class="info" [formGroup]="vehicleForm">
+                    <mat-form-field>
+                      <input
+                        matInput
+                        placeholder="Type"
+                        formControlName="type"
+                      />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input
+                        matInput
+                        placeholder="Quantity"
+                        formControlName="quantity"
+                      />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input
+                        matInput
+                        placeholder="Photo"
+                        formControlName="photo"
+                      />
+                    </mat-form-field>
+                  </form>
+                  <div class="buttons-container-vehicle">
+                    <button
+                      mat-raised-button
+                      style="background-color: white; color: black"
+                      (click)="show = !show"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      mat-raised-button
+                      color="accent"
+                      (click)="updateVehicle()"
+                    >
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
             </mat-grid-tile>
             <mat-grid-tile>
               <div class="title2">Photos</div>
-              <img
-                mat-icon
-                [src]="vehicle.photo_car"
-                alt="car_photo"
-                style="max-width: 100%"
-              />
+              <div *ngIf="vehicles; else noVehiclesImg">
+                <div *ngFor="let vehicle of vehicles">
+                  <img
+                    mat-icon
+                    [src]="vehicle.photo"
+                    alt="Vehicle photo"
+                    style="max-width: 100%"
+                  />
+                </div>
+              </div>
+              <ng-template #noVehiclesImg>
+                <div class="no-vehicles">
+                  <p>You don't have any vehicle yet</p>
+                </div>
+              </ng-template>
             </mat-grid-tile>
           </mat-grid-list>
         </div>
       </mat-tab>
 
       <!-- <mat-tab label="Comments">
-        <div>
-          <mat-list *ngFor="let comment of comments">
-            <br /><br />
-            <mat-list-item>
-              <img [src]="comment.client.photo" alt="" class="foto-comments" />
-              <img
-                src="../../../../assets/img/Star.png"
-                alt=""
-                class="star-foto"
-              />
-              <h2>{{ comment.client.username }}</h2>
-              <h6 mat-line>{{ comment.comment }}</h6>
-              <h4>{{ comment.stars }}</h4>
-            </mat-list-item>
-            <br /><br />
-            <mat-divider></mat-divider>
-          </mat-list>
-        </div>
-      </mat-tab> -->
-      <mat-tab label="Comments">
         <div>
           <div *ngFor="let comment of pageSlice" class="tab-panel">
             <div class="row">
@@ -292,19 +264,10 @@
               class="paginator"
               (page)="onPageChange($event)"
             >
-              aria-label="Select page">
             </mat-paginator>
-            <!-- <button
-              color="accent"
-              class="btn-add-comment"
-              mat-raised-button
-              (click)="openCommentModal()">
-              Add comment&nbsp;&nbsp; 
-              <mat-icon fontIcon="comment"></mat-icon>
-            </button> -->
           </div>
         </div>
-      </mat-tab>
+      </mat-tab> -->
     </mat-tab-group>
   </div>
 </div>

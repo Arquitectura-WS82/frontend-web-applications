@@ -8,12 +8,15 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { User } from '../models/user';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { Vehicle } from '@app/models/vehicle';
+import { Experience } from '@app/models/experience';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CarrierService {
   basePath: string = GlobalVariable.BASE_API_URL;
+  url: string = GlobalVariable.BASE_API_URL + '/carrier';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -61,7 +64,25 @@ export class CarrierService {
 
   getCarriers(): Observable<User[]> {
     return this.http
-      .get<User[]>(`${this.basePath}/carrier`, this.httpOptions)
+      .get<User[]>(this.url, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
+  }
+
+  getCarrierById(id: number): Observable<User> {
+    return this.http
+      .get<User>(`${this.url}/${id}`, this.httpOptions)
+      .pipe(retry(2));
+  }
+
+  getVehiclesByCarrierId(carrierId: number): Observable<Vehicle[]> {
+    return this.http
+      .get<any>(`${this.url}/${carrierId}/vehicles`, this.httpOptions)
+      .pipe(retry(2));
+  }
+
+  getExperiencesByCarrierId(carrierId: number): Observable<Experience[]> {
+    return this.http
+      .get<any>(`${this.url}/${carrierId}/experiences`, this.httpOptions)
+      .pipe(retry(2));
   }
 }

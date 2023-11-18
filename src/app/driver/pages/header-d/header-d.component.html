@@ -13,19 +13,17 @@
     matBadgeColor="warn"
     [matBadgeHidden]="hidden"
     (click)="
-      toggleBadgeVisibility();
-      notification.showModal();
-      updateNotification(user_id)
+      toggleBadgeVisibility(); notification.showModal(); updateNotification()
     "
     >notifications_active</mat-icon
   >
 </mat-toolbar>
 
 <app-notifications [title]="'Notifications'" #notification>
-  <div *ngFor="let drivernotification of drivernotifications">
+  <div *ngFor="let carrierNotification of carrierNotifications">
     <mat-card
       class="example-card"
-      *ngIf="drivernotification.status.status == 'HISTORY'"
+      *ngIf="carrierNotification.status.status == 'HISTORY'"
     >
       <mat-card-header>
         <img
@@ -53,8 +51,8 @@
     <mat-card
       class="card-rejected"
       *ngIf="
-        drivernotification.status.status == 'OFFER' &&
-        drivernotification.visible == false
+        carrierNotification.status.status == 'OFFER' &&
+        carrierNotification.visible == false
       "
     >
       <mat-card-header>
@@ -66,31 +64,31 @@
         <mat-card class="card-history">
           <div class="client-history">
             <img
-              [src]="drivernotification.client.photo"
+              [src]="carrierNotification.client.photoUrl"
               alt="Profile"
               class="profile-img-history"
             />
             <div>
               <strong>Client</strong>
-              <p>{{ drivernotification.client.username }}</p>
+              <p>{{ carrierNotification.client.username }}</p>
             </div>
           </div>
           <div>
             <h4>DETAILS</h4>
             <p>
               Date:
-              <strong>{{ drivernotification.contractDate }}</strong>
+              <strong>{{ carrierNotification.date }}</strong>
             </p>
             <p>
               From:
-              <strong>{{ drivernotification.from }}</strong>
+              <strong>{{ carrierNotification.streetFrom }}</strong>
             </p>
             <p>
-              To: <strong>{{ drivernotification.to }}</strong>
+              To: <strong>{{ carrierNotification.streetTo }}</strong>
             </p>
             <p>
               Amount:
-              <strong>{{ drivernotification.amount }}</strong>
+              <strong>{{ carrierNotification.amount }}</strong>
             </p>
           </div>
         </mat-card>
@@ -100,8 +98,8 @@
     <mat-card
       class="card-accepted"
       *ngIf="
-        drivernotification.status.status == 'OFFER' &&
-        drivernotification.visible == true
+        carrierNotification.status.status == 'OFFER' &&
+        carrierNotification.visible == true
       "
     >
       <mat-card-header>
@@ -113,31 +111,31 @@
         <mat-card class="card-history">
           <div class="client-history">
             <img
-              [src]="drivernotification.client.photo"
+              [src]="carrierNotification.client.photoUrl"
               alt="Profile"
               class="profile-img-history"
             />
             <div>
               <strong>Client</strong>
-              <p>{{ drivernotification.client.username }}</p>
+              <p>{{ carrierNotification.client.username }}</p>
             </div>
           </div>
           <div>
             <h4>DETAILS</h4>
             <p>
               Date:
-              <strong>{{ drivernotification.contractDate }}</strong>
+              <strong>{{ carrierNotification.date }}</strong>
             </p>
             <p>
               From:
-              <strong>{{ drivernotification.from }}</strong>
+              <strong>{{ carrierNotification.streetFrom }}</strong>
             </p>
             <p>
-              To: <strong>{{ drivernotification.to }}</strong>
+              To: <strong>{{ carrierNotification.streetTo }}</strong>
             </p>
             <p>
               Amount:
-              <strong>{{ drivernotification.amount }}</strong>
+              <strong>{{ carrierNotification.amount }}</strong>
             </p>
           </div>
         </mat-card>

@@ -17,10 +17,8 @@ export class HomeCComponent implements OnInit {
   best_ranked: User[];
   defaultImage: string = '../../../../assets/img/user-vector.png';
 
-  pendingContracts: Contract[];
+  historyContracts: Contract[];
   driver_route: any;
-
-  basePath = GlobalVariable.BASE_API_URL;
 
   constructor(
     private clientService: ClientService,
@@ -30,7 +28,7 @@ export class HomeCComponent implements OnInit {
   ) {
     this.best_ranked = [] as User[];
     this.client = {} as User;
-    this.pendingContracts = [] as Contract[];
+    this.historyContracts = [] as Contract[];
   }
 
   ngOnInit(): void {
@@ -47,7 +45,7 @@ export class HomeCComponent implements OnInit {
     this.contractService
       .getHistoryContracts(parseInt(user_id), 'client')
       .subscribe((res: any) => {
-        this.pendingContracts = res;
+        this.historyContracts = res;
       });
   }
 

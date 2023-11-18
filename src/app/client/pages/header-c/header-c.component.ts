@@ -82,10 +82,6 @@ export class HeaderCComponent implements OnInit {
           if (data[i].status.status != 'OFFER')
             this.contractService.changeNotificationStatus(data[i].id);
         }
-        console.log(
-          '🚀 ~ file: header-c.component.ts:80 ~ HeaderCComponent ~ .subscribe ~ data:',
-          data
-        );
       });
   }
 

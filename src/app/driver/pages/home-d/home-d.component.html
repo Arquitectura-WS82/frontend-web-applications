@@ -1,6 +1,6 @@
 <app-header-d></app-header-d>
 
-<div class="mini_profile">
+<div class="mini_profile content">
   <mat-card class="inline-block profile_card">
     <span
       class="_badge"
@@ -10,17 +10,20 @@
       matBadgeColor="accent"
       matBadgeSize="medium"
     >
-      <img mat-icon mat-card-avatar [src]="user.photo" alt="User Avatar" />
+      <img
+        mat-icon
+        mat-card-avatar
+        [src]="carrier.photoUrl || defaultImage"
+        alt="User Avatar"
+      />
     </span>
-    <mat-card-title class="inline-block user_name" layout-align="center center">
-      <strong>Hi,<br />{{ user.username }} &excl;</strong>
+    <mat-card-title class="inline-block user_name" layout-align="center">
+      <strong>Hi,<br />{{ carrier.username }} &excl;</strong>
     </mat-card-title>
   </mat-card>
-
-  <a></a>
 </div>
 
-<div class="info" fxLayout="row">
+<div class="info content">
   <div class="popular_drivers" class="inline-block">
     <mat-card-title class="home_title">
       <strong>Popular Drivers</strong>
@@ -28,10 +31,14 @@
 
     <mat-card *ngFor="let _driver of best_ranked.slice(0, 2)">
       <div class="inline-block">
-        <img mat-card-avatar [src]="_driver.photo" alt="User Avatar" />
+        <img
+          mat-card-avatar
+          [src]="_driver.photoUrl || defaultImage"
+          alt="User Avatar"
+        />
       </div>
       <div class="inline-block info_text">
-        <mat-card-title>{{ _driver.name }}</mat-card-title>
+        <mat-card-title>{{ _driver.username }}</mat-card-title>
         <mat-card-content>Rating:</mat-card-content>
         <mat-card-content *ngFor="let in of counter(5)" class="rating_stars"
           >&#9733;</mat-card-content
@@ -45,16 +52,30 @@
       <strong>Lasts Contracts</strong>
     </mat-card-title>
 
-    <mat-card *ngFor="let _contract of contracts_user">
-      <div class="inline-block">
-        <img mat-card-avatar [src]="_contract.client.photo" alt="User Avatar" />
+    <div *ngIf="historyContracts; else noContracts">
+      <mat-card *ngFor="let _contract of historyContracts">
+        <div class="inline-block">
+          <img
+            mat-card-avatar
+            [src]="_contract.client.photoUrl || defaultImage"
+            alt="User Avatar"
+          />
+        </div>
+        <div class="inline-block info_text">
+          <mat-card-title>{{ _contract.client.username }}</mat-card-title>
+          <mat-card-content>From: {{ _contract.streetFrom }}</mat-card-content>
+          <mat-card-content>To: {{ _contract.streetTo }}</mat-card-content>
+        </div>
+      </mat-card>
+    </div>
+
+    <ng-template #noContracts>
+      <div>
+        <mat-card>
+          <mat-card-title>No pending contracts</mat-card-title>
+        </mat-card>
       </div>
-      <div class="inline-block info_text">
-        <mat-card-title>{{ _contract.client.username }}</mat-card-title>
-        <mat-card-content>From {{ _contract.from }}</mat-card-content>
-        <mat-card-content>To {{ _contract.to }}</mat-card-content>
-      </div>
-    </mat-card>
+    </ng-template>
   </div>
 </div>
 

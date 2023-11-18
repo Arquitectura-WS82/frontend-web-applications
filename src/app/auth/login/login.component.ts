@@ -36,10 +36,12 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.signInForm.value.type === 'client') {
       this.clientService
-        .findAccount('antbot@gmail.com', 'password')
+        .findAccount(
+          this.signInForm.value.email,
+          this.signInForm.value.password
+        )
         .pipe(
           catchError((err: any, caught: Observable<User>) => {
-            // console.error('Error occurred:', err);
             alert('Usuario o contraseña incorrecta');
             return caught;
           })
@@ -53,10 +55,12 @@ export class LoginComponent implements OnInit {
         });
     } else {
       this.carrierService
-        .findAccount('antbot@gmail.com', 'password')
+        .findAccount(
+          this.signInForm.value.email,
+          this.signInForm.value.password
+        )
         .pipe(
           catchError((err: any, caught: Observable<User>) => {
-            // console.error('Error occurred:', err);
             alert('Usuario o contraseña incorrecta');
             return caught;
           })
@@ -68,54 +72,5 @@ export class LoginComponent implements OnInit {
           alert('Welcome, carrier');
         });
     }
-
-    /*
-    this.http
-      .get<Array<User>>(`${this.basePath}/client`, this.httpOptions)
-      .subscribe((res: Array<User>) => {
-        const data = res.find((client: any) => {
-          if (
-            client.email === this.signInForm.value.email &&
-            client.password === this.signInForm.value.password
-          ) {
-            localStorage.setItem('currentUser', client.id);
-            localStorage.setItem('typeofuser', 'client');
-            this.logged = true;
-            return true;
-          } else return false;
-        });
-        console.log(this.signInForm.value.email);
-        console.log(this.signInForm.value.password);
-        if (data) {
-          this.router.navigate(['/home-c']);
-          alert('Welcome, client');
-        }
-        if (!this.logged) {
-          this.http
-            .get<any>(`${this.basePath}/carrier`, this.httpOptions)
-            .subscribe((res) => {
-              const data = res.find((driver: any) => {
-                if (
-                  driver.email === this.signInForm.value.email &&
-                  driver.password === this.signInForm.value.password
-                ) {
-                  localStorage.setItem('currentUser', driver.id);
-                  localStorage.setItem('typeofuser', 'driver');
-                  console.log('prueba');
-                  return true;
-                } else return false;
-              });
-              console.log(this.signInForm.value.email);
-              console.log(this.signInForm.value.password);
-              if (data) {
-                this.router.navigate(['/home-d']);
-                alert('Welcome, driver');
-              } else {
-                alert('Usuario o contraseña incorrecta');
-              }
-            });
-        }
-      });  ¨
-      */
   }
 }
