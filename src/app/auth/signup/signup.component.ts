@@ -21,8 +21,6 @@ export class SignupComponent implements OnInit {
   samePassword: boolean = false;
   signupForm: FormGroup;
 
-  basePath = GlobalVariable.BASE_API_URL;
-
   constructor(
     public formBuilder: FormBuilder,
     private clientService: ClientService,
@@ -32,10 +30,6 @@ export class SignupComponent implements OnInit {
   ) {
     this.user = {} as User;
     this.districts = [] as District[];
-
-    districtService.getDistricts().subscribe((res) => {
-      this.districts = res;
-    });
 
     this.signupForm = this.formBuilder.group({
       email: [
@@ -73,13 +67,6 @@ export class SignupComponent implements OnInit {
       district: ['', { validators: [Validators.required], updateOn: 'change' }],
       description: [''],
     });
-
-    this.filteredDistricts = this.signupForm
-      ?.get('district')
-      ?.valueChanges.pipe(
-        startWith(''),
-        map((value) => this._filter(value || ''))
-      );
   }
 
   private _filter(value: string): District[] {
@@ -92,6 +79,17 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.setPhoneValidation();
+
+    this.districtService.getDistricts().subscribe((res) => {
+      this.districts = res;
+    });
+
+    this.filteredDistricts = this.signupForm
+      ?.get('district')
+      ?.valueChanges.pipe(
+        startWith(''),
+        map((value) => this._filter(value || ''))
+      );
   }
 
   registerData() {
@@ -124,9 +122,11 @@ export class SignupComponent implements OnInit {
     this.user.description = this.signupForm.value.description;
     this.user.photoUrl =
       'https://thumbs.dreamstime.com/b/icono-de-usuario-predeterminado-vectores-imagen-perfil-avatar-predeterminada-vectorial-medios-sociales-retrato-182347582.jpg';
-    this.districtService.getDistrictById('1').subscribe((res) => {
-      this.user.district = res;
-    });
+    this.districtService
+      .getDistrictById(this.signupForm.value.district.id)
+      .subscribe((res) => {
+        this.user.district = res;
+      });
   }
 
   onSubmit() {

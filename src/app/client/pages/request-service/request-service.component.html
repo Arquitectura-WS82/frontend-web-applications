@@ -1,7 +1,8 @@
 <app-header-c></app-header-c>
+
 <h1>Request Service</h1>
 
-<form class="card" [formGroup]="requestServiceForm" (submit)="onSubmit()">
+<form class="card" [formGroup]="requestServiceForm">
   <div class="column col-main">
     <mat-form-field>
       <mat-label>Street From</mat-label>
@@ -9,8 +10,44 @@
     </mat-form-field>
 
     <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="DistrictFrom"
+        formControlName="districtFrom"
+        [matAutocomplete]="autoDistrictFrom"
+      />
+      <mat-autocomplete #autoDistrictFrom="matAutocomplete">
+        <mat-option
+          *ngFor="let district of filteredDistrictsFrom | async"
+          [value]="district.name"
+        >
+          {{ district.name }} - {{ district.province.name }}</mat-option
+        >
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field>
       <mat-label>Street To</mat-label>
       <input matInput formControlName="streetTo" type="text" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="DistrictTo"
+        formControlName="districtTo"
+        [matAutocomplete]="autoDistrictTo"
+      />
+      <mat-autocomplete #autoDistrictTo="matAutocomplete">
+        <mat-option
+          *ngFor="let district of filteredDistrictsTo | async"
+          [value]="district.name"
+        >
+          {{ district.name }} - {{ district.province.name }}</mat-option
+        >
+      </mat-autocomplete>
     </mat-form-field>
 
     <mat-form-field>
@@ -59,14 +96,14 @@
     <div class="row">
       <mat-form-field class="r-time">
         <mat-label>Time (start)</mat-label>
-        <input matInput formControlName="timeStart" type="time" />
+        <input matInput formControlName="timeArrival" type="time" />
       </mat-form-field>
 
       <strong class="guion"> - </strong>
 
       <mat-form-field class="r-time">
         <mat-label>Time (finish)</mat-label>
-        <input matInput formControlName="timeFinish" type="time" />
+        <input matInput formControlName="timeDeparture" type="time" />
       </mat-form-field>
     </div>
 
