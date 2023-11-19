@@ -46,16 +46,16 @@ export class CarrierService {
   findAccount(email: string, password: string): Observable<User> {
     return this.http
       .get<User>(
-        `${this.basePath}/carrier/searchEmailAndPassword/${email}/${password}`,
+        `${this.url}/searchEmailAndPassword/${email}/${password}`,
         this.httpOptions
       )
       .pipe(catchError(this.handleError));
   }
 
-  registerCarrier(user: User): Observable<User> {
+  registerCarrier(user: User, districtId: string): Observable<User> {
     return this.http
       .post<User>(
-        `${this.basePath}/carrier`,
+        `${this.url}/add/district/${districtId}`,
         JSON.stringify(user),
         this.httpOptions
       )

@@ -19,7 +19,7 @@ export class ContractService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': 'http://localhost:4200',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     }),
   };
@@ -43,12 +43,12 @@ export class ContractService {
   addContract(
     contract: Contract,
     clientId: number,
-    driverId: number,
+    carrierId: number,
     districtFrom: string,
     districtTo: string
   ) {
     return this.http.post(
-      `${this.url}/add/client/${clientId}/carrier/${driverId}/districtFrom/${districtFrom}/districtTo/${districtTo}`,
+      `${this.url}/add/client/${clientId}/carrier/${carrierId}/districtFrom/${districtFrom}/districtTo/${districtTo}`,
       JSON.stringify(contract),
       this.httpOptions
     );
@@ -97,7 +97,7 @@ export class ContractService {
   }
 
   changeNotificationStatus(contract: Contract): Observable<Contract> {
-    return this.http.put<Contract>(
+    return this.http.patch<Contract>(
       `${this.url}/${contract.id}/change-notification-status`,
       contract
     );
@@ -107,7 +107,7 @@ export class ContractService {
     contract: Contract,
     status: string
   ): Observable<Contract> {
-    return this.http.put<Contract>(
+    return this.http.patch<Contract>(
       `${this.url}/${contract.id}/update-status/${status}`,
       contract
     );

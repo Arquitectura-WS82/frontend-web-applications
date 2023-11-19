@@ -12,7 +12,7 @@ import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 export class PayContractCComponent implements OnInit {
   acceptedcontract: any = [];
   contract_id:any;
-  //basePath = 'http://localhost:3000/api/v1/';
+  
   url: string = GlobalVariable.BASE_API_URL;
 
   constructor(private formBuilder: FormBuilder,private http: HttpClient, private router: Router) { }

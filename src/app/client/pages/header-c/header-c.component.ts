@@ -65,8 +65,8 @@ export class HeaderCComponent implements OnInit {
         for (let i = 0; i < data.length; i++) {
           if (
             data[i].notification.readStatus == false &&
-            (data[i].status.status == 'PENDING' ||
-              (data[i].status.status == 'OFFER' && data[i].visible == false))
+            (data[i].status.status == 'PENDING' || // accept offer
+              (data[i].status.status == 'OFFER' && data[i].visible == false)) // decline offer
           ) {
             this.cont++;
           }
@@ -79,7 +79,10 @@ export class HeaderCComponent implements OnInit {
       .getUnreadNotifications(clientId, 'client')
       .subscribe((data: any) => {
         for (let i = 0; i < data.length; i++) {
-          if (data[i].status.status != 'OFFER')
+          if (
+            data[i].status.status != 'OFFER' &&
+            data[i].notification.readStatus == false
+          )
             this.contractService.changeNotificationStatus(data[i].id);
         }
       });

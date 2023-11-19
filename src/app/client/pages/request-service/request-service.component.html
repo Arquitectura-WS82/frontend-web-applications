@@ -17,10 +17,13 @@
         formControlName="districtFrom"
         [matAutocomplete]="autoDistrictFrom"
       />
-      <mat-autocomplete #autoDistrictFrom="matAutocomplete">
+      <mat-autocomplete
+        #autoDistrictFrom="matAutocomplete"
+        [displayWith]="displayFn"
+      >
         <mat-option
           *ngFor="let district of filteredDistrictsFrom | async"
-          [value]="district.name"
+          [value]="district"
         >
           {{ district.name }} - {{ district.province.name }}</mat-option
         >
@@ -40,10 +43,13 @@
         formControlName="districtTo"
         [matAutocomplete]="autoDistrictTo"
       />
-      <mat-autocomplete #autoDistrictTo="matAutocomplete">
+      <mat-autocomplete
+        #autoDistrictTo="matAutocomplete"
+        [displayWith]="displayFn"
+      >
         <mat-option
           *ngFor="let district of filteredDistrictsTo | async"
-          [value]="district.name"
+          [value]="district"
         >
           {{ district.name }} - {{ district.province.name }}</mat-option
         >
@@ -64,7 +70,7 @@
 
     <mat-form-field>
       <mat-label>Type of service</mat-label>
-      <mat-select formControlName="type" [(ngModel)]="typeofService">
+      <mat-select formControlName="typeofService">
         <mat-option value="commercial"> Commercial </mat-option>
         <mat-option value="tourism"> Tourism </mat-option>
         <mat-option value="private"> Private </mat-option>
@@ -74,19 +80,28 @@
     </mat-form-field>
 
     <mat-form-field
-      *ngIf="typeofService == 'commercial' || typeofService == 'heavy load'"
+      *ngIf="
+        requestServiceForm.get('typeofService')?.value == 'commercial' ||
+        requestServiceForm.get('typeofService')?.value == 'heavy load'
+      "
     >
       <mat-label>Weight (Kg)</mat-label>
       <input matInput formControlName="quantity" type="number" />
     </mat-form-field>
 
     <mat-form-field
-      *ngIf="typeofService == 'private' || typeofService == 'tourism'"
+      *ngIf="
+        requestServiceForm.get('typeofService')?.value == 'private' ||
+        requestServiceForm.get('typeofService')?.value == 'tourism'
+      "
     >
       <mat-label>People</mat-label>
       <input matInput formControlName="quantity" type="number" />
     </mat-form-field>
-    <mat-form-field *ngIf="typeofService == 'moving'">
+
+    <mat-form-field
+      *ngIf="requestServiceForm.get('typeofService')?.value == 'moving'"
+    >
       <mat-label>Number of boxes</mat-label>
       <input matInput formControlName="quantity" type="number" />
     </mat-form-field>

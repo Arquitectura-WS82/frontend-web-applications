@@ -29,9 +29,8 @@ export class ContractsDComponent implements OnInit {
   }
 
   acceptContract(contract: Contract): void {
-    this.contractService.changeContractStatus(contract, 'PENDING');
+    this.contractService.changeContractStatus(contract, 'PENDING').subscribe();
 
-    // const dialogRef = this.dialog.open(ContractDialogComponent, {
     this.dialog.open(ContractDialogComponent, {
       width: '30vw',
       data: {
@@ -67,7 +66,6 @@ export class ContractsDComponent implements OnInit {
       .subscribe((response) => {
         this.offerContracts = response;
         this.offerContracts = this.filterContracts(this.offerContracts);
-        console.log(this.offerContracts);
       });
 
     this.contractService

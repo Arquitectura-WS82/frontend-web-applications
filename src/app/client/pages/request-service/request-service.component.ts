@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CarrierService } from '@services/CarrierService';
-import { DistrictService } from '@services/DistrictService';
 import { ContractDialogComponent } from '@components/contract-dialog/contract-dialog.component';
 import { Contract } from '@models/contract';
 import { District } from '@models/user';
+import { CarrierService } from '@services/CarrierService';
 import { ClientService } from '@services/ClientService';
 import { ContractService } from '@services/ContractService';
+import { DistrictService } from '@services/DistrictService';
 import { Observable, map, startWith } from 'rxjs';
 
 @Component({
@@ -20,7 +21,6 @@ export class RequestServiceComponent implements OnInit {
   contract: Contract;
 
   requestServiceForm: FormGroup;
-  typeofService: string;
   carrierId: number = 0;
 
   districts: District[];
@@ -35,18 +35,18 @@ export class RequestServiceComponent implements OnInit {
     private clientService: ClientService,
     private carrierService: CarrierService,
     private districtService: DistrictService,
+    private datePipe: DatePipe,
     route: ActivatedRoute
   ) {
     route.params.subscribe((params) => {
       this.carrierId = params['id'];
     });
 
-    this.typeofService = '';
-
     this.districts = [] as District[];
     this.contract = {} as Contract;
 
     this.requestServiceForm = this.formBuilder.group({
+      typeofService: ['', { validators: [Validators.required] }],
       amount: ['', { validators: [Validators.required], updatedOn: 'change' }],
       description: [
         '',
@@ -85,7 +85,11 @@ export class RequestServiceComponent implements OnInit {
     });
   }
 
-  private _filter(value: string): District[] {
+  displayFn(district?: District): string {
+    return district ? district.name : '';
+  }
+
+  _filter(value: string): District[] {
     const filterValue = value.toLowerCase();
 
     return this.districts.filter((option) =>
@@ -128,13 +132,15 @@ export class RequestServiceComponent implements OnInit {
 
     let clientId = localStorage.getItem('currentUser') || '';
 
+    console.log(this.contract);
+
     this.contractService
       .addContract(
         this.contract,
         parseInt(clientId),
         this.carrierId,
-        this.contract.districtFrom.id,
-        this.contract.districtTo.id
+        this.requestServiceForm.value.districtFrom.id,
+        this.requestServiceForm.value.districtTo.id
       )
       .subscribe((res) => {
         console.log(res);
@@ -151,9 +157,10 @@ export class RequestServiceComponent implements OnInit {
   formToRequest() {
     this.contract.streetFrom = this.requestServiceForm.value.streetFrom;
     this.contract.streetTo = this.requestServiceForm.value.streetTo;
-    this.contract.districtFrom = this.requestServiceForm.value.districtFrom;
-    this.contract.districtTo = this.requestServiceForm.value.districtTo;
-    this.contract.date = this.requestServiceForm.value.date;
+    this.contract.date = this.datePipe.transform(
+      new Date(this.requestServiceForm.value.date),
+      'yyyy-MM-dd'
+    ) as string;
     this.contract.quantity = this.requestServiceForm.value.quantity;
     this.contract.timeDeparture =
       this.requestServiceForm.value.timeArrival + ':00';

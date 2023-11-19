@@ -14,6 +14,7 @@ import { User } from '../models/user';
 })
 export class ClientService {
   basePath: string = GlobalVariable.BASE_API_URL;
+  url = this.basePath + '/client';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -43,16 +44,16 @@ export class ClientService {
   findAccount(email: string, password: string): Observable<User> {
     return this.http
       .get<User>(
-        `${this.basePath}/client/searchEmailAndPassword/${email}/${password}`,
+        `${this.url}/searchEmailAndPassword/${email}/${password}`,
         this.httpOptions
       )
       .pipe(catchError(this.handleError));
   }
 
-  registerClient(client: User): Observable<User> {
+  registerClient(client: User, districtId: string): Observable<User> {
     return this.http
       .post<User>(
-        `${this.basePath}/client`,
+        `${this.url}/add/district/${districtId}`,
         JSON.stringify(client),
         this.httpOptions
       )
@@ -70,9 +71,6 @@ export class ClientService {
   }
 
   getClientById(id: any): Observable<User> {
-    return this.http.get<User>(
-      `${this.basePath}/client/${id}`,
-      this.httpOptions
-    );
+    return this.http.get<User>(`${this.url}/${id}`, this.httpOptions);
   }
 }

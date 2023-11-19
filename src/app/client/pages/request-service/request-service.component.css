@@ -40,7 +40,6 @@ mat-form-field {
   margin-top: 3.5vh;
   margin-bottom: 3.5vh;
   border-radius: 30px;
-  /* width: 35vw; */
   padding: 1vw 3vw 0.5vw 3vw;
   background: #fff;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);

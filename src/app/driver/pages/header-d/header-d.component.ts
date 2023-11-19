@@ -51,7 +51,7 @@ export class HeaderDComponent implements OnInit {
   getDriverNotifications(id: any) {
     this.contractService.getContracts().subscribe((data: any) => {
       this.carrierNotifications = data.filter((contract: Contract) => {
-        if (contract.client.id == id) {
+        if (contract.carrier.id == id) {
           return contract;
         }
         return null;
@@ -63,13 +63,15 @@ export class HeaderDComponent implements OnInit {
     this.contractService
       .getUnreadNotifications(id, 'carrier')
       .subscribe((data: any) => {
-        for (let i = 0; i < data.length; i++) {
-          if (
-            data[i].notification.readStatus == false &&
-            (data[i].status.status == 'HISTORY' ||
-              (data[i].status.status == 'OFFER' && data[i].visible == false))
-          ) {
-            this.cont++;
+        if (data) {
+          for (let i = 0; i < data.length; i++) {
+            if (
+              data[i].notification.readStatus == false &&
+              (data[i].status.status == 'HISTORY' || // finish contract
+                (data[i].status.status == 'OFFER' && data[i].visible == false)) // decline offer
+            ) {
+              this.cont++;
+            }
           }
         }
       });
@@ -80,8 +82,11 @@ export class HeaderDComponent implements OnInit {
       .getUnreadNotifications(carrierId, 'carrier')
       .subscribe((data: any) => {
         for (let i = 0; i < data.length; i++) {
-          if (data[i].status.status != 'PENDING')
-            this.contractService.changeNotificationStatus(data[i].id);
+          if (
+            data[i].status.status != 'PENDING' &&
+            data[i].notification.readStatus == false
+          )
+            this.contractService.changeNotificationStatus(data[i]).subscribe();
         }
       });
   }

@@ -1,9 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CarrierService } from '@app/services/CarrierService';
 import { District, User } from '@models/user';
-import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 import { ClientService } from '@services/ClientService';
 import { DistrictService } from '@services/DistrictService';
 import { Observable, map, startWith } from 'rxjs';
@@ -26,7 +26,8 @@ export class SignupComponent implements OnInit {
     private clientService: ClientService,
     private carrierService: CarrierService,
     private districtService: DistrictService,
-    private router: Router
+    private router: Router,
+    private datePipe: DatePipe
   ) {
     this.user = {} as User;
     this.districts = [] as District[];
@@ -96,15 +97,19 @@ export class SignupComponent implements OnInit {
     this.formToUser();
 
     if (this.signupForm.value.typeofuser == 'client') {
-      this.clientService.registerClient(this.user).subscribe((res) => {
-        console.log(res);
-        alert('Registro exitoso');
-      });
+      this.clientService
+        .registerClient(this.user, this.signupForm.value.district.id)
+        .subscribe((res) => {
+          console.log(res);
+          alert('Register successful, Client');
+        });
     } else {
-      this.carrierService.registerCarrier(this.user).subscribe((res) => {
-        console.log(res);
-        alert('Registro exitoso');
-      });
+      this.carrierService
+        .registerCarrier(this.user, this.signupForm.value.district.id)
+        .subscribe((res) => {
+          console.log(res);
+          alert('Register successful, Driver');
+        });
     }
     this.router.navigate(['/login']);
   }
@@ -115,18 +120,16 @@ export class SignupComponent implements OnInit {
     this.user.firstName = this.signupForm.value.first_name;
     this.user.lastName = this.signupForm.value.last_name;
     this.user.street = this.signupForm.value.street;
-    this.user.birthdate = this.signupForm.value.birthdate;
+    this.user.birthdate = this.datePipe.transform(
+      new Date(this.signupForm.value.birthdate),
+      'yyyy-MM-dd'
+    ) as string;
     this.user.phone = this.signupForm.value.phone;
     this.user.username =
       this.signupForm.value.first_name + ' ' + this.signupForm.value.last_name;
     this.user.description = this.signupForm.value.description;
     this.user.photoUrl =
       'https://thumbs.dreamstime.com/b/icono-de-usuario-predeterminado-vectores-imagen-perfil-avatar-predeterminada-vectorial-medios-sociales-retrato-182347582.jpg';
-    this.districtService
-      .getDistrictById(this.signupForm.value.district.id)
-      .subscribe((res) => {
-        this.user.district = res;
-      });
   }
 
   onSubmit() {

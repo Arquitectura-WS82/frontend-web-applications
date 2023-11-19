@@ -1,133 +1,131 @@
 <app-header-c></app-header-c>
-<h1>Contract accepted!</h1>
-<mat-grid-list class="card" cols="2"  rowHeight="80%">
-   
 
-    <mat-grid-tile
-        [colspan]="1"
-        [rowspan]="1"
-        [style.background]="'transparent'">
-        <div class="card">
-            <h2>Details</h2>
-            <div class="card-group">
-                <div class="contract-information">
-                  <mat-card class="card">
-                    <br><br>
-                    <mat-card-title>Subject: {{acceptedcontract.subject}}</mat-card-title>
-                    <mat-card-subtitle>
-                      <strong></strong>
-                    </mat-card-subtitle>
-                    <mat-card-content>
-                      <div>
-                        <p>
-                          From <strong>{{acceptedcontract.from}} </strong>
-                        </p>
-                        <p>
-                          To: <strong>{{acceptedcontract.to}}</strong>
-                        </p>
-                        <p>
-                          Date: <strong> {{acceptedcontract.contractDate}}</strong>
-                        </p>
-                        <p>
-                          Time:
-                          <strong>
-                            {{acceptedcontract.timeDeparture}} - {{acceptedcontract.timeArrival}}
-                            </strong
-                          >
-                        </p>
-                        <p>
-                            Type: <strong>{{acceptedcontract.subject}}</strong>
-                        </p>
-                        <!-- <p>
+<h1>Contract accepted!</h1>
+<mat-grid-list class="card" cols="2" rowHeight="80%">
+  <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'transparent'">
+    <div class="card">
+      <h2>Details</h2>
+      <div class="card-group">
+        <div class="contract-information">
+          <mat-card class="card">
+            <br /><br />
+            <mat-card-title
+              >Subject: {{ acceptedcontract.subject }}</mat-card-title
+            >
+            <mat-card-subtitle>
+              <strong></strong>
+            </mat-card-subtitle>
+            <mat-card-content>
+              <div>
+                <p>
+                  From <strong>{{ acceptedcontract.from }} </strong>
+                </p>
+                <p>
+                  To: <strong>{{ acceptedcontract.to }}</strong>
+                </p>
+                <p>
+                  Date: <strong> {{ acceptedcontract.contractDate }}</strong>
+                </p>
+                <p>
+                  Time:
+                  <strong>
+                    {{ acceptedcontract.timeDeparture }} -
+                    {{ acceptedcontract.timeArrival }}
+                  </strong>
+                </p>
+                <p>
+                  Type: <strong>{{ acceptedcontract.subject }}</strong>
+                </p>
+                <!-- <p>
                             Contract ID: <strong>{{acceptedcontract.id}}</strong>
                         </p> -->
-                      </div>
-                      <hr />
-                      <br>
-                      <div class="client-price">
-                        <strong>Client data</strong>
-                        <strong style="text-align: center">Amount:{{acceptedcontract.amount}}</strong>
-                        <div class="client">
-                          <img
-                            [src]="acceptedcontract.client.photo"
-                            alt="Profile"
-                            class="profile-img"
-                          />
-                          <div style="flex-grow: 2">
-                            <strong>{{acceptedcontract.client.name}}</strong><span></span>
-                            <div class="phoneclient">Phone: {{acceptedcontract.client.phone}}</div>
-                          </div>
-                        </div>
-                        <div class="price">S/. {{acceptedcontract.amount}} </div>
-                      </div>
-                      <br>
-                    </mat-card-content>
-                  </mat-card>
-                </div>
               </div>
+              <hr />
+              <br />
+              <div class="client-price">
+                <strong>Client data</strong>
+                <strong style="text-align: center"
+                  >Amount:{{ acceptedcontract.amount }}</strong
+                >
+                <div class="client">
+                  <img
+                    [src]="acceptedcontract.client.photo"
+                    alt="Profile"
+                    class="profile-img"
+                  />
+                  <div style="flex-grow: 2">
+                    <strong>{{ acceptedcontract.client.name }}</strong
+                    ><span></span>
+                    <div class="phoneclient">
+                      Phone: {{ acceptedcontract.client.phone }}
+                    </div>
+                  </div>
+                </div>
+                <div class="price">S/. {{ acceptedcontract.amount }}</div>
+              </div>
+              <br />
+            </mat-card-content>
+          </mat-card>
         </div>
-        
-        
-    </mat-grid-tile>
-    
-    <mat-grid-tile
-        [colspan]="1"
-        [rowspan]="1"
-        [style.background]="'transparent'">
-        <div class="card">
-            <h2>Payments Details</h2>
-            <div class="card-group-pay">
-                <div class="contract-information">
-                  <div class="payment-details inline">
-                    <mat-card class="card-pay">
-                        <form class="cc-form" [formGroup]="form">
-                          <div class="title-detalle">Card number</div>
-                          
-                            <mat-form-field class="ngx-cc-form-field card-number">
+      </div>
+    </div>
+  </mat-grid-tile>
 
-                              <ngx-cc maxlength="16" name="cardNumber" styleClass="card-number" formControlName="creditCard"></ngx-cc>                            
-                              <mat-placeholder>0000 0000 0000 0000</mat-placeholder>
-                              <mat-error *ngIf="creditCard?.invalid">Card number is not valid</mat-error>
-                            </mat-form-field>
-                            <div class="cc-date-cvv-container">
-                              <div class="title-detalle">Expiration date</div>
-                              
-                              <mat-form-field class="ngx-cc-form-field">
-                                  <ngx-cc-date formControlName="creditCardDate"></ngx-cc-date>
-                                  <mat-placeholder>MM / YY</mat-placeholder>
-                                  <mat-error *ngIf="creditCardDate?.invalid">Expiration date is not valid</mat-error>
-                              </mat-form-field>
-                              <div class="title-detalle">CVV</div>
-                              
-                              <mat-form-field class="ngx-cc-form-field">
-                                  <ngx-cc-cvv formControlName="creditCardCvv"></ngx-cc-cvv>
-                                  <mat-placeholder>CVV</mat-placeholder>
-                                  <mat-error *ngIf="creditCardCvv?.invalid">Security code is not valid</mat-error>
-                              </mat-form-field>
-                            </div>
-                            
-                          </form>
-                    </mat-card>
-            
-                </div>
-                </div>
-                <div class="buttons-pay"
-                (click)="goHome()">
-                    <button mat-raised-button color="accent" >
-                      Pay
-                    </button>
-                </div>
-                <div class="buttons-cancel"
-                (click)="goHome()">
-                    <button mat-raised-button color="accent" >
-                      Cancel
-                    </button>
-                </div>
-              </div>
-              
-            </div>
+  <mat-grid-tile [colspan]="1" [rowspan]="1" [style.background]="'transparent'">
+    <div class="card">
+      <h2>Payments Details</h2>
+      <div class="card-group-pay">
+        <div class="contract-information">
+          <div class="payment-details inline">
+            <mat-card class="card-pay">
+              <form class="cc-form" [formGroup]="form">
+                <div class="title-detalle">Card number</div>
 
-    </mat-grid-tile>
-    
+                <mat-form-field class="ngx-cc-form-field card-number">
+                  <ngx-cc
+                    maxlength="16"
+                    name="cardNumber"
+                    styleClass="card-number"
+                    formControlName="creditCard"
+                  ></ngx-cc>
+                  <mat-placeholder>0000 0000 0000 0000</mat-placeholder>
+                  <mat-error *ngIf="creditCard?.invalid"
+                    >Card number is not valid</mat-error
+                  >
+                </mat-form-field>
+                <div class="cc-date-cvv-container">
+                  <div class="title-detalle">Expiration date</div>
+
+                  <mat-form-field class="ngx-cc-form-field">
+                    <ngx-cc-date formControlName="creditCardDate"></ngx-cc-date>
+                    <mat-placeholder>MM / YY</mat-placeholder>
+                    <mat-error *ngIf="creditCardDate?.invalid"
+                      >Expiration date is not valid</mat-error
+                    >
+                  </mat-form-field>
+                  <div class="title-detalle">CVV</div>
+
+                  <mat-form-field class="ngx-cc-form-field">
+                    <ngx-cc-cvv formControlName="creditCardCvv"></ngx-cc-cvv>
+                    <mat-placeholder>CVV</mat-placeholder>
+                    <mat-error *ngIf="creditCardCvv?.invalid"
+                      >Security code is not valid</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </form>
+            </mat-card>
+          </div>
+        </div>
+        <div class="buttons-pay" (click)="goHome()">
+          <button mat-raised-button color="accent">Pay</button>
+        </div>
+        <div class="buttons-cancel" (click)="goHome()">
+          <button mat-raised-button color="accent">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </mat-grid-tile>
 </mat-grid-list>
+
 <app-footers></app-footers>
