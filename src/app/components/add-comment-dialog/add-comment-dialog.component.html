@@ -44,6 +44,6 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button [disabled]="!commentForm.valid"
+    <button mat-button (click)="saveComment()" [disabled]="!commentForm.valid"
         [mat-dialog-close]="commentForm.value">Ok</button>
 </div>

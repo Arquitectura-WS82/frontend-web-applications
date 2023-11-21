@@ -2,11 +2,11 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { CommentService } from '@app/services/CommentService';
 
 export interface CommentData {
   comment: string;
-  star: number;
-
+  stars: number;
 }
 
 @Component({
@@ -17,10 +17,15 @@ export interface CommentData {
 export class AddCommentDialogComponent {
   commentForm: FormGroup;
   basePath: string = GlobalVariable.BASE_API_URL + '/comments';
+  commentData: CommentData;
 
   constructor(
+    private commentService: CommentService,
     public dialogRef: MatDialogRef<AddCommentDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: CommentData,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      contractId: number,
+      clientId: number
+    },
     public formBuilder: FormBuilder,
   ) {
     this.commentForm = this.formBuilder.group({
@@ -30,6 +35,7 @@ export class AddCommentDialogComponent {
       }],
       rating: ['', { validators: [Validators.required], updateOn: 'change' }]
     });
+    this.commentData = {} as CommentData;
   }
   get comment() {
     return this.commentForm.get('comment');
@@ -41,12 +47,16 @@ export class AddCommentDialogComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  // saveComment() {
-  //   this.data.comment.comment = this.commentForm.value.comment;
-  //   this.data.comment.rating = this.commentForm.value.rating;
-  // }
-  // onSubmit() {
-  //   this.saveComment();
-  // }
+  saveComment() {
+    this.commentData.comment = this.commentForm.value.comment;
+    this.commentData.stars = this.commentForm.value.rating;
 
+    this.commentService.postComment(this.commentData, 
+      this.data.clientId, this.data.contractId)
+    .subscribe(res => {
+      console.log(res);
+      this.dialogRef.close();
+    });
+
+  }
 }

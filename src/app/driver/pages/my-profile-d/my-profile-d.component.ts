@@ -150,6 +150,7 @@ export class MyProfileDComponent implements OnInit {
   saveDescription() {
     // return this.http.put(
     //   `${this.basePath}/drivers/${this.user_id}`,
+    //   `${this.basePath}/personal-data/carrier/${this.user_id}`,
     //   this.user,
     //   this.httpOptions
     // );

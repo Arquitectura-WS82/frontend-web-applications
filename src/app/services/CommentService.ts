@@ -7,6 +7,7 @@ import { Comment } from '@models/comment';
 import { Injectable } from '@angular/core';
 import { GlobalVariable } from '@app/shared/GlobalVariable';
 import { Observable, throwError } from 'rxjs';
+import { CommentData } from '@app/components/add-comment-dialog/add-comment-dialog.component';
 
 @Injectable({
   providedIn: 'root',
@@ -43,4 +44,13 @@ export class CommentService {
   getComments(): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.url}`);
   }
+
+  postComment(comment: CommentData, contractId: number, clientId: number): Observable<CommentData> {
+    return this.http.post<CommentData>(`${this.url}/add/contract/${contractId}/client/${clientId}`, comment, this.httpOptions);
+  }
+
+  getCommentsByContractId(contractId: number): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`${this.url}/contract/${contractId}`);
+  }
+
 }

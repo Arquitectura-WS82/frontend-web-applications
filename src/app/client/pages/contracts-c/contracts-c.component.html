@@ -85,34 +85,44 @@
             <div class="client-history">
               <img
                 src="{{
-                  history.carrier.photoUrl == null
+                  history.historyContract.carrier.photoUrl == null
                     ? defaultImage
-                    : history.carrier.photoUrl
+                    : history.historyContract.carrier.photoUrl
                 }}"
                 alt="Profile"
                 class="profile-img-history"
               />
               <div>
                 <strong>Driver data</strong>
-                <p>{{ history.carrier.username }}</p>
+                <p>{{ history.historyContract.carrier.username }}</p>
               </div>
             </div>
             <div>
               <h4>DETAILS</h4>
               <p>
-                Date: <strong>{{ history.date }}</strong>
+                Date: <strong>{{ history.historyContract.date }}</strong>
               </p>
               <p>
-                From: <strong>{{ history.streetFrom }}</strong>
+                From: <strong>{{ history.historyContract.streetFrom }}</strong>
               </p>
               <p>
-                To: <strong>{{ history.streetTo }}</strong>
+                To: <strong>{{ history.historyContract.streetTo }}</strong>
               </p>
               <p>
-                Amount: <strong>{{ history.amount }}</strong>
+                Amount: <strong>{{ history.historyContract.amount }}</strong>
               </p>
             </div>
           </mat-card>
+          <button
+              style="margin-top: 20px"
+              color="accent"
+              class="btn-add-comment"
+              mat-raised-button
+              [disabled]="!history.comment"
+              (click)="openCommentModal(history.historyContract.id)">
+              Add comment
+              <mat-icon fontIcon="comment"></mat-icon>
+            </button> 
         </div>
       </div>
     </div>
