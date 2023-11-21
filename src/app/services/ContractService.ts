@@ -49,7 +49,7 @@ export class ContractService {
   ) {
     return this.http.post(
       `${this.url}/add/client/${clientId}/carrier/${carrierId}/districtFrom/${districtFrom}/districtTo/${districtTo}`,
-      JSON.stringify(contract),
+      contract,
       this.httpOptions
     );
   }

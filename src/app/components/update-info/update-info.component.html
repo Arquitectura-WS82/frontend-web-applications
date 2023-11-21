@@ -1,15 +1,13 @@
 <h1 mat-dialog-title>Update Data</h1>
 <div mat-dialog-content>
-  <form class="card" [formGroup]="updateForm" >
+  <form class="card" [formGroup]="updateForm">
     <mat-form-field>
       <input
         matInput
         placeholder="Email address"
         formControlName="email"
-        required
         type="email"
-        [value]="user.email "
-
+        [value]="updateForm.value.email"
       />
       <mat-error *ngIf="updateForm.get('email')?.errors?.['required']">
         Email is <strong>required</strong>
@@ -25,7 +23,7 @@
         placeholder="Password"
         formControlName="password"
         type="password"
-        [value]="user.password"
+        [value]="updateForm.value.password"
       />
       <mat-error *ngIf="updateForm.get('password')?.errors?.['required']">
         Password is <strong>required</strong>
@@ -36,21 +34,36 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="First Name" formControlName="first_name" [value]="user.firstName" />
+      <input
+        matInput
+        placeholder="First Name"
+        formControlName="first_name"
+        [value]="updateForm.value.first_name"
+      />
       <mat-error *ngIf="updateForm.get('first_name')?.errors?.['required']">
         First name is <strong>required</strong>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Last Name" formControlName="last_name" [value]="user.lastName" />
+      <input
+        matInput
+        placeholder="Last Name"
+        formControlName="last_name"
+        [value]="updateForm.value.last_name"
+      />
       <mat-error *ngIf="updateForm.get('last_name')?.errors?.['required']">
         Last name is <strong>required</strong>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Phone" formControlName="phone" [value]="user.phone"/>
+      <input
+        matInput
+        placeholder="Phone"
+        formControlName="phone"
+        [value]="updateForm.value.phone"
+      />
       <mat-error *ngIf="updateForm.get('phone')?.errors?.['required']">
         Phone is <strong>required</strong>
       </mat-error>
@@ -64,10 +77,9 @@
         matInput
         placeholder="Type a description about you"
         formControlName="description"
-        [value]="user.description"
+        [value]="updateForm.value.description"
       ></textarea>
     </mat-form-field>
-
   </form>
 </div>
 <div mat-dialog-actions>

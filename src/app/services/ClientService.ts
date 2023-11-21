@@ -54,7 +54,7 @@ export class ClientService {
     return this.http
       .post<User>(
         `${this.url}/add/district/${districtId}`,
-        JSON.stringify(client),
+        client,
         this.httpOptions
       )
       .pipe(catchError(this.handleError));
@@ -63,8 +63,8 @@ export class ClientService {
   updateClient(client: User, districtId: string): Observable<User> {
     return this.http
       .put<User>(
-        `${this.basePath}/personal-data/client/${client.id}/district/${districtId}/`,
-        JSON.stringify(client),
+        `${this.basePath}/personal-data/client/${client.id}/district/${districtId}`,
+        client,
         this.httpOptions
       )
       .pipe(catchError(this.handleError));

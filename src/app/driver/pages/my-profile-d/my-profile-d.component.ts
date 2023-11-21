@@ -15,10 +15,7 @@ import { User } from '@models/user';
 import { Vehicle } from '@models/vehicle';
 import { CarrierService } from '@services/CarrierService';
 import { CommentService } from '@services/CommentService';
-import {
-  AddInfoOneComponent,
-
-} from 'src/app/components/add-info-one/add-info-one.component';
+import { UpdateInfoComponent } from '@app/components/update-info/update-info.component';
 
 @Component({
   selector: 'app-my-profile-d',
@@ -86,23 +83,23 @@ export class MyProfileDComponent implements OnInit {
         this.experiences = res;
       });
 
-    // this.contractService.getComments().subscribe((res: Comment[]) => {
-    //   this.comments = res;
-    // });
     this.contractService.getComments().subscribe((res: Comment[]) => {
       for (let i = 0; i < res.length; i++) {
-        if (res[i].contract.carrier.id == parseInt(localStorage.getItem('currentUser') || '')) {
+        if (
+          res[i].contract.carrier.id ==
+          parseInt(localStorage.getItem('currentUser') || '')
+        ) {
           this.comments.push(res[i]);
         }
       }
       this.pageSlice = this.comments.slice(0, 3);
     });
 
-     this.onPageChange;
+    this.onPageChange;
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(AddInfoOneComponent, {
+    const dialogRef = this.dialog.open(UpdateInfoComponent, {
       width: '20%',
     });
 
@@ -141,27 +138,9 @@ export class MyProfileDComponent implements OnInit {
     this.ngOnInit();
   }
 
-  openDescriptionModal() {
-    const dialogRef = this.dialog.open(AddInfoOneComponent, {
+  openEditModal() {
+    this.dialog.open(UpdateInfoComponent, {
       width: '250px',
     });
-
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   this.user.description = result.Description;
-    //   console.log(this.user);
-    //   this.saveDescription().subscribe((data: any) => {
-    //     console.log(data);
-    //     this.ngOnInit();
-    //   });
-    // });
-  }
-
-  saveDescription() {
-    // return this.http.put(
-    //   `${this.basePath}/drivers/${this.user_id}`,
-    //   `${this.basePath}/personal-data/carrier/${this.user_id}`,
-    //   this.user,
-    //   this.httpOptions
-    // );
   }
 }

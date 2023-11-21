@@ -16,7 +16,6 @@ export class ForgotPasswordComponent implements OnInit {
 
   display1 = true;
   display2 = false;
-  // basePath = 'http://localhost:3000/api/v1/users';
   basePath = GlobalVariable.BASE_API_URL;
 
   httpOptions = {

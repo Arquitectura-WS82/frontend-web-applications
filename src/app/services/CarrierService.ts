@@ -56,7 +56,7 @@ export class CarrierService {
     return this.http
       .post<User>(
         `${this.url}/add/district/${districtId}`,
-        JSON.stringify(user),
+        user,
         this.httpOptions
       )
       .pipe(catchError(this.handleError));
@@ -83,13 +83,11 @@ export class CarrierService {
     );
   }
   updateCarrier(user: User, districtId: string): Observable<User> {
-    return this.http
-      .put<User>(
-        `${this.basePath}/personal-data/carrier/${user.id}/district/${districtId}`,
-        user,
-        this.httpOptions
-      );
-      
+    return this.http.put<User>(
+      `${this.basePath}/personal-data/carrier/${user.id}/district/${districtId}`,
+      user,
+      this.httpOptions
+    );
   }
 
   getExperiencesByCarrierId(carrierId: number): Observable<Experience[]> {
