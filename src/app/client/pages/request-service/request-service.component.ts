@@ -27,6 +27,10 @@ export class RequestServiceComponent implements OnInit {
   filteredDistrictsFrom: Observable<District[]> | undefined;
   filteredDistrictsTo: Observable<District[]> | undefined;
 
+  currentYear = new Date().getFullYear();
+  // Que deje elegir desde la fecha de hoy 
+  minDate = new Date(this.currentYear, new Date().getMonth(), new Date().getDate());
+
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,

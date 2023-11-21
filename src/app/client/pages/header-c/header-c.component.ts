@@ -44,7 +44,7 @@ export class HeaderCComponent implements OnInit {
   updateNotification() {
     let user_id = localStorage.getItem('currentUser') || '';
 
-    this.updateNot(parseInt(user_id));
+    //this.updateNot(parseInt(user_id));
   }
 
   getClientNotifications(id: number) {

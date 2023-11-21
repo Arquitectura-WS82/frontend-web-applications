@@ -13,7 +13,7 @@
       <input
         matInput
         type="text"
-        placeholder="DistrictFrom"
+        placeholder="District From"
         formControlName="districtFrom"
         [matAutocomplete]="autoDistrictFrom"
       />
@@ -39,7 +39,7 @@
       <input
         matInput
         type="text"
-        placeholder="DistrictTo"
+        placeholder="District To"
         formControlName="districtTo"
         [matAutocomplete]="autoDistrictTo"
       />
@@ -60,6 +60,7 @@
       <mat-label>Date (mm/dd/yyyy)</mat-label>
       <input
         matInput
+        [min] = "minDate"
         [matDatepicker]="picker"
         formControlName="date"
         readonly

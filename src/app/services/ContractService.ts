@@ -90,7 +90,7 @@ export class ContractService {
   }
 
   changeContractVisibility(contract: Contract): Observable<Contract> {
-    return this.http.put<Contract>(
+    return this.http.patch<Contract>(
       `${this.url}/${contract.id}/change-visible`,
       contract
     );

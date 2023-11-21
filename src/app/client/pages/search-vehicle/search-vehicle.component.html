@@ -20,10 +20,10 @@
                 [value]="searchForm.value.type"
               >
                 <mat-option
-                  *ngFor="let vehicle of vehicles"
-                  [value]="vehicle.type"
+                  *ngFor="let type of types"
+                  [value]="type"
                 >
-                  {{ vehicle.type }}
+                  {{ type }}
                 </mat-option>
               </mat-select>
             </mat-form-field>

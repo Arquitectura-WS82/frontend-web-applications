@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { ContractService } from '@app/services/ContractService';
+import { Contract } from '@app/models/contract';
 
 @Component({
   selector: 'app-pay-contract-c',
@@ -10,16 +11,19 @@ import { GlobalVariable } from 'src/app/shared/GlobalVariable';
   styleUrls: ['./pay-contract-c.component.css']
 })
 export class PayContractCComponent implements OnInit {
-  acceptedcontract: any = [];
-  contract_id:any;
-  
-  url: string = GlobalVariable.BASE_API_URL;
+  acceptedContract: Contract;
+  contract_id: any;
+  defaultImage: string = "../../../../assets/img/user-vector.png";
 
-  constructor(private formBuilder: FormBuilder,private http: HttpClient, private router: Router) { }
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json' //Solo acepta json
-    })
+  constructor(
+    private contractService: ContractService,
+    private formBuilder: FormBuilder,
+    private router: Router) {
+    this.acceptedContract = {} as Contract;
+    this.contract_id = localStorage.getItem('ContractId')
+
+    // setTimeout(() => {
+    // }, 1000);
   }
 
   form: FormGroup = this.formBuilder.group({
@@ -39,22 +43,27 @@ export class PayContractCComponent implements OnInit {
   get creditCardCvv() {
     return this.form.get('creditCardCvv');
   }
-  
+
 
   ngOnInit(): void {
-    this.contract_id=localStorage.getItem('ContractId')
+    this.getContract(this.contract_id);
 
-    this.getContract(this.contract_id).subscribe((data: any) => {
-      this.acceptedcontract = data;
-    });
+    // this.getContract(this.contract_id).subscribe((data: any) => {
+    //   this.acceptedcontract = data;
+    // });
   }
 
   getContract(id: any) {
-    return this.http.get(`${this.url}/contracts/${id}`);
-  }
-  
-  goHome(){
-    this.router.navigate(['/home-c']);
+    this.contractService.getContracts().subscribe((data: any) => {
+      data.filter((contract: any) => {
+        if (contract.id == id) {
+          this.acceptedContract = contract;   
+        }
+      });
+    });
   }
 
+  goHome() {
+    this.router.navigate(['/home-c']);
+  }
 }

@@ -43,7 +43,7 @@ export class ContractsDComponent implements OnInit {
   }
 
   declineContract(contract: Contract): void {
-    this.contractService.changeContractVisibility(contract);
+    this.contractService.changeContractVisibility(contract).subscribe();
 
     // const dialogRef = this.dialog.open(ContractDialogComponent, {
     this.dialog.open(ContractDialogComponent, {

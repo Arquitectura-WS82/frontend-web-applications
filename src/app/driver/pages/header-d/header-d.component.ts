@@ -45,7 +45,7 @@ export class HeaderDComponent implements OnInit {
   updateNotification() {
     let user_id = localStorage.getItem('currentUser') || '';
 
-    this.updateNot(parseInt(user_id));
+    //this.updateNot(parseInt(user_id));
   }
 
   getDriverNotifications(id: any) {
@@ -68,7 +68,7 @@ export class HeaderDComponent implements OnInit {
             if (
               data[i].notification.readStatus == false &&
               (data[i].status.status == 'HISTORY' || // finish contract
-                (data[i].status.status == 'OFFER' && data[i].visible == false)) // decline offer
+                (data[i].status.status == 'OFFER')) // decline offer
             ) {
               this.cont++;
             }

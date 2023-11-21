@@ -21,6 +21,9 @@ export class SignupComponent implements OnInit {
   samePassword: boolean = false;
   signupForm: FormGroup;
 
+  currentYear = new Date().getFullYear();
+  maxDate = new Date(this.currentYear - 18, 11, 31); 
+
   constructor(
     public formBuilder: FormBuilder,
     private clientService: ClientService,

@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 export class SearchVehicleComponent implements OnInit {
   filteredVehicles: Vehicle[];
   vehicles: Vehicle[];
+  types: string[];
   defaultImage = '../../../../assets/img/user-vector.png';
 
   searchForm: FormGroup = this.formBuilder.group({
@@ -27,12 +28,14 @@ export class SearchVehicleComponent implements OnInit {
   ) {
     this.vehicles = [] as Vehicle[];
     this.filteredVehicles = [] as Vehicle[];
+    this.types = [] as string[];
   }
 
   ngOnInit(): void {
     this.carrierService.getVehicles().subscribe((res: any) => {
       this.vehicles = res;
       this.searchForm.value.type = this.vehicles[0].type;
+      this.types = Array.from(new Set(this.vehicles.map((vehicle) => vehicle.type)));
     });
   }
 
