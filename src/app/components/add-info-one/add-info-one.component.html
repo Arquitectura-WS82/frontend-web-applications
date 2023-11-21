@@ -1,22 +1,83 @@
-<h1 mat-dialog-title>Leave a Description</h1>
+<h1 mat-dialog-title>Update Data</h1>
 <div mat-dialog-content>
-  <form class="card" [formGroup]="DescriptionForm">
-    <mat-form-field appearance="fill">
-      <mat-label>Type something</mat-label>
-      <input matInput formControlName="Description" />
-      <mat-error *ngIf="Description?.errors?.['required']">
-        Description is <strong>required</strong>
+  <form class="card" [formGroup]="updateForm" >
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Email address"
+        formControlName="email"
+        required
+        type="email"
+        [value]="user.email "
+
+      />
+      <mat-error *ngIf="updateForm.get('email')?.errors?.['required']">
+        Email is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="updateForm.get('email')?.errors?.['email']">
+        Email is <strong>invalid</strong>
       </mat-error>
     </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Password"
+        formControlName="password"
+        type="password"
+        [value]="user.password"
+      />
+      <mat-error *ngIf="updateForm.get('password')?.errors?.['required']">
+        Password is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="updateForm.get('password')?.errors?.['minlength']">
+        Password must have at least <strong> 7 </strong> characters
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="First Name" formControlName="first_name" [value]="user.firstName" />
+      <mat-error *ngIf="updateForm.get('first_name')?.errors?.['required']">
+        First name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Last Name" formControlName="last_name" [value]="user.lastName" />
+      <mat-error *ngIf="updateForm.get('last_name')?.errors?.['required']">
+        Last name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Phone" formControlName="phone" [value]="user.phone"/>
+      <mat-error *ngIf="updateForm.get('phone')?.errors?.['required']">
+        Phone is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="updateForm.get('phone')?.errors?.['pattern']">
+        Phone must have only <strong>numbers</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        type="text"
+        matInput
+        placeholder="Type a description about you"
+        formControlName="description"
+        [value]="user.description"
+      ></textarea>
+    </mat-form-field>
+
   </form>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
   <button
     mat-button
-    [disabled]="!DescriptionForm.valid"
-    [mat-dialog-close]="DescriptionForm.value"
+    [disabled]="!updateForm.valid"
+    [mat-dialog-close]="updateForm.value"
+    (click)="submit()"
   >
-    Ok
+    Update
   </button>
 </div>

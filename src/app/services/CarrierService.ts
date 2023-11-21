@@ -82,6 +82,15 @@ export class CarrierService {
       this.httpOptions
     );
   }
+  updateCarrier(user: User, districtId: string): Observable<User> {
+    return this.http
+      .put<User>(
+        `${this.basePath}/personal-data/carrier/${user.id}/district/${districtId}`,
+        user,
+        this.httpOptions
+      );
+      
+  }
 
   getExperiencesByCarrierId(carrierId: number): Observable<Experience[]> {
     return this.http.get<Experience[]>(

@@ -60,7 +60,7 @@ export class ClientService {
       .pipe(catchError(this.handleError));
   }
 
-  updateClient(client: User, districtId: number): Observable<User> {
+  updateClient(client: User, districtId: string): Observable<User> {
     return this.http
       .put<User>(
         `${this.basePath}/personal-data/client/${client.id}/district/${districtId}/`,

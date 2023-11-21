@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ClientService } from '@services/ClientService';
 import {
   AddInfoOneComponent,
-  DescriptionData,
 } from '@components/add-info-one/add-info-one.component';
 import { GlobalVariable } from '@app/shared/GlobalVariable';
 import { User } from '@models/user';
@@ -16,10 +15,10 @@ import { User } from '@models/user';
 export class MyProfileCComponent implements OnInit {
   user: User;
   user_id: any;
-  descriptionData: DescriptionData;
+
 
   constructor(private clientService: ClientService, public dialog: MatDialog) {
-    this.descriptionData = {} as DescriptionData;
+
     this.user = {} as User;
   }
 
@@ -46,25 +45,12 @@ export class MyProfileCComponent implements OnInit {
   openDescriptionModal() {
     const dialogRef = this.dialog.open(AddInfoOneComponent, {
       width: '250px',
-      data: this.descriptionData,
+
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.user.description = result.Description;
-
-      this.saveDescription().subscribe((data: any) => {
-        console.log(data);
-        this.ngOnInit();
-      });
-    });
+    dialogRef.afterClosed().subscribe();
   }
 
-  saveDescription() {
-    return this.clientService.updateClient(
-      this.user,
-      parseInt(this.user.district.id)
-    );
-  }
 
   getUser(id: any) {
     return this.clientService.getClientById(id);

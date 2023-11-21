@@ -17,7 +17,7 @@ import { CarrierService } from '@services/CarrierService';
 import { CommentService } from '@services/CommentService';
 import {
   AddInfoOneComponent,
-  DescriptionData,
+
 } from 'src/app/components/add-info-one/add-info-one.component';
 
 @Component({
@@ -35,7 +35,7 @@ export class MyProfileDComponent implements OnInit {
   stars: number[];
   vehicleForm!: FormGroup;
   experienceForm!: FormGroup;
-  descriptionData: DescriptionData;
+
   defaultImage: string = '../../../../assets/img/user-vector.png';
 
   constructor(
@@ -49,7 +49,7 @@ export class MyProfileDComponent implements OnInit {
     this.vehicles = [] as Vehicle[];
     this.comments = [] as Comment[];
     this.carrier = {} as User;
-    this.descriptionData = {} as DescriptionData;
+
     this.stars = [] as number[];
 
     this.experienceForm = this.formBuilder.group({
@@ -134,7 +134,6 @@ export class MyProfileDComponent implements OnInit {
   openDescriptionModal() {
     const dialogRef = this.dialog.open(AddInfoOneComponent, {
       width: '250px',
-      data: this.descriptionData,
     });
 
     // dialogRef.afterClosed().subscribe((result) => {
