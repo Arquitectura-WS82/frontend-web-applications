@@ -11,6 +11,13 @@
     />
     <h1 style="font-weight: bolder">{{ carrier.username }}</h1>
     <p class="description">{{ carrier.description }}</p>
+    <div class="starsUser">
+      <mat-icon
+        *ngFor="let star of stars"
+        class="starIcon"
+        fontIcon="star"
+      ></mat-icon>
+    </div>
     <button
       color="accent"
       class="editP"
