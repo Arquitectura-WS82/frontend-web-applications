@@ -1,13 +1,16 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { NgxCcModule } from 'ngx-cc/lib/ngx-cc.module';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, Observable, retry, throwError } from 'rxjs';
-import { sha256 } from 'js-sha256';
-import { ContractDialogComponent } from '../../../components/contract-dialog/contract-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { GlobalVariable } from 'src/app/shared/GlobalVariable';
 import { Router } from '@angular/router';
+import { sha256 } from 'js-sha256';
+import { Observable } from 'rxjs';
+import { GlobalVariable } from 'src/app/shared/GlobalVariable';
+import { ContractDialogComponent } from '../../../components/contract-dialog/contract-dialog.component';
+import { ContractService } from '@app/services/ContractService';
+import { CarrierService } from '@app/services/CarrierService';
+import { Contract } from '@app/models/contract';
+import { User } from '@app/models/user';
 
 @Component({
   selector: 'app-end-contract',
@@ -20,14 +23,6 @@ export class EndContractComponent implements OnInit {
     creditCardDate: [],
     creditCardCvv: [],
   });
-
-  basePath = GlobalVariable.BASE_API_URL;
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json', //Solo acepta json
-    }),
-  };
 
   acceptContract(): void {
     const dialogRef = this.dialog.open(ContractDialogComponent, {
@@ -53,36 +48,35 @@ export class EndContractComponent implements OnInit {
   contractId: any;
   driverId: any;
 
-  contract: any;
-  driverInfo: any;
+  contract: Contract;
+  carrier: User;
 
   constructor(
+    private contractService: ContractService,
+    private carrierService: CarrierService,
     private formBuilder: FormBuilder,
-    private http: HttpClient,
     public dialog: MatDialog,
     private router: Router
-  ) {}
+  ) {
+    this.contract = {} as Contract;
+    this.carrier = {} as User;
+  }
 
   ngOnInit(): void {
     localStorage.setItem('contractId', '2');
     this.contractId = localStorage.getItem('contractId');
-    this.getOfferContract(this.contractId).subscribe((data) => {
-      this.contract = data[0];
-      this.driverId = this.contract.driver.id;
-      this.getDriverById(this.driverId).subscribe((dataD) => {
-        this.driverInfo = dataD;
-        console.log(this.driverId);
-        console.log(dataD);
-      });
+
+    this.contractService.getContracts().subscribe((res) => {
+      let c = res.find((x: Contract) => x.id == this.contractId);
+      if (c) {
+        this.contract = c;
+        this.carrierService
+          .getCarrierById(this.contract.carrier.id)
+          .subscribe((res) => {
+            this.carrier = res;
+          });
+      }
     });
-  }
-
-  getOfferContract(id: any): Observable<any> {
-    return this.http.get<any>(`${this.basePath}/contracts/offer/driver/${id}`);
-  }
-
-  getDriverById(id: any): Observable<any> {
-    return this.http.get<any>(`${this.basePath}/drivers/${id}`);
   }
 
   submitPay() {

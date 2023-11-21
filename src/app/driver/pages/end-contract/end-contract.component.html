@@ -8,10 +8,10 @@
       <!-- <mat-card-subtitle class="first-subtitle" > <strong> Subject: {{contract.subject}} </strong> </mat-card-subtitle> -->
       <br />
       <mat-card-subtitle>
-        From: <span> {{ contract.from }} </span>
+        From: <span> {{ contract.streetFrom }} </span>
       </mat-card-subtitle>
       <mat-card-subtitle>
-        To: <span>{{ contract.to }} </span>
+        To: <span>{{ contract.streetTo }} </span>
       </mat-card-subtitle>
       <mat-card-subtitle>
         Date: <span>{{ contract.date }} </span>
@@ -27,15 +27,15 @@
         <br />
         <mat-card-subtitle> <strong> Client Data </strong> </mat-card-subtitle>
         <div class="inline-block">
-          <img mat-icon mat-card-avatar [src]="driverInfo.photo" alt="" />
+          <img mat-icon mat-card-avatar [src]="carrier.photoUrl" alt="" />
         </div>
 
         <div class="inline-block">
           <mat-card-subtitle>
-            <strong> {{ driverInfo.name }} </strong>
+            <strong> {{ carrier.firstName }} </strong>
           </mat-card-subtitle>
           <mat-card-subtitle>
-            <strong>Phone: {{ driverInfo.phone }} </strong>
+            <strong>Phone: {{ carrier.phone }} </strong>
           </mat-card-subtitle>
         </div>
         <div class="inline-block">

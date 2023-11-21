@@ -7,8 +7,7 @@
       mat-card-avatar
       class="profile-Photo"
       [src]="carrier.photoUrl || defaultImage"
-      alt="User Avatar"
-    />
+      alt="User Avatar" />
     <br /><br />
     <h1 style="font-weight: bolder">{{ carrier.username }}</h1>
     <br />
@@ -17,8 +16,7 @@
       <mat-icon
         *ngFor="let star of stars"
         class="starIcon"
-        fontIcon="star"
-      ></mat-icon>
+        fontIcon="star"></mat-icon>
     </div>
     <button class="editP" mat-raised-button (click)="openDescriptionModal()">
       Edit profile<mat-icon width="12px">edit</mat-icon>
@@ -67,8 +65,7 @@
                   class="btn"
                   style="right: 20px"
                   mat-raised-button
-                  color="primary"
-                >
+                  color="primary">
                   {{ experience.job }}
                 </button>
               </p>
@@ -78,8 +75,7 @@
                   class="btn"
                   style="right: 20px"
                   mat-raised-button
-                  color="primary"
-                >
+                  color="primary">
                   {{ experience.years }} years
                 </button>
               </p>
@@ -114,16 +110,14 @@
                 <button
                   mat-raised-button
                   style="background-color: white; color: black"
-                  (click)="show = !show"
-                >
+                  (click)="show = !show">
                   Cancel
                 </button>
 
                 <button
                   mat-raised-button
                   (click)="updateExperience()"
-                  color="accent"
-                >
+                  color="accent">
                   Save
                 </button>
               </div>
@@ -144,8 +138,7 @@
                   <button
                     class="btn-update"
                     mat-raised-button
-                    (click)="show = !show"
-                  >
+                    (click)="show = !show">
                     Update information
                   </button>
                 </div>
@@ -166,30 +159,26 @@
                     <input
                       matInput
                       placeholder="Quantity"
-                      formControlName="quantity"
-                    />
+                      formControlName="quantity" />
                   </mat-form-field>
                   <mat-form-field>
                     <input
                       matInput
                       placeholder="Photo"
-                      formControlName="photo"
-                    />
+                      formControlName="photo" />
                   </mat-form-field>
                 </form>
                 <div class="buttons-container-vehicle">
                   <button
                     mat-raised-button
                     style="background-color: white; color: black"
-                    (click)="show = !show"
-                  >
+                    (click)="show = !show">
                     Cancel
                   </button>
                   <button
                     mat-raised-button
                     color="accent"
-                    (click)="updateVehicle()"
-                  >
+                    (click)="updateVehicle()">
                     Save
                   </button>
                 </div>
@@ -204,8 +193,7 @@
                   mat-icon
                   [src]="vehicle.photo"
                   alt="Vehicle photo"
-                  style="max-width: 100%"
-                />
+                  style="max-width: 100%" />
               </div>
             </div>
             <ng-template #noVehiclesImg>
@@ -218,36 +206,42 @@
       </mat-tab>
 
       <mat-tab label="Comments">
-        <div *ngFor="let comment of comments" class="tab-panel">
-          <div class="row">
-            <img
-              [src]="comment.client.photoUrl"
-              class="foto-comments"
-              mat-card-avatar
-            />
-            <div class="c-column">
-              <h2>{{ comment.client.username }}</h2>
-              <p mat-line>{{ comment.comment }}</p>
-            </div>
-            <div class="row">
-              <b style="font-size: larger">{{ comment.stars }}</b>
-              <mat-icon fontIcon="star"></mat-icon>
-            </div>
-          </div>
+        <div *ngIf="comments; else noComments">
 
-          <mat-divider class="divider"></mat-divider>
+          <div *ngFor="let comment of comments" class="tab-panel">
+            <div class="row">
+              <img
+                [src]="comment.client.photoUrl"
+                class="foto-comments"
+                mat-card-avatar />
+              <div class="c-column">
+                <h2>{{ comment.client.username }}</h2>
+                <p mat-line>{{ comment.comment }}</p>
+              </div>
+              <div class="row">
+                <b style="font-size: larger">{{ comment.stars }}</b>
+                <mat-icon fontIcon="star"></mat-icon>
+              </div>
+            </div>
+
+            <mat-divider class="divider"></mat-divider>
+          </div>
+          <div class="comment-paginator">
+            <mat-paginator
+              *ngIf="comments"
+              [length]="comments.length"
+              [pageSize]="3"
+              [pageSizeOptions]="[3]"
+              class="paginator"
+              (page)="onPageChange($event)">
+            </mat-paginator>
+          </div>
         </div>
-        <div class="comment-paginator">
-          <mat-paginator
-            *ngIf="comments"
-            [length]="comments.length"
-            [pageSize]="3"
-            [pageSizeOptions]="[3]"
-            class="paginator"
-            (page)="onPageChange($event)"
-          >
-          </mat-paginator>
-        </div>
+        <ng-template #noComments>
+          <div class="no-comments">
+            <p>You don't have any comments yet</p>
+          </div>
+        </ng-template>
       </mat-tab>
     </mat-tab-group>
   </div>

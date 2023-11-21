@@ -37,6 +37,7 @@ export class MyProfileDComponent implements OnInit {
   experienceForm!: FormGroup;
 
   defaultImage: string = '../../../../assets/img/user-vector.png';
+  pageSlice: any;
 
   constructor(
     private carrierService: CarrierService,
@@ -48,6 +49,7 @@ export class MyProfileDComponent implements OnInit {
     this.experiences = [] as Experience[];
     this.vehicles = [] as Vehicle[];
     this.comments = [] as Comment[];
+    this.pageSlice = [] as Comment[];
     this.carrier = {} as User;
 
     this.stars = [] as number[];
@@ -84,11 +86,19 @@ export class MyProfileDComponent implements OnInit {
         this.experiences = res;
       });
 
+    // this.contractService.getComments().subscribe((res: Comment[]) => {
+    //   this.comments = res;
+    // });
     this.contractService.getComments().subscribe((res: Comment[]) => {
-      this.comments = res;
+      for (let i = 0; i < res.length; i++) {
+        if (res[i].contract.carrier.id == parseInt(localStorage.getItem('currentUser') || '')) {
+          this.comments.push(res[i]);
+        }
+      }
+      this.pageSlice = this.comments.slice(0, 3);
     });
 
-    // this.onPageChange;
+     this.onPageChange;
   }
 
   openDialog(): void {
@@ -102,12 +112,12 @@ export class MyProfileDComponent implements OnInit {
   }
 
   onPageChange(event: PageEvent) {
-    // const startIndex = event.pageIndex * event.pageSize;
-    // let endIndex = startIndex + event.pageSize;
-    // if (endIndex > this.comments.length) {
-    //   endIndex = this.comments.length;
-    // }
-    // this.pageSlice = this.comments.slice(startIndex, endIndex);
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+    if (endIndex > this.comments.length) {
+      endIndex = this.comments.length;
+    }
+    this.pageSlice = this.comments.slice(startIndex, endIndex);
   }
 
   updateExperience() {

@@ -53,7 +53,7 @@
     </mat-card-title>
 
     <div *ngIf="historyContracts; else noContracts">
-      <mat-card *ngFor="let _contract of historyContracts">
+      <mat-card *ngFor="let _contract of historyContracts.slice(0, 3)">
         <div class="inline-block">
           <img
             mat-card-avatar
