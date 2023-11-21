@@ -26,6 +26,8 @@ export class ProfileComponent implements OnInit {
   commentData: CommentData;
   stars: number[];
   defaultImage = '../../../../assets/img/user-vector.png';
+  pageSlice: any;
+
 
   constructor(
     private carrierService: CarrierService,
@@ -37,6 +39,7 @@ export class ProfileComponent implements OnInit {
     this.experiences = [] as Experience[];
     this.vehicles = [] as Vehicle[];
     this.comments = [] as Comment[];
+    this.pageSlice = [] as Comment[];
     this.carrier = {} as User;
     this.commentData = {} as CommentData;
     this.stars = [] as number[];
@@ -66,9 +69,14 @@ export class ProfileComponent implements OnInit {
       });
 
     this.contractService.getComments().subscribe((res: Comment[]) => {
-      this.comments = res;
+      for (let i = 0; i < res.length; i++) {
+        if (res[i].contract.carrier.id == this.carrier_id) {
+          this.comments.push(res[i]);
+        }
+      }
+      this.pageSlice = this.comments.slice(0, 3);
     });
-    // this.onPageChange;
+    this.onPageChange;
   }
 
   openDialog(): void {
@@ -80,12 +88,12 @@ export class ProfileComponent implements OnInit {
   }
 
   onPageChange(event: PageEvent) {
-    // const startIndex = event.pageIndex * event.pageSize;
-    // let endIndex = startIndex + event.pageSize;
-    // if (endIndex > this.comments.length) {
-    //   endIndex = this.comments.length;
-    // }
-    // this.pageSlice = this.comments.slice(startIndex, endIndex);
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+    if (endIndex > this.comments.length) {
+      endIndex = this.comments.length;
+    }
+    this.pageSlice = this.comments.slice(startIndex, endIndex);
   }
 
   goRequestService() {
@@ -98,23 +106,5 @@ export class ProfileComponent implements OnInit {
       data: this.commentData,
     });
     console.log(this.commentData);
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   this.commentData.comment = result.comment;
-    //   this.commentData.star = result.rating;
-    //   this.saveComment().subscribe((data: any) => {
-    //     console.log(data);
-    //     this.ngOnInit();
-    //   });
-    // });
-  }
-
-  saveComment() {
-    // return this.http.post(
-    //   `${this.basePath}/comments/add/${localStorage.getItem('currentUser')}/${
-    //     this.id
-    //   }`,
-    //   this.commentData,
-    //   this.httpOptions
-    // );
   }
 }

@@ -60,7 +60,8 @@ export class ContractsCComponent implements OnInit {
         history = res;
         history.forEach((contract) => {
           this.commentService.getCommentsByContractId(contract.id).subscribe((res) => {
-            if (res) {
+            // no comment == nulo
+            if (res != null) {
               this.historyContracts.push({
                 historyContract: contract,
                 comment: true,
@@ -81,7 +82,10 @@ export class ContractsCComponent implements OnInit {
       width: '20%',
     });
 
-    dialogRef.afterClosed().subscribe((result) => {});
+    dialogRef.afterClosed().subscribe((result) => {
+      //recargar la pagina para que se vea el comentario
+      this.ngOnInit();
+    });
   }
 
   openCommentModal(id: number) {

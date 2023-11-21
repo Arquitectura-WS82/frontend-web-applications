@@ -118,7 +118,7 @@
               color="accent"
               class="btn-add-comment"
               mat-raised-button
-              [disabled]="!history.comment"
+              [disabled]="history.comment"
               (click)="openCommentModal(history.historyContract.id)">
               Add comment
               <mat-icon fontIcon="comment"></mat-icon>

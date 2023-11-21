@@ -148,8 +148,8 @@
       </mat-tab>
 
       <mat-tab label="Comments">
-        <div class="comments">
-          <div *ngFor="let comment of comments" class="tab-panel">
+        <div class="comments" *ngIf="comments; else noComments">
+          <div *ngFor="let comment of pageSlice" class="tab-panel">
             <div class="row">
               <img
                 [src]="comment.client.photoUrl"
@@ -180,17 +180,14 @@
             >
               aria-label="Select page">
             </mat-paginator>
-            <!-- <button
-              color="accent"
-              class="btn-add-comment"
-              mat-raised-button
-              (click)="openCommentModal()"
-            >
-              Add comment
-              <mat-icon fontIcon="comment"></mat-icon>
-            </button> -->
           </div>
         </div>
+        <ng-template #noComments>
+          <div class="no-comments">
+            <p>There are no comments</p>
+          </div>
+        </ng-template>
+        
       </mat-tab>
     </mat-tab-group>
   </div>
